@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float GravityModifier = 1.2f;
 
     public bool IsOnTheGround;
+    public GameObject FuegoPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +31,9 @@ public class PlayerController : MonoBehaviour
     {
         //Movimiento frontal de DRACO, derecha, izquierda o bien A D
         HorizontalInput = Input.GetAxis("Horizontal");
-        DracoRigidbody.AddForce(Vector3.forward * Speed * Time.deltaTime * HorizontalInput);
+        DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
 
-        //Invertimos su escala si vamos hacia la "izquierda"
+        //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
         if (HorizontalInput < 0)
         {
             transform.localScale = new Vector3 (transform.localScale.x, transform.localScale.y, -ZScale);
@@ -54,6 +55,11 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             DracoRigidbody.AddForce(Vector3.up * FlySpeed);
+        }
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            Instantiate(FuegoPrefab, transform.position, FuegoPrefab.transform.rotation);
         }
     }
 
