@@ -5,30 +5,42 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Controladores de DRACO
-    public float Speed = 30f;
+    public float Speed = 8f;
     public float UpSpeed = 20f;
     public float FlySpeed = 5f;
 
     private float HorizontalInput;
 
-    private int ZScale = 1;
+    private float YRotationLimit = 180;
 
     private Rigidbody DracoRigidbody;
-    public float GravityModifier = 1.2f;
+    public float GravityModifier = 3f;
 
     public bool IsOnTheGround;
     public GameObject FuegoPrefab;
+
+    //Contadores Props
+    public int CurrentLive = 3;
+    public int MoneyCounter = 0;
+    public bool Nube;
+
+    //Comunicación con scripts
+    private MoneyLogic MoneyLogicScript;
 
     // Start is called before the first frame update
     void Start()
     {
         DracoRigidbody = GetComponent<Rigidbody>();
         Physics.gravity *= GravityModifier;
+
+        MoneyLogicScript = FindObjectOfType<MoneyLogic>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Controladores principales de DRACO
+
         //Movimiento frontal de DRACO, derecha, izquierda o bien A D
         HorizontalInput = Input.GetAxis("Horizontal");
         DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
@@ -36,17 +48,18 @@ public class PlayerController : MonoBehaviour
         //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
         if (HorizontalInput < 0)
         {
-            transform.localScale = new Vector3 (transform.localScale.x, transform.localScale.y, -ZScale);
+            transform.rotation = Quaternion.Euler (0, YRotationLimit, 0);
         }
         if (HorizontalInput > 0)
         {
-            transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, ZScale);
+            transform.rotation = Quaternion.Euler (0, 0, 0);
         }
         
 
         //Salto
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
         {
+            Speed = 6f;
             DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
             IsOnTheGround = false;
         }
@@ -54,12 +67,19 @@ public class PlayerController : MonoBehaviour
         //Vuelo
         if (Input.GetKey(KeyCode.Q))
         {
-            DracoRigidbody.AddForce(Vector3.up * FlySpeed);
+            DracoRigidbody.velocity = Vector3.up * FlySpeed;
+            IsOnTheGround = false;
         }
 
         if(Input.GetKeyDown(KeyCode.E))
         {
-            Instantiate(FuegoPrefab, transform.position, FuegoPrefab.transform.rotation);
+            Instantiate(FuegoPrefab, transform.position, transform.rotation);
+        }
+
+        //Agacharse
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            //Insertar animación
         }
     }
 
@@ -68,6 +88,31 @@ public class PlayerController : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Ground"))
         {
             IsOnTheGround = true;
+            Speed = 8f;
+        }
+    }
+
+    public void OnTriggerEnter(Collider otherTrigger)
+    {
+        if (otherTrigger.gameObject.CompareTag("Money"))
+        {
+            Destroy(otherTrigger.gameObject);
+            MoneyCounter += 5;
+            Debug.Log($"Tienes {MoneyCounter} monedas, crack");
+        }
+
+        if (otherTrigger.gameObject.CompareTag("Live"))
+        {
+            Destroy(otherTrigger.gameObject);
+            CurrentLive++;
+            Debug.Log($"Tienes {CurrentLive} vidas, crack");
+        }
+
+        if (otherTrigger.gameObject.CompareTag("EnemyDamage"))
+        {
+            Destroy(otherTrigger.gameObject);
+            CurrentLive--;
+            Debug.Log($"Tienes {CurrentLive} vidas, crack");
         }
     }
 }
