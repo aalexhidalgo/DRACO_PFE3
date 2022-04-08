@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         //Vuelo
         if (Input.GetKey(KeyCode.Q))
         {
-            DracoRigidbody.velocity = Vector3.up * FlySpeed;
+            DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
             IsOnTheGround = false;
         }
 
