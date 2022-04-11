@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     //Comunicación con scripts
     private MoneyLogic MoneyLogicScript;
+    private EnemyLogic EnemyLogicScript;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
         Physics.gravity *= GravityModifier;
 
         MoneyLogicScript = FindObjectOfType<MoneyLogic>();
+        EnemyLogicScript = FindObjectOfType<EnemyLogic>();
     }
 
     // Update is called once per frame

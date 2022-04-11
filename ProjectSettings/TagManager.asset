@@ -8,6 +8,7 @@ TagManager:
   - Money
   - Live
   - EnemyDamage
+  - Enemy
   layers:
   - Default
   - TransparentFX
