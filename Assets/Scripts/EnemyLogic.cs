@@ -15,7 +15,7 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (EnemyLife <= 0)
+        if (EnemyLife == 0)
         {
             Destroy(gameObject);
         }

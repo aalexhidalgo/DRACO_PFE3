@@ -9,6 +9,7 @@ TagManager:
   - Live
   - EnemyDamage
   - Enemy
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ public class MoveForward : MonoBehaviour
 
     void Start()
     {
-        EnemyLogicScript = FindObjectOfType<EnemyLogic>();
+        
     }
 
     // Update is called once per frame
@@ -18,11 +18,12 @@ public class MoveForward : MonoBehaviour
         transform.Translate(Vector3.forward * Speed * Time.deltaTime);
     }
 
-    public void OnCollisionEnter(Collision otherCollider)
+    public void OnTriggerEnter(Collider otherTrigger)
     {
 
-        if (otherCollider.gameObject.CompareTag("Enemy"))
+        if (otherTrigger.gameObject.CompareTag("Enemy"))
         {
+            EnemyLogicScript = otherTrigger.gameObject.GetComponent<EnemyLogic>();
             EnemyLogicScript.EnemyLife--;
             Destroy(gameObject);
         }
