@@ -18,15 +18,16 @@ public class DetectTrigger : MonoBehaviour
         
     }
 
-    /*private void OnTriggerEnter(Collider otherCollider)
+    private void OnTriggerEnter(Collider otherCollider)
     {
         if(otherCollider.gameObject.CompareTag("Player"))
         {
             foreach (Animator anim in EnemyAnimator)
             {
                 anim.SetBool("Active", true);
+                //anim.SetBool("Throw", true); (medium)
+                //anim.SetBool("Blade", true); Hacer una o dos animaciones de espada random para los tochos (hard)
             }
         }
     }
-    */
 }
