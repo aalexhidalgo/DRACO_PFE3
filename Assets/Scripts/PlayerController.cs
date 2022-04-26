@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     //Comunicación con scripts
     private MoneyLogic MoneyLogicScript;
     private EnemyLogic EnemyLogicScript;
+    private GameManager GameManagerScript;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
         MoneyLogicScript = FindObjectOfType<MoneyLogic>();
         EnemyLogicScript = FindObjectOfType<EnemyLogic>();
+        GameManagerScript = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -105,9 +107,18 @@ public class PlayerController : MonoBehaviour
 
         if (otherTrigger.gameObject.CompareTag("Live"))
         {
-            Destroy(otherTrigger.gameObject);
-            CurrentLive++;
-            Debug.Log($"Tienes {CurrentLive} vidas, crack");
+            if (CurrentLive == 3)
+            {
+                CurrentLive = 3;
+                MoneyCounter += 10;
+            }
+            else
+            {
+                Destroy(otherTrigger.gameObject);
+                CurrentLive++;
+                Debug.Log($"Tienes {CurrentLive} vidas, crack");
+            }
+
         }
 
         if (otherTrigger.gameObject.CompareTag("EnemyDamage"))
@@ -116,5 +127,10 @@ public class PlayerController : MonoBehaviour
             CurrentLive--;
             Debug.Log($"Tienes {CurrentLive} vidas, crack");
         }
+    }
+
+    public void UpdateLife()
+    {
+       // GameManagerScript.LifeImage = GameManagerScript.LifeSprites[CurrentLive / 0.5f];
     }
 }
