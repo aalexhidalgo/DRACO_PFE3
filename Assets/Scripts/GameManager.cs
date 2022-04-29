@@ -11,18 +11,25 @@ public class GameManager : MonoBehaviour
 
     //Contadores y movidas de los propsç
     public Image LifeImage;
-    public Sprite[] LifeSprites; 
+    public Sprite[] LifeSprites;
 
     //PauseMenuPanel
     /*
     public void RestartButton()
     {
-        ReloadScene
+        ReloadScene.blablabla
     }
 
+    //No funciona, averiguar
     public void ResumeButton()
     {
-        Desactivar panel de pausa y volver al juego
+        PauseMenuPanel.SetActive(false);
+    }
+
+    public void ExitButton()
+    {
+        Debug.Log("Exit");
+        Application.Quit();
     }
     */
 

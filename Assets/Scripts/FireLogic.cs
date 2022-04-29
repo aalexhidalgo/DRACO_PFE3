@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveForward : MonoBehaviour
+public class FireLogic : MonoBehaviour
 {
     public float Speed = 10f;
     private EnemyLogic EnemyLogicScript;

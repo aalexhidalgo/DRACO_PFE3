@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
         //Salto
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
         {
-            Speed = 6f;
+            Speed = 6f; // + gravedad
             DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
             IsOnTheGround = false;
         }
