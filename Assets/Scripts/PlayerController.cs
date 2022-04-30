@@ -20,7 +20,8 @@ public class PlayerController : MonoBehaviour
     public GameObject FuegoPrefab;
 
     //Contadores Props
-    public int CurrentLive = 3;
+    public float CurrentLive = 3;
+    private int Multiply = 2;
     public int MoneyCounter = 0;
     public bool Nube;
 
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private MoneyLogic MoneyLogicScript;
     private EnemyLogic EnemyLogicScript;
     private GameManager GameManagerScript;
+
+    public bool GameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -58,13 +61,13 @@ public class PlayerController : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler (0, 0, 0);
         }
-        
 
         //Salto
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
         {
-            Speed = 6f; // + gravedad
+            float Gravity = 9.8f;
             DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
+            DracoRigidbody.AddForce(Vector3.down * Gravity, ForceMode.Impulse);
             IsOnTheGround = false;
         }
 
@@ -94,6 +97,14 @@ public class PlayerController : MonoBehaviour
             IsOnTheGround = true;
             Speed = 8f;
         }
+
+        if (otherCollider.gameObject.CompareTag("Enemy"))
+        {
+            CurrentLive -= 0.5f;
+            Debug.Log("Cuidao que te pinsho dragón de mierda");
+            //AddForce rebote, hay que calcular a lo 100tifiko otro día
+            UpdateLife();
+        }
     }
 
     public void OnTriggerEnter(Collider otherTrigger)
@@ -103,34 +114,56 @@ public class PlayerController : MonoBehaviour
             Destroy(otherTrigger.gameObject);
             MoneyCounter += 5;
             Debug.Log($"Tienes {MoneyCounter} monedas, crack");
+            UpdateMoney();
         }
 
         if (otherTrigger.gameObject.CompareTag("Live"))
         {
-            if (CurrentLive == 3)
+            CurrentLive++;
+
+            if (CurrentLive >= 3)
             {
-                CurrentLive = 3;
+                CurrentLive = 3f;
                 MoneyCounter += 10;
+                UpdateMoney();
+                Destroy(otherTrigger.gameObject);
             }
             else
             {
-                Destroy(otherTrigger.gameObject);
-                CurrentLive++;
+                
                 Debug.Log($"Tienes {CurrentLive} vidas, crack");
             }
 
+            UpdateLife();
+
         }
+
+        //Proyectil
 
         if (otherTrigger.gameObject.CompareTag("EnemyDamage"))
         {
             Destroy(otherTrigger.gameObject);
-            CurrentLive--;
+            CurrentLive -= 0.5f;
             Debug.Log($"Tienes {CurrentLive} vidas, crack");
+
+            if (CurrentLive <= 0)
+            {
+                Debug.Log("Sa matao Paco");
+                GameOver = true;
+            }
+
+            UpdateLife();
         }
     }
 
     public void UpdateLife()
     {
-       // GameManagerScript.LifeImage = GameManagerScript.LifeSprites[CurrentLive / 0.5f];
+       float CurrentImage = CurrentLive * Multiply;
+       GameManagerScript.LifeImage.sprite = GameManagerScript.LifeSprites[(int)CurrentImage];
+    }
+
+    public void UpdateMoney()
+    {
+        GameManagerScript.MoneyText.text = $"{MoneyCounter}";
     }
 }

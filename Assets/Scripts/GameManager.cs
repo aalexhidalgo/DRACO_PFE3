@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,25 +14,29 @@ public class GameManager : MonoBehaviour
     public Image LifeImage;
     public Sprite[] LifeSprites;
 
+    public TextMeshProUGUI MoneyText;
+    private PlayerController PlayerControllerScript;
+
     //PauseMenuPanel
     /*
     public void RestartButton()
     {
         ReloadScene.blablabla
     }
+    */
 
     //No funciona, averiguar
     public void ResumeButton()
     {
         PauseMenuPanel.SetActive(false);
+        pause = false;
     }
-
+    
     public void ExitButton()
     {
         Debug.Log("Exit");
         Application.Quit();
     }
-    */
 
     public void PauseMenuButton()
     {
