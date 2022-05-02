@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour
         {
             float Gravity = 9.8f;
             DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
-            DracoRigidbody.AddForce(Vector3.down * Gravity, ForceMode.Impulse);
+            //DracoRigidbody.AddForce(Vector3.down * Gravity, ForceMode.Impulse);
             IsOnTheGround = false;
         }
 
