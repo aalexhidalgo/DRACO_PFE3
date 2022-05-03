@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     //Controladores de DRACO
     public float Speed = 8f;
     public float UpSpeed = 20f;
-    public float FlySpeed = 5f;
+    public float FlySpeed = 8f;
 
     private float HorizontalInput;
 
@@ -23,7 +23,12 @@ public class PlayerController : MonoBehaviour
     public float CurrentLive = 3;
     private int Multiply = 2;
     public int MoneyCounter = 0;
-    public bool Nube;
+    private float MaxFlyTime = 5f; //Max_S
+    private float CurrentTime;  //Timepassed(S)
+
+    //Booleanas de condiciones
+    public bool CanFly;
+    public bool ShootFire;
 
     //Comunicación con scripts
     private MoneyLogic MoneyLogicScript;
@@ -41,6 +46,8 @@ public class PlayerController : MonoBehaviour
         MoneyLogicScript = FindObjectOfType<MoneyLogic>();
         EnemyLogicScript = FindObjectOfType<EnemyLogic>();
         GameManagerScript = FindObjectOfType<GameManager>();
+
+        FlySpeed = FlySpeed + Physics.gravity.magnitude;
     }
 
     // Update is called once per frame
@@ -65,7 +72,6 @@ public class PlayerController : MonoBehaviour
         //Salto
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
         {
-            float Gravity = 9.8f;
             DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
             //DracoRigidbody.AddForce(Vector3.down * Gravity, ForceMode.Impulse);
             IsOnTheGround = false;
@@ -76,11 +82,13 @@ public class PlayerController : MonoBehaviour
         {
             DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
             IsOnTheGround = false;
+            CurrentTime -= Time.deltaTime;
+            GameManagerScript.FlybarCounter = CurrentTime/MaxFlyTime;
         }
 
         if(Input.GetKeyDown(KeyCode.E))
         {
-            Instantiate(FuegoPrefab, transform.position, transform.rotation);
+            StartCoroutine(FireCooldown());
         }
 
         //Agacharse
@@ -166,4 +174,18 @@ public class PlayerController : MonoBehaviour
     {
         GameManagerScript.MoneyText.text = $"{MoneyCounter}";
     }
+
+    public IEnumerator FireCooldown()
+    {
+        float FireTimer = 0.5f;
+        if (ShootFire == true)
+        {
+            Instantiate(FuegoPrefab, transform.position, transform.rotation);
+            ShootFire = false;
+        }
+        yield return new WaitForSeconds(FireTimer);
+        ShootFire = true;
+    }
+
+
 }
