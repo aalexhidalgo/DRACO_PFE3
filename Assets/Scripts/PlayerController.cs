@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //Controladores de DRACO
-    public float Speed = 8f;
+    public float Speed = 4f;
     public float UpSpeed = 20f;
     public float FlySpeed = 8f;
 
@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody DracoRigidbody;
     public float GravityModifier = 3f;
 
-    public bool IsOnTheGround;
     public GameObject FuegoPrefab;
 
     //Contadores Props
@@ -27,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private float CurrentTime;  //Timepassed(S)
 
     //Booleanas de condiciones
+    public bool IsOnTheGround;
     public bool CanFly;
     public bool ShootFire;
 
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
         {
             DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
-            //DracoRigidbody.AddForce(Vector3.down * Gravity, ForceMode.Impulse);
+            //Evitamos doble salto
             IsOnTheGround = false;
         }
 
@@ -86,6 +86,7 @@ public class PlayerController : MonoBehaviour
             GameManagerScript.FlybarCounter = CurrentTime/MaxFlyTime;
         }
 
+        //Fuego
         if(Input.GetKeyDown(KeyCode.E))
         {
             StartCoroutine(FireCooldown());
@@ -94,18 +95,19 @@ public class PlayerController : MonoBehaviour
         //Agacharse
         if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
-            //Insertar animación
+            //Insertar animación sprite
         }
     }
 
     public void OnCollisionEnter(Collision otherCollider)
     {
+        //Si colisiona contra el suelo el jugador puede volver a saltar
         if (otherCollider.gameObject.CompareTag("Ground"))
         {
             IsOnTheGround = true;
-            Speed = 8f;
         }
 
+        //Si jugaor pierde vida si colisiona contra un enemigo
         if (otherCollider.gameObject.CompareTag("Enemy"))
         {
             CurrentLive -= 0.5f;
@@ -117,6 +119,7 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter(Collider otherTrigger)
     {
+        //Actualizamos el número de monedas recogidas
         if (otherTrigger.gameObject.CompareTag("Money"))
         {
             Destroy(otherTrigger.gameObject);
@@ -125,6 +128,7 @@ public class PlayerController : MonoBehaviour
             UpdateMoney();
         }
 
+        //Actualizamos la vida del jugador
         if (otherTrigger.gameObject.CompareTag("Live"))
         {
             CurrentLive++;
@@ -146,8 +150,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        //Proyectil
-
+        //Daño de los enemigos al jugador (proyectil)
         if (otherTrigger.gameObject.CompareTag("EnemyDamage"))
         {
             Destroy(otherTrigger.gameObject);
@@ -164,17 +167,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Actualizamos la imagen según la vida del jugador
     public void UpdateLife()
     {
        float CurrentImage = CurrentLive * Multiply;
        GameManagerScript.LifeImage.sprite = GameManagerScript.LifeSprites[(int)CurrentImage];
     }
 
+    //Actualizamos el contador de monedas
     public void UpdateMoney()
     {
         GameManagerScript.MoneyText.text = $"{MoneyCounter}";
     }
 
+    //Cooldown del fuego, el jugador solo podrá disprar cada 0.5 segundos
     public IEnumerator FireCooldown()
     {
         float FireTimer = 0.5f;
