@@ -10,6 +10,7 @@ TagManager:
   - EnemyDamage
   - Enemy
   - Wall
+  - Cloud
   layers:
   - Default
   - TransparentFX

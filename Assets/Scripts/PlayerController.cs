@@ -22,8 +22,9 @@ public class PlayerController : MonoBehaviour
     public float CurrentLive = 3;
     private int Multiply = 2;
     public int MoneyCounter = 0;
-    private float MaxFlyTime = 5f; //Max_S
+    private float MaxFlyTime = 2f; //Max_S
     private float CurrentTime;  //Timepassed(S)
+    private float AntiTime;
 
     //Booleanas de condiciones
     public bool IsOnTheGround;
@@ -78,12 +79,16 @@ public class PlayerController : MonoBehaviour
         }
 
         //Vuelo
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Q) && GameManagerScript.FlybarCounter > 0)
         {
             DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
             IsOnTheGround = false;
-            CurrentTime -= Time.deltaTime;
-            GameManagerScript.FlybarCounter = CurrentTime/MaxFlyTime;
+
+            //Tiempo de vuelo
+            CurrentTime += Time.deltaTime;
+            AntiTime = MaxFlyTime - CurrentTime;
+            GameManagerScript.FlybarCounter = AntiTime/MaxFlyTime;
+            GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
         }
 
         //Fuego
@@ -164,6 +169,14 @@ public class PlayerController : MonoBehaviour
             }
 
             UpdateLife();
+        }
+
+        //Si recogemos una nube, permite volar al jugador
+        if (otherTrigger.gameObject.CompareTag("Cloud"))
+        {
+            GameManagerScript.Flybar.fillAmount = 1;
+            GameManagerScript.FlybarCounter = 1;
+            Destroy(otherTrigger.gameObject);
         }
     }
 

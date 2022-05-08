@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     //Contadores y movidas de los props
     public Image LifeImage;
     public Sprite[] LifeSprites;
-    public Button Flybar;
+    public Image Flybar;
     public float FlybarCounter;
 
     public TextMeshProUGUI MoneyText;
@@ -27,7 +27,6 @@ public class GameManager : MonoBehaviour
     }
     */
 
-    //No funciona, averiguar
     public void ResumeButton()
     {
         PauseMenuPanel.SetActive(false);
@@ -57,6 +56,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LifeImage = LifeImage.GetComponent<Image>();
-        FlybarCounter = Flybar.GetComponent<Image>().fillAmount;
+        FlybarCounter = Flybar.fillAmount;
     }
 }
