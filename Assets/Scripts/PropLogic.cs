@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoneyLogic : MonoBehaviour
+public class PropLogic : MonoBehaviour
 {
     public float SpinSpeed = 5f;
 

@@ -29,8 +29,8 @@ public class BetweenLevelsManager : MonoBehaviour
     public ParticleSystem[] EntranceParticleSystem;
     public ParticleSystem ChooseParticleSystem;
     private Vector3 Pos1 = new Vector3(-435f, 183.899994f, 675.330017f);
-    private Vector3 Pos2 = new Vector3(-435f, 183.899994f, 675.330017f);
-    private Vector3 Pos3 = new Vector3(-435f, 183.899994f, 675.330017f);
+    private Vector3 Pos2 = new Vector3(-17.60001f, 183.899994f, 675.330017f);
+    private Vector3 Pos3 = new Vector3(423.2f, 183.899994f, 675.330017f);
 
     void Start()
     {
@@ -98,24 +98,30 @@ public class BetweenLevelsManager : MonoBehaviour
         }
     }
 
-    //Si compramos algo blablabla
     public void YesButton_1()
     {
-        //Restar monedas(PlayerController), recoger item, instanciar partículas y minimizar alpha imagen a través de animación???
-        Debug.Log("Funciono");
-        Destroy(GameObject.Find("Fireball_prefab")); //Destruir el objeto como si lo hubieras seleccionado
-        Instantiate(ChooseParticleSystem, Pos1, ChooseParticleSystem.transform.rotation);
-
+        StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab"));
     }
 
     public void YesButton_2()
     {
-        //Restar monedas(PlayerController), recoger item, instanciar partículas y minimizar alpha imagen a través de animación???
+        StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab")); //Hacer 3D
     }
 
     public void YesButton_3()
     {
+        StartCoroutine(YesButtonCoroutine(Pos3, "Nube_prefab")); //Hacer 3D
+    }
+
+    //Si compramos algo blablabla
+    public IEnumerator YesButtonCoroutine(Vector3 Position, string Prefab)
+    {
+        float Timer = 1.5f;
         //Restar monedas(PlayerController), recoger item, instanciar partículas y minimizar alpha imagen a través de animación???
+        Instantiate(ChooseParticleSystem, Position, ChooseParticleSystem.transform.rotation);
+        yield return new WaitForSeconds(Timer);
+        //Destruir el objeto como si lo hubieras seleccionado
+        Destroy(GameObject.Find(Prefab));
     }
 
     public void NoButton()

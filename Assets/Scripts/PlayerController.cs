@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     public bool ShootFire;
 
     //Comunicación con scripts
-    private MoneyLogic MoneyLogicScript;
+    private PropLogic PropLogicScript;
     private EnemyLogic EnemyLogicScript;
     private GameManager GameManagerScript;
 
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
         DracoRigidbody = GetComponent<Rigidbody>();
         Physics.gravity *= GravityModifier;
 
-        MoneyLogicScript = FindObjectOfType<MoneyLogic>();
+        PropLogicScript = FindObjectOfType<PropLogic>();
         EnemyLogicScript = FindObjectOfType<EnemyLogic>();
         GameManagerScript = FindObjectOfType<GameManager>();
 
