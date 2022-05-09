@@ -9,6 +9,10 @@ public class BetweenLevelsManager : MonoBehaviour
 {
     public GameObject LevelPanel;
     public GameObject StorePanel;
+    public List<string[]> DialogoList = new List<string[]>();
+
+    //data_persistance???????????????
+    public int CurrentLevel = 1;
 
     //Diálogo
     public GameObject DialogueImage;
@@ -18,7 +22,10 @@ public class BetweenLevelsManager : MonoBehaviour
     public GameObject Yes_2;
     public GameObject Yes_3;
     public GameObject No;
-    public string[] DialogueArray;
+    public string[] DA1;
+    public string[] DA2;
+    public string[] DA3;
+    public string[] DA4;
     public int CurrentDialogueText;
 
     public GameObject Attack_Image;
@@ -32,33 +39,46 @@ public class BetweenLevelsManager : MonoBehaviour
     private Vector3 Pos2 = new Vector3(-17.60001f, 183.899994f, 675.330017f);
     private Vector3 Pos3 = new Vector3(423.2f, 183.899994f, 675.330017f);
 
+    private void Awake()
+    {
+        DialogoList.Add(DA1);
+        DialogoList.Add(DA2);
+        DialogoList.Add(DA3);
+        DialogoList.Add(DA4);
+    }
+
     void Start()
     {
         Attack_Image.SetActive(false);
         Defense_Image.SetActive(false);
         Boost_Image.SetActive(false);
+        DialogueText.text = DialogoList[CurrentLevel-1][CurrentDialogueText];
     }
 
     public void Level_1()
     {
+        CurrentLevel = 1;
         Debug.Log("Level 1");
         SceneManager.LoadScene("Level_1");
     }
 
     public void Level_2()
     {
+        CurrentLevel = 2;
         Debug.Log("Level 2");
         SceneManager.LoadScene("Level_2");
     }
 
     public void Level_3()
     {
+        CurrentLevel = 3;
         Debug.Log("Level 3");
         SceneManager.LoadScene("Level_3");
     }
 
     public void Level_4()
     {
+        CurrentLevel = 4;
         Debug.Log("Level 4");
         SceneManager.LoadScene("Level_4");
     }
@@ -80,7 +100,7 @@ public class BetweenLevelsManager : MonoBehaviour
         CurrentDialogueText++;
         
         //Esta parte no funciona
-        if(CurrentDialogueText >= DialogueArray.Length)
+        if(CurrentDialogueText >= DA1.Length)
         {
             DialogueImage.SetActive(false);
             Attack_Image.SetActive(true);
@@ -94,7 +114,7 @@ public class BetweenLevelsManager : MonoBehaviour
         }
         else
         {
-            DialogueText.text = DialogueArray[CurrentDialogueText];
+            DialogueText.text = DialogoList[CurrentLevel-1][CurrentDialogueText];
         }
     }
 

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameManager : MonoBehaviour
@@ -19,13 +20,14 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI MoneyText;
     private PlayerController PlayerControllerScript;
 
+
     //PauseMenuPanel
-    /*
+    
     public void RestartButton()
     {
-        ReloadScene.blablabla
+        SceneManager.LoadScene("Game");
     }
-    */
+    
 
     public void ResumeButton()
     {
@@ -58,4 +60,5 @@ public class GameManager : MonoBehaviour
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
     }
+
 }

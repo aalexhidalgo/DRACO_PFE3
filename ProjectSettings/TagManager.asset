@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - Wall
   - Cloud
+  - FxTemporaire
+  - Win
   layers:
   - Default
   - TransparentFX

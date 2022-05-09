@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     //Controladores de DRACO
-    public float Speed = 4f;
+    public float Speed = 8f;
     public float UpSpeed = 20f;
-    public float FlySpeed = 8f;
+    public float FlySpeed = 3f;
 
     private float HorizontalInput;
 
@@ -36,11 +37,16 @@ public class PlayerController : MonoBehaviour
     private EnemyLogic EnemyLogicScript;
     private GameManager GameManagerScript;
 
+    public GameObject GameOverPanel;
     public bool GameOver;
+    private bool Win;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameOver = false;
+        Win = false;
+
         DracoRigidbody = GetComponent<Rigidbody>();
         Physics.gravity *= GravityModifier;
 
@@ -54,54 +60,58 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Controladores principales de DRACO
-
-        //Movimiento frontal de DRACO, derecha, izquierda o bien A D
-        HorizontalInput = Input.GetAxis("Horizontal");
-        DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
-
-        //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
-        if (HorizontalInput < 0)
+        if(GameOver == false)
         {
-            transform.rotation = Quaternion.Euler (0, YRotationLimit, 0);
-        }
-        if (HorizontalInput > 0)
-        {
-            transform.rotation = Quaternion.Euler (0, 0, 0);
-        }
+            //Controladores principales de DRACO
 
-        //Salto
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
-        {
-            DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
-            //Evitamos doble salto
-            IsOnTheGround = false;
-        }
+            //Movimiento frontal de DRACO, derecha, izquierda o bien A D
+            HorizontalInput = Input.GetAxis("Horizontal");
+            DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
 
-        //Vuelo
-        if (Input.GetKey(KeyCode.Q) && GameManagerScript.FlybarCounter > 0)
-        {
-            DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
-            IsOnTheGround = false;
+            //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
+            if (HorizontalInput < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, YRotationLimit, 0);
+            }
+            if (HorizontalInput > 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
 
-            //Tiempo de vuelo
-            CurrentTime += Time.deltaTime;
-            AntiTime = MaxFlyTime - CurrentTime;
-            GameManagerScript.FlybarCounter = AntiTime/MaxFlyTime;
-            GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
-        }
+            //Salto
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
+            {
+                DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
+                //Evitamos doble salto
+                IsOnTheGround = false;
+            }
 
-        //Fuego
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            StartCoroutine(FireCooldown());
-        }
+            //Vuelo
+            if (Input.GetKey(KeyCode.Q) && GameManagerScript.FlybarCounter > 0)
+            {
+                DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
+                IsOnTheGround = false;
 
-        //Agacharse
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            //Insertar animación sprite
+                //Tiempo de vuelo
+                CurrentTime += Time.deltaTime;
+                AntiTime = MaxFlyTime - CurrentTime;
+                GameManagerScript.FlybarCounter = AntiTime / MaxFlyTime;
+                GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
+            }
+
+            //Fuego
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                StartCoroutine(FireCooldown());
+            }
+
+            //Agacharse
+            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                //Insertar animación sprite
+            }
         }
+        
     }
 
     public void OnCollisionEnter(Collision otherCollider)
@@ -119,6 +129,20 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Cuidao que te pinsho dragón de mierda");
             //AddForce rebote, hay que calcular a lo 100tifiko otro día
             UpdateLife();
+
+            if (CurrentLive <= 0)
+            {
+                CurrentLive = 0;
+                Debug.Log("Sa matao Paco");
+                GameOver = true;
+                GameOverPanel.SetActive(true);
+            }
+        }
+        
+        if (otherCollider.gameObject.CompareTag("Win"))
+        {
+            Win = true;
+            SceneManager.LoadScene("Store");
         }
     }
 
@@ -164,8 +188,10 @@ public class PlayerController : MonoBehaviour
 
             if (CurrentLive <= 0)
             {
+                CurrentLive = 0;
                 Debug.Log("Sa matao Paco");
                 GameOver = true;
+                GameOverPanel.SetActive(true);
             }
 
             UpdateLife();
