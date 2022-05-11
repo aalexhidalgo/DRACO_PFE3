@@ -39,13 +39,11 @@ public class PlayerController : MonoBehaviour
 
     public GameObject GameOverPanel;
     public bool GameOver;
-    private bool Win;
 
     // Start is called before the first frame update
     void Start()
     {
         GameOver = false;
-        Win = false;
 
         DracoRigidbody = GetComponent<Rigidbody>();
         Physics.gravity *= GravityModifier;
@@ -139,11 +137,6 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        if (otherCollider.gameObject.CompareTag("Win"))
-        {
-            Win = true;
-            SceneManager.LoadScene("Store");
-        }
     }
 
     public void OnTriggerEnter(Collider otherTrigger)

@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public float FlybarCounter;
 
     public TextMeshProUGUI MoneyText;
+    private int NumberOfCoins;
     private PlayerController PlayerControllerScript;
 
 
@@ -59,6 +60,10 @@ public class GameManager : MonoBehaviour
     {
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
+
+
+
     }
+
 
 }

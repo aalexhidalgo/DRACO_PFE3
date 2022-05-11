@@ -871,6 +871,111 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 388005647}
   m_CullTransparentMesh: 1
+--- !u!1 &388064232
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 388064233}
+  - component: {fileID: 388064236}
+  - component: {fileID: 388064235}
+  - component: {fileID: 388064234}
+  m_Layer: 5
+  m_Name: VendedorImage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &388064233
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388064232}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1585602035}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 500, y: 0}
+  m_SizeDelta: {x: 500, y: 600}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &388064234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388064232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 809564214}
+          m_TargetAssemblyTypeName: BetweenLevelsManager, Assembly-CSharp
+          m_MethodName: ShowDialogue
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &388064235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388064232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &388064236
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388064232}
+  m_CullTransparentMesh: 1
 --- !u!1 &438987771
 GameObject:
   m_ObjectHideFlags: 0
@@ -1440,7 +1545,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelPanel: {fileID: 502068481}
   StorePanel: {fileID: 1585602034}
-  CurrentLevel: 1
+  CurrentLevel: 4
   DialogueImage: {fileID: 2495713215062001243}
   DialogueText: {fileID: 3137025466031517705}
   Next: {fileID: 7355510722632918817}
@@ -1449,7 +1554,7 @@ MonoBehaviour:
   Yes_3: {fileID: 1435321107}
   No: {fileID: 1437584592}
   DA1:
-  - HEY COMO VA TU DIA?
+  - HEY! COMO VA TU DIA?
   - DESDE QUE DECRETARON LA CAZA DE DRAGONES YA VEO A MENOS COMO TU POR AQUI
   - "SUERTE EN TU AVENTURA PEQUE\xD1O. SI DESEAS ADQUIRIR ALGO NO DUDES EN PREGUNTARMELO."
   DA2:
@@ -1465,6 +1570,7 @@ MonoBehaviour:
   - QUE NO ME HAYAN GUSTADO LAS MUJERES PORQUE HABRIA SIDO MAS FELIZ
   - HEMOS TENIDO UNA NOCHE DE AMOR. POETICO
   CurrentDialogueText: 0
+  DialogueAnimDone: 0
   Attack_Image: {fileID: 383878419}
   Defense_Image: {fileID: 501499965}
   Boost_Image: {fileID: 242074144}
@@ -3089,6 +3195,7 @@ RectTransform:
   - {fileID: 501499966}
   - {fileID: 242074145}
   - {fileID: 101467714}
+  - {fileID: 388064233}
   - {fileID: 2495713215062001242}
   m_Father: {fileID: 369640193}
   m_RootOrder: 0
@@ -4107,7 +4214,7 @@ RectTransform:
   - {fileID: 1435321108}
   - {fileID: 1437584596}
   m_Father: {fileID: 1585602035}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4131,7 +4238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &3137025466031517705
 MonoBehaviour:
   m_ObjectHideFlags: 0

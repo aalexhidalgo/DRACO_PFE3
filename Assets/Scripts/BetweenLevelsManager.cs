@@ -27,6 +27,7 @@ public class BetweenLevelsManager : MonoBehaviour
     public string[] DA3;
     public string[] DA4;
     public int CurrentDialogueText;
+    public bool DialogueAnimDone = false;
 
     public GameObject Attack_Image;
     public GameObject Defense_Image;
@@ -95,27 +96,58 @@ public class BetweenLevelsManager : MonoBehaviour
         StorePanel.SetActive(false);
     }
 
+    //Despertamos al vendedor, que nos hablará
+    public void ShowDialogue()
+    {
+        DialogueImage.SetActive(true);
+        StartCoroutine(Letters());
+    }
+
     public void NextButton()
     {
-        CurrentDialogueText++;
-        
-        //Esta parte no funciona
-        if(CurrentDialogueText >= DA1.Length)
+        //Hasta que no se haya acabado de reproducir el diálogo, el jugador no podrá darle a next.
+        if(DialogueAnimDone == true)
         {
-            DialogueImage.SetActive(false);
-            Attack_Image.SetActive(true);
-            Defense_Image.SetActive(true);
-            Boost_Image.SetActive(true);
+            CurrentDialogueText++;
 
-            foreach (ParticleSystem Particulas in EntranceParticleSystem)
+            if (CurrentDialogueText >= DA1.Length)
             {
-                Particulas.Play();
+                DialogueImage.SetActive(false);
+                Attack_Image.SetActive(true);
+                Defense_Image.SetActive(true);
+                Boost_Image.SetActive(true);
+
+                foreach (ParticleSystem Particulas in EntranceParticleSystem)
+                {
+                    Particulas.Play();
+                }
+
+            }
+            else
+            {
+                DialogueText.text = DialogoList[CurrentLevel - 1][CurrentDialogueText];
+                StartCoroutine(Letters());
             }
         }
-        else
+        
+    }
+
+    //Aparición del diálogo por letras
+    private IEnumerator Letters()
+    {
+        DialogueAnimDone = false;
+
+        string Originalmessage = DialogueText.text;
+
+        DialogueText.text = "";
+
+        foreach (var d in Originalmessage) //var (comodín)
         {
-            DialogueText.text = DialogoList[CurrentLevel-1][CurrentDialogueText];
+            DialogueText.text += d;
+            yield return new WaitForSeconds(0.1f);
         }
+
+        DialogueAnimDone = true;
     }
 
     public void YesButton_1()
