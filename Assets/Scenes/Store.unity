@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LevelPanel: {fileID: 502068481}
   StorePanel: {fileID: 1585602034}
-  CurrentLevel: 4
+  CurrentLevel: 1
   DialogueImage: {fileID: 2495713215062001243}
   DialogueText: {fileID: 3137025466031517705}
   Next: {fileID: 7355510722632918817}
