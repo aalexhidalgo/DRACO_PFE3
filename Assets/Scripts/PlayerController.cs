@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private float YRotationLimit = 180;
 
     private Rigidbody DracoRigidbody;
-    public float GravityModifier = 3f;
+    private Vector3 NewGravity = new Vector3 (0f, -29.4f, 0f);
 
     public GameObject FuegoPrefab;
 
@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         GameOver = false;
 
         DracoRigidbody = GetComponent<Rigidbody>();
-        Physics.gravity *= GravityModifier;
+        Physics.gravity = NewGravity;
 
         PropLogicScript = FindObjectOfType<PropLogic>();
         EnemyLogicScript = FindObjectOfType<EnemyLogic>();
