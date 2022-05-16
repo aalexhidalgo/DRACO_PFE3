@@ -9,6 +9,7 @@ public class SceneFlow : MonoBehaviour
     {
         if (otherCollider.gameObject.CompareTag("Player"))
         {
+            DataPersistance.DracoState.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter);
             SceneManager.LoadScene("Store");
         }
     }

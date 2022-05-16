@@ -61,8 +61,6 @@ public class GameManager : MonoBehaviour
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
 
-
-
     }
 
 

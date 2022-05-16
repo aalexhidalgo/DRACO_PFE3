@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 
     private float HorizontalInput;
 
-    private float YRotationLimit = 180;
+    private float YRotationLimit = 90;
 
     private Rigidbody DracoRigidbody;
     private Vector3 NewGravity = new Vector3 (0f, -29.4f, 0f);
@@ -73,7 +73,7 @@ public class PlayerController : MonoBehaviour
             }
             if (HorizontalInput > 0)
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
+                transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
             }
 
             //Salto
@@ -170,6 +170,17 @@ public class PlayerController : MonoBehaviour
 
             UpdateLife();
 
+        }
+
+        if (otherTrigger.gameObject.CompareTag("Spike"))
+        {
+            CurrentLive = 0;
+
+            Debug.Log("Chanelazo");
+            GameOver = true;
+            GameOverPanel.SetActive(true);
+
+            UpdateLife();
         }
 
         //Daño de los enemigos al jugador (proyectil)

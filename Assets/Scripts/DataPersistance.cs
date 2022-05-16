@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DataPersistance : MonoBehaviour
@@ -34,5 +32,11 @@ public class DataPersistance : MonoBehaviour
     {
         //Contador de monedas
         PlayerPrefs.SetInt("Money_Counter", MoneyCounter);
+    }
+
+    public void SaveCoins(int Coins)
+    {
+        //Contador de monedas
+        MoneyCounter = Coins;
     }
 }
