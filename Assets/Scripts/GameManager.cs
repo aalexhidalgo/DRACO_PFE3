@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
     private int NumberOfCoins;
     private PlayerController PlayerControllerScript;
 
+    //Scripts
+    
+
 
     //PauseMenuPanel
     
@@ -55,12 +58,11 @@ public class GameManager : MonoBehaviour
             pause = false;
         }
     }
-
     void Start()
     {
+        MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
-
     }
 
 

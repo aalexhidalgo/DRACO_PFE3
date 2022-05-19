@@ -28,10 +28,11 @@ public class DataPersistance : MonoBehaviour
         }
     }
 
-    private void SaveForFutureGames()
+
+    public void SaveForFutureGames()
     {
         //Contador de monedas
-        PlayerPrefs.SetInt("Money_Counter", MoneyCounter);
+        PlayerPrefs.SetInt("Money_Counter", MoneyCounter); //
     }
 
     public void SaveCoins(int Coins)
@@ -39,4 +40,6 @@ public class DataPersistance : MonoBehaviour
         //Contador de monedas
         MoneyCounter = Coins;
     }
+
+   
 }

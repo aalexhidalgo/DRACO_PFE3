@@ -43,6 +43,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
         GameOver = false;
 
         DracoRigidbody = GetComponent<Rigidbody>();
@@ -145,7 +146,7 @@ public class PlayerController : MonoBehaviour
         if (otherTrigger.gameObject.CompareTag("Money"))
         {
             Destroy(otherTrigger.gameObject);
-            MoneyCounter += 5;
+            MoneyCounter += 55;
             Debug.Log($"Tienes {MoneyCounter} monedas, crack");
             UpdateMoney();
         }

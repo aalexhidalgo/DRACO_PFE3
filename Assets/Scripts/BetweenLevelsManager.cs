@@ -40,6 +40,11 @@ public class BetweenLevelsManager : MonoBehaviour
     private Vector3 Pos2 = new Vector3(-17.60001f, 183.899994f, 675.330017f);
     private Vector3 Pos3 = new Vector3(423.2f, 183.899994f, 675.330017f);
 
+
+    //Money
+    public TextMeshProUGUI MoneyText;
+    private int propValue;
+
     private void Awake()
     {
         DialogoList.Add(DA1);
@@ -54,6 +59,7 @@ public class BetweenLevelsManager : MonoBehaviour
         Defense_Image.SetActive(false);
         Boost_Image.SetActive(false);
         DialogueText.text = DialogoList[CurrentLevel-1][CurrentDialogueText];
+        MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
     }
 
     public void Level_1()
@@ -94,6 +100,8 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         LevelPanel.SetActive(true);
         StorePanel.SetActive(false);
+        DataPersistance.DracoState.SaveForFutureGames();
+
     }
 
     //Despertamos al vendedor, que nos hablará
@@ -152,17 +160,50 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void YesButton_1()
     {
-        StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab"));
+        
+        if(DataPersistance.DracoState.MoneyCounter >= propValue)
+        {
+            PayMoney(propValue);
+            UpdateMoney();
+            StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab"));
+        }
+        else
+        {
+            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querías algo? ";
+        }
+        
     }
 
     public void YesButton_2()
     {
-        StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab")); //Hacer 3D
+        
+        if (DataPersistance.DracoState.MoneyCounter >= propValue)
+        {
+            PayMoney(propValue);
+            UpdateMoney();
+            StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab")); //Hacer 3D
+        }
+        else
+        {
+            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querías algo? ";
+        }
+
     }
 
     public void YesButton_3()
     {
-        StartCoroutine(YesButtonCoroutine(Pos3, "Nube_prefab")); //Hacer 3D
+        
+        if (DataPersistance.DracoState.MoneyCounter >= propValue)
+        {
+            PayMoney(propValue);
+            UpdateMoney();
+            StartCoroutine(YesButtonCoroutine(Pos3, "Nube_prefab")); //Hacer 3D
+        }
+        else
+        {
+            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querías algo? ";
+        }
+
     }
 
     //Si compramos algo blablabla
@@ -183,8 +224,10 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void AttackStat_1()
     {
+
+        propValue = 75;
         DialogueImage.SetActive(true);
-        DialogueText.text = "MMM, BUENA ELECCION...! INCREMENTA EL ATAQUE BASICO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE 75€. DESEAS COMPRAR?";
+        DialogueText.text = $"MMM, BUENA ELECCION...! INCREMENTA EL ATAQUE BASICO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
         Next.SetActive(false);
         Yes_2.SetActive(false);
         Yes_3.SetActive(false);
@@ -194,8 +237,9 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void DefenseStat_2()
     {
+        propValue = 50;
         DialogueImage.SetActive(true);
-        DialogueText.text = "GRAN DEFENSA! INCREMENTA LA DEFENSA BASICA EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE 50€. DESEAS COMPRAR?";
+        DialogueText.text = $"GRAN DEFENSA! INCREMENTA LA DEFENSA BASICA EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
         Next.SetActive(false);
         Yes_1.SetActive(false);
         Yes_3.SetActive(false);
@@ -204,12 +248,23 @@ public class BetweenLevelsManager : MonoBehaviour
     }
     public void BoostStat_3()
     {
+        propValue = 100;
         DialogueImage.SetActive(true);
-        DialogueText.text = "HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE 100€. DESEAS COMPRAR?";
+        DialogueText.text = $"HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
         Next.SetActive(false);
         Yes_1.SetActive(false);
         Yes_2.SetActive(false);
         Yes_3.SetActive(true);
         No.SetActive(true);
+    }
+
+    public void PayMoney(int value)
+    {
+        DataPersistance.DracoState.MoneyCounter -= value;
+    }
+
+    public void UpdateMoney()
+    {
+        MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
     }
 }
