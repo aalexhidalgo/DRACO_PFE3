@@ -9,7 +9,7 @@ public class DataPersistance : MonoBehaviour
     //Variables
 
     public int MoneyCounter = 0;
-    private bool Win = false;
+    public int CurrentLevel = 0;
 
     void Awake()
     {
@@ -32,7 +32,8 @@ public class DataPersistance : MonoBehaviour
     public void SaveForFutureGames()
     {
         //Contador de monedas
-        PlayerPrefs.SetInt("Money_Counter", MoneyCounter); //
+        PlayerPrefs.SetInt("Money_Counter", MoneyCounter);
+        PlayerPrefs.SetInt("Current_Level", CurrentLevel);
     }
 
     public void SaveCoins(int Coins)

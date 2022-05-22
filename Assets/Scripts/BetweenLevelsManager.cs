@@ -11,9 +11,6 @@ public class BetweenLevelsManager : MonoBehaviour
     public GameObject StorePanel;
     public List<string[]> DialogoList = new List<string[]>();
 
-    //data_persistance???????????????
-    public int CurrentLevel = 1;
-
     //Diálogo
     public GameObject DialogueImage;
     public TextMeshProUGUI DialogueText;
@@ -58,40 +55,41 @@ public class BetweenLevelsManager : MonoBehaviour
         Attack_Image.SetActive(false);
         Defense_Image.SetActive(false);
         Boost_Image.SetActive(false);
-        DialogueText.text = DialogoList[CurrentLevel-1][CurrentDialogueText];
+        DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel-1][CurrentDialogueText];
         MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
     }
 
     public void Level_1()
     {
-        CurrentLevel = 1;
+        DataPersistance.DracoState.CurrentLevel = 0;
         Debug.Log("Level 1");
         SceneManager.LoadScene("Level_1");
     }
 
     public void Level_2()
     {
-        CurrentLevel = 2;
+        DataPersistance.DracoState.CurrentLevel = 1;
         Debug.Log("Level 2");
         SceneManager.LoadScene("Level_2");
     }
 
     public void Level_3()
     {
-        CurrentLevel = 3;
+        DataPersistance.DracoState.CurrentLevel = 2;
         Debug.Log("Level 3");
         SceneManager.LoadScene("Level_3");
     }
 
     public void Level_4()
     {
-        CurrentLevel = 4;
+        DataPersistance.DracoState.CurrentLevel = 3;
         Debug.Log("Level 4");
         SceneManager.LoadScene("Level_4");
     }
 
     public void Level_Boss()
     {
+        DataPersistance.DracoState.CurrentLevel = 4;
         Debug.Log("Level Boss");
         SceneManager.LoadScene("Level_Boss");
     }
@@ -133,7 +131,7 @@ public class BetweenLevelsManager : MonoBehaviour
             }
             else
             {
-                DialogueText.text = DialogoList[CurrentLevel - 1][CurrentDialogueText];
+                DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel - 1][CurrentDialogueText];
                 StartCoroutine(Letters());
             }
         }

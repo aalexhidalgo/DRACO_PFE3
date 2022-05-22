@@ -18,10 +18,12 @@ public class MenuGameManager : MonoBehaviour
 
     //Panel principal
 
+    public string[] CurrentLevel;
+
     public void StartButton()
     {
         Debug.Log("Start");
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(CurrentLevel[DataPersistance.DracoState.CurrentLevel]);
     }
     public void HowToPlayButton()
     {

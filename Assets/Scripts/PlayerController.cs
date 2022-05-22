@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float HorizontalInput;
 
     private float YRotationLimit = 90;
+    private float SkyLimit = 15f;
 
     private Rigidbody DracoRigidbody;
     private Vector3 NewGravity = new Vector3 (0f, -29.4f, 0f);
@@ -109,6 +110,12 @@ public class PlayerController : MonoBehaviour
             {
                 //Insertar animación sprite
             }
+
+            //Límite cielo
+            if (transform.position.y >= SkyLimit)
+            {
+                transform.position = new Vector3(transform.position.x, SkyLimit, transform.position.z);
+            }
         }
         
     }
@@ -121,7 +128,7 @@ public class PlayerController : MonoBehaviour
             IsOnTheGround = true;
         }
 
-        //Si jugaor pierde vida si colisiona contra un enemigo
+        //Si jugador pierde vida si colisiona contra un enemigo
         if (otherCollider.gameObject.CompareTag("Enemy"))
         {
             CurrentLive -= 0.5f;

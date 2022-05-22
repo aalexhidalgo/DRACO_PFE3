@@ -10,12 +10,13 @@ public class SceneFlow : MonoBehaviour
     {
         LoadUserOptions();
     }
+
     public void OnCollisionEnter(Collision otherCollider)
     {
         if (otherCollider.gameObject.CompareTag("Player"))
         {
             DataPersistance.DracoState.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
-
+            DataPersistance.DracoState.CurrentLevel++;
             DataPersistance.DracoState.SaveForFutureGames();
 
             SceneManager.LoadScene("Store");
@@ -27,6 +28,7 @@ public class SceneFlow : MonoBehaviour
         if (PlayerPrefs.HasKey("Money_Counter"))
         {
             DataPersistance.DracoState.MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
+            DataPersistance.DracoState.CurrentLevel = PlayerPrefs.GetInt("Current_Level");
         }
     }
 }

@@ -4275,7 +4275,7 @@ GameObject:
   - component: {fileID: 2035425166}
   - component: {fileID: 2035425167}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: MenuGameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4296,6 +4296,12 @@ MonoBehaviour:
   MainMenuPanel: {fileID: 1137674700}
   OptionsPanel: {fileID: 1652078037}
   HowToPlayPanel: {fileID: 1332321896}
+  CurrentLevel:
+  - Level_1
+  - Level_2
+  - Level_3
+  - Level_4
+  - Level_Boss
 --- !u!4 &2035425165
 Transform:
   m_ObjectHideFlags: 0
@@ -5011,6 +5017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyCounter: 0
+  CurrentLevel: 0
 --- !u!4 &118128441221824881
 Transform:
   m_ObjectHideFlags: 0
