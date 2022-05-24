@@ -29,6 +29,7 @@ public class SceneFlow : MonoBehaviour
         {
             DataPersistance.DracoState.MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
             DataPersistance.DracoState.CurrentLevel = PlayerPrefs.GetInt("Current_Level");
+            DataPersistance.DracoState.Storedone = PlayerPrefs.GetInt("Store_Done");
         }
     }
 }

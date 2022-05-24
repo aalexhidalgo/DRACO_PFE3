@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public float CurrentLive = 3;
     private int Multiply = 2;
     public int MoneyCounter = 0;
-    private float MaxFlyTime = 2f; //Max_S
+    private float MaxFlyTime = 0.5f; //Max_S
     private float CurrentTime;  //Timepassed(S)
     private float AntiTime;
 
@@ -153,7 +153,7 @@ public class PlayerController : MonoBehaviour
         if (otherTrigger.gameObject.CompareTag("Money"))
         {
             Destroy(otherTrigger.gameObject);
-            MoneyCounter += 55;
+            MoneyCounter += 5;
             Debug.Log($"Tienes {MoneyCounter} monedas, crack");
             UpdateMoney();
         }

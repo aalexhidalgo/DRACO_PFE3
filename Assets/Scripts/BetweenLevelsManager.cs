@@ -57,11 +57,15 @@ public class BetweenLevelsManager : MonoBehaviour
         Boost_Image.SetActive(false);
         DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel-1][CurrentDialogueText];
         MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
+        DataPersistance.DracoState.Storedone = 0;
+        DataPersistance.DracoState.SaveForFutureGames();
     }
 
     public void Level_1()
     {
         DataPersistance.DracoState.CurrentLevel = 0;
+        DataPersistance.DracoState.Storedone = 1;
+        DataPersistance.DracoState.SaveForFutureGames();
         Debug.Log("Level 1");
         SceneManager.LoadScene("Level_1");
     }
@@ -69,6 +73,8 @@ public class BetweenLevelsManager : MonoBehaviour
     public void Level_2()
     {
         DataPersistance.DracoState.CurrentLevel = 1;
+        DataPersistance.DracoState.Storedone = 1;
+        DataPersistance.DracoState.SaveForFutureGames();
         Debug.Log("Level 2");
         SceneManager.LoadScene("Level_2");
     }
@@ -76,6 +82,8 @@ public class BetweenLevelsManager : MonoBehaviour
     public void Level_3()
     {
         DataPersistance.DracoState.CurrentLevel = 2;
+        DataPersistance.DracoState.Storedone = 1;
+        DataPersistance.DracoState.SaveForFutureGames();
         Debug.Log("Level 3");
         SceneManager.LoadScene("Level_3");
     }
@@ -83,6 +91,8 @@ public class BetweenLevelsManager : MonoBehaviour
     public void Level_4()
     {
         DataPersistance.DracoState.CurrentLevel = 3;
+        DataPersistance.DracoState.Storedone = 1;
+        DataPersistance.DracoState.SaveForFutureGames();
         Debug.Log("Level 4");
         SceneManager.LoadScene("Level_4");
     }
@@ -90,6 +100,8 @@ public class BetweenLevelsManager : MonoBehaviour
     public void Level_Boss()
     {
         DataPersistance.DracoState.CurrentLevel = 4;
+        DataPersistance.DracoState.Storedone = 1;
+        DataPersistance.DracoState.SaveForFutureGames();
         Debug.Log("Level Boss");
         SceneManager.LoadScene("Level_Boss");
     }
@@ -167,7 +179,7 @@ public class BetweenLevelsManager : MonoBehaviour
         }
         else
         {
-            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querías algo? ";
+            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querias algo? ";
         }
         
     }
@@ -183,7 +195,7 @@ public class BetweenLevelsManager : MonoBehaviour
         }
         else
         {
-            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querías algo? ";
+            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querias algo? ";
         }
 
     }
@@ -199,7 +211,7 @@ public class BetweenLevelsManager : MonoBehaviour
         }
         else
         {
-            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querías algo? ";
+            DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querias algo? ";
         }
 
     }

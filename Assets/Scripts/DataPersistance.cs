@@ -10,6 +10,12 @@ public class DataPersistance : MonoBehaviour
 
     public int MoneyCounter = 0;
     public int CurrentLevel = 0;
+    public int Storedone = 1;
+
+    //Store Stock
+    public int Fireball;
+    public int Shield;
+    public int Fly;
 
     void Awake()
     {
@@ -34,6 +40,10 @@ public class DataPersistance : MonoBehaviour
         //Contador de monedas
         PlayerPrefs.SetInt("Money_Counter", MoneyCounter);
         PlayerPrefs.SetInt("Current_Level", CurrentLevel);
+        PlayerPrefs.SetInt("Store_Done", Storedone);
+        PlayerPrefs.SetInt("Fireball_Stock", Fireball);
+        PlayerPrefs.SetInt("Shield_Stock", Shield);
+        PlayerPrefs.SetInt("Fly_Stock", Fly);
     }
 
     public void SaveCoins(int Coins)

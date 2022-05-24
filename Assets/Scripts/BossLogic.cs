@@ -13,6 +13,7 @@ public class BossLogic : MonoBehaviour
 
     public GameObject Fireball;
     public Transform PlayerTransform;
+    public bool canMove;
 
     void Awake()
     {
@@ -23,6 +24,8 @@ public class BossLogic : MonoBehaviour
         transform.position = points[0].position;
         totalPoints = points.Length;
         nextPoint = 1;
+        canMove = true;
+
         //transform.LookAt(points[nextPoint].position);
 
         //Colisión con pared que nos permita hacer los puntos de ruta (if blablabla)
@@ -31,34 +34,42 @@ public class BossLogic : MonoBehaviour
 
     void Update()
     {
-        if (Vector3.Distance(transform.position, points[nextPoint].position) < 0.1f)
+        if(canMove)
         {
-            StartCoroutine(BossAttack());
-            nextPoint++;
-            if (nextPoint == totalPoints)
+            if (Vector3.Distance(transform.position, points[nextPoint].position) < 0.1f)
             {
-                nextPoint = 0;
-            }
-            //transform.LookAt(points[nextPoint].position);
-        }
+                canMove = false;
 
-        transform.position = Vector3.MoveTowards(transform.position, points[nextPoint].position, speed * Time.deltaTime);
+                nextPoint++;
+
+                if (nextPoint == totalPoints)
+                {
+                    nextPoint = 0;
+                }
+
+                StartCoroutine(BossAttack());
+                //transform.LookAt(points[nextPoint].position);
+            }
+
+            transform.position = Vector3.MoveTowards(transform.position, points[nextPoint].position, speed * Time.deltaTime);
+
+            
+        }
 
         transform.GetChild(0).transform.LookAt(PlayerTransform);
     }
 
     public IEnumerator BossAttack()
     {
-        float Timer = 1f;
+        float Timer = 0.5f;
         int SpawnRate = Random.Range(0, 4);
         yield return new WaitForSeconds(Timer);
 
-        for (int i = 0; i<= SpawnRate; i ++)
+        for (int i = 0; i <= SpawnRate; i++)
         {
             Instantiate(Fireball, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
             yield return new WaitForSeconds(Timer);
         }
-
+        canMove = true;
     }
-
 }
