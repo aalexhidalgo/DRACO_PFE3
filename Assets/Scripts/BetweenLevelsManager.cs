@@ -176,7 +176,13 @@ public class BetweenLevelsManager : MonoBehaviour
         {
             PayMoney(propValue);
             UpdateMoney();
-            StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab"));
+            DataPersistance.DracoState.Fireball--;
+            DialogueText.text = "Gracias por comprar! ";
+
+            if (DataPersistance.DracoState.Fireball == 0)
+            {    
+                StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab"));
+            }    
         }
         else
         {
@@ -192,7 +198,15 @@ public class BetweenLevelsManager : MonoBehaviour
         {
             PayMoney(propValue);
             UpdateMoney();
-            StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab")); //Hacer 3D
+            DataPersistance.DracoState.Shield--;
+            DataPersistance.DracoState.Fireball--;
+            DialogueText.text = "Gracias por comprar! ";
+
+            if (DataPersistance.DracoState.Shield == 0)
+            {
+                StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab")); //Hacer 3D
+            }
+                
         }
         else
         {
@@ -208,7 +222,14 @@ public class BetweenLevelsManager : MonoBehaviour
         {
             PayMoney(propValue);
             UpdateMoney();
-            StartCoroutine(YesButtonCoroutine(Pos3, "Nube_prefab")); //Hacer 3D
+            DataPersistance.DracoState.Fly--;
+            DataPersistance.DracoState.Fireball--;
+            DialogueText.text = "Gracias por comprar! ";
+
+            if (DataPersistance.DracoState.Fly == 0)
+            {
+                StartCoroutine(YesButtonCoroutine(Pos3, "Nube_prefab")); //Hacer 3D
+            }   
         }
         else
         {
@@ -235,10 +256,11 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void AttackStat_1()
     {
-
+        
         propValue = 75;
         DialogueImage.SetActive(true);
         DialogueText.text = $"MMM, BUENA ELECCION...! INCREMENTA EL ATAQUE BASICO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
+        StartCoroutine(Letters());
         Next.SetActive(false);
         Yes_2.SetActive(false);
         Yes_3.SetActive(false);
@@ -251,6 +273,7 @@ public class BetweenLevelsManager : MonoBehaviour
         propValue = 50;
         DialogueImage.SetActive(true);
         DialogueText.text = $"GRAN DEFENSA! INCREMENTA LA DEFENSA BASICA EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
+        StartCoroutine(Letters());
         Next.SetActive(false);
         Yes_1.SetActive(false);
         Yes_3.SetActive(false);
@@ -262,6 +285,7 @@ public class BetweenLevelsManager : MonoBehaviour
         propValue = 100;
         DialogueImage.SetActive(true);
         DialogueText.text = $"HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
+        StartCoroutine(Letters());
         Next.SetActive(false);
         Yes_1.SetActive(false);
         Yes_2.SetActive(false);

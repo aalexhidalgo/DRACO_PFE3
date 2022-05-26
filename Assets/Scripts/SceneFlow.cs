@@ -25,11 +25,14 @@ public class SceneFlow : MonoBehaviour
 
     public void LoadUserOptions()
     {
-        if (PlayerPrefs.HasKey("Money_Counter"))
+        if (PlayerPrefs.HasKey("Fireball_Stock"))
         {
             DataPersistance.DracoState.MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
             DataPersistance.DracoState.CurrentLevel = PlayerPrefs.GetInt("Current_Level");
             DataPersistance.DracoState.Storedone = PlayerPrefs.GetInt("Store_Done");
+            DataPersistance.DracoState.Fireball = PlayerPrefs.GetInt("Fireball_Stock");
+            DataPersistance.DracoState.Shield = PlayerPrefs.GetInt("Shield_Stock");
+            DataPersistance.DracoState.Fly = PlayerPrefs.GetInt("Fly_Stock");
         }
     }
 }

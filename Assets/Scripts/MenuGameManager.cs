@@ -22,9 +22,13 @@ public class MenuGameManager : MonoBehaviour
 
     public void StartButton()
     {
-        PlayerPrefs.DeleteAll();
+        DataPersistance.DracoState.MoneyCounter = 0;
         DataPersistance.DracoState.Storedone = 1;
         DataPersistance.DracoState.CurrentLevel = 0;
+        DataPersistance.DracoState.Fireball = 4;
+        DataPersistance.DracoState.Shield = 4;
+        DataPersistance.DracoState.Fly = 2;
+        DataPersistance.DracoState.SaveForFutureGames();
         SceneManager.LoadScene(CurrentLevel[DataPersistance.DracoState.CurrentLevel]);
     }
     public void ContinueButton()
