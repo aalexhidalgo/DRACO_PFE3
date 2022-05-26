@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     
     public void RestartButton()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
     }
     
 

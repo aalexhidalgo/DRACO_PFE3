@@ -61,6 +61,7 @@ public class BetweenLevelsManager : MonoBehaviour
         DataPersistance.DracoState.SaveForFutureGames();
     }
 
+    #region Borrar
     public void Level_1()
     {
         DataPersistance.DracoState.CurrentLevel = 0;
@@ -105,13 +106,13 @@ public class BetweenLevelsManager : MonoBehaviour
         Debug.Log("Level Boss");
         SceneManager.LoadScene("Level_Boss");
     }
+    #endregion
 
     public void ContinueButton()
     {
-        LevelPanel.SetActive(true);
-        StorePanel.SetActive(false);
+        DataPersistance.DracoState.Storedone = 1;
+        SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
         DataPersistance.DracoState.SaveForFutureGames();
-
     }
 
     //Despertamos al vendedor, que nos hablará

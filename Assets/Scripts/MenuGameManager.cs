@@ -22,17 +22,21 @@ public class MenuGameManager : MonoBehaviour
 
     public void StartButton()
     {
-        Debug.Log("Start");
-
-        if(DataPersistance.DracoState.Storedone == 1)
+        PlayerPrefs.DeleteAll();
+        DataPersistance.DracoState.Storedone = 1;
+        DataPersistance.DracoState.CurrentLevel = 0;
+        SceneManager.LoadScene(CurrentLevel[DataPersistance.DracoState.CurrentLevel]);
+    }
+    public void ContinueButton()
+    {
+        if (DataPersistance.DracoState.Storedone == 1)
         {
             SceneManager.LoadScene(CurrentLevel[DataPersistance.DracoState.CurrentLevel]);
         }
         else
         {
             SceneManager.LoadScene("Store");
-        }
-        
+        }        
     }
     public void HowToPlayButton()
     {
