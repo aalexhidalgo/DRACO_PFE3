@@ -15,6 +15,7 @@ TagManager:
   - Win
   - Rock
   - Spike
+  - Shield
   layers:
   - Default
   - TransparentFX
