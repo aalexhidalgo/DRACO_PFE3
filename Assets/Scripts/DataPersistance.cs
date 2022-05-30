@@ -17,6 +17,11 @@ public class DataPersistance : MonoBehaviour
     public int Shield;
     public int Fly;
 
+    //Store Value
+    public float FireballValue;
+    public int ShieldValue = 1;
+    public float FlyValue;
+
     void Awake()
     {
         // Si la instancia no existe
@@ -44,6 +49,9 @@ public class DataPersistance : MonoBehaviour
         PlayerPrefs.SetInt("Fireball_Stock", Fireball);
         PlayerPrefs.SetInt("Shield_Stock", Shield);
         PlayerPrefs.SetInt("Fly_Stock", Fly);
+        PlayerPrefs.SetFloat("Fireball_Value", FireballValue);
+        PlayerPrefs.SetInt("Shield_Value", ShieldValue);
+        PlayerPrefs.SetFloat("Fly_Value", FlyValue);
     }
 
     public void SaveCoins(int Coins)

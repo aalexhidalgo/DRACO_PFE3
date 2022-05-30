@@ -33,6 +33,9 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.DracoState.Fireball = PlayerPrefs.GetInt("Fireball_Stock");
             DataPersistance.DracoState.Shield = PlayerPrefs.GetInt("Shield_Stock");
             DataPersistance.DracoState.Fly = PlayerPrefs.GetInt("Fly_Stock");
+            DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
+            DataPersistance.DracoState.ShieldValue = PlayerPrefs.GetInt("Shield_Value");
+            DataPersistance.DracoState.FlyValue = PlayerPrefs.GetFloat("Fly_Value");
         }
     }
 }

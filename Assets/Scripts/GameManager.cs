@@ -14,6 +14,9 @@ public class GameManager : MonoBehaviour
     //Contadores y movidas de los props
     public Image LifeImage;
     public Sprite[] LifeSprites;
+    public GameObject ShieldImage;
+    public Sprite[] ShieldSprites;
+    public Image ShieldState;
     public Image Flybar;
     public float FlybarCounter;
 
@@ -63,6 +66,7 @@ public class GameManager : MonoBehaviour
         MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
+        ShieldState = ShieldState.GetComponent<Image>();
     }
 
 

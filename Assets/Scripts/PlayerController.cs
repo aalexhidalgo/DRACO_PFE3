@@ -22,6 +22,8 @@ public class PlayerController : MonoBehaviour
 
     //Contadores Props
     public float CurrentLive = 3;
+    public int Shield = 0;
+    public int MaxShieldValue = 1;
     private int Multiply = 2;
     public int MoneyCounter = 0;
     private float MaxFlyTime = 0.5f; //Max_S
@@ -44,6 +46,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        MaxShieldValue = DataPersistance.DracoState.ShieldValue;
+        MaxFlyTime = DataPersistance.DracoState.FlyValue;
         MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
         GameOver = false;
 
@@ -55,6 +59,8 @@ public class PlayerController : MonoBehaviour
         GameManagerScript = FindObjectOfType<GameManager>();
 
         FlySpeed = FlySpeed + Physics.gravity.magnitude;
+        UpdateShield();
+        UpdateShieldImage();
     }
 
     // Update is called once per frame
@@ -129,7 +135,7 @@ public class PlayerController : MonoBehaviour
         }
 
         //Si jugador pierde vida si colisiona contra un enemigo
-        if (otherCollider.gameObject.CompareTag("Enemy"))
+        if (otherCollider.gameObject.CompareTag("Enemy") && Shield == 0)
         {
             CurrentLive -= 0.5f;
             Debug.Log("Cuidao que te pinsho dragón de mierda");
@@ -144,6 +150,22 @@ public class PlayerController : MonoBehaviour
                 GameOverPanel.SetActive(true);
             }
         }
+
+        else if (otherCollider.gameObject.CompareTag("Enemy") && Shield == 1)
+        {
+            MaxShieldValue -= 1;
+            if(MaxShieldValue <= 0)
+            {
+                Shield = 0;
+                UpdateShield();
+                Debug.Log("Te quedas sin escudo crack");
+            }
+            else
+            {
+                UpdateShieldImage();
+            }
+        }
+
         
     }
 
@@ -180,7 +202,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (otherTrigger.gameObject.CompareTag("Spike"))
+        if (otherTrigger.gameObject.CompareTag("Spike") && Shield == 0)
         {
             CurrentLive = 0;
 
@@ -189,6 +211,12 @@ public class PlayerController : MonoBehaviour
             GameOverPanel.SetActive(true);
 
             UpdateLife();
+        }
+
+        else if (otherTrigger.gameObject.CompareTag("Spike") && Shield == 1)
+        {
+            Shield = 0;
+            UpdateShield();
         }
 
         //Daño de los enemigos al jugador (proyectil)
@@ -216,6 +244,13 @@ public class PlayerController : MonoBehaviour
             GameManagerScript.FlybarCounter = 1;
             Destroy(otherTrigger.gameObject);
         }
+
+        if(otherTrigger.gameObject.CompareTag("Shield"))
+        {
+            Shield = 1;
+            UpdateShield();
+            Destroy(otherTrigger.gameObject);
+        }
     }
 
     //Actualizamos la imagen según la vida del jugador
@@ -223,6 +258,27 @@ public class PlayerController : MonoBehaviour
     {
        float CurrentImage = CurrentLive * Multiply;
        GameManagerScript.LifeImage.sprite = GameManagerScript.LifeSprites[(int)CurrentImage];
+    }
+
+    public void UpdateShield()
+    {
+        if(Shield == 1)
+        {
+            GameManagerScript.ShieldImage.SetActive(true);
+        }
+        else
+        {
+            GameManagerScript.ShieldImage.SetActive(false);
+        }
+    }
+
+    public void UpdateShieldImage()
+    {
+        if(MaxShieldValue == 1)
+        {
+            GameManagerScript.ShieldImage.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        GameManagerScript.ShieldState.sprite = GameManagerScript.ShieldSprites[MaxShieldValue-1];
     }
 
     //Actualizamos el contador de monedas

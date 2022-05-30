@@ -26,8 +26,11 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.DracoState.Storedone = 1;
         DataPersistance.DracoState.CurrentLevel = 0;
         DataPersistance.DracoState.Fireball = 4;
-        DataPersistance.DracoState.Shield = 4;
+        DataPersistance.DracoState.Shield = 3;
         DataPersistance.DracoState.Fly = 2;
+        DataPersistance.DracoState.FireballValue = 1f;
+        DataPersistance.DracoState.ShieldValue = 3;
+        DataPersistance.DracoState.FlyValue = 0.5f;
         DataPersistance.DracoState.SaveForFutureGames();
         SceneManager.LoadScene(CurrentLevel[DataPersistance.DracoState.CurrentLevel]);
     }

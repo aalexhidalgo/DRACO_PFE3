@@ -5292,6 +5292,9 @@ MonoBehaviour:
   Fireball: 0
   Shield: 0
   Fly: 0
+  FireballValue: 0
+  ShieldValue: 1
+  FlyValue: 0
 --- !u!4 &118128441221824881
 Transform:
   m_ObjectHideFlags: 0

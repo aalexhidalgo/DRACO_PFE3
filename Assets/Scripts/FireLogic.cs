@@ -27,7 +27,7 @@ public class FireLogic : MonoBehaviour
         if (otherTrigger.gameObject.CompareTag("Enemy"))
         {
             EnemyLogicScript = otherTrigger.gameObject.GetComponent<EnemyLogic>();
-            EnemyLogicScript.EnemyLife--;
+            EnemyLogicScript.EnemyLife-= DataPersistance.DracoState.FireballValue;
             Destroy(gameObject);
         }
 

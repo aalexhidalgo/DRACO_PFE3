@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyLogic : MonoBehaviour
 {
-    public int EnemyLife;
+    public float EnemyLife;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +15,7 @@ public class EnemyLogic : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (EnemyLife == 0)
+        if (EnemyLife <= 0)
         {
             Destroy(gameObject);
         }
