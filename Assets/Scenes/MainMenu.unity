@@ -5295,6 +5295,10 @@ MonoBehaviour:
   FireballValue: 0
   ShieldValue: 1
   FlyValue: 0
+  SoundVolume: 0
+  SoundToggle: 0
+  MusicVolume: 0
+  MusicToggle: 0
 --- !u!4 &118128441221824881
 Transform:
   m_ObjectHideFlags: 0

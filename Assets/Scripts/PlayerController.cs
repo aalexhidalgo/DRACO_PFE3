@@ -274,7 +274,7 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateShieldImage()
     {
-        if(MaxShieldValue == 1)
+        if(MaxShieldValue == 0)
         {
             GameManagerScript.ShieldImage.transform.GetChild(0).gameObject.SetActive(false);
         }

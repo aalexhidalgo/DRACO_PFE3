@@ -30,18 +30,20 @@ public class GameManager : MonoBehaviour
 
     //PauseMenuPanel
     
+    //Reinciamos el nivel en el que nos encontramos
     public void RestartButton()
     {
         SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
     }
     
-
+    //Descansito
     public void ResumeButton()
     {
         PauseMenuPanel.SetActive(false);
         pause = false;
     }
     
+    //Nos vamos del juego
     public void ExitButton()
     {
         Debug.Log("Exit");
