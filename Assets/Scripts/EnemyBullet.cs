@@ -16,13 +16,6 @@ public class EnemyBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.z < ZLimit)
-        {
-            transform.Translate(Vector3.forward * Speed * Time.deltaTime);
-        }
-        if(transform.position.z > ZLimit)
-        {
-            transform.Translate(Vector3.back * Speed * Time.deltaTime);
-        }       
+            
     }
 }

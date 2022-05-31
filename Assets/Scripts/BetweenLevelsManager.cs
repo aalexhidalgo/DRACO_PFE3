@@ -210,6 +210,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 PayMoney(propValue);
                 UpdateMoney();
                 DataPersistance.DracoState.Shield--;
+                DataPersistance.DracoState.ShieldValue ++;
 
                 DialogueText.text = "Gracias por comprar! ";
 

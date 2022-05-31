@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MaxShieldValue = DataPersistance.DracoState.ShieldValue;
+        MaxShieldValue = DataPersistance.DracoState.ShieldValue + 1;
         MaxFlyTime = DataPersistance.DracoState.FlyValue;
         MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
         GameOver = false;
@@ -274,11 +274,11 @@ public class PlayerController : MonoBehaviour
 
     public void UpdateShieldImage()
     {
-        if(MaxShieldValue == 0)
+        if(MaxShieldValue == 1)
         {
             GameManagerScript.ShieldImage.transform.GetChild(0).gameObject.SetActive(false);
         }
-        GameManagerScript.ShieldState.sprite = GameManagerScript.ShieldSprites[MaxShieldValue-1];
+        GameManagerScript.ShieldState.sprite = GameManagerScript.ShieldSprites[MaxShieldValue-2];
     }
 
     //Actualizamos el contador de monedas

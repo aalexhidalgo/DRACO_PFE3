@@ -29,7 +29,7 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.DracoState.Shield = 3;
         DataPersistance.DracoState.Fly = 2;
         DataPersistance.DracoState.FireballValue = 1f;
-        DataPersistance.DracoState.ShieldValue = 3;
+        DataPersistance.DracoState.ShieldValue = 0;
         DataPersistance.DracoState.FlyValue = 0.5f;
         DataPersistance.DracoState.SaveForFutureGames();
         SceneManager.LoadScene(CurrentLevel[DataPersistance.DracoState.CurrentLevel]);

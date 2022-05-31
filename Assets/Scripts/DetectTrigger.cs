@@ -22,12 +22,17 @@ public class DetectTrigger : MonoBehaviour
     {
         if(otherCollider.gameObject.CompareTag("Player"))
         {
+
             foreach (Animator anim in EnemyAnimator)
             {
                 anim.SetBool("Active", true);
                 //anim.SetBool("Throw", true); (medium)
-                //anim.SetBool("Blade", true); Hacer una o dos animaciones de espada random para los tochos (hard)
+                //anim.SetBool("Active_Throw", true);
             }
+
+
+
         }
     }
 }
+
