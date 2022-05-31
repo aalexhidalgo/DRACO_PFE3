@@ -36,6 +36,9 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
             DataPersistance.DracoState.ShieldValue = PlayerPrefs.GetInt("Shield_Value");
             DataPersistance.DracoState.FlyValue = PlayerPrefs.GetFloat("Fly_Value");
+            DataPersistance.DracoState.MusicVolume = PlayerPrefs.GetFloat("Music_Volume");
         }
     }
+
+    
 }

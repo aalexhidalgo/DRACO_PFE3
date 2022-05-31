@@ -10,6 +10,14 @@ public class MenuGameManager : MonoBehaviour
     //Variables
     private AudioSource GameManagerAudioSource;
     private AudioSource MainCameraAudioSource;
+
+    //Musica
+    public float SoundVolume;
+    public int SoundToggle;
+    public Slider SoundSlider;
+    public float MenuMusicVolume;
+    public int MusicToggle;
+    public Slider MusicSlider;
     //Paneles
 
     public GameObject MainMenuPanel;
@@ -68,6 +76,7 @@ public class MenuGameManager : MonoBehaviour
         OptionsPanel.SetActive(false);
         HowToPlayPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
+        DataPersistance.DracoState.SaveForFutureGames();
     }
 
     //OptionsPanel
@@ -81,6 +90,39 @@ public class MenuGameManager : MonoBehaviour
         //Audiosource
         GameManagerAudioSource = GetComponent<AudioSource>();
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+
+
+        //Update
+        UpdateGame_Music_Sound();
     }
 
+    //Updeateamos en el start los avlores de los sonidos y música (a tiempo real)
+    public void UpdateGame_Music_Sound()
+    {
+        MusicSlider.value = MenuMusicVolume;
+        MainCameraAudioSource.volume = MenuMusicVolume;
+    }
+    //SLIDER MÚSICA
+    public void UpdateMusicVolume()
+    {
+        MainCameraAudioSource.volume = MusicSlider.value;
+        DataPersistance.DracoState.MusicVolume = MusicSlider.value;
+        MenuMusicVolume = DataPersistance.DracoState.MusicVolume;
+    }
+
+    //TOGGLE MÚSICA
+    /*public void UpdateBoolToIntMusic()
+    {
+        BoolToggleMusic = BackgroundMusicToggle.GetComponent<Toggle>().isOn;
+
+        if (BoolToggleMusic == true)
+        {
+            IntToggleMusic = 1;
+        }
+        else
+        {
+            IntToggleMusic = 0;
+        }
+    }
+    */
 }
