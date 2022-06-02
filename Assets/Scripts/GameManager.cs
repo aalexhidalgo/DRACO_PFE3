@@ -25,7 +25,15 @@ public class GameManager : MonoBehaviour
     private PlayerController PlayerControllerScript;
 
     //Ajustes Player
-    private AudioSource CamaraAudosource;
+    private AudioSource GameManagerAudioSource;
+    private AudioSource MainCameraAudioSource;
+
+    public Slider MusicSlider;
+    public Toggle MusicToggle;
+
+    public Slider SoundSlider; 
+    public Toggle SoundToggle;
+
 
     //Scripts
     
@@ -72,10 +80,29 @@ public class GameManager : MonoBehaviour
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
         ShieldState = ShieldState.GetComponent<Image>();
-        CamaraAudosource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        CamaraAudosource.volume = DataPersistance.DracoState.MusicVolume;
-        Debug.Log("Empezamos");
+
+        MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        MainCameraAudioSource.volume = DataPersistance.DracoState.MusicVolume;
+        GameManagerAudioSource = GetComponent<AudioSource>();
+        GameManagerAudioSource.volume = DataPersistance.DracoState.SoundVolume;
+
+        UpdateMusicSound_Value();
     }
 
+    //Conectamos los valores de los sliders al volumen de los AudioSource
+    public void UpdateMusicSound_Value()
+    {
+        MusicSlider.value = MainCameraAudioSource.volume;
+        SoundSlider.value = GameManagerAudioSource.volume;
 
+        //DataPersistance.DracoState.MusicVolume = MusicSlider.value;
+        //DataPersistance.DracoState.SoundVolume = SoundSlider.value;
+    }
+
+    //Guardamos en Data Persistance a tiempo real el valor de los sliders
+    public void Music_Sound_Slider()
+    {
+        DataPersistance.DracoState.MusicVolume = MusicSlider.value;
+        DataPersistance.DracoState.SoundVolume = SoundSlider.value;
+    }
 }

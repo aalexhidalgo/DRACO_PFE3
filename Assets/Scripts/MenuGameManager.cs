@@ -12,11 +12,11 @@ public class MenuGameManager : MonoBehaviour
     private AudioSource MainCameraAudioSource;
 
     //Musica
-    
+
     public int SoundToggle;
     public Slider SoundSlider;
     public float MenuSoundVolume;
-    
+
     public int MusicToggle;
 
     public Slider MusicSlider;
@@ -54,7 +54,7 @@ public class MenuGameManager : MonoBehaviour
         else
         {
             SceneManager.LoadScene("Store");
-        }        
+        }
     }
 
     #region MenuButtons
@@ -95,29 +95,17 @@ public class MenuGameManager : MonoBehaviour
         //Audiosource
         MenuGameManagerAudioSource = GetComponent<AudioSource>();
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        MenuGameManagerAudioSource.Stop();
 
-
-        //Update
-        UpdateGame_Music_Sound();
     }
 
-    //Updeateamos en el start los valores de los sonidos y música (a tiempo real)
-    public void UpdateGame_Music_Sound() //esta funcion mete en el el slider y en el audiosource el valor de la variable MenuMusicVolume
-    {
-        MusicSlider.value = MenuMusicVolume;
-        MainCameraAudioSource.volume = MenuMusicVolume;
-        Debug.Log($"La musica vale : {MenuMusicVolume}");
-        //Meter sonido
-    }
     //SLIDER MÚSICA
-   /*public void UpdateMusicVolume()
+    public void UpdateMusicVolume()
     {
         MainCameraAudioSource.volume = MusicSlider.value;
         DataPersistance.DracoState.MusicVolume = MusicSlider.value;
         MenuMusicVolume = DataPersistance.DracoState.MusicVolume;
     }
-   */
-
 
     //TOGGLE MÚSICA
     /*public void UpdateBoolToIntMusic()
@@ -135,7 +123,7 @@ public class MenuGameManager : MonoBehaviour
     }
     */
 
-    //SLIDER MÚSICA
+    //SLIDER SONIDO
     public void UpdateSoundVolume()
     {
         MenuGameManagerAudioSource.volume = SoundSlider.value;
@@ -144,4 +132,19 @@ public class MenuGameManager : MonoBehaviour
     }
 
     //TOGGLE SONIDO
+
+    /*public void UpdateBoolToIntMusic()
+    {
+        BoolToggleMusic = BackgroundMusicToggle.GetComponent<Toggle>().isOn;
+
+        if (BoolToggleMusic == true)
+        {
+            IntToggleMusic = 1;
+        }
+        else
+        {
+            IntToggleMusic = 0;
+        }
+    }
+    */
 }

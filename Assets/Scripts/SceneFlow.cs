@@ -41,6 +41,11 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.DracoState.SoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
 
             MenuGameManagerScript.MenuMusicVolume = PlayerPrefs.GetFloat("Music_Volume");
+            MenuGameManagerScript.MusicSlider.value = MenuGameManagerScript.MenuMusicVolume;
+            MenuGameManagerScript.MenuSoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
+            MenuGameManagerScript.SoundSlider.value = MenuGameManagerScript.MenuSoundVolume;
+
+           
         }
     }
 

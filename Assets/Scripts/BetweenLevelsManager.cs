@@ -45,6 +45,12 @@ public class BetweenLevelsManager : MonoBehaviour
 
     private float Increment = 0.25f;
 
+    //Musica y sonido (voz del vendedor cuando te habla)
+    private AudioSource MainCameraAudioSource;
+    private AudioSource BetweenLevelsManagerAudioSource;
+
+    public Animator VendedorAnim;
+
     private void Awake()
     {
         DialogoList.Add(DA1);
@@ -62,6 +68,12 @@ public class BetweenLevelsManager : MonoBehaviour
         MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
         DataPersistance.DracoState.Storedone = 0;
         DataPersistance.DracoState.SaveForFutureGames();
+
+        MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        MainCameraAudioSource.volume = DataPersistance.DracoState.MusicVolume;
+        BetweenLevelsManagerAudioSource = GetComponent<AudioSource>();
+        BetweenLevelsManagerAudioSource.volume = DataPersistance.DracoState.SoundVolume;
+        BetweenLevelsManagerAudioSource.Stop();
     }
 
     #region Borrar
@@ -125,6 +137,8 @@ public class BetweenLevelsManager : MonoBehaviour
         {
             DialogueImage.SetActive(true);
             StartCoroutine(Letters());
+
+            VendedorAnim.SetBool("Talk", true);
         }  
     }
 
@@ -138,9 +152,11 @@ public class BetweenLevelsManager : MonoBehaviour
             if (CurrentDialogueText >= DA1.Length)
             {
                 DialogueImage.SetActive(false);
+
                 Attack_Image.SetActive(true);
                 Defense_Image.SetActive(true);
                 Boost_Image.SetActive(true);
+                BetweenLevelsManagerAudioSource.Stop();
 
                 foreach (ParticleSystem Particulas in EntranceParticleSystem)
                 {
@@ -152,6 +168,8 @@ public class BetweenLevelsManager : MonoBehaviour
             {
                 DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel - 1][CurrentDialogueText];
                 StartCoroutine(Letters());
+                BetweenLevelsManagerAudioSource.Play();
+                VendedorAnim.SetBool("Talk", true);
             }
         }
         
