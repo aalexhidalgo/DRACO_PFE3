@@ -8,11 +8,11 @@ using TMPro;
 public class MenuGameManager : MonoBehaviour
 {
     //Variables
-    private AudioSource GameManagerAudioSource;
+    private AudioSource MenuGameManagerAudioSource;
     private AudioSource MainCameraAudioSource;
 
     //Musica
-    public float SoundVolume;
+    public float MenuSoundVolume;
     public int SoundToggle;
     public Slider SoundSlider;
     public float MenuMusicVolume;
@@ -88,7 +88,7 @@ public class MenuGameManager : MonoBehaviour
         HowToPlayPanel.SetActive(false);
 
         //Audiosource
-        GameManagerAudioSource = GetComponent<AudioSource>();
+        MenuGameManagerAudioSource = GetComponent<AudioSource>();
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
 
 
@@ -96,11 +96,13 @@ public class MenuGameManager : MonoBehaviour
         UpdateGame_Music_Sound();
     }
 
-    //Updeateamos en el start los avlores de los sonidos y música (a tiempo real)
+    //Updeateamos en el start los valores de los sonidos y música (a tiempo real)
     public void UpdateGame_Music_Sound()
     {
+        MenuMusicVolume = DataPersistance.DracoState.MusicVolume;
         MusicSlider.value = MenuMusicVolume;
         MainCameraAudioSource.volume = MenuMusicVolume;
+        //Meter sonido
     }
     //SLIDER MÚSICA
     public void UpdateMusicVolume()
@@ -125,4 +127,14 @@ public class MenuGameManager : MonoBehaviour
         }
     }
     */
+
+    //SLIDER MÚSICA
+    public void UpdateSoundVolume()
+    {
+        MenuGameManagerAudioSource.volume = SoundSlider.value;
+        DataPersistance.DracoState.SoundVolume = SoundSlider.value;
+        MenuSoundVolume = DataPersistance.DracoState.SoundVolume;
+    }
+
+    //TOGGLE SONIDO
 }
