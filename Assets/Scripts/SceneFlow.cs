@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class SceneFlow : MonoBehaviour
 {
-
+    private MenuGameManager MenuGameManagerScript;
     private void Start()
     {
+        MenuGameManagerScript = GameObject.Find("MenuGameManager").GetComponent<MenuGameManager>();
         LoadUserOptions();
     }
 
@@ -38,6 +39,8 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.DracoState.FlyValue = PlayerPrefs.GetFloat("Fly_Value");
             DataPersistance.DracoState.MusicVolume = PlayerPrefs.GetFloat("Music_Volume");
             DataPersistance.DracoState.SoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
+
+            MenuGameManagerScript.MenuMusicVolume = PlayerPrefs.GetFloat("Music_Volume");
         }
     }
 

@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     private int NumberOfCoins;
     private PlayerController PlayerControllerScript;
 
+    //Ajustes Player
+    private AudioSource CamaraAudosource;
+
     //Scripts
     
 
@@ -69,6 +72,9 @@ public class GameManager : MonoBehaviour
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
         ShieldState = ShieldState.GetComponent<Image>();
+        CamaraAudosource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        CamaraAudosource.volume = DataPersistance.DracoState.MusicVolume;
+        Debug.Log("Empezamos");
     }
 
 

@@ -734,6 +734,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 799658590}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: set_volume
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &275784007
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1695,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2035425164}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: OptionsButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2035425164}
+        m_TargetAssemblyTypeName: MenuGameManager, Assembly-CSharp
+        m_MethodName: UpdateGame_Music_Sound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4562,12 +4586,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd364a0cf4e85e48bac53a52b8de005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SoundVolume: 0
   SoundToggle: 0
   SoundSlider: {fileID: 524502501}
-  MusicVolume: 0
+  MenuSoundVolume: 0
   MusicToggle: 0
   MusicSlider: {fileID: 167120231}
+  MenuMusicVolume: 0
   MainMenuPanel: {fileID: 1137674700}
   OptionsPanel: {fileID: 1652078037}
   HowToPlayPanel: {fileID: 1332321896}

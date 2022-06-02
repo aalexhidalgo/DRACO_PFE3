@@ -12,12 +12,15 @@ public class MenuGameManager : MonoBehaviour
     private AudioSource MainCameraAudioSource;
 
     //Musica
-    public float MenuSoundVolume;
+    
     public int SoundToggle;
     public Slider SoundSlider;
-    public float MenuMusicVolume;
+    public float MenuSoundVolume;
+    
     public int MusicToggle;
+
     public Slider MusicSlider;
+    public float MenuMusicVolume;
     //Paneles
 
     public GameObject MainMenuPanel;
@@ -53,6 +56,8 @@ public class MenuGameManager : MonoBehaviour
             SceneManager.LoadScene("Store");
         }        
     }
+
+    #region MenuButtons
     public void HowToPlayButton()
     {
         MainMenuPanel.SetActive(false);
@@ -78,7 +83,7 @@ public class MenuGameManager : MonoBehaviour
         MainMenuPanel.SetActive(true);
         DataPersistance.DracoState.SaveForFutureGames();
     }
-
+    #endregion
     //OptionsPanel
 
     void Start()
@@ -97,20 +102,22 @@ public class MenuGameManager : MonoBehaviour
     }
 
     //Updeateamos en el start los valores de los sonidos y música (a tiempo real)
-    public void UpdateGame_Music_Sound()
+    public void UpdateGame_Music_Sound() //esta funcion mete en el el slider y en el audiosource el valor de la variable MenuMusicVolume
     {
-        MenuMusicVolume = DataPersistance.DracoState.MusicVolume;
         MusicSlider.value = MenuMusicVolume;
         MainCameraAudioSource.volume = MenuMusicVolume;
+        Debug.Log($"La musica vale : {MenuMusicVolume}");
         //Meter sonido
     }
     //SLIDER MÚSICA
-    public void UpdateMusicVolume()
+   /*public void UpdateMusicVolume()
     {
         MainCameraAudioSource.volume = MusicSlider.value;
         DataPersistance.DracoState.MusicVolume = MusicSlider.value;
         MenuMusicVolume = DataPersistance.DracoState.MusicVolume;
     }
+   */
+
 
     //TOGGLE MÚSICA
     /*public void UpdateBoolToIntMusic()
