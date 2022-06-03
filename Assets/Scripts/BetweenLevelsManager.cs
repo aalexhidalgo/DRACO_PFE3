@@ -226,7 +226,7 @@ public class BetweenLevelsManager : MonoBehaviour
             Color.a = AlphaValue;
             CartelImage.color = Color;
             AlphaValue += 0.1f;
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.075f);
         }
 
     }
