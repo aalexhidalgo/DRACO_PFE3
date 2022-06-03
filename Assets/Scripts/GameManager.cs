@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     public Slider SoundSlider; 
     public Toggle SoundToggle;
 
+    public Image PauseButton;
+    public Sprite UnPause;
+    public Sprite Pause;
 
     //Scripts
     
@@ -52,6 +55,7 @@ public class GameManager : MonoBehaviour
     {
         PauseMenuPanel.SetActive(false);
         pause = false;
+        PauseButton.sprite = UnPause;
     }
     
     //Nos vamos del juego
@@ -67,19 +71,17 @@ public class GameManager : MonoBehaviour
         {
             PauseMenuPanel.SetActive(true);
             pause = true;
-        }
-        else
-        {
-            PauseMenuPanel.SetActive(false);
-            pause = false;
+            PauseButton.sprite = Pause;
         }
     }
+
     void Start()
     {
         MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
         ShieldState = ShieldState.GetComponent<Image>();
+
 
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MainCameraAudioSource.volume = DataPersistance.DracoState.MusicVolume;

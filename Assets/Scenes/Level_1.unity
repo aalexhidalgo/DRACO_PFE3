@@ -2259,7 +2259,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1644564491
@@ -2826,9 +2826,41 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 775411997}
     - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Transition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 775411997}
+    - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 775411997}
+    - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: PlayState
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: GameManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059776745070, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 1000717060089435474, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3063,6 +3095,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1000717061220203945 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1000717059776745071, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+  m_PrefabInstance: {fileID: 1000717061220203942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &4166008306657048921
@@ -26868,9 +26911,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8742365305516347498, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
+      propertyPath: Pause
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ce235aebbbe00643b217691f1a30b3e, type: 3}
+    - target: {fileID: 8742365305516347498, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
       propertyPath: Flybar
       value: 
       objectReference: {fileID: 1806067021}
+    - target: {fileID: 8742365305516347498, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
+      propertyPath: UnPause
+      value: 
+      objectReference: {fileID: 21300000, guid: 5db07de25d779854cb64f27bd3f5b931, type: 3}
     - target: {fileID: 8742365305516347498, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
       propertyPath: LifeImage
       value: 
@@ -26883,6 +26934,10 @@ PrefabInstance:
       propertyPath: MusicSlider
       value: 
       objectReference: {fileID: 1000717061220203944}
+    - target: {fileID: 8742365305516347498, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
+      propertyPath: PauseButton
+      value: 
+      objectReference: {fileID: 1000717061220203945}
     - target: {fileID: 8742365305516347498, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
       propertyPath: ShieldImage
       value: 

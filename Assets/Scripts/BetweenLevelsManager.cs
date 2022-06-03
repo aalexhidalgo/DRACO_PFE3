@@ -51,6 +51,11 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public Animator VendedorAnim;
 
+    //Imgágenes de Fuera de Stock
+    public GameObject FueradeStock_Fireball;
+    public GameObject FueradeStock_Shield;
+    public GameObject FueradeStock_Fly;
+
     private void Awake()
     {
         DialogoList.Add(DA1);
@@ -74,6 +79,20 @@ public class BetweenLevelsManager : MonoBehaviour
         BetweenLevelsManagerAudioSource = GetComponent<AudioSource>();
         BetweenLevelsManagerAudioSource.volume = DataPersistance.DracoState.SoundVolume;
         BetweenLevelsManagerAudioSource.Stop();
+
+        if(DataPersistance.DracoState.Fireball == 0)
+        {
+            FueradeStock_Fireball.SetActive(true);
+        }
+        if(DataPersistance.DracoState.Shield == 0)
+        {
+            FueradeStock_Shield.SetActive(true);
+        }
+        if(DataPersistance.DracoState.Fly == 0)
+        {
+            FueradeStock_Fly.SetActive(true);
+        }
+
     }
 
     #region Borrar
@@ -192,13 +211,31 @@ public class BetweenLevelsManager : MonoBehaviour
         }
 
         DialogueAnimDone = true;
+        VendedorAnim.SetBool("Talk", false);
+    }
+
+    //Aparición del Cartel de Fuera de Stock
+    private IEnumerator FadeIn(GameObject Cartel)
+    {
+        float AlphaValue = 0;
+        Image CartelImage = Cartel.GetComponent<Image>();
+        Color Color = CartelImage.color;
+
+        while (AlphaValue <= 1)
+        {
+            Color.a = AlphaValue;
+            CartelImage.color = Color;
+            AlphaValue += 0.1f;
+            yield return new WaitForSeconds(1);
+        }
+
     }
 
     public void YesButton_1()
     {
         if(DialogueAnimDone == true)
         {
-            if (DataPersistance.DracoState.MoneyCounter >= propValue)
+            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fireball > 0)
             {
                 PayMoney(propValue);
                 UpdateMoney();
@@ -208,8 +245,12 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.DracoState.Fireball == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab"));
+                    StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab", FueradeStock_Fireball));
                 }
+            }
+            else if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fireball <= 0)
+            {
+                DialogueText.text = "Viva méxico ay ay ay ay";
             }
             else
             {
@@ -223,7 +264,7 @@ public class BetweenLevelsManager : MonoBehaviour
         if (DialogueAnimDone == true)
         {
 
-            if (DataPersistance.DracoState.MoneyCounter >= propValue)
+            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Shield > 0)
             {
                 PayMoney(propValue);
                 UpdateMoney();
@@ -234,9 +275,13 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.DracoState.Shield == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab")); //Hacer 3D
+                    StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab", FueradeStock_Shield)); //Hacer 3D
                 }
 
+            }
+            else if(DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Shield <= 0)
+            {
+                DialogueText.text = "No quedan gusilus ninio";
             }
             else
             {
@@ -249,7 +294,7 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         if (DialogueAnimDone == true)
         {
-            if (DataPersistance.DracoState.MoneyCounter >= propValue)
+            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fly > 0)
             {
                 PayMoney(propValue);
                 UpdateMoney();
@@ -259,8 +304,12 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.DracoState.Fly == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos3, "Nube_prefab")); //Hacer 3D
+                    StartCoroutine(YesButtonCoroutine(Pos3, "Nube_prefab", FueradeStock_Fly)); //Hacer 3D
                 }
+            }
+            else if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fly <= 0)
+            {
+                DialogueText.text = "No quedan papas ninio";
             }
             else
             {
@@ -270,7 +319,7 @@ public class BetweenLevelsManager : MonoBehaviour
     }
 
     //Si compramos algo blablabla
-    public IEnumerator YesButtonCoroutine(Vector3 Position, string Prefab)
+    public IEnumerator YesButtonCoroutine(Vector3 Position, string Prefab, GameObject Image)
     {
         float Timer = 1.5f;
         //Restar monedas(PlayerController), recoger item, instanciar partículas y minimizar alpha imagen a través de animación???
@@ -278,6 +327,9 @@ public class BetweenLevelsManager : MonoBehaviour
         yield return new WaitForSeconds(Timer);
         //Destruir el objeto como si lo hubieras seleccionado
         Destroy(GameObject.Find(Prefab));
+        //Mostramos la imagen de Fuera de Stock
+        Image.SetActive(true);
+        StartCoroutine(FadeIn(Image));
     }
 
     public void NoButton()
@@ -292,15 +344,25 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         if (DialogueAnimDone == true)
         {
-            propValue = 75;
-            DialogueImage.SetActive(true);
-            DialogueText.text = $"MMM, BUENA ELECCION...! INCREMENTA EL ATAQUE BASICO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-            StartCoroutine(Letters());
-            Next.SetActive(false);
-            Yes_2.SetActive(false);
-            Yes_3.SetActive(false);
-            Yes_1.SetActive(true);
-            No.SetActive(true);
+            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fireball <= 0)
+            {
+                DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
+            }
+
+            else
+            {
+                propValue = 75;
+                VendedorAnim.SetBool("Talk", true);
+                DialogueImage.SetActive(true);
+                DialogueText.text = $"MMM, BUENA ELECCION...! INCREMENTA EL ATAQUE BASICO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
+                StartCoroutine(Letters());
+                Next.SetActive(false);
+                Yes_2.SetActive(false);
+                Yes_3.SetActive(false);
+                Yes_1.SetActive(true);
+                No.SetActive(true);
+            }
+            
         }
     }
 
@@ -308,30 +370,49 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         if (DialogueAnimDone == true)
         {
-            propValue = 50;
-            DialogueImage.SetActive(true);
-            DialogueText.text = $"GRAN DEFENSA! INCREMENTA LA DEFENSA BASICA EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-            StartCoroutine(Letters());
-            Next.SetActive(false);
-            Yes_1.SetActive(false);
-            Yes_3.SetActive(false);
-            Yes_2.SetActive(true);
-            No.SetActive(true);
+            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Shield <= 0)
+            {
+                DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
+            }
+
+            else
+            {
+                propValue = 50;
+                VendedorAnim.SetBool("Talk", true);
+                DialogueImage.SetActive(true);
+                DialogueText.text = $"GRAN DEFENSA! INCREMENTA LA DEFENSA BASICA EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
+                StartCoroutine(Letters());
+                Next.SetActive(false);
+                Yes_1.SetActive(false);
+                Yes_3.SetActive(false);
+                Yes_2.SetActive(true);
+                No.SetActive(true);
+            }  
         }
     }
     public void BoostStat_3()
     {
         if (DialogueAnimDone == true)
         {
-            propValue = 100;
-            DialogueImage.SetActive(true);
-            DialogueText.text = $"HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-            StartCoroutine(Letters());
-            Next.SetActive(false);
-            Yes_1.SetActive(false);
-            Yes_2.SetActive(false);
-            Yes_3.SetActive(true);
-            No.SetActive(true);
+            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fly <= 0)
+            {
+                DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
+            }
+
+            else
+            {
+                propValue = 100;
+                VendedorAnim.SetBool("Talk", true);
+                DialogueImage.SetActive(true);
+                DialogueText.text = $"HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
+                StartCoroutine(Letters());
+                Next.SetActive(false);
+                Yes_1.SetActive(false);
+                Yes_2.SetActive(false);
+                Yes_3.SetActive(true);
+                No.SetActive(true);
+            }   
+
         }
     }
 
