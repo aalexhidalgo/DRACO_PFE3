@@ -66,7 +66,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameOver == false)
+        if(GameOver == false || GameManagerScript.pause == false)
         {
             //Controladores principales de DRACO
 
@@ -220,22 +220,37 @@ public class PlayerController : MonoBehaviour
         }
 
         //Daño de los enemigos al jugador (proyectil)
-        if (otherTrigger.gameObject.CompareTag("EnemyDamage"))
+        if (otherTrigger.gameObject.CompareTag("Bullet") && Shield == 1)
+        {
+            MaxShieldValue -= 1;
+            if (MaxShieldValue <= 0)
+            {
+                Shield = 0;
+                UpdateShield();
+                Debug.Log("Te quedas sin escudo crack");
+            }
+            else
+            {
+                UpdateShieldImage();
+            }
+        }
+
+        if (otherTrigger.gameObject.CompareTag("Bullet") && Shield == 0)
         {
             Destroy(otherTrigger.gameObject);
             CurrentLive -= 0.5f;
-            Debug.Log($"Tienes {CurrentLive} vidas, crack");
 
             if (CurrentLive <= 0)
             {
                 CurrentLive = 0;
-                Debug.Log("Sa matao Paco");
+                Debug.Log("Quack, quack, quack...");
                 GameOver = true;
                 GameOverPanel.SetActive(true);
             }
 
             UpdateLife();
         }
+
 
         //Si recogemos una nube, permite volar al jugador
         if (otherTrigger.gameObject.CompareTag("Cloud"))
@@ -251,6 +266,8 @@ public class PlayerController : MonoBehaviour
             UpdateShield();
             Destroy(otherTrigger.gameObject);
         }
+
+        
     }
 
     //Actualizamos la imagen según la vida del jugador
@@ -278,7 +295,10 @@ public class PlayerController : MonoBehaviour
         {
             GameManagerScript.ShieldImage.transform.GetChild(0).gameObject.SetActive(false);
         }
-        GameManagerScript.ShieldState.sprite = GameManagerScript.ShieldSprites[MaxShieldValue-2];
+        else
+        {
+            GameManagerScript.ShieldState.sprite = GameManagerScript.ShieldSprites[MaxShieldValue - 2];
+        }       
     }
 
     //Actualizamos el contador de monedas

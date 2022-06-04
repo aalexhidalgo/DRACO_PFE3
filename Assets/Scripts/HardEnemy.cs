@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class HardEnemy : MonoBehaviour
 {
 
     public GameObject Bullet;
@@ -14,13 +14,18 @@ public class EnemyBullet : MonoBehaviour
     [SerializeField] private LayerMask PlayerLayer;
 
     private float ForwardForce = 8f;
-    private float UpForce = 5f;
+    private float UpForce = 7f;
     private bool CanAttack = true;
+
+    //Script
+
+    private GameManager GameManagerScript;
 
     // Start is called before the first frame update
     void Start()
     {
         BulletPoint = GameObject.Find("BulletPoint");
+        GameManagerScript = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -37,12 +42,22 @@ public class EnemyBullet : MonoBehaviour
         {
             HardEnemyAnim.SetBool("Throw", false);
         }
+
+        if(GameManagerScript.pause == false)
+        {
+            HardEnemyAnim.SetBool("Throw", true);
+        }
+
+        if(GameManagerScript.pause == true)
+        {
+            HardEnemyAnim.SetBool("Throw", false);
+        }
     }
 
     public void Attack()
     {
         Quaternion BulletRotation = Quaternion.Euler(0f, 90f, 0f);
-        if (CanAttack)
+        if (CanAttack && GameManagerScript.pause == false)
         {
             // Disparamos bala con físicas
             HardEnemyAnim.SetBool("Throw", true);

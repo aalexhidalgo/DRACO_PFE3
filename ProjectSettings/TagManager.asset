@@ -16,6 +16,7 @@ TagManager:
   - Rock
   - Spike
   - Shield
+  - Bullet
   layers:
   - Default
   - TransparentFX

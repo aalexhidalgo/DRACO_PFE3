@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 {
     //Paneles
     public GameObject PauseMenuPanel;
-    private bool pause = false;
+    public bool pause = false;
 
     //Contadores y movidas de los props
     public Image LifeImage;
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
     public Sprite Pause;
 
     //Scripts
+    
     
 
 

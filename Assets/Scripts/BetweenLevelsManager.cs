@@ -174,24 +174,36 @@ public class BetweenLevelsManager : MonoBehaviour
 
             if (CurrentDialogueText >= DA1.Length)
             {
-                DialogueImage.SetActive(false);
-
-                Attack_Image.SetActive(true);
-                Defense_Image.SetActive(true);
-                Boost_Image.SetActive(true);
+                DialogueImage.SetActive(false);               
                 BetweenLevelsManagerAudioSource.Stop();
 
-                if(DataPersistance.DracoState.Fireball > 0)
+                if (DataPersistance.DracoState.Fireball <= 0)
+                {
+                    StartCoroutine(FadeIn(FueradeStock_Fireball));
+                }
+                if (DataPersistance.DracoState.Shield <= 0)
+                {
+                    StartCoroutine(FadeIn(FueradeStock_Shield));
+                }
+                if (DataPersistance.DracoState.Fly <= 0)
+                {
+                    StartCoroutine(FadeIn(FueradeStock_Fly));
+                }
+
+                if (DataPersistance.DracoState.Fireball > 0)
                 {
                     EntranceParticleSystem[0].Play();
+                    Attack_Image.SetActive(true);
                 }
                 if(DataPersistance.DracoState.Shield > 0)
                 {
                     EntranceParticleSystem[1].Play();
+                    Defense_Image.SetActive(true);
                 }
                 if(DataPersistance.DracoState.Fly > 0)
                 {
                     EntranceParticleSystem[2].Play();
+                    Boost_Image.SetActive(true);
                 }
                 
             }
@@ -229,7 +241,8 @@ public class BetweenLevelsManager : MonoBehaviour
     //Aparición del Cartel de Fuera de Stock
     private IEnumerator FadeIn(GameObject Cartel)
     {
-        float AlphaValue = 0;
+        
+        float AlphaValue = 0;       
         Image CartelImage = Cartel.GetComponent<Image>();
         Color Color = CartelImage.color;
 
@@ -341,7 +354,7 @@ public class BetweenLevelsManager : MonoBehaviour
         yield return new WaitForSeconds(Timer);
         //Destruir el objeto como si lo hubieras seleccionado
         Destroy(GameObject.Find(Prefab));
-        //Mostramos la imagen de Fuera de Stock
+        //Mostramos la imagen de Fuera de Stock    
         Image.SetActive(true);
         StartCoroutine(FadeIn(Image));
     }
