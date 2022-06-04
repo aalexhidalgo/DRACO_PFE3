@@ -34,9 +34,9 @@ public class BetweenLevelsManager : MonoBehaviour
     //Partículas
     public ParticleSystem[] EntranceParticleSystem;
     public ParticleSystem ChooseParticleSystem;
-    private Vector3 Pos1 = new Vector3(-435f, 183.899994f, 675.330017f);
-    private Vector3 Pos2 = new Vector3(-17.60001f, 183.899994f, 675.330017f);
-    private Vector3 Pos3 = new Vector3(423.2f, 183.899994f, 675.330017f);
+    private Vector3 Pos1 = new Vector3(-661.599976f, 61.5999756f, 711.400024f);
+    private Vector3 Pos2 = new Vector3(-250f, 57f, 711.400024f);
+    private Vector3 Pos3 = new Vector3(150f, 57f, 711.400024f);
 
 
     //Money
@@ -83,15 +83,19 @@ public class BetweenLevelsManager : MonoBehaviour
         if(DataPersistance.DracoState.Fireball == 0)
         {
             FueradeStock_Fireball.SetActive(true);
+            Attack_Image.SetActive(false);
         }
         if(DataPersistance.DracoState.Shield == 0)
         {
             FueradeStock_Shield.SetActive(true);
+            Defense_Image.SetActive(false);
         }
         if(DataPersistance.DracoState.Fly == 0)
         {
             FueradeStock_Fly.SetActive(true);
+            Boost_Image.SetActive(false);
         }
+
 
     }
 
@@ -177,11 +181,19 @@ public class BetweenLevelsManager : MonoBehaviour
                 Boost_Image.SetActive(true);
                 BetweenLevelsManagerAudioSource.Stop();
 
-                foreach (ParticleSystem Particulas in EntranceParticleSystem)
+                if(DataPersistance.DracoState.Fireball > 0)
                 {
-                    Particulas.Play();
+                    EntranceParticleSystem[0].Play();
                 }
-
+                if(DataPersistance.DracoState.Shield > 0)
+                {
+                    EntranceParticleSystem[1].Play();
+                }
+                if(DataPersistance.DracoState.Fly > 0)
+                {
+                    EntranceParticleSystem[2].Play();
+                }
+                
             }
             else
             {
@@ -220,6 +232,8 @@ public class BetweenLevelsManager : MonoBehaviour
         float AlphaValue = 0;
         Image CartelImage = Cartel.GetComponent<Image>();
         Color Color = CartelImage.color;
+
+        yield return new WaitForSeconds(0.5f);
 
         while (AlphaValue <= 1)
         {
@@ -275,7 +289,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.DracoState.Shield == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab", FueradeStock_Shield)); //Hacer 3D
+                    StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab", FueradeStock_Shield));
                 }
 
             }
@@ -304,7 +318,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.DracoState.Fly == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos3, "Nube_prefab", FueradeStock_Fly)); //Hacer 3D
+                    StartCoroutine(YesButtonCoroutine(Pos3, "Cloud_prefab", FueradeStock_Fly));
                 }
             }
             else if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fly <= 0)
