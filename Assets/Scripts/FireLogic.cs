@@ -29,7 +29,7 @@ public class FireLogic : MonoBehaviour
         {
             EnemyLogicScript = otherTrigger.gameObject.GetComponent<EnemyLogic>();
             EnemyLogicScript.EnemyLife-= DataPersistance.DracoState.FireballValue;
-            Instantiate(SmokeParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+            //Instantiate(SmokeParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
 
