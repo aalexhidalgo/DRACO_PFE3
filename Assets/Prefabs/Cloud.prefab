@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 2401258070017412233}
   - component: {fileID: 483587444369619011}
   - component: {fileID: 6574155774011094274}
+  - component: {fileID: 4587716425124416424}
   m_Layer: 0
   m_Name: Cloud
-  m_TagString: Untagged
+  m_TagString: Cloud
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2141162864249067926}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 924.74615, y: 846.54486, z: -2533.5342}
-  m_LocalScale: {x: 644.6401, y: 644.83356, z: 4038.769}
+  m_LocalScale: {x: 7.2085686, y: 7.2085686, z: 41.95724}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,4 +96,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3843850c6ba115743a768adaf6ff0761, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpinSpeed: 5
+  SpinSpeed: 70
+--- !u!65 &4587716425124416424
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2141162864249067926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.22117949, y: 0.15952751, z: 0.0088764895}
+  m_Center: {x: 4.107587e-18, y: 0, z: 0.00046840153}

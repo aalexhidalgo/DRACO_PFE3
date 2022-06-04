@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8468458233046930393}
   - component: {fileID: 4767581856762797180}
   - component: {fileID: 7335569093239597238}
+  - component: {fileID: 4140233188863990251}
+  - component: {fileID: 4285433480682870532}
   m_Layer: 0
   m_Name: Escudo
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,9 +27,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9137189333643479395}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 926.55133, y: 838.2253, z: -2535.4333}
-  m_LocalScale: {x: 1, y: 1, z: 3.5}
+  m_LocalScale: {x: 7.2085686, y: 7.2085686, z: 41.95724}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,3 +84,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4140233188863990251
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137189333643479395}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.14388661, y: 0.17716087, z: 0.009120516}
+  m_Center: {x: 3.9197475e-18, y: 0, z: 0.000572265}
+--- !u!114 &4285433480682870532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9137189333643479395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3843850c6ba115743a768adaf6ff0761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpinSpeed: 70

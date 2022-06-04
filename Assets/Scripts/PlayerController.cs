@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     private float HorizontalInput;
 
     private float YRotationLimit = 90;
-    private float SkyLimit = 15f;
+    private float SkyLimit = 16.5f;
 
     private Rigidbody DracoRigidbody;
     private Vector3 NewGravity = new Vector3 (0f, -29.4f, 0f);
@@ -132,6 +132,19 @@ public class PlayerController : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Ground"))
         {
             IsOnTheGround = true;
+        }
+
+        if (otherCollider.gameObject.CompareTag("Wall"))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        }
+
+        if(otherCollider.gameObject.CompareTag("Lava") || otherCollider.gameObject.CompareTag("Water"))
+        {
+            CurrentLive = 0;
+            UpdateLife();
+            GameOver = true;
+            GameOverPanel.SetActive(true);
         }
 
         //Si jugador pierde vida si colisiona contra un enemigo

@@ -17,6 +17,8 @@ TagManager:
   - Spike
   - Shield
   - Bullet
+  - Water
+  - Lava
   layers:
   - Default
   - TransparentFX
