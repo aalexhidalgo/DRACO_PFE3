@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 540460325747511163}
   - component: {fileID: 540460325747511140}
   - component: {fileID: 540460325747511141}
-  - component: {fileID: 540460325747511142}
+  - component: {fileID: 5036727555357407698}
   m_Layer: 0
   m_Name: Fuego_sprite_2D
   m_TagString: Untagged
@@ -117,7 +117,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.000001, y: 4, z: 0.20000005}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &540460325747511142
+--- !u!114 &5036727555357407698
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,11 +126,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 540460325747511143}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f756dae709441134aab1a1a74872f30f, type: 3}
+  m_Script: {fileID: 11500000, guid: e6578975af2a0034dba545c2d7e600a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
-  RockParticleSystem: {fileID: 1832354522556379478, guid: 6e949a3b9a990de4783c68fa9b89db99, type: 3}
   DamageParticleSystem: {fileID: 4834642325656029573, guid: 47eb92b846e449f4e8d917ff150cdc6d, type: 3}
 --- !u!1 &5886955339636028956
 GameObject:

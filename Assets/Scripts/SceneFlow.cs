@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public class SceneFlow : MonoBehaviour
 {
     private MenuGameManager MenuGameManagerScript;
+    //private GameManager GameManagerScript;
     private void Start()
     {
         MenuGameManagerScript = GameObject.Find("MenuGameManager").GetComponent<MenuGameManager>();
+        //GameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         LoadUserOptions();
     }
 
@@ -18,6 +20,7 @@ public class SceneFlow : MonoBehaviour
         {
             DataPersistance.DracoState.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
             DataPersistance.DracoState.CurrentLevel++;
+
             DataPersistance.DracoState.SaveForFutureGames();
 
             SceneManager.LoadScene("Store");
@@ -64,7 +67,7 @@ public class SceneFlow : MonoBehaviour
             {
                 MenuGameManagerScript.SoundToggle.isOn = true;
             }
-           
+
         }
     }
 

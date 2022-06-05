@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         PauseMenuPanel.SetActive(false);
         pause = false;
         PauseButton.sprite = UnPause;
+        DataPersistance.DracoState.SaveForFutureGames();
     }
     
     //Nos vamos del juego
@@ -143,5 +144,27 @@ public class GameManager : MonoBehaviour
     {
         DataPersistance.DracoState.MusicVolume = MusicSlider.value;
         DataPersistance.DracoState.SoundVolume = SoundSlider.value;
+    }
+
+    //Guardamos en Data Persistance a tiempo real el valor de los toggles
+    public void Music_Sound_Toggle()
+    {
+        if (MusicToggle.isOn == false)
+        {
+            DataPersistance.DracoState.MusicToggle = 0;
+        }
+        else
+        {
+            DataPersistance.DracoState.MusicToggle = 1;
+        }
+
+        if (SoundToggle.isOn == false)
+        {
+            DataPersistance.DracoState.SoundToggle = 0;
+        }
+        else
+        {
+            DataPersistance.DracoState.SoundToggle = 1;
+        }
     }
 }
