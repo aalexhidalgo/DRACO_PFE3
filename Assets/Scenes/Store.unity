@@ -1553,7 +1553,10 @@ MonoBehaviour:
   - {fileID: 1855452665}
   ChooseParticleSystem: {fileID: 4340520561674835812, guid: 94bcd7fa4c3f4f24e9a2434e59d16373, type: 3}
   MoneyText: {fileID: 438987773}
+  Money: {fileID: 8300000, guid: 31949cd817879d74ba2b7699205e6ff0, type: 3}
   VendedorAnim: {fileID: 388064237}
+  VendedorImage: {fileID: 388064235}
+  VendedorDespierto: {fileID: 21300000, guid: 55c86e4176709804cad3c021b39224ce, type: 3}
   FueradeStock_Fireball: {fileID: 853386642}
   FueradeStock_Shield: {fileID: 1804512313}
   FueradeStock_Fly: {fileID: 1329466971}

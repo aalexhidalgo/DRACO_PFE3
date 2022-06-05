@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8742365305516347500
+--- !u!1 &7748877895018057602
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8742365305516347499}
-  - component: {fileID: 8742365305516347498}
-  - component: {fileID: 8745281840348575795}
+  - component: {fileID: 592125457090031571}
+  - component: {fileID: 7170273641819324968}
+  - component: {fileID: 7170273642118319724}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8742365305516347499
+--- !u!4 &592125457090031571
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8742365305516347500}
+  m_GameObject: {fileID: 7748877895018057602}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.12, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,19 +32,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8742365305516347498
+--- !u!114 &7170273641819324968
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8742365305516347500}
+  m_GameObject: {fileID: 7748877895018057602}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fec3aefeffe85d040895bf65e24b120a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PauseMenuPanel: {fileID: 0}
+  pause: 0
   LifeImage: {fileID: 0}
   LifeSprites:
   - {fileID: 21300000, guid: ec74a54037e58eb42a84a25c828e0e91, type: 3}
@@ -55,7 +56,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 07faf2f5fd2028b478c0bfcacc689dd9, type: 3}
   - {fileID: 21300000, guid: 1113dd32ced43ee4ca5a59b7fe099706, type: 3}
   ShieldImage: {fileID: 0}
-  ShieldSprites: []
+  ShieldSprites:
+  - {fileID: 21300000, guid: 6b1dd8e9861371247b76d7099fb229b7, type: 3}
+  - {fileID: 21300000, guid: 22175e7c2bc134c46935851c24ca488b, type: 3}
+  - {fileID: 21300000, guid: 622a58a65caa47449b396d27d30dea75, type: 3}
   ShieldState: {fileID: 0}
   Flybar: {fileID: 0}
   FlybarCounter: 0
@@ -64,18 +68,21 @@ MonoBehaviour:
   MusicToggle: {fileID: 0}
   SoundSlider: {fileID: 0}
   SoundToggle: {fileID: 0}
---- !u!82 &8745281840348575795
+  PauseButton: {fileID: 0}
+  UnPause: {fileID: 21300000, guid: 80530d4c12c12e44396421a76ef37480, type: 3}
+  Pause: {fileID: 21300000, guid: ff53536088a41ff49b9a47a674ec9d17, type: 3}
+--- !u!82 &7170273642118319724
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8742365305516347500}
+  m_GameObject: {fileID: 7748877895018057602}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 57b0603c434c2d348a3f695ff5fd0dd5, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1

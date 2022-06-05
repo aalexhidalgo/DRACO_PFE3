@@ -42,6 +42,7 @@ public class BetweenLevelsManager : MonoBehaviour
     //Money
     public TextMeshProUGUI MoneyText;
     private int propValue;
+    public AudioClip Money;
 
     private float Increment = 0.25f;
 
@@ -50,6 +51,8 @@ public class BetweenLevelsManager : MonoBehaviour
     private AudioSource BetweenLevelsManagerAudioSource;
 
     public Animator VendedorAnim;
+    public Image VendedorImage;
+    public Sprite VendedorDespierto;
 
     //Imgágenes de Fuera de Stock
     public GameObject FueradeStock_Fireball;
@@ -96,8 +99,20 @@ public class BetweenLevelsManager : MonoBehaviour
             Boost_Image.SetActive(false);
         }
 
+        VendedorImage.GetComponent<Image>();
+        //
 
     }
+
+    /*void Update()
+    {
+        if(DialogueAnimDone == true)
+        {
+            VendedorImage.sprite = VendedorDespierto; NO FUNCIONA
+        }
+    }
+    */
+
 
     #region Borrar
     public void Level_1()
@@ -156,12 +171,15 @@ public class BetweenLevelsManager : MonoBehaviour
     //Despertamos al vendedor, que nos hablará
     public void ShowDialogue()
     {
-        if(CanClick)
+        //VendedorImage.sprite = VendedorDespierto;
+
+        if (CanClick)
         {
             DialogueImage.SetActive(true);
             StartCoroutine(Letters());
-
+            
             VendedorAnim.SetBool("Talk", true);
+
         }  
     }
 
@@ -212,6 +230,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel - 1][CurrentDialogueText];
                 StartCoroutine(Letters());
                 BetweenLevelsManagerAudioSource.Play();
+                
                 VendedorAnim.SetBool("Talk", true);
             }
         }
@@ -451,5 +470,6 @@ public class BetweenLevelsManager : MonoBehaviour
     public void UpdateMoney()
     {
         MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
+        BetweenLevelsManagerAudioSource.PlayOneShot(Money, 1f);
     }
 }

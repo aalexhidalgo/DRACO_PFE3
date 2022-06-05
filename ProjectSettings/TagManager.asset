@@ -19,6 +19,7 @@ TagManager:
   - Bullet
   - Water
   - Lava
+  - Objeto_mobil
   layers:
   - Default
   - TransparentFX

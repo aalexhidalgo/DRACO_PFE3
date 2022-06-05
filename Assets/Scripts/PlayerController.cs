@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip FireSound; //funciona
     public AudioClip CoinSound; //funciona
     public AudioClip RockExplotion; //funciona
-    public AudioClip RecogerItem;
+    public AudioClip RecogerItem; //funciona
 
     // Start is called before the first frame update
     void Start()
@@ -81,70 +81,74 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameOver == false || GameManagerScript.pause == false)
+        if(GameOver == false)
         {
-            //Controladores principales de DRACO
+           if (GameManagerScript.pause == false)
+           {
+                //Controladores principales de DRACO
 
-            //Movimiento frontal de DRACO, derecha, izquierda o bien A D
-            HorizontalInput = Input.GetAxis("Horizontal");
-            DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
+                //Movimiento frontal de DRACO, derecha, izquierda o bien A D
+                HorizontalInput = Input.GetAxis("Horizontal");
+                DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
 
-            //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
-            if (HorizontalInput < 0)
-            {
-                transform.rotation = Quaternion.Euler(0, YRotationLimit, 0);
-            }
-            if (HorizontalInput > 0)
-            {
-                
-                transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
-            }
+                //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
+                if (HorizontalInput < 0)
+                {
+                    transform.rotation = Quaternion.Euler(0, YRotationLimit, 0);
+                }
+                if (HorizontalInput > 0)
+                {
 
-            if (HorizontalInput != 0 && IsOnTheGround == true) //Si me muevo y estoy en el suelo se reproduce el sonido
-            {
-                //GameManagerAudioSource.PlayOneShot(Walking, 1f);
-            }
+                    transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
+                }
 
-            //Salto
-            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
-            {
-                DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
-                //Evitamos doble salto
-                GameManagerAudioSource.PlayOneShot(Jumping, 1f);
-                IsOnTheGround = false;
-            }
+                if (HorizontalInput != 0 && IsOnTheGround == true) //Si me muevo y estoy en el suelo se reproduce el sonido
+                {
+                    //GameManagerAudioSource.PlayOneShot(Walking);
+                }
 
-            //Vuelo
-            if (Input.GetKey(KeyCode.Q) && GameManagerScript.FlybarCounter > 0)
-            {
-                DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
-                IsOnTheGround = false;
+                //Salto
+                if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
+                {
+                    DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
+                    //Evitamos doble salto
+                    GameManagerAudioSource.PlayOneShot(Jumping);
+                    IsOnTheGround = false;
+                }
 
-                //Tiempo de vuelo
-                CurrentTime += Time.deltaTime;
-                AntiTime = MaxFlyTime - CurrentTime;
-                GameManagerScript.FlybarCounter = AntiTime / MaxFlyTime;
-                GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
-            }
+                //Vuelo
+                if (Input.GetKey(KeyCode.Q) && GameManagerScript.FlybarCounter > 0)
+                {
+                    DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
+                    IsOnTheGround = false;
 
-            //Fuego
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                
-                StartCoroutine(FireCooldown());
-            }
+                    //Tiempo de vuelo
+                    CurrentTime += Time.deltaTime;
+                    AntiTime = MaxFlyTime - CurrentTime;
+                    GameManagerScript.FlybarCounter = AntiTime / MaxFlyTime;
+                    GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
+                }
 
-            //Agacharse
-            if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                //Insertar animación sprite
-            }
+                //Fuego
+                if (Input.GetKeyDown(KeyCode.E))
+                {
 
-            //Límite cielo
-            if (transform.position.y >= SkyLimit)
-            {
-                transform.position = new Vector3(transform.position.x, SkyLimit, transform.position.z);
-            }
+                    StartCoroutine(FireCooldown());
+                }
+
+                //Agacharse
+                if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    //Insertar animación sprite
+                }
+
+                //Límite cielo
+                if (transform.position.y >= SkyLimit)
+                {
+                    transform.position = new Vector3(transform.position.x, SkyLimit, transform.position.z);
+                }
+            }     
+            
         }
         
     }
@@ -205,7 +209,7 @@ public class PlayerController : MonoBehaviour
         if(GameOver == true) //si muero, paro la música y pongo el sonido de muerte
         {
             GameObject.Find("Main Camera").GetComponent<AudioSource>().Pause();
-            GameManagerAudioSource.PlayOneShot(GameOverSound, 1f);
+            GameManagerAudioSource.PlayOneShot(GameOverSound);
         }
 
         
@@ -226,7 +230,7 @@ public class PlayerController : MonoBehaviour
         //Actualizamos la vida del jugador
         if (otherTrigger.gameObject.CompareTag("Live"))
         {
-            GameManagerAudioSource.PlayOneShot(RecogerItem, 1f);
+            GameManagerAudioSource.PlayOneShot(RecogerItem);
             CurrentLive++;
 
             if (CurrentLive >= 3)
@@ -301,7 +305,7 @@ public class PlayerController : MonoBehaviour
         //Si recogemos una nube, permite volar al jugador
         if (otherTrigger.gameObject.CompareTag("Cloud"))
         {
-            GameManagerAudioSource.PlayOneShot(RecogerItem, 1f);
+            GameManagerAudioSource.PlayOneShot(RecogerItem);
             GameManagerScript.Flybar.fillAmount = 1;
             GameManagerScript.FlybarCounter = 1;
             Destroy(otherTrigger.gameObject);
@@ -309,7 +313,7 @@ public class PlayerController : MonoBehaviour
 
         if(otherTrigger.gameObject.CompareTag("Shield"))
         {
-            GameManagerAudioSource.PlayOneShot(RecogerItem, 1f);
+            GameManagerAudioSource.PlayOneShot(RecogerItem);
             Shield = 1;
             UpdateShield();
             Destroy(otherTrigger.gameObject);
@@ -362,7 +366,7 @@ public class PlayerController : MonoBehaviour
         if (ShootFire == true)
         {
             Instantiate(FuegoPrefab, transform.position, transform.rotation);
-            GameManagerAudioSource.PlayOneShot(FireSound, 1f);
+            GameManagerAudioSource.PlayOneShot(FireSound);
             ShootFire = false;
         }
         yield return new WaitForSeconds(FireTimer);

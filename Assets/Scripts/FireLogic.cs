@@ -17,12 +17,13 @@ public class FireLogic : MonoBehaviour
     void Start()
     {
         PlayerControllerScript = FindObjectOfType<PlayerController>();
+        Destroy(gameObject, 1.5f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        transform.Translate(Vector3.right * Speed * Time.deltaTime);       
     }
 
     public void OnTriggerEnter(Collider otherTrigger)
@@ -42,6 +43,25 @@ public class FireLogic : MonoBehaviour
             PlayerControllerScript.GameManagerAudioSource.PlayOneShot(PlayerControllerScript.RockExplotion);
             Destroy(otherTrigger.gameObject);
             Instantiate(RockParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+
+        if (otherTrigger.gameObject.CompareTag("Objeto_Mobil"))
+        {
+            Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+
+        if (otherTrigger.gameObject.CompareTag("Wall"))
+        {
+            Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+
+
+        if (otherTrigger.gameObject.CompareTag("Ground"))
+        {
+            Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
 
