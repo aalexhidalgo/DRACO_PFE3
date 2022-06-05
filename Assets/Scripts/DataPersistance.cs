@@ -25,6 +25,7 @@ public class DataPersistance : MonoBehaviour
     //Music
     public float SoundVolume;
     public int SoundToggle;
+
     public float MusicVolume;
     public int MusicToggle;
 

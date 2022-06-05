@@ -39,12 +39,31 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.DracoState.FlyValue = PlayerPrefs.GetFloat("Fly_Value");
             DataPersistance.DracoState.MusicVolume = PlayerPrefs.GetFloat("Music_Volume");
             DataPersistance.DracoState.SoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
+            DataPersistance.DracoState.MusicToggle = PlayerPrefs.GetInt("Music_Toggle");
+            DataPersistance.DracoState.SoundToggle = PlayerPrefs.GetInt("Sound_Toggle");
 
             MenuGameManagerScript.MenuMusicVolume = PlayerPrefs.GetFloat("Music_Volume");
             MenuGameManagerScript.MusicSlider.value = MenuGameManagerScript.MenuMusicVolume;
             MenuGameManagerScript.MenuSoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
             MenuGameManagerScript.SoundSlider.value = MenuGameManagerScript.MenuSoundVolume;
-
+            
+            if(PlayerPrefs.GetInt("Music_Toggle") == 0)
+            {
+                MenuGameManagerScript.MusicToggle.isOn = false;
+            }
+            else if(PlayerPrefs.GetInt("Music_Toggle") == 1)
+            {
+                MenuGameManagerScript.MusicToggle.isOn = true;
+            }
+            
+            if(PlayerPrefs.GetInt("Sound_Toggle") == 0)
+            {
+                MenuGameManagerScript.SoundToggle.isOn = false;
+            }
+            else if(PlayerPrefs.GetInt("Sound_Toggle") == 1)
+            {
+                MenuGameManagerScript.SoundToggle.isOn = true;
+            }
            
         }
     }

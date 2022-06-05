@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
 
     public TextMeshProUGUI MoneyText;
     private int NumberOfCoins;
-    private PlayerController PlayerControllerScript;
+    
 
     //Ajustes Player
     private AudioSource GameManagerAudioSource;
@@ -39,12 +39,14 @@ public class GameManager : MonoBehaviour
     public Sprite Pause;
 
     //Scripts
-    
-    
+    private PlayerController PlayerControllerScript;
+
+    //PostProcesado
+    private GameObject PostProcesadoMuerte;
 
 
     //PauseMenuPanel
-    
+
     //Reinciamos el nivel en el que nos encontramos
     public void RestartButton()
     {
@@ -82,7 +84,11 @@ public class GameManager : MonoBehaviour
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
         ShieldState = ShieldState.GetComponent<Image>();
+        PlayerControllerScript = FindObjectOfType<PlayerController>();
 
+        PostProcesadoMuerte = GameObject.Find("PostProcesado");
+        PostProcesadoMuerte.SetActive(false);
+        
 
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MainCameraAudioSource.volume = DataPersistance.DracoState.MusicVolume;
@@ -90,6 +96,15 @@ public class GameManager : MonoBehaviour
         GameManagerAudioSource.volume = DataPersistance.DracoState.SoundVolume;
 
         UpdateMusicSound_Value();
+        UpdateMusicSound_Active();
+    }
+
+    void Update()
+    {
+        if(PlayerControllerScript.GameOver)
+        {
+            PostProcesadoMuerte.SetActive(true);
+        }
     }
 
     //Conectamos los valores de los sliders al volumen de los AudioSource
@@ -100,6 +115,27 @@ public class GameManager : MonoBehaviour
 
         //DataPersistance.DracoState.MusicVolume = MusicSlider.value;
         //DataPersistance.DracoState.SoundVolume = SoundSlider.value;
+    }
+
+    public void UpdateMusicSound_Active()
+    {
+        if(DataPersistance.DracoState.MusicToggle == 0)
+        {
+            MusicToggle.isOn = false;
+        }
+        else
+        {
+            MusicToggle.isOn = true;
+        }
+
+        if (DataPersistance.DracoState.SoundToggle == 0)
+        {
+            SoundToggle.isOn = false;
+        }
+        else
+        {
+            SoundToggle.isOn = true;
+        }
     }
 
     //Guardamos en Data Persistance a tiempo real el valor de los sliders

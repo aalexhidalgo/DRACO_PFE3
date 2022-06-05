@@ -13,11 +13,14 @@ public class MenuGameManager : MonoBehaviour
 
     //Musica
 
-    public int SoundToggle;
+    public Toggle SoundToggle;
+    public int intToggleSound;
+
     public Slider SoundSlider;
     public float MenuSoundVolume;
 
-    public int MusicToggle;
+    public Toggle MusicToggle;
+    public int intToggleMusic;
 
     public Slider MusicSlider;
     public float MenuMusicVolume;
@@ -81,6 +84,8 @@ public class MenuGameManager : MonoBehaviour
         OptionsPanel.SetActive(false);
         HowToPlayPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
+        DataPersistance.DracoState.MusicToggle = intToggleMusic;
+        DataPersistance.DracoState.SoundToggle = intToggleSound;
         DataPersistance.DracoState.SaveForFutureGames();
     }
     #endregion
@@ -96,7 +101,7 @@ public class MenuGameManager : MonoBehaviour
         MenuGameManagerAudioSource = GetComponent<AudioSource>();
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MenuGameManagerAudioSource.Stop();
-
+       
     }
 
     //SLIDER MÚSICA
@@ -108,20 +113,30 @@ public class MenuGameManager : MonoBehaviour
     }
 
     //TOGGLE MÚSICA
-    /*public void UpdateBoolToIntMusic()
+    public void UpdateIntMusic_Sound()
     {
-        BoolToggleMusic = BackgroundMusicToggle.GetComponent<Toggle>().isOn;
+        //bool BoolToggleMusic = MusicToggle.GetComponent<Toggle>().isOn;
 
-        if (BoolToggleMusic == true)
+        if (MusicToggle.GetComponent<Toggle>().isOn == true)
         {
-            IntToggleMusic = 1;
+            intToggleMusic = 1;
         }
         else
         {
-            IntToggleMusic = 0;
+            intToggleMusic = 0;
         }
+
+        if (SoundToggle.GetComponent<Toggle>().isOn == true)
+        {
+            intToggleSound = 1;
+        }
+        else
+        {
+            intToggleSound = 0;
+        }
+
     }
-    */
+
 
     //SLIDER SONIDO
     public void UpdateSoundVolume()
@@ -132,19 +147,5 @@ public class MenuGameManager : MonoBehaviour
     }
 
     //TOGGLE SONIDO
-
-    /*public void UpdateBoolToIntMusic()
-    {
-        BoolToggleMusic = BackgroundMusicToggle.GetComponent<Toggle>().isOn;
-
-        if (BoolToggleMusic == true)
-        {
-            IntToggleMusic = 1;
-        }
-        else
-        {
-            IntToggleMusic = 0;
-        }
-    }
-    */
+   
 }
