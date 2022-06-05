@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossLogic : MonoBehaviour
 {
@@ -15,6 +16,17 @@ public class BossLogic : MonoBehaviour
     public Transform PlayerTransform;
     public bool canMove;
 
+    public float BossLife = 20f;
+    public bool Win = false;
+    public Image LifeBoss;
+    public float MaxBossLife = 20f;
+
+    public int ShieldBoss;
+    public GameObject ShieldBossImage;
+    public Image ShieldStateBoss;
+    public Sprite[] ShieldBossSprites;
+    public int ShieldValueBoss;
+
     void Awake()
     {
 
@@ -25,6 +37,10 @@ public class BossLogic : MonoBehaviour
         totalPoints = points.Length;
         nextPoint = 1;
         canMove = true;
+
+        LifeBoss.GetComponent<Image>();
+        UpdateShield();
+        UpdateShieldImage();
 
         //transform.LookAt(points[nextPoint].position);
 
@@ -71,5 +87,73 @@ public class BossLogic : MonoBehaviour
             yield return new WaitForSeconds(Timer);
         }
         canMove = true;
+    }
+
+    public void OnTriggerEnter (Collider otherTrigger)
+    {
+        if(otherTrigger.gameObject.CompareTag("Fire") && ShieldBoss == 0)
+        {  
+            BossLife -= DataPersistance.DracoState.FireballValue;
+            LifeBoss.fillAmount = BossLife / MaxBossLife;
+            Destroy(otherTrigger.gameObject);
+
+            if(BossLife <= 0)
+            {
+                BossLife = 0;
+                LifeBoss.fillAmount = BossLife / MaxBossLife;
+                Win = true;
+            }
+        }
+
+        if (otherTrigger.gameObject.CompareTag("Fire") && ShieldBoss == 1)
+        {
+            ShieldValueBoss--;
+            Destroy(otherTrigger.gameObject);
+
+            if (ShieldValueBoss <= 0)
+            {
+                ShieldBoss = 0;
+                UpdateShield();
+            }
+            else
+            {
+                UpdateShieldImage();
+            }
+
+        }
+
+        if (otherTrigger.gameObject.CompareTag("Shield_Boss"))
+        {
+            ShieldBoss = 1;
+            ShieldValueBoss++;
+            Destroy(otherTrigger.gameObject);
+            UpdateShield();
+            UpdateShieldImage();
+        }
+    }
+
+    public void UpdateShield()
+    {
+        if (ShieldBoss == 1)
+        {
+            ShieldBossImage.SetActive(true);
+        }
+        else
+        {
+            ShieldBossImage.SetActive(false);
+        }
+    }
+
+    public void UpdateShieldImage()
+    {
+        if (ShieldValueBoss <= 1)
+        {
+            ShieldBossImage.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else
+        {
+            ShieldBossImage.transform.GetChild(0).gameObject.SetActive(true);
+            ShieldStateBoss.sprite = ShieldBossSprites[ShieldValueBoss - 2];
+        }
     }
 }

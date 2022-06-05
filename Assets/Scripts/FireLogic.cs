@@ -65,6 +65,11 @@ public class FireLogic : MonoBehaviour
             Destroy(gameObject);
         }
 
+        if (otherTrigger.gameObject.CompareTag("Shield_Boss"))
+        {
+            Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(otherTrigger.gameObject);
+        }
 
     }
     private void OnDestroy()
