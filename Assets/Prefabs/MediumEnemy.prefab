@@ -113,6 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 1
+  DeadSound: {fileID: 0}
 --- !u!54 &7249124643065720258
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -141,12 +142,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6e3acfb84b23b64db13fa9c9fbfc2e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MediumEnemyAnim: {fileID: 8426516686130833178}
+  MediumEnemyAnim: {fileID: 0}
   MoveRange: 17.5
   PlayerinMoveRange: 0
   PlayerLayer:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 0
 --- !u!95 &8426516686130833178
 Animator:
   serializedVersion: 3

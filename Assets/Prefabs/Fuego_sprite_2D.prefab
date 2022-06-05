@@ -131,3 +131,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 10
   RockParticleSystem: {fileID: 1832354522556379478, guid: 6e949a3b9a990de4783c68fa9b89db99, type: 3}
+  DamageParticleSystem: {fileID: 4834642325656029573, guid: 47eb92b846e449f4e8d917ff150cdc6d, type: 3}

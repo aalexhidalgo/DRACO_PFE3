@@ -14,10 +14,14 @@ public class MediumEnemy : MonoBehaviour
 
     //Script
     private GameManager GameManagerScript;
-    // Start is called before the first frame update
+
+    //Sonidos
+    private AudioSource GameManagerAudiosource;
+    public AudioClip DeadSound;
+
     void Start()
     {
-        GameManagerScript = FindObjectOfType<GameManager>();
+        GameManagerAudiosource = GameObject.Find("GameManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -41,15 +45,5 @@ public class MediumEnemy : MonoBehaviour
             MediumEnemyAnim.SetBool("Active", false);
         }
     }
-
-    /*public void Move()
-    {
-        if (CanMove && GameManagerScript.pause == false)
-        {
-            // El medium activa animación de movimiento
-            MediumEnemyAnim.SetBool("Active", true);
-        }
-    }
-    */
 }
 

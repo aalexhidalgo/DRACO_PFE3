@@ -21,11 +21,19 @@ public class HardEnemy : MonoBehaviour
 
     private GameManager GameManagerScript;
 
-    // Start is called before the first frame update
+    //sonidos y AudioSource
+    private AudioSource GameManagerAudiosource;
+    
+
+
+
     void Start()
     {
         BulletPoint = GameObject.Find("BulletPoint");
         GameManagerScript = FindObjectOfType<GameManager>();
+
+        GameManagerAudiosource = GameObject.Find("GameManager").GetComponent<AudioSource>();
+        //HardAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -61,6 +69,7 @@ public class HardEnemy : MonoBehaviour
         {
             // Disparamos bala con físicas
             HardEnemyAnim.SetBool("Throw", true);
+            
             Rigidbody rb = Instantiate(Bullet, BulletPoint.transform.position, BulletRotation).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * ForwardForce, ForceMode.Impulse);
             rb.AddForce(transform.up * UpForce, ForceMode.Impulse);

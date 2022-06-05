@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public float UpSpeed = 20f;
     public float FlySpeed = 3f;
 
-    private float HorizontalInput;
+    public float HorizontalInput;
 
     private float YRotationLimit = 90;
     private float SkyLimit = 16.5f;
@@ -43,6 +43,19 @@ public class PlayerController : MonoBehaviour
     public GameObject GameOverPanel;
     public bool GameOver;
 
+    //AudioSources para acceder a sonidos
+
+    public AudioSource GameManagerAudioSource;
+
+    //AudioClips
+    public AudioClip Walking; //Da problemas, de momento no funciona bien
+    public AudioClip Jumping; //funciona
+    public AudioClip GameOverSound; //funciona
+    public AudioClip FireSound; //funciona
+    public AudioClip CoinSound; //funciona
+    public AudioClip RockExplotion; //funciona
+    public AudioClip RecogerItem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +74,8 @@ public class PlayerController : MonoBehaviour
         FlySpeed = FlySpeed + Physics.gravity.magnitude;
         UpdateShield();
         UpdateShieldImage();
+
+        GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -81,7 +96,13 @@ public class PlayerController : MonoBehaviour
             }
             if (HorizontalInput > 0)
             {
+                
                 transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
+            }
+
+            if (HorizontalInput != 0 && IsOnTheGround == true) //Si me muevo y estoy en el suelo se reproduce el sonido
+            {
+                //GameManagerAudioSource.PlayOneShot(Walking, 1f);
             }
 
             //Salto
@@ -89,6 +110,7 @@ public class PlayerController : MonoBehaviour
             {
                 DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
+                GameManagerAudioSource.PlayOneShot(Jumping, 1f);
                 IsOnTheGround = false;
             }
 
@@ -108,6 +130,7 @@ public class PlayerController : MonoBehaviour
             //Fuego
             if (Input.GetKeyDown(KeyCode.E))
             {
+                
                 StartCoroutine(FireCooldown());
             }
 
@@ -179,6 +202,12 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if(GameOver == true) //si muero, paro la música y pongo el sonido de muerte
+        {
+            GameObject.Find("Main Camera").GetComponent<AudioSource>().Pause();
+            GameManagerAudioSource.PlayOneShot(GameOverSound, 1f);
+        }
+
         
     }
 
@@ -187,6 +216,7 @@ public class PlayerController : MonoBehaviour
         //Actualizamos el número de monedas recogidas
         if (otherTrigger.gameObject.CompareTag("Money"))
         {
+            GameManagerAudioSource.PlayOneShot(CoinSound);  
             Destroy(otherTrigger.gameObject);
             MoneyCounter += 5;
             Debug.Log($"Tienes {MoneyCounter} monedas, crack");
@@ -196,6 +226,7 @@ public class PlayerController : MonoBehaviour
         //Actualizamos la vida del jugador
         if (otherTrigger.gameObject.CompareTag("Live"))
         {
+            GameManagerAudioSource.PlayOneShot(RecogerItem, 1f);
             CurrentLive++;
 
             if (CurrentLive >= 3)
@@ -259,15 +290,18 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Quack, quack, quack...");
                 GameOver = true;
                 GameOverPanel.SetActive(true);
+                UpdateLife();
             }
 
             UpdateLife();
+
         }
 
 
         //Si recogemos una nube, permite volar al jugador
         if (otherTrigger.gameObject.CompareTag("Cloud"))
         {
+            GameManagerAudioSource.PlayOneShot(RecogerItem, 1f);
             GameManagerScript.Flybar.fillAmount = 1;
             GameManagerScript.FlybarCounter = 1;
             Destroy(otherTrigger.gameObject);
@@ -275,6 +309,7 @@ public class PlayerController : MonoBehaviour
 
         if(otherTrigger.gameObject.CompareTag("Shield"))
         {
+            GameManagerAudioSource.PlayOneShot(RecogerItem, 1f);
             Shield = 1;
             UpdateShield();
             Destroy(otherTrigger.gameObject);
@@ -327,6 +362,7 @@ public class PlayerController : MonoBehaviour
         if (ShootFire == true)
         {
             Instantiate(FuegoPrefab, transform.position, transform.rotation);
+            GameManagerAudioSource.PlayOneShot(FireSound, 1f);
             ShootFire = false;
         }
         yield return new WaitForSeconds(FireTimer);

@@ -9,11 +9,14 @@ public class FireLogic : MonoBehaviour
 
     //Particles
     public ParticleSystem RockParticleSystem;
-    public ParticleSystem SmokeParticleSystem;
+    public ParticleSystem DamageParticleSystem;
+
+    //Scripts
+    private PlayerController PlayerControllerScript;
 
     void Start()
     {
-        
+        PlayerControllerScript = FindObjectOfType<PlayerController>();
     }
 
     // Update is called once per frame
@@ -29,17 +32,23 @@ public class FireLogic : MonoBehaviour
         {
             EnemyLogicScript = otherTrigger.gameObject.GetComponent<EnemyLogic>();
             EnemyLogicScript.EnemyLife-= DataPersistance.DracoState.FireballValue;
-            //Instantiate(SmokeParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+
             Destroy(gameObject);
         }
 
         if (otherTrigger.gameObject.CompareTag("Rock"))
         {
-            
+            PlayerControllerScript.GameManagerAudioSource.PlayOneShot(PlayerControllerScript.RockExplotion);
             Destroy(otherTrigger.gameObject);
             Instantiate(RockParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
 
+
+    }
+    private void OnDestroy()
+    {
+        Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
     }
 }

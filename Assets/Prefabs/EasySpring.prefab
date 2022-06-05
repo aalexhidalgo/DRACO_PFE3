@@ -131,6 +131,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 1
+  DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  SmokeParticleSystem: {fileID: 6300823646951570128, guid: b07543cf3abee794982692329b463b27, type: 3}
 --- !u!54 &8057123041233988146
 Rigidbody:
   m_ObjectHideFlags: 0
