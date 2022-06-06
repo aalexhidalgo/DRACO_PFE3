@@ -101,51 +101,52 @@ public class MenuGameManager : MonoBehaviour
         MenuGameManagerAudioSource = GetComponent<AudioSource>();
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MenuGameManagerAudioSource.Stop();
-       
+        LoadMusicSoundValue();       
     }
 
     //SLIDER MÚSICA
-    public void UpdateMusicVolume()
+    public void UpdateMusicVolume(float v)
     {
-        MainCameraAudioSource.volume = MusicSlider.value;
-        DataPersistance.DracoState.MusicVolume = MusicSlider.value;
-        MenuMusicVolume = DataPersistance.DracoState.MusicVolume;
+        MainCameraAudioSource.volume = v;
+        DataPersistance.DracoState.MusicVolume = v;
+        //MenuMusicVolume = DataPersistance.DracoState.MusicVolume;
     }
 
+    public void LoadMusicSoundValue()
+    {
+        if (PlayerPrefs.HasKey("Music_Volume"))
+        {
+            MusicSlider.value = PlayerPrefs.GetFloat("Music_Volume");
+            SoundSlider.value = PlayerPrefs.GetFloat("Sound_Volume");
+            MusicToggle.isOn = IntToBool(PlayerPrefs.GetInt("Music_Toggle"));
+            SoundToggle.isOn = IntToBool(PlayerPrefs.GetInt("Sound_Toggle"));
+        }
+        
+    }
     //TOGGLE MÚSICA
     public void UpdateIntMusic_Sound()
     {
         //bool BoolToggleMusic = MusicToggle.GetComponent<Toggle>().isOn;
-
-        if (MusicToggle.GetComponent<Toggle>().isOn == true)
-        {
-            intToggleMusic = 1;
-        }
-        else
-        {
-            intToggleMusic = 0;
-        }
-
-        if (SoundToggle.GetComponent<Toggle>().isOn == true)
-        {
-            intToggleSound = 1;
-        }
-        else
-        {
-            intToggleSound = 0;
-        }
-
+        intToggleMusic = BoolToInt(MusicToggle.GetComponent<Toggle>().isOn);
+        intToggleSound = BoolToInt(SoundToggle.GetComponent<Toggle>().isOn);
     }
 
 
     //SLIDER SONIDO
-    public void UpdateSoundVolume()
+    public void UpdateSoundVolume(float v)
     {
-        MenuGameManagerAudioSource.volume = SoundSlider.value;
-        DataPersistance.DracoState.SoundVolume = SoundSlider.value;
-        MenuSoundVolume = DataPersistance.DracoState.SoundVolume;
+        MenuGameManagerAudioSource.volume = v;
+        DataPersistance.DracoState.SoundVolume = v;
+        //MenuSoundVolume = DataPersistance.DracoState.SoundVolume;
     }
 
-    //TOGGLE SONIDO
-   
+    public int BoolToInt(bool b)
+    {
+        return b ? 1 : 0;
+    }
+
+   public bool IntToBool(int i)
+    {
+        return !(i == 0);
+    }
 }

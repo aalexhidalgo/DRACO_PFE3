@@ -9,7 +9,7 @@ public class SceneFlow : MonoBehaviour
     //private GameManager GameManagerScript;
     private void Start()
     {
-        MenuGameManagerScript = GameObject.Find("MenuGameManager").GetComponent<MenuGameManager>();
+        //MenuGameManagerScript = GameObject.Find("MenuGameManager").GetComponent<MenuGameManager>();
         //GameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         LoadUserOptions();
     }
@@ -45,6 +45,7 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.DracoState.MusicToggle = PlayerPrefs.GetInt("Music_Toggle");
             DataPersistance.DracoState.SoundToggle = PlayerPrefs.GetInt("Sound_Toggle");
 
+            /*
             MenuGameManagerScript.MenuMusicVolume = PlayerPrefs.GetFloat("Music_Volume");
             MenuGameManagerScript.MusicSlider.value = MenuGameManagerScript.MenuMusicVolume;
             MenuGameManagerScript.MenuSoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
@@ -67,7 +68,7 @@ public class SceneFlow : MonoBehaviour
             {
                 MenuGameManagerScript.SoundToggle.isOn = true;
             }
-
+            */
         }
     }
 

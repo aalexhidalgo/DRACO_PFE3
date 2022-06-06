@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement; 
 
 public class BossLogic : MonoBehaviour
 {
@@ -16,9 +17,9 @@ public class BossLogic : MonoBehaviour
     public Transform PlayerTransform;
     public bool canMove;
 
-    public float BossLife = 20f;
+    public float BossLife = 20f; //vida del boss
     public bool Win = false;
-    public Image LifeBoss;
+    public Image LifeBoss; 
     public float MaxBossLife = 20f;
 
     public int ShieldBoss;
@@ -26,6 +27,9 @@ public class BossLogic : MonoBehaviour
     public Image ShieldStateBoss;
     public Sprite[] ShieldBossSprites;
     public int ShieldValueBoss;
+
+    private AudioSource GameManagerAudioSource;
+    public AudioClip Boss_Death_Clip;
 
     void Awake()
     {
@@ -42,15 +46,18 @@ public class BossLogic : MonoBehaviour
         UpdateShield();
         UpdateShieldImage();
 
-        //transform.LookAt(points[nextPoint].position);
+        GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
 
-        //Colisión con pared que nos permita hacer los puntos de ruta (if blablabla)
-        //StartCoroutine(BossAttack());
+    //transform.LookAt(points[nextPoint].position);
+
+    //Colisión con pared que nos permita hacer los puntos de ruta (if blablabla)
+    //StartCoroutine(BossAttack());
+
     }
 
     void Update()
     {
-        if(canMove)
+        if(canMove && Win == false)
         {
             if (Vector3.Distance(transform.position, points[nextPoint].position) < 0.1f)
             {
@@ -101,7 +108,7 @@ public class BossLogic : MonoBehaviour
             {
                 BossLife = 0;
                 LifeBoss.fillAmount = BossLife / MaxBossLife;
-                Win = true;
+                StartCoroutine(Boss_Death());
             }
         }
 
@@ -155,5 +162,15 @@ public class BossLogic : MonoBehaviour
             ShieldBossImage.transform.GetChild(0).gameObject.SetActive(true);
             ShieldStateBoss.sprite = ShieldBossSprites[ShieldValueBoss - 2];
         }
+    }
+
+    public IEnumerator Boss_Death()
+    {
+        //Cambio sprite
+        GameManagerAudioSource.PlayOneShot(Boss_Death_Clip);
+        Win = true;
+        float Timer = 6.5f;
+        yield return new WaitForSeconds(Timer);
+        SceneManager.LoadScene("Credits");
     }
 }

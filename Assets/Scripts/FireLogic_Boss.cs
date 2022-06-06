@@ -11,10 +11,12 @@ public class FireLogic_Boss : MonoBehaviour
 
     //Scripts
     private PlayerController PlayerControllerScript;
+    private GameManager GameManagerScript;
 
     void Start()
     {
         PlayerControllerScript = FindObjectOfType<PlayerController>();
+        GameManagerScript = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
@@ -28,8 +30,7 @@ public class FireLogic_Boss : MonoBehaviour
 
         if (otherTrigger.gameObject.CompareTag("Player"))
         {
-                       
-            if(PlayerControllerScript.Shield == 1)
+            if (PlayerControllerScript.Shield == 1)
             {
                 PlayerControllerScript.MaxShieldValue -= 1;
                 if (PlayerControllerScript.MaxShieldValue <= 0)
@@ -46,7 +47,16 @@ public class FireLogic_Boss : MonoBehaviour
 
             else
             {
-                PlayerControllerScript.CurrentLive = -0.5f;
+                PlayerControllerScript.CurrentLive -= 0.5f;               
+               
+                if (PlayerControllerScript.CurrentLive <= 0)
+                {
+                    PlayerControllerScript.CurrentLive = 0;
+                    PlayerControllerScript.GameOver = true;
+                    PlayerControllerScript.GameOverPanel.SetActive(true);
+                    PlayerControllerScript.UpdateLife();
+                }
+                
                 PlayerControllerScript.UpdateLife();
                 Destroy(gameObject);
             }

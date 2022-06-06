@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2552769522709676563}
   m_Layer: 0
   m_Name: Nieve_mobil
-  m_TagString: Untagged
+  m_TagString: Objeto_Mobil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

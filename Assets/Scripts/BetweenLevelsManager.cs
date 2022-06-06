@@ -27,6 +27,8 @@ public class BetweenLevelsManager : MonoBehaviour
     public bool DialogueAnimDone = false;
     public bool CanClick = true;
 
+    public bool isTalking = false;
+
     public GameObject Attack_Image;
     public GameObject Defense_Image;
     public GameObject Boost_Image;
@@ -104,14 +106,14 @@ public class BetweenLevelsManager : MonoBehaviour
 
     }
 
-    /*void Update()
+    void Update()
     {
-        if(DialogueAnimDone == true)
+        if(DialogueAnimDone == false && isTalking)
         {
-            VendedorImage.sprite = VendedorDespierto; NO FUNCIONA
+            VendedorImage.sprite = VendedorDespierto; //NO FUNCIONA
         }
     }
-    */
+    
 
 
     #region Borrar
@@ -175,6 +177,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
         if (CanClick)
         {
+            isTalking = true;
             DialogueImage.SetActive(true);
             StartCoroutine(Letters());
             
@@ -192,6 +195,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
             if (CurrentDialogueText >= DA1.Length)
             {
+                isTalking = false;
                 DialogueImage.SetActive(false);               
                 BetweenLevelsManagerAudioSource.Stop();
 

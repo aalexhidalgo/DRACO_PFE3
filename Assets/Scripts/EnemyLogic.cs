@@ -20,6 +20,7 @@ public class EnemyLogic : MonoBehaviour
     {
         if (EnemyLife <= 0)
         {
+            GameManagerAudiosource.PlayOneShot(DeadSound);
             Destroy(gameObject);
         }
     }
@@ -27,6 +28,6 @@ public class EnemyLogic : MonoBehaviour
     private void OnDestroy()
     {
         //Instantiate(SmokeParticleSystem, transform.position, transform.rotation);
-        GameManagerAudiosource.PlayOneShot(DeadSound);
+        
     }
 }

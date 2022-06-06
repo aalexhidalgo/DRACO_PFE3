@@ -180,8 +180,6 @@ public class PlayerController : MonoBehaviour
             CurrentLive -= 0.5f;
             Debug.Log("Cuidao que te pinsho dragón de mierda");
             //AddForce rebote, hay que calcular a lo 100tifiko otro día
-            UpdateLife();
-
             if (CurrentLive <= 0)
             {
                 CurrentLive = 0;
@@ -189,6 +187,8 @@ public class PlayerController : MonoBehaviour
                 GameOver = true;
                 GameOverPanel.SetActive(true);
             }
+
+            UpdateLife();
         }
 
         else if (otherCollider.gameObject.CompareTag("Enemy") && Shield == 1)

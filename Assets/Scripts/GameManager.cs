@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
         if(pause == false)
         {
             PauseMenuPanel.SetActive(true);
+            Debug.Log("Me pauso");
             pause = true;
             PauseButton.sprite = Pause;
         }
@@ -89,7 +90,7 @@ public class GameManager : MonoBehaviour
 
         PostProcesadoMuerte = GameObject.Find("PostProcesado");
         PostProcesadoMuerte.SetActive(false);
-        
+
 
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MainCameraAudioSource.volume = DataPersistance.DracoState.MusicVolume;
