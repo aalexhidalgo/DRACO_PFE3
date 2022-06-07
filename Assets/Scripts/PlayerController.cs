@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
     public AudioSource GameManagerAudioSource;
 
     //AudioClips
-    public AudioClip Walking; //Da problemas, de momento no funciona bien
     public AudioClip Jumping; //funciona
     public AudioClip GameOverSound; //funciona
     public AudioClip FireSound; //funciona
@@ -103,18 +102,11 @@ public class PlayerController : MonoBehaviour
                 if (HorizontalInput < 0)
                 {
                     transform.rotation = Quaternion.Euler(0, YRotationLimit, 0);
-                    //StartCoroutine(DracoWalking());
                 }
                 if (HorizontalInput > 0)
                 {
 
                     transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
-                    //StartCoroutine(DracoWalking());
-                }
-
-                if (HorizontalInput != 0 && IsOnTheGround == true) //Si me muevo y estoy en el suelo se reproduce el sonido
-                {
-                    //GameManagerAudioSource.PlayOneShot(Walking);
                 }
 
                 //Salto
@@ -148,21 +140,8 @@ public class PlayerController : MonoBehaviour
                     StartCoroutine(FireCooldown());
                 }
 
-                //Agacharse
-                if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    //Insertar animación sprite
-                }
 
-                //Límite cielo
-                /*if (transform.position.y >= SkyLimit)
-                {
-                    transform.position = new Vector3(transform.position.x, SkyLimit, transform.position.z);
-                }
-                */
-
-
-                if (IsOnTheGround == true && HorizontalInput == 0)
+                if (IsOnTheGround == true && HorizontalInput == 0) //al estar en el suelo y no estar en movimiento cambiamos el sprite a estado neutral o idle
                 {
                     DracoSprite.sprite = DracoSpritesArray[1];
                 }
@@ -178,7 +157,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    private IEnumerator DracoWalking()
+    private IEnumerator DracoWalking() //cambio de sprites al caminar
     {
         while(IsOnTheGround == true && HorizontalInput != 0)
         {
@@ -190,7 +169,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private IEnumerator DracoFlying()
+    private IEnumerator DracoFlying() //cambio de sprites al volar
     {
         while (IsFlying == true)
         {

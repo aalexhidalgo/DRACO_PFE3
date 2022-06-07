@@ -197,7 +197,7 @@ public class MenuGameManager : MonoBehaviour
         foreach (var d in Originalmessage) //var (comodín)
         {
             DialogueText.text += d;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.02f);
         }
 
         DialogueAnimDone = true;
