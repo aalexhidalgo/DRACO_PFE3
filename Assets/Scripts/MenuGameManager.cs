@@ -33,15 +33,32 @@ public class MenuGameManager : MonoBehaviour
     //Panel principal
 
     //DIALOGO
+    public GameObject DialoguePanel;
     public int CurrentDialogueText;
     public string[] Dialogo;
     public string[] CurrentLevel;
     public TextMeshProUGUI DialogueText;
+    public bool DialogueAnimDone = false;
 
+
+    void Start()
+    {
+        MainMenuPanel.SetActive(true);
+        OptionsPanel.SetActive(false);
+        HowToPlayPanel.SetActive(false);
+
+        DialogueText.text = Dialogo[CurrentDialogueText];
+        //Audiosource
+        MenuGameManagerAudioSource = GetComponent<AudioSource>();
+        MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
+        MenuGameManagerAudioSource.Stop();
+        LoadMusicSoundValue();
+    }
+
+
+    #region MenyButtons
     public void StartButton()
     {
-        DialogueText.text = Dialogo[CurrentDialogueText];
-
         DataPersistance.DracoState.MoneyCounter = 0;
         DataPersistance.DracoState.Storedone = 1;
         DataPersistance.DracoState.CurrentLevel = 0;
@@ -65,8 +82,6 @@ public class MenuGameManager : MonoBehaviour
             SceneManager.LoadScene("Store");
         }
     }
-
-    #region MenuButtons
     public void HowToPlayButton()
     {
         MainMenuPanel.SetActive(false);
@@ -97,19 +112,7 @@ public class MenuGameManager : MonoBehaviour
     #endregion
     //OptionsPanel
 
-    void Start()
-    {
-        MainMenuPanel.SetActive(true);
-        OptionsPanel.SetActive(false);
-        HowToPlayPanel.SetActive(false);
-
-        //Audiosource
-        MenuGameManagerAudioSource = GetComponent<AudioSource>();
-        MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        MenuGameManagerAudioSource.Stop();
-        LoadMusicSoundValue();       
-    }
-
+    #region SoundSettings
     //SLIDER MÚSICA
     public void UpdateMusicVolume(float v)
     {
@@ -154,5 +157,49 @@ public class MenuGameManager : MonoBehaviour
    public bool IntToBool(int i)
     {
         return !(i == 0);
+    }
+    #endregion
+
+
+    public void ShowPanels()
+    {
+        DialoguePanel.SetActive(true);
+        StartCoroutine(Letters());
+    }
+    public void NextButton()
+    {
+        //Hasta que no se haya acabado de reproducir el diálogo, el jugador no podrá darle a next.
+        if (DialogueAnimDone == true)
+        {
+            CurrentDialogueText++;
+
+            if (CurrentDialogueText >= Dialogo.Length)
+            {
+                StartButton();
+            }
+            else
+            {
+                DialogueText.text = Dialogo[CurrentDialogueText];
+                StartCoroutine(Letters());
+            }
+        }
+
+    }
+
+    private IEnumerator Letters()
+    {
+        DialogueAnimDone = false;
+
+        string Originalmessage = DialogueText.text;
+
+        DialogueText.text = "";
+
+        foreach (var d in Originalmessage) //var (comodín)
+        {
+            DialogueText.text += d;
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        DialogueAnimDone = true;
     }
 }
