@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1346819253361543039}
   - component: {fileID: 5622992513051768354}
   - component: {fileID: 5477813983263062221}
+  - component: {fileID: 5896473536950083630}
   m_Layer: 0
   m_Name: Escudo_Boss
   m_TagString: Shield_Boss
@@ -28,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 698093717506631338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1130.482, y: 840.7507, z: -1472.3774}
-  m_LocalScale: {x: 7.2085686, y: 7.2085686, z: 41.95724}
+  m_LocalPosition: {x: 1130.482, y: 840.7507, z: -1472.3}
+  m_LocalScale: {x: 28.255358, y: 28.255358, z: 164.4594}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -110,3 +111,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpinSpeed: 70
+--- !u!114 &5896473536950083630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 698093717506631338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df79609a04c984d44a4c1199edd5ca95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

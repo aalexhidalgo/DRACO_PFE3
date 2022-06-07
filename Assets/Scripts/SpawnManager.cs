@@ -9,7 +9,7 @@ public class SpawnManager : MonoBehaviour
     public int RemainDracoShields = 2;
     public GameObject BossShield;
 
-    private List<Transform> PointsOccupied = new List<Transform>();
+    public List<Transform> PointsOccupied = new List<Transform>();
 
     private PlayerController PlayerControllerScript;
     private BossLogic BossLogicScript;
