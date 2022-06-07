@@ -22,6 +22,7 @@ TagManager:
   - Fire
   - Shield_Boss
   - Objeto_Mobil
+  - Boss
   layers:
   - Default
   - TransparentFX

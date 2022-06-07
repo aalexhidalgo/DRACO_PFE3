@@ -70,9 +70,9 @@ public class FireLogic : MonoBehaviour
             Destroy(otherTrigger.gameObject);
         }
 
-    }
-    private void OnDestroy()
-    {
-        Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
+        if (otherTrigger.gameObject.CompareTag("Boss"))
+        {
+            Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+        }
     }
 }
