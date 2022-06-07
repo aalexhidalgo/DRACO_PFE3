@@ -22,6 +22,7 @@ public class MediumEnemy : MonoBehaviour
     void Start()
     {
         GameManagerAudiosource = GameObject.Find("GameManager").GetComponent<AudioSource>();
+        MediumEnemyAnim.SetBool("Active", false);
     }
 
     // Update is called once per frame
@@ -35,15 +36,7 @@ public class MediumEnemy : MonoBehaviour
             MediumEnemyAnim.SetBool("Active", true);
         }
 
-        if (GameManagerScript.pause == false)
-        {
-            MediumEnemyAnim.SetBool("Active", true);
-        }
-
-        if (GameManagerScript.pause == true)
-        {
-            MediumEnemyAnim.SetBool("Active", false);
-        }
+        
     }
 }
 

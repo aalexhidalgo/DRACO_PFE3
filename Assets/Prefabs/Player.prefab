@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8991849128666538485}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.07, y: 0, z: -6.65}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.03184688, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 70971ea16fdbb74408437e4a8562c9aa, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,8 +97,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1.9631641}
-  m_Center: {x: -5.4409228e-18, y: 0, z: 0.0023359954}
+  m_Size: {x: 1.3115125, y: 1.7984501, z: 1.9631641}
+  m_Center: {x: -0.13461977, y: 0.05430311, z: 0.0023360252}
 --- !u!114 &8991849128666538486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,6 +116,14 @@ MonoBehaviour:
   FlySpeed: 2
   HorizontalInput: 0
   FuegoPrefab: {fileID: 5308605257444052339, guid: 3f1f2ead89862e041ab66bd859fea4c7, type: 3}
+  DracoSpritesArray:
+  - {fileID: 21300000, guid: 8b48bfc4b602a4d4f9d630acd45b0b45, type: 3}
+  - {fileID: 21300000, guid: 70971ea16fdbb74408437e4a8562c9aa, type: 3}
+  - {fileID: 21300000, guid: e9ad0a2720c6bc640a05979655fd8f08, type: 3}
+  - {fileID: 21300000, guid: 11d1c7f098021d9439ed330b80fc7612, type: 3}
+  - {fileID: 21300000, guid: e0016d38532fd844881e6aea039add2a, type: 3}
+  - {fileID: 21300000, guid: d98260450b22dfd40b6003ea31b6db41, type: 3}
+  - {fileID: 21300000, guid: d0624678833969b42a1c9c4092e9025c, type: 3}
   CurrentLive: 3
   Shield: 0
   MaxShieldValue: 1

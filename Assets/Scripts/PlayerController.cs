@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
 
     public GameObject FuegoPrefab;
 
+    private SpriteRenderer DracoSprite;
+    public Sprite[] DracoSpritesArray;
+    private bool IsFlying;
+
     //Contadores Props
     public float CurrentLive = 3;
     public int Shield = 0;
@@ -67,6 +71,8 @@ public class PlayerController : MonoBehaviour
         DracoRigidbody = GetComponent<Rigidbody>();
         Physics.gravity = NewGravity;
 
+        DracoSprite = GetComponent<SpriteRenderer>();
+
         PropLogicScript = FindObjectOfType<PropLogic>();
         EnemyLogicScript = FindObjectOfType<EnemyLogic>();
         GameManagerScript = FindObjectOfType<GameManager>();
@@ -85,6 +91,8 @@ public class PlayerController : MonoBehaviour
         {
            if (GameManagerScript.pause == false)
            {
+                StartCoroutine(DracoWalking());
+                StartCoroutine(DracoFlying());
                 //Controladores principales de DRACO
 
                 //Movimiento frontal de DRACO, derecha, izquierda o bien A D
@@ -95,11 +103,13 @@ public class PlayerController : MonoBehaviour
                 if (HorizontalInput < 0)
                 {
                     transform.rotation = Quaternion.Euler(0, YRotationLimit, 0);
+                    //StartCoroutine(DracoWalking());
                 }
                 if (HorizontalInput > 0)
                 {
 
                     transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
+                    //StartCoroutine(DracoWalking());
                 }
 
                 if (HorizontalInput != 0 && IsOnTheGround == true) //Si me muevo y estoy en el suelo se reproduce el sonido
@@ -113,6 +123,7 @@ public class PlayerController : MonoBehaviour
                     DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                     //Evitamos doble salto
                     GameManagerAudioSource.PlayOneShot(Jumping);
+                    DracoSprite.sprite = DracoSpritesArray[3];
                     IsOnTheGround = false;
                 }
 
@@ -121,6 +132,7 @@ public class PlayerController : MonoBehaviour
                 {
                     DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
                     IsOnTheGround = false;
+                    IsFlying = true;
 
                     //Tiempo de vuelo
                     CurrentTime += Time.deltaTime;
@@ -147,10 +159,47 @@ public class PlayerController : MonoBehaviour
                 {
                     transform.position = new Vector3(transform.position.x, SkyLimit, transform.position.z);
                 }
+
+
+
+                if (IsOnTheGround == true && HorizontalInput == 0)
+                {
+                    DracoSprite.sprite = DracoSpritesArray[1];
+                }
+
+                if(IsOnTheGround == true)
+                {
+                    IsFlying = false;
+                }
+
             }     
             
         }
         
+    }
+
+    private IEnumerator DracoWalking()
+    {
+        while(IsOnTheGround == true && HorizontalInput != 0)
+        {
+            DracoSprite.sprite = DracoSpritesArray[0];
+            yield return new WaitForSeconds(0.2f);
+            DracoSprite.sprite = DracoSpritesArray[1];
+            yield return new WaitForSeconds(0.2f);
+            DracoSprite.sprite = DracoSpritesArray[2];
+        }
+    }
+
+    private IEnumerator DracoFlying()
+    {
+        while (IsFlying == true)
+        {
+            DracoSprite.sprite = DracoSpritesArray[4];
+            yield return new WaitForSeconds(0.2f);
+            DracoSprite.sprite = DracoSpritesArray[5];
+            yield return new WaitForSeconds(0.2f);
+            DracoSprite.sprite = DracoSpritesArray[6];
+        }
     }
 
     public void OnCollisionEnter(Collision otherCollider)
