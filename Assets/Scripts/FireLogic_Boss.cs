@@ -10,6 +10,7 @@ public class FireLogic_Boss : MonoBehaviour
     public ParticleSystem DamageParticleSystem;
 
     //Scripts
+    private BossLogic BossLogicScript;
     private PlayerController PlayerControllerScript;
     private GameManager GameManagerScript;
 
@@ -17,6 +18,7 @@ public class FireLogic_Boss : MonoBehaviour
     {
         PlayerControllerScript = FindObjectOfType<PlayerController>();
         GameManagerScript = FindObjectOfType<GameManager>();
+        BossLogicScript = FindObjectOfType<BossLogic>();
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class FireLogic_Boss : MonoBehaviour
     public void OnTriggerEnter(Collider otherTrigger)
     {
 
-        if (otherTrigger.gameObject.CompareTag("Player"))
+        if (otherTrigger.gameObject.CompareTag("Player") && BossLogicScript.Win == false)
         {
             if (PlayerControllerScript.Shield == 1)
             {

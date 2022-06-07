@@ -17,7 +17,6 @@ public class FireLogic : MonoBehaviour
     void Start()
     {
         PlayerControllerScript = FindObjectOfType<PlayerController>();
-        Destroy(gameObject, 1.5f);
     }
 
     // Update is called once per frame

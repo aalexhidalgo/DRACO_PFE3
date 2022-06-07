@@ -31,6 +31,11 @@ public class BossLogic : MonoBehaviour
     private AudioSource GameManagerAudioSource;
     public AudioClip Boss_Death_Clip;
 
+    public ParticleSystem Fireworks_1;
+    public ParticleSystem Fireworks_2;
+    public ParticleSystem Fireworks_3;
+    public ParticleSystem Fireworks_4;
+
     void Awake()
     {
 
@@ -169,7 +174,16 @@ public class BossLogic : MonoBehaviour
         //Cambio sprite
         GameManagerAudioSource.PlayOneShot(Boss_Death_Clip);
         Win = true;
-        float Timer = 6.5f;
+        Fireworks_1.Play();
+        yield return new WaitForSeconds(0.6f);
+        Fireworks_2.Play();
+        yield return new WaitForSeconds(0.6f);
+        Fireworks_3.Play();
+        yield return new WaitForSeconds(0.6f);
+        Fireworks_4.Play();
+        yield return new WaitForSeconds(0.6f);
+       
+        float Timer = 4.1f;
         yield return new WaitForSeconds(Timer);
         SceneManager.LoadScene("Credits");
     }

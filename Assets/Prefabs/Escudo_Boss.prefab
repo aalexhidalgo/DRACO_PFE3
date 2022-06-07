@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5477813983263062221}
   m_Layer: 0
   m_Name: Escudo_Boss
-  m_TagString: Shield
+  m_TagString: Shield_Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
