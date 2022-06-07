@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float HorizontalInput;
 
     private float YRotationLimit = 90;
-    private float SkyLimit = 16.5f;
+    //private float SkyLimit = 16.5f;
 
     private Rigidbody DracoRigidbody;
     private Vector3 NewGravity = new Vector3 (0f, -29.4f, 0f);
@@ -155,11 +155,11 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //Límite cielo
-                if (transform.position.y >= SkyLimit)
+                /*if (transform.position.y >= SkyLimit)
                 {
                     transform.position = new Vector3(transform.position.x, SkyLimit, transform.position.z);
                 }
-
+                */
 
 
                 if (IsOnTheGround == true && HorizontalInput == 0)
@@ -210,10 +210,10 @@ public class PlayerController : MonoBehaviour
             IsOnTheGround = true;
         }
 
-        if (otherCollider.gameObject.CompareTag("Wall"))
+        /*if (otherCollider.gameObject.CompareTag("Wall"))
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        }
+        }*/
 
         if(otherCollider.gameObject.CompareTag("Lava") || otherCollider.gameObject.CompareTag("Water"))
         {

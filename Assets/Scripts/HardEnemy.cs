@@ -6,7 +6,7 @@ public class HardEnemy : MonoBehaviour
 {
 
     public GameObject Bullet;
-    private GameObject BulletPoint;
+    public GameObject BulletPoint;
     public Animator HardEnemyAnim;
 
     public float AttackRange = 7f;
@@ -27,7 +27,7 @@ public class HardEnemy : MonoBehaviour
 
     void Start()
     {
-        BulletPoint = GameObject.Find("BulletPoint");
+        //BulletPoint = GameObject.Find("BulletPoint");
         GameManagerScript = FindObjectOfType<GameManager>();
 
         GameManagerAudiosource = GameObject.Find("GameManager").GetComponent<AudioSource>();
