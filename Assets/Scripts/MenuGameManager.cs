@@ -32,10 +32,16 @@ public class MenuGameManager : MonoBehaviour
 
     //Panel principal
 
+    //DIALOGO
+    public int CurrentDialogueText;
+    public string[] Dialogo;
     public string[] CurrentLevel;
+    public TextMeshProUGUI DialogueText;
 
     public void StartButton()
     {
+        DialogueText.text = Dialogo[CurrentDialogueText];
+
         DataPersistance.DracoState.MoneyCounter = 0;
         DataPersistance.DracoState.Storedone = 1;
         DataPersistance.DracoState.CurrentLevel = 0;

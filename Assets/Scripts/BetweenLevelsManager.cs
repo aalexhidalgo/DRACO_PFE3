@@ -291,7 +291,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 UpdateMoney();
                 DataPersistance.DracoState.Fireball--;
                 DataPersistance.DracoState.FireballValue+= Increment;
-                DialogueText.text = "Gracias por comprar! ";
+                DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
 
                 if (DataPersistance.DracoState.Fireball == 0)
                 {
@@ -321,7 +321,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 DataPersistance.DracoState.Shield--;
                 DataPersistance.DracoState.ShieldValue ++;
 
-                DialogueText.text = "Gracias por comprar! ";
+                DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
 
                 if (DataPersistance.DracoState.Shield == 0)
                 {
@@ -350,7 +350,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 UpdateMoney();
                 DataPersistance.DracoState.Fly--;
                 DataPersistance.DracoState.FlyValue += Increment;
-                DialogueText.text = "Gracias por comprar! ";
+                DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
 
                 if (DataPersistance.DracoState.Fly == 0)
                 {
