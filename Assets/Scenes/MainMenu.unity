@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5682,10 +5682,10 @@ MonoBehaviour:
   CurrentDialogueText: 0
   Dialogo:
   - "Hace mucho mucho tiempo... existio un mundo donde convivian criaturas, humanos
-    y monstruos de mas profundidades del abismo, un fatidico dia se cirnio sobre
+    y monstruos de las profundidades del abismo,  un fatidico dia se cirnio sobre
     el reino el imponente rey Dragon King, que abrasa, arrasa y destruye a todo aquel
-    que no decida acatar sus mandatos. Tras a\xF1os de paz, el rey en su deseo insaciable
-    de conseguir m\xE1s poder enloquecio y empezo a pagarlo con su propio reino."
+    que no decida acatar sus mandatos.  Tras a\xF1os de paz, el rey en su deseo insaciable
+    de conseguir mas poder enloquecio y empezo a pagarlo con su propio reino."
   - Los primeros en rebelarse ante el fueron los dragones, estos estaban hartos de
     ser juzgados y perseguidos con la mirada alla donde iban, de sentir miedo.  Un
     dia los dragones prepararon un ataque para destronar a King, uniendo fuerzas
@@ -5694,10 +5694,14 @@ MonoBehaviour:
   - Con lo que no contaron fue que el rey decretaria entonces legal la caza de dragones
     en sus dominios, probocando que las escamas y cabezas de dragon adquirieron de
     pronto mucho valor economico y social.  El pueblo decidio traicionar a los dragones
-    y fueron matandolos uno a uno hasta que solo quedaron unos pocos
+    y fueron matandolos uno a uno. Con lo que no contaron fue que el rey decretaria
+    entonces legal la caza de dragones en sus dominios, provocando que las escamas
+    y cabezas de dragon adquirieran de pronto mucho valor economico y social. El
+    pueblo decidio traicionar a los dragones y fueron asesinandolos uno a uno. Hasta
+    que solo quedaron unos pocos.
   - "Los a\xF1os pasaron, el reino prospero hasta la actualidad y uno de los ultimos
     dragones que queda se encuentra en una cueva, una madre poniendo a salvo un huevo
-    que pronto nacer\xEDa, Draco...   "
+    que pronto naceria, Draco...   "
   CurrentLevel:
   - Level_1
   - Level_2
@@ -6558,9 +6562,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Los a\xF1os pasaron, el reino prospero hasta la actualidad y uno de los
-    ultimos dragones que queda se encuentra en una cueva, una madre poniendo a salvo
-    un huevo que pronto nacer\xEDa, Draco...   "
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b7e8fe38b95cbe948a679a660aba4c5e, type: 2}
   m_sharedMaterial: {fileID: 2020334630156184166, guid: b7e8fe38b95cbe948a679a660aba4c5e, type: 2}

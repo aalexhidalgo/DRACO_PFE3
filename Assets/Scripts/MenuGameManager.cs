@@ -56,7 +56,7 @@ public class MenuGameManager : MonoBehaviour
     }
 
 
-    #region MenyButtons
+    #region MenuButtons
     public void StartButton()
     {
         DataPersistance.DracoState.MoneyCounter = 0;
@@ -98,8 +98,6 @@ public class MenuGameManager : MonoBehaviour
         Application.Quit();
     }
 
-    //Volver hacia atrás
-
     public void ReturnButton()
     {
         OptionsPanel.SetActive(false);
@@ -112,13 +110,13 @@ public class MenuGameManager : MonoBehaviour
     #endregion
     //OptionsPanel
 
-    #region SoundSettings
+    #region MusicSoundSettings
     //SLIDER MÚSICA
     public void UpdateMusicVolume(float v)
     {
         MainCameraAudioSource.volume = v;
         DataPersistance.DracoState.MusicVolume = v;
-        //MenuMusicVolume = DataPersistance.DracoState.MusicVolume;
+       
     }
 
     public void LoadMusicSoundValue()
@@ -134,8 +132,7 @@ public class MenuGameManager : MonoBehaviour
     }
     //TOGGLE MÚSICA
     public void UpdateIntMusic_Sound()
-    {
-        //bool BoolToggleMusic = MusicToggle.GetComponent<Toggle>().isOn;
+    {        
         intToggleMusic = BoolToInt(MusicToggle.GetComponent<Toggle>().isOn);
         intToggleSound = BoolToInt(SoundToggle.GetComponent<Toggle>().isOn);
     }
@@ -146,7 +143,6 @@ public class MenuGameManager : MonoBehaviour
     {
         MenuGameManagerAudioSource.volume = v;
         DataPersistance.DracoState.SoundVolume = v;
-        //MenuSoundVolume = DataPersistance.DracoState.SoundVolume;
     }
 
     public int BoolToInt(bool b)
