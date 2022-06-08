@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1651674565411103327}
   - component: {fileID: 1651674565411103326}
   - component: {fileID: 1651674565411103331}
+  - component: {fileID: 1253863904233060941}
   m_Layer: 0
   m_Name: Ogro
   m_TagString: Enemy
@@ -234,6 +235,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1253863904233060941
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651674565411103325}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.0000007, y: 2.4, z: 6.5611653}
+  m_Center: {x: -3.5607e-16, y: 0, z: 0.17511237}
 --- !u!1 &2413480167950247145
 GameObject:
   m_ObjectHideFlags: 0
