@@ -81,6 +81,8 @@ public class BetweenLevelsManager : MonoBehaviour
 
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MainCameraAudioSource.volume = DataPersistance.DracoState.MusicVolume;
+
+
         BetweenLevelsManagerAudioSource = GetComponent<AudioSource>();
         BetweenLevelsManagerAudioSource.volume = DataPersistance.DracoState.SoundVolume;
         BetweenLevelsManagerAudioSource.Stop();
@@ -281,6 +283,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
     }
 
+    //Según el prefab que seleccionemos a mejorar, se nos activarán uno botones, que en la condición de sí mostrará:
     public void YesButton_1()
     {
         if(DialogueAnimDone == true)
@@ -368,7 +371,7 @@ public class BetweenLevelsManager : MonoBehaviour
         }
     }
 
-    //Si compramos algo blablabla
+    //Al tener un stock limitado, al comprar el último item este es destruido mostrando su no disponibilidad
     public IEnumerator YesButtonCoroutine(Vector3 Position, string Prefab, GameObject Image)
     {
         float Timer = 1.5f;
@@ -389,6 +392,8 @@ public class BetweenLevelsManager : MonoBehaviour
             DialogueImage.SetActive(false);
         }
     }
+
+    //Prefabs posibles a mejorar
 
     public void AttackStat_1()
     {
@@ -454,7 +459,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 propValue = 100;
                 VendedorAnim.SetBool("Talk", true);
                 DialogueImage.SetActive(true);
-                DialogueText.text = $"HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
+                DialogueText.text = $"HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
                 StartCoroutine(Letters());
                 Next.SetActive(false);
                 Yes_1.SetActive(false);
