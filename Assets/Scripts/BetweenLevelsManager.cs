@@ -28,6 +28,7 @@ public class BetweenLevelsManager : MonoBehaviour
     public bool CanClick = true;
 
     public bool isTalking = false;
+    public bool isShopping = false;
 
     public GameObject Attack_Image;
     public GameObject Defense_Image;
@@ -61,6 +62,9 @@ public class BetweenLevelsManager : MonoBehaviour
     public GameObject FueradeStock_Shield;
     public GameObject FueradeStock_Fly;
 
+    //Stock
+    private bool closeDialogue;
+
     private void Awake()
     {
         DialogoList.Add(DA1);
@@ -71,6 +75,8 @@ public class BetweenLevelsManager : MonoBehaviour
 
     void Start()
     {
+        closeDialogue = false;
+        isShopping = false;
         Attack_Image.SetActive(false);
         Defense_Image.SetActive(false);
         Boost_Image.SetActive(false);
@@ -104,7 +110,6 @@ public class BetweenLevelsManager : MonoBehaviour
         }
 
         VendedorImage.GetComponent<Image>();
-        //
 
     }
 
@@ -181,7 +186,7 @@ public class BetweenLevelsManager : MonoBehaviour
         {
             isTalking = true;
             DialogueImage.SetActive(true);
-            StartCoroutine(Letters());
+            StartCoroutine(Letters(Next));
             
             VendedorAnim.SetBool("Talk", true);
 
@@ -191,60 +196,68 @@ public class BetweenLevelsManager : MonoBehaviour
     public void NextButton()
     {
         //Hasta que no se haya acabado de reproducir el diálogo, el jugador no podrá darle a next.
-        if(DialogueAnimDone == true)
+        if (DialogueAnimDone == true)
         {
-            CurrentDialogueText++;
+            Next.SetActive(false);
 
-            if (CurrentDialogueText >= DA1.Length)
+            if (closeDialogue == false)
             {
-                isTalking = false;
-                DialogueImage.SetActive(false);               
-                BetweenLevelsManagerAudioSource.Stop();
+                CurrentDialogueText++;
+                if (CurrentDialogueText >= DA1.Length)
+                {
+                    isTalking = false;
+                    DialogueImage.SetActive(false);
+                    BetweenLevelsManagerAudioSource.Stop();
 
-                if (DataPersistance.DracoState.Fireball <= 0)
-                {
-                    StartCoroutine(FadeIn(FueradeStock_Fireball));
-                }
-                if (DataPersistance.DracoState.Shield <= 0)
-                {
-                    StartCoroutine(FadeIn(FueradeStock_Shield));
-                }
-                if (DataPersistance.DracoState.Fly <= 0)
-                {
-                    StartCoroutine(FadeIn(FueradeStock_Fly));
-                }
+                    if (DataPersistance.DracoState.Fireball <= 0)
+                    {
+                        StartCoroutine(FadeIn(FueradeStock_Fireball));
+                    }
+                    if (DataPersistance.DracoState.Shield <= 0)
+                    {
+                        StartCoroutine(FadeIn(FueradeStock_Shield));
+                    }
+                    if (DataPersistance.DracoState.Fly <= 0)
+                    {
+                        StartCoroutine(FadeIn(FueradeStock_Fly));
+                    }
 
-                if (DataPersistance.DracoState.Fireball > 0)
-                {
-                    EntranceParticleSystem[0].Play();
-                    Attack_Image.SetActive(true);
+                    if (DataPersistance.DracoState.Fireball > 0)
+                    {
+                        EntranceParticleSystem[0].Play();
+                        Attack_Image.SetActive(true);
+                    }
+                    if (DataPersistance.DracoState.Shield > 0)
+                    {
+                        EntranceParticleSystem[1].Play();
+                        Defense_Image.SetActive(true);
+                    }
+                    if (DataPersistance.DracoState.Fly > 0)
+                    {
+                        EntranceParticleSystem[2].Play();
+                        Boost_Image.SetActive(true);
+                    }
+
                 }
-                if(DataPersistance.DracoState.Shield > 0)
+                else
                 {
-                    EntranceParticleSystem[1].Play();
-                    Defense_Image.SetActive(true);
+                    DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel - 1][CurrentDialogueText];
+                    StartCoroutine(Letters(Next));
+                    BetweenLevelsManagerAudioSource.Play();
+
+                    VendedorAnim.SetBool("Talk", true);
                 }
-                if(DataPersistance.DracoState.Fly > 0)
-                {
-                    EntranceParticleSystem[2].Play();
-                    Boost_Image.SetActive(true);
-                }
-                
             }
             else
             {
-                DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel - 1][CurrentDialogueText];
-                StartCoroutine(Letters());
-                BetweenLevelsManagerAudioSource.Play();
-                
-                VendedorAnim.SetBool("Talk", true);
+                NoButton();
             }
+
         }
-        
     }
 
     //Aparición del diálogo por letras
-    private IEnumerator Letters()
+    private IEnumerator Letters(GameObject Button)
     {
         DialogueAnimDone = false;
         CanClick = false;
@@ -260,6 +273,15 @@ public class BetweenLevelsManager : MonoBehaviour
         }
 
         DialogueAnimDone = true;
+        if(isShopping == false)
+        {
+            Button.SetActive(true);
+        }
+        else
+        {
+            Button.SetActive(true);
+            No.SetActive(true);
+        }
         VendedorAnim.SetBool("Talk", false);
     }
 
@@ -383,6 +405,14 @@ public class BetweenLevelsManager : MonoBehaviour
         //Mostramos la imagen de Fuera de Stock    
         Image.SetActive(true);
         StartCoroutine(FadeIn(Image));
+        Yes_1.SetActive(false);
+        Yes_2.SetActive(false);
+        Yes_3.SetActive(false);
+        No.SetActive(false);
+        closeDialogue = true;
+        isShopping = false;
+        DialogueText.text = "Me he quedado sin producto, lo siento, elige otra cosa";
+        StartCoroutine(Letters(Next));
     }
 
     public void NoButton()
@@ -390,6 +420,11 @@ public class BetweenLevelsManager : MonoBehaviour
         if (DialogueAnimDone == true)
         {
             DialogueImage.SetActive(false);
+            Yes_1.SetActive(false);
+            Yes_2.SetActive(false);
+            Yes_3.SetActive(false);
+            No.SetActive(false);
+            isShopping = true;
         }
     }
 
@@ -397,6 +432,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void AttackStat_1()
     {
+        isShopping = true;
         if (DialogueAnimDone == true)
         {
             if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fireball <= 0)
@@ -410,19 +446,19 @@ public class BetweenLevelsManager : MonoBehaviour
                 VendedorAnim.SetBool("Talk", true);
                 DialogueImage.SetActive(true);
                 DialogueText.text = $"MMM, BUENA ELECCION...! INCREMENTA EL ATAQUE BASICO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-                StartCoroutine(Letters());
+                StartCoroutine(Letters(Yes_1));
                 Next.SetActive(false);
                 Yes_2.SetActive(false);
                 Yes_3.SetActive(false);
-                Yes_1.SetActive(true);
-                No.SetActive(true);
+                //Yes_1.SetActive(true);
+                //No.SetActive(true);
             }
-            
         }
     }
 
     public void DefenseStat_2()
     {
+        isShopping = true;
         if (DialogueAnimDone == true)
         {
             if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Shield <= 0)
@@ -436,17 +472,18 @@ public class BetweenLevelsManager : MonoBehaviour
                 VendedorAnim.SetBool("Talk", true);
                 DialogueImage.SetActive(true);
                 DialogueText.text = $"GRAN DEFENSA! INCREMENTA LA DEFENSA BASICA EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-                StartCoroutine(Letters());
+                StartCoroutine(Letters(Yes_2));
                 Next.SetActive(false);
                 Yes_1.SetActive(false);
                 Yes_3.SetActive(false);
-                Yes_2.SetActive(true);
-                No.SetActive(true);
+                //Yes_2.SetActive(true);
+                //No.SetActive(true);
             }  
         }
     }
     public void BoostStat_3()
     {
+        isShopping = true;
         if (DialogueAnimDone == true)
         {
             if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fly <= 0)
@@ -460,12 +497,12 @@ public class BetweenLevelsManager : MonoBehaviour
                 VendedorAnim.SetBool("Talk", true);
                 DialogueImage.SetActive(true);
                 DialogueText.text = $"HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-                StartCoroutine(Letters());
+                StartCoroutine(Letters(Yes_3));
                 Next.SetActive(false);
                 Yes_1.SetActive(false);
                 Yes_2.SetActive(false);
-                Yes_3.SetActive(true);
-                No.SetActive(true);
+                //Yes_3.SetActive(true);
+                //No.SetActive(true);
             }   
 
         }

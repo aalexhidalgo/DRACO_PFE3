@@ -39,7 +39,7 @@ public class MenuGameManager : MonoBehaviour
     public string[] CurrentLevel;
     public TextMeshProUGUI DialogueText;
     public bool DialogueAnimDone = false;
-
+    public GameObject Next;
 
     void Start()
     {
@@ -168,7 +168,7 @@ public class MenuGameManager : MonoBehaviour
         if (DialogueAnimDone == true)
         {
             CurrentDialogueText++;
-
+            Next.SetActive(false);
             if (CurrentDialogueText >= Dialogo.Length)
             {
                 StartButton();
@@ -197,5 +197,6 @@ public class MenuGameManager : MonoBehaviour
         }
 
         DialogueAnimDone = true;
+        Next.SetActive(true);
     }
 }

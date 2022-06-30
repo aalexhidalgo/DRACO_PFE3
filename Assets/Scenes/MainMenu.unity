@@ -5710,6 +5710,7 @@ MonoBehaviour:
   - Level_Boss
   DialogueText: {fileID: 4308509814198078272}
   DialogueAnimDone: 0
+  Next: {fileID: 8527025848001928296}
 --- !u!4 &2035425165
 Transform:
   m_ObjectHideFlags: 0
@@ -6731,4 +6732,4 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
