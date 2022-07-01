@@ -24,11 +24,14 @@ public class MenuGameManager : MonoBehaviour
 
     public Slider MusicSlider;
     public float MenuMusicVolume;
+
     //Paneles
 
     public GameObject MainMenuPanel;
     public GameObject OptionsPanel;
     public GameObject HowToPlayPanel;
+    public GameObject KeyboardPanel;
+    public GameObject GamepadPanel;
 
     //Panel principal
 
@@ -53,6 +56,7 @@ public class MenuGameManager : MonoBehaviour
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MenuGameManagerAudioSource.Stop();
         LoadMusicSoundValue();
+        LoadGameControls();
     }
 
 
@@ -86,6 +90,17 @@ public class MenuGameManager : MonoBehaviour
     {
         MainMenuPanel.SetActive(false);
         HowToPlayPanel.SetActive(true);
+
+        if(DataPersistance.DracoState.SwitchControls == 0)
+        {
+            GamepadPanel.SetActive(false);
+            KeyboardPanel.SetActive(true);
+        }
+        else
+        {
+            KeyboardPanel.SetActive(false);
+            GamepadPanel.SetActive(true);
+        }
     }
     public void OptionsButton()
     {
@@ -107,6 +122,28 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.DracoState.SoundToggle = intToggleSound;
         DataPersistance.DracoState.SaveForFutureGames();
     }
+
+    //Mostramos el tipo de controles dependiendo de si se juega con teclado o mando
+    public void KeyboardControls()
+    {
+        GamepadPanel.SetActive(false);
+        KeyboardPanel.SetActive(true);
+        DataPersistance.DracoState.SwitchControls = 0;
+    }
+    public void GamePadControls()
+    {
+        KeyboardPanel.SetActive(false);
+        GamepadPanel.SetActive(true);
+        DataPersistance.DracoState.SwitchControls = 1;
+    }
+
+    public void LoadGameControls()
+    {
+        if (PlayerPrefs.HasKey("Switch_Controls"))
+        {
+            DataPersistance.DracoState.SwitchControls = PlayerPrefs.GetInt("Switch_Controls");
+        }
+    }
     #endregion
     //OptionsPanel
 
@@ -127,8 +164,8 @@ public class MenuGameManager : MonoBehaviour
             SoundSlider.value = PlayerPrefs.GetFloat("Sound_Volume");
             MusicToggle.isOn = IntToBool(PlayerPrefs.GetInt("Music_Toggle"));
             SoundToggle.isOn = IntToBool(PlayerPrefs.GetInt("Sound_Toggle"));
-        }
-        
+
+        }      
     }
     //TOGGLE MÚSICA
     public void UpdateIntMusic_Sound()

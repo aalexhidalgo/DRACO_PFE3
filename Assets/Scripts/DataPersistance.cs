@@ -29,6 +29,9 @@ public class DataPersistance : MonoBehaviour
     public float MusicVolume;
     public int MusicToggle;
 
+    //Controls
+    public int SwitchControls;
+
     void Awake()
     {
         // Si la instancia no existe
@@ -69,6 +72,9 @@ public class DataPersistance : MonoBehaviour
         PlayerPrefs.SetInt("Sound_Toggle", SoundToggle);
         PlayerPrefs.SetFloat("Music_Volume", MusicVolume);
         PlayerPrefs.SetInt("Music_Toggle", MusicToggle);
+
+        //Controles con los que jugamos
+        PlayerPrefs.SetInt("Switch_Controls", SwitchControls);
 
         /*Meter audiosource en main menu a la cámara (música de fondo) a la cámara de cada nivel
         (música de fondo) y jugador (sonidos) + store (empty betweenlevels sonido
