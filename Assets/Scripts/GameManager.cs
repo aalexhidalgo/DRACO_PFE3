@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     //Reinciamos el nivel en el que nos encontramos
     public void RestartButton()
     {
+        DataPersistance.DracoState.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
     }
     
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
     public void ExitButton()
     {
         Debug.Log("Exit");
+        DataPersistance.DracoState.SaveForFutureGames();
         Application.Quit();
     }
 
