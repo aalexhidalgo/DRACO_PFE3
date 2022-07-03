@@ -13,6 +13,7 @@ public class SpawnManager : MonoBehaviour
 
     private PlayerController PlayerControllerScript;
     private BossLogic BossLogicScript;
+    private GameManager GameManagerScript;
     private float MinTimeSpawn = 5f;
     private float MaxTimeSpawn = 20f;
     private Transform Pos;
@@ -20,20 +21,25 @@ public class SpawnManager : MonoBehaviour
     {
         PlayerControllerScript = FindObjectOfType<PlayerController>();
         BossLogicScript = FindObjectOfType<BossLogic>();
+        GameManagerScript = FindObjectOfType<GameManager>();
         StartCoroutine(SpawnRandomPrefab());
     }
 
 
     void Update()
     {
-        
+        if (GameManagerScript.pause == true)
+        {
+            StopCoroutine(SpawnRandomPrefab());
+            Debug.Log("Paro la corrutina");
+        }
     }
 
-    private IEnumerator SpawnRandomPrefab()
+    public IEnumerator SpawnRandomPrefab()
     {
         while (PlayerControllerScript.GameOver == false && BossLogicScript.Win == false) //mientras no hemos ganado ni perdido, es decir jugamos
         {
-            float SpawnRate = Random.Range(5f, 20f); //Generamos un spawn  rate aleatorio para los prefabs (escudos) que vamos a instanciar
+            float SpawnRate = Random.Range(MinTimeSpawn, MaxTimeSpawn); //Generamos un spawn  rate aleatorio para los prefabs (escudos) que vamos a instanciar
             yield return new WaitForSeconds(SpawnRate); //esperamos
             int RandomIndex = Random.Range(0, Points.Length); //Creamos un index aleatorio del array de posiciones va a intentar instanciarse el escudo
             Pos = Points[RandomIndex]; //Metemos en una variable tipo transform la posición seleccionada aleatoriamente

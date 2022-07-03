@@ -36,6 +36,9 @@ public class BossLogic : MonoBehaviour
     public ParticleSystem Fireworks_3;
     public ParticleSystem Fireworks_4;
 
+    //Comunicación con scripts
+    private GameManager GameManagerScript;
+
     void Awake()
     {
 
@@ -51,6 +54,7 @@ public class BossLogic : MonoBehaviour
         UpdateShield();
         UpdateShieldImage();
 
+        GameManagerScript = FindObjectOfType<GameManager>();
         GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
 
     //transform.LookAt(points[nextPoint].position);
@@ -64,24 +68,24 @@ public class BossLogic : MonoBehaviour
     {
         if(canMove && Win == false)
         {
-            if (Vector3.Distance(transform.position, points[nextPoint].position) < 0.1f)
+            if (GameManagerScript.pause == false)
             {
-                canMove = false;
-
-                nextPoint++;
-
-                if (nextPoint == totalPoints)
+                if (Vector3.Distance(transform.position, points[nextPoint].position) < 0.1f)
                 {
-                    nextPoint = 0;
+                    canMove = false;
+
+                    nextPoint++;
+
+                    if (nextPoint == totalPoints)
+                    {
+                        nextPoint = 0;
+                    }
+                    StartCoroutine(BossAttack());
+                    //transform.LookAt(points[nextPoint].position);
                 }
 
-                StartCoroutine(BossAttack());
-                //transform.LookAt(points[nextPoint].position);
-            }
-
-            transform.position = Vector3.MoveTowards(transform.position, points[nextPoint].position, speed * Time.deltaTime);
-
-            
+                transform.position = Vector3.MoveTowards(transform.position, points[nextPoint].position, speed * Time.deltaTime);
+            }   
         }
 
         transform.GetChild(0).transform.LookAt(PlayerTransform);
@@ -183,7 +187,7 @@ public class BossLogic : MonoBehaviour
         Fireworks_4.Play();
         yield return new WaitForSeconds(0.6f);
        
-        float Timer = 4.1f;
+        float Timer = 2.1f;
         yield return new WaitForSeconds(Timer);
         SceneManager.LoadScene("Credits");
     }

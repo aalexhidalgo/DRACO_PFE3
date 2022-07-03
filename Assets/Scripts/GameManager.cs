@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
 
     //Scripts
     private PlayerController PlayerControllerScript;
+    private SpawnManager SpawnManagerScript;
 
     //PostProcesado
     private GameObject PostProcesadoMuerte;
@@ -61,6 +62,12 @@ public class GameManager : MonoBehaviour
         pause = false;
         PauseButton.sprite = UnPause;
         DataPersistance.DracoState.SaveForFutureGames();
+    }
+
+    //Iniciamos corrutinas
+    public void BossResumeButton()
+    {
+        StartCoroutine(SpawnManagerScript.SpawnRandomPrefab());
     }
     
     //Nos vamos del juego
@@ -89,6 +96,7 @@ public class GameManager : MonoBehaviour
         FlybarCounter = Flybar.fillAmount;
         ShieldState = ShieldState.GetComponent<Image>();
         PlayerControllerScript = FindObjectOfType<PlayerController>();
+        SpawnManagerScript = FindObjectOfType<SpawnManager>();
 
         PostProcesadoMuerte = GameObject.Find("PostProcesado");
         PostProcesadoMuerte.SetActive(false);

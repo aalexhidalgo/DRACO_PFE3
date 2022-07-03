@@ -37,9 +37,9 @@ public class BetweenLevelsManager : MonoBehaviour
     //Partículas
     public ParticleSystem[] EntranceParticleSystem;
     public ParticleSystem ChooseParticleSystem;
-    private Vector3 Pos1 = new Vector3(-661.599976f, 61.5999756f, 711.400024f);
-    private Vector3 Pos2 = new Vector3(-250f, 57f, 711.400024f);
-    private Vector3 Pos3 = new Vector3(150f, 57f, 711.400024f);
+    private Vector3 Pos1 = new Vector3(-661.599976f, 330f, 711.400024f);
+    private Vector3 Pos2 = new Vector3(-250f, 330f, 711.400024f);
+    private Vector3 Pos3 = new Vector3(150f, 330f, 711.400024f);
 
 
     //Money

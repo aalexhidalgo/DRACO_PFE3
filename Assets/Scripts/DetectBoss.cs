@@ -5,6 +5,7 @@ using UnityEngine;
 public class DetectBoss : MonoBehaviour
 {
     private BossLogic BossLogicScript;
+    private SpawnManager SpawnManagerScript;
     private GameObject LifeBoss;
 
     private void OnTriggerEnter(Collider otherCollider)
@@ -12,7 +13,9 @@ public class DetectBoss : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Player"))
         {
             BossLogicScript = GameObject.Find("Boss").GetComponent<BossLogic>();
+            SpawnManagerScript = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             BossLogicScript.enabled = true;
+            SpawnManagerScript.enabled = true;
             DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
             LifeBoss.SetActive(true);
         }

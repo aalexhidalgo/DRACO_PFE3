@@ -15,7 +15,7 @@ public class AutoDestroy : MonoBehaviour
 
     void OnDestroy()
     {
-        SpawnManagerScript.PointsOccupied.Remove(gameObject.transform);
+        SpawnManagerScript.PointsOccupied.Remove(SpawnManagerScript.PointsOccupied[0]);
     }
 
 }
