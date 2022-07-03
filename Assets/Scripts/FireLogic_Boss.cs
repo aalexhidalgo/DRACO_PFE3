@@ -24,7 +24,10 @@ public class FireLogic_Boss : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        if (GameManagerScript.pause == false)
+        {
+            transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        }
     }
 
     public void OnTriggerEnter(Collider otherTrigger)

@@ -25,16 +25,6 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(SpawnRandomPrefab());
     }
 
-
-    void Update()
-    {
-        if (GameManagerScript.pause == true)
-        {
-            StopCoroutine(SpawnRandomPrefab());
-            Debug.Log("Paro la corrutina");
-        }
-    }
-
     public IEnumerator SpawnRandomPrefab()
     {
         while (PlayerControllerScript.GameOver == false && BossLogicScript.Win == false) //mientras no hemos ganado ni perdido, es decir jugamos
@@ -51,7 +41,7 @@ public class SpawnManager : MonoBehaviour
             }
 
             int PrefabSelected = Random.Range(0, 2); //Elegimos random cual de los dos prefabs vamos a instanciar
-            if(PrefabSelected == 0) //si sale 0, primera opción
+            if(PrefabSelected == 0 && GameManagerScript.pause == false) //si sale 0, primera opción
             {
                 Instantiate(BossShield, Pos.position, BossShield.transform.rotation);//instanciamos un escudo del boss
                 PointsOccupied.Add(Pos);
@@ -59,19 +49,21 @@ public class SpawnManager : MonoBehaviour
 
             else //si ha salido 1 instanciaremos un escudo de Draco PERO...
             {
-                if(RemainDracoShields > 0) 
+                if (GameManagerScript.pause == false)
                 {
-                    RemainDracoShields--;
-                    Instantiate(DracoShield, Pos.position, DracoShield.transform.rotation);
-                    PointsOccupied.Add(Pos);
-                }
-                else //Si ya hemos spawneado anteriormente en la batalla todos los escudos de Draco instanciaremos el del boss en su lugar
-                {
-                    Instantiate(BossShield, Pos.position, BossShield.transform.rotation);
-                    PointsOccupied.Add(Pos);
-                }
+                    if (RemainDracoShields > 0)
+                    {
+                        RemainDracoShields--;
+                        Instantiate(DracoShield, Pos.position, DracoShield.transform.rotation);
+                        PointsOccupied.Add(Pos);
+                    }
+                    else //Si ya hemos spawneado anteriormente en la batalla todos los escudos de Draco instanciaremos el del boss en su lugar
+                    {
+                        Instantiate(BossShield, Pos.position, BossShield.transform.rotation);
+                        PointsOccupied.Add(Pos);
+                    }
+                }                
             }
-
         }
     }
 }
