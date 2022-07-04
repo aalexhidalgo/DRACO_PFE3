@@ -80,7 +80,7 @@ public class BetweenLevelsManager : MonoBehaviour
         Attack_Image.SetActive(false);
         Defense_Image.SetActive(false);
         Boost_Image.SetActive(false);
-        DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel-1][CurrentDialogueText];
+        DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel-2][CurrentDialogueText];
         MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
         DataPersistance.DracoState.Storedone = 0;
         DataPersistance.DracoState.SaveForFutureGames();
@@ -241,7 +241,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 }
                 else
                 {
-                    DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel - 1][CurrentDialogueText];
+                    DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel - 2][CurrentDialogueText];
                     StartCoroutine(Letters(Next));
                     BetweenLevelsManagerAudioSource.Play();
 

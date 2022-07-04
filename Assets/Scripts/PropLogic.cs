@@ -6,20 +6,17 @@ public class PropLogic : MonoBehaviour
 {
     public float SpinSpeed = 5f;
 
-    private GameManager GameManagerScript;
+    //private GameManager GameManagerScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManagerScript = FindObjectOfType<GameManager>();
+        //GameManagerScript = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (GameManagerScript.pause == false)
-        {
-            transform.Rotate(Vector3.up * SpinSpeed * Time.deltaTime);
-        }
+        transform.Rotate(Vector3.up * SpinSpeed * Time.deltaTime);
     }
 }

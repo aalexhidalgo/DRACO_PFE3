@@ -39,7 +39,6 @@ public class MenuGameManager : MonoBehaviour
     public GameObject DialoguePanel;
     public int CurrentDialogueText;
     public string[] Dialogo;
-    public string[] CurrentLevel;
     public TextMeshProUGUI DialogueText;
     public bool DialogueAnimDone = false;
     public GameObject Next;
@@ -65,7 +64,7 @@ public class MenuGameManager : MonoBehaviour
     {
         DataPersistance.DracoState.MoneyCounter = 0;
         DataPersistance.DracoState.Storedone = 1;
-        DataPersistance.DracoState.CurrentLevel = 0;
+        DataPersistance.DracoState.CurrentLevel = 1;
         DataPersistance.DracoState.Fireball = 4;
         DataPersistance.DracoState.Shield = 3;
         DataPersistance.DracoState.Fly = 2;
@@ -73,13 +72,13 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.DracoState.ShieldValue = 0;
         DataPersistance.DracoState.FlyValue = 0.5f;
         DataPersistance.DracoState.SaveForFutureGames();
-        SceneManager.LoadScene(CurrentLevel[DataPersistance.DracoState.CurrentLevel]);
+        SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
     }
     public void ContinueButton()
     {
         if (DataPersistance.DracoState.Storedone == 1)
         {
-            SceneManager.LoadScene(CurrentLevel[DataPersistance.DracoState.CurrentLevel]);
+            SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
         }
         else
         {

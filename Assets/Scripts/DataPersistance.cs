@@ -9,7 +9,7 @@ public class DataPersistance : MonoBehaviour
     //Variables
 
     public int MoneyCounter = 0;
-    public int CurrentLevel = 0;
+    public int CurrentLevel = 1;
     public int Storedone = 1;
 
     //Store Stock
