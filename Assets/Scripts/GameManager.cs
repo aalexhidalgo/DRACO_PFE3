@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     //Scripts
     private PlayerController PlayerControllerScript;
     private SpawnManager SpawnManagerScript;
+    private AutoDestroy AutoDestroyScript;
 
     //PostProcesado
     private GameObject PostProcesadoMuerte;
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
     {
         DataPersistance.DracoState.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
+        Time.timeScale = 1;
     }
     
     //Descansito
@@ -62,12 +64,14 @@ public class GameManager : MonoBehaviour
         pause = false;
         PauseButton.sprite = UnPause;
         DataPersistance.DracoState.SaveForFutureGames();
+        Time.timeScale = 1;
     }
 
-    //Iniciamos corrutinas
+    //Iniciamos corrutinas Boss
     public void BossResumeButton()
     {
         StartCoroutine(SpawnManagerScript.SpawnRandomPrefab());
+        Time.timeScale = 1;
     }
     
     //Nos vamos del juego
@@ -89,6 +93,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void BossPauseMenuButton()
+    {
+        Time.timeScale = 0;
+    }
+
     void Start()
     {
         MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
@@ -97,6 +106,7 @@ public class GameManager : MonoBehaviour
         ShieldState = ShieldState.GetComponent<Image>();
         PlayerControllerScript = FindObjectOfType<PlayerController>();
         SpawnManagerScript = FindObjectOfType<SpawnManager>();
+        AutoDestroyScript = FindObjectOfType<AutoDestroy>();
 
         PostProcesadoMuerte = GameObject.Find("PostProcesado");
         PostProcesadoMuerte.SetActive(false);

@@ -12,11 +12,17 @@ public class AutoDestroy : MonoBehaviour
     {
         SpawnManagerScript = FindObjectOfType<SpawnManager>();
         GameManagerScript = FindObjectOfType<GameManager>();
-        Destroy(gameObject, Timer);
+        StartCoroutine(DestroyPrefab());
     }
 
     void OnDestroy()
     {
         SpawnManagerScript.PointsOccupied.Remove(SpawnManagerScript.PointsOccupied[0]);
+    }
+
+    public IEnumerator DestroyPrefab()
+    {
+        yield return new WaitForSeconds(Timer);
+        Destroy(gameObject);
     }
 }

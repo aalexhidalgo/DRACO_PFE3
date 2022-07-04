@@ -27,16 +27,14 @@ public class MediumEnemy : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
         Vector3 Pos = transform.position;
 
         PlayerinMoveRange = Physics.CheckSphere(Pos, MoveRange, PlayerLayer);
         if (PlayerinMoveRange)
         {
             MediumEnemyAnim.SetBool("Active", true);
-        }
-
-        
+        }     
     }
 }
 
