@@ -14,15 +14,25 @@ public class FireLogic : MonoBehaviour
     //Scripts
     private PlayerController PlayerControllerScript;
 
+    //Offset
+    private GameObject Player;
+    private float Distance = 20f;
+
     void Start()
     {
         PlayerControllerScript = FindObjectOfType<PlayerController>();
+        Player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.right * Speed * Time.deltaTime);       
+        float PlayerPosition = Player.transform.position.z;
+        transform.Translate(Vector3.right * Speed * Time.deltaTime);
+        if ((gameObject.transform.position.z - PlayerPosition) >= Distance)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void OnTriggerEnter(Collider otherTrigger)

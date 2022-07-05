@@ -393,7 +393,7 @@ public class PlayerController : MonoBehaviour
         float FireTimer = 0.5f;
         if (ShootFire == true)
         {
-            Instantiate(FuegoPrefab, transform.position, transform.rotation);
+            Instantiate(FuegoPrefab, transform.GetChild(0).transform.position, transform.rotation);
             GameManagerAudioSource.PlayOneShot(FireSound);
             ShootFire = false;
         }
