@@ -92,11 +92,13 @@ public class PlayerController : MonoBehaviour
            {
                 StartCoroutine(DracoWalking());
                 StartCoroutine(DracoFlying());
+
                 //Controladores principales de DRACO
 
-                //Movimiento frontal de DRACO:
-                //TECLADO:derecha, izquierda o bien A D.
-                //GAMEPAD:
+                //Movimiento horizontal
+                //TECLADO: RightArrow, LeftArrow o bien A D.
+                //GAMEPAD: Joystick Axis X (izquierdo), 3rd Axis Joystick (derecho)
+
                 HorizontalInput = Input.GetAxis("Horizontal");
                 DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
 
@@ -111,8 +113,10 @@ public class PlayerController : MonoBehaviour
                     transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
                 }
 
-                //(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && IsOnTheGround)
                 //Salto
+                //TECLADO: Spacebar.
+                //GAMEPAD: Joystick button 1 (X).
+
                 if (Input.GetButtonDown("UpMove") && IsOnTheGround) //X, Axis
                 {
                     DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
@@ -123,6 +127,8 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //Vuelo
+                //TECLADO: Q.
+                //GAMEPAD: Joystick button 7.
                 if (Input.GetButton("FlyMove") && GameManagerScript.FlybarCounter > 0)
                 {
                     DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
@@ -137,6 +143,8 @@ public class PlayerController : MonoBehaviour
                 }
 
                 //Fuego
+                //TECLADO: E.
+                //GAMEPAD: Joystick button 2.
                 if (Input.GetButtonDown("Fire"))
                 {
                     StartCoroutine(FireCooldown());

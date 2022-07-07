@@ -90,9 +90,16 @@ public class GameManager : MonoBehaviour
             Debug.Log("Me pauso");
             pause = true;
             PauseButton.sprite = Pause;
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Debug.Log("Me despauso");
+            ResumeButton();
         }
     }
 
+    //Borrar luego
     public void BossPauseMenuButton()
     {
         Time.timeScale = 0;
@@ -126,6 +133,20 @@ public class GameManager : MonoBehaviour
         if(PlayerControllerScript.GameOver)
         {
             PostProcesadoMuerte.SetActive(true);
+        }
+
+        //Ratóno o Options
+        if(Input.GetButtonDown("Pausa"))
+        {
+
+            if (pause == true)
+            {
+                ResumeButton();
+            }
+            else
+            {
+                PauseMenuButton();
+            }
         }
     }
 
