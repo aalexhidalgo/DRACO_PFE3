@@ -7,6 +7,13 @@ using TMPro;
 
 public class MenuGameManager : MonoBehaviour
 {
+
+    //botones
+    public Button nextButton;
+    public Button returnButton;
+    public Button switchControlButton;
+    public Button startButton;
+
     //Variables
     private AudioSource MenuGameManagerAudioSource;
     private AudioSource MainCameraAudioSource;
@@ -73,6 +80,7 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.DracoState.FlyValue = 0.5f;
         DataPersistance.DracoState.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
+
     }
     public void ContinueButton()
     {
@@ -87,6 +95,7 @@ public class MenuGameManager : MonoBehaviour
     }
     public void HowToPlayButton()
     {
+        switchControlButton.Select();
         MainMenuPanel.SetActive(false);
         HowToPlayPanel.SetActive(true);
 
@@ -103,6 +112,7 @@ public class MenuGameManager : MonoBehaviour
     }
     public void OptionsButton()
     {
+        returnButton.Select();
         MainMenuPanel.SetActive(false);
         OptionsPanel.SetActive(true);
     }
@@ -114,6 +124,7 @@ public class MenuGameManager : MonoBehaviour
 
     public void ReturnButton()
     {
+        startButton.Select();
         OptionsPanel.SetActive(false);
         HowToPlayPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
@@ -234,5 +245,6 @@ public class MenuGameManager : MonoBehaviour
 
         DialogueAnimDone = true;
         Next.SetActive(true);
+        nextButton.Select();
     }
 }

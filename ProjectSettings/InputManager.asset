@@ -567,12 +567,28 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Pausa
-    descriptiveName: Boton
+    descriptiveName: Boton options
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: joystick button 9
+    gravity: 0
+    dead: 0.19
+    sensitivity: 1
+    snap: 0
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Awake
+    descriptiveName: Boton Cuadrado
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: joystick button 0
     gravity: 0
     dead: 0.19
     sensitivity: 1

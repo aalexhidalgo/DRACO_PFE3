@@ -7,6 +7,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+
+    //Botones
+    public Button resumeButton;
+
     //Paneles
     public GameObject PauseMenuPanel;
     public bool pause = false;
@@ -60,6 +64,7 @@ public class GameManager : MonoBehaviour
     //Descansito
     public void ResumeButton()
     {
+        resumeButton.Select();
         PauseMenuPanel.SetActive(false);
         pause = false;
         PauseButton.sprite = UnPause;

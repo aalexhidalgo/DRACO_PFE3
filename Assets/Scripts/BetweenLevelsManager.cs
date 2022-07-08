@@ -7,6 +7,10 @@ using TMPro;
 
 public class BetweenLevelsManager : MonoBehaviour
 {
+
+    //botones
+    public Button continueButton;
+    //
     public GameObject LevelPanel;
     public GameObject StorePanel;
     public List<string[]> DialogoList = new List<string[]>();
@@ -119,6 +123,11 @@ public class BetweenLevelsManager : MonoBehaviour
         {
             VendedorImage.sprite = VendedorDespierto; //NO FUNCIONA
         }
+
+        if(Input.GetButtonDown("Awake"))
+        {
+            ShowDialogue();
+        }
     }
     
 
@@ -207,6 +216,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 {
                     isTalking = false;
                     DialogueImage.SetActive(false);
+                    continueButton.Select();
                     BetweenLevelsManagerAudioSource.Stop();
 
                     if (DataPersistance.DracoState.Fireball <= 0)
@@ -276,10 +286,12 @@ public class BetweenLevelsManager : MonoBehaviour
         if(isShopping == false)
         {
             Button.SetActive(true);
+            Button.GetComponent<Button>().Select();
         }
         else
         {
             Button.SetActive(true);
+            Button.GetComponent<Button>().Select();
             No.SetActive(true);
         }
         VendedorAnim.SetBool("Talk", false);
@@ -425,6 +437,8 @@ public class BetweenLevelsManager : MonoBehaviour
             Yes_3.SetActive(false);
             No.SetActive(false);
             isShopping = true;
+            Debug.Log("HI");
+            continueButton.Select();
         }
     }
 
