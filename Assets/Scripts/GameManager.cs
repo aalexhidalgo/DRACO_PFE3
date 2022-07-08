@@ -140,7 +140,7 @@ public class GameManager : MonoBehaviour
             PostProcesadoMuerte.SetActive(true);
         }
 
-        //Ratóno o Options
+        //Ratón o Options
         if(Input.GetButtonDown("Pausa"))
         {
 

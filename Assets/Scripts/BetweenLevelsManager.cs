@@ -95,9 +95,10 @@ public class BetweenLevelsManager : MonoBehaviour
 
         BetweenLevelsManagerAudioSource = GetComponent<AudioSource>();
         BetweenLevelsManagerAudioSource.volume = DataPersistance.DracoState.SoundVolume;
-        BetweenLevelsManagerAudioSource.Stop();
+        //BetweenLevelsManagerAudioSource.Stop();
 
-        if(DataPersistance.DracoState.Fireball == 0)
+
+        if (DataPersistance.DracoState.Fireball == 0)
         {
             FueradeStock_Fireball.SetActive(true);
             Attack_Image.SetActive(false);
@@ -115,6 +116,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
         VendedorImage.GetComponent<Image>();
 
+        UpdateMusicSound_Active();
     }
 
     void Update()
@@ -129,8 +131,27 @@ public class BetweenLevelsManager : MonoBehaviour
             ShowDialogue();
         }
     }
-    
 
+    public void UpdateMusicSound_Active()
+    {
+        if (DataPersistance.DracoState.MusicToggle == 0)
+        {
+            MainCameraAudioSource.enabled = false;
+        }
+        else
+        {
+            MainCameraAudioSource.enabled = true;
+        }
+
+        if (DataPersistance.DracoState.SoundToggle == 0)
+        {
+            BetweenLevelsManagerAudioSource.enabled = false;
+        }
+        else
+        {
+            BetweenLevelsManagerAudioSource.enabled = true;
+        }
+    }
 
     #region Borrar
     public void Level_1()
@@ -194,6 +215,7 @@ public class BetweenLevelsManager : MonoBehaviour
         if (CanClick)
         {
             isTalking = true;
+            BetweenLevelsManagerAudioSource.Play();
             DialogueImage.SetActive(true);
             StartCoroutine(Letters(Next));
             
