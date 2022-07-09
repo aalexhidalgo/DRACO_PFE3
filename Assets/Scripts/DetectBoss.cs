@@ -16,15 +16,17 @@ public class DetectBoss : MonoBehaviour
             SpawnManagerScript = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
             BossLogicScript.enabled = true;
             SpawnManagerScript.enabled = true;
-            DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
+            //DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
             LifeBoss.SetActive(true);
         }
     }
 
     private void Start()
     {
-        DataPersistance.DracoState.FireballValue = 0;
+        //DataPersistance.DracoState.FireballValue = 0;
         LifeBoss = GameObject.Find("LifeBoss");
         LifeBoss.SetActive(false);
     }
+
+    //Las líneas comentadas es porque ya no las necesitamos
 }
