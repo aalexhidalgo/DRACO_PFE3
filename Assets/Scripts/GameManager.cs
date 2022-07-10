@@ -56,8 +56,8 @@ public class GameManager : MonoBehaviour
     //Reinciamos el nivel en el que nos encontramos
     public void RestartButton()
     {
-        DataPersistance.DracoState.SaveForFutureGames();
-        SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
+        DataPersistance.SaveForFutureGames();
+        SceneManager.LoadScene(DataPersistance.CurrentLevel);
         Time.timeScale = 1;
     }
     
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         PauseMenuPanel.SetActive(false);
         pause = false;
         PauseButton.sprite = UnPause;
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.SaveForFutureGames();
         Time.timeScale = 1;
     }
 
@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour
     public void ExitButton()
     {
         Debug.Log("Exit");
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.SaveForFutureGames();
         Application.Quit();
     }
 
@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
+        MoneyText.text = DataPersistance.MoneyCounter.ToString();
         LifeImage = LifeImage.GetComponent<Image>();
         FlybarCounter = Flybar.fillAmount;
         ShieldState = ShieldState.GetComponent<Image>();
@@ -125,9 +125,9 @@ public class GameManager : MonoBehaviour
 
 
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        MainCameraAudioSource.volume = DataPersistance.DracoState.MusicVolume;
+        MainCameraAudioSource.volume = DataPersistance.MusicVolume;
         GameManagerAudioSource = GetComponent<AudioSource>();
-        GameManagerAudioSource.volume = DataPersistance.DracoState.SoundVolume;
+        GameManagerAudioSource.volume = DataPersistance.SoundVolume;
 
         UpdateMusicSound_Value();
         UpdateMusicSound_Active();
@@ -167,7 +167,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateMusicSound_Active()
     {
-        if(DataPersistance.DracoState.MusicToggle == 0)
+        if(DataPersistance.MusicToggle == 0)
         {
             MusicToggle.isOn = false;
         }
@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviour
             MusicToggle.isOn = true;
         }
 
-        if (DataPersistance.DracoState.SoundToggle == 0)
+        if (DataPersistance.SoundToggle == 0)
         {
             SoundToggle.isOn = false;
         }
@@ -189,8 +189,8 @@ public class GameManager : MonoBehaviour
     //Guardamos en Data Persistance a tiempo real el valor de los sliders
     public void Music_Sound_Slider()
     {
-        DataPersistance.DracoState.MusicVolume = MusicSlider.value;
-        DataPersistance.DracoState.SoundVolume = SoundSlider.value;
+        DataPersistance.MusicVolume = MusicSlider.value;
+        DataPersistance.SoundVolume = SoundSlider.value;
     }
 
     //Guardamos en Data Persistance a tiempo real el valor de los toggles
@@ -198,20 +198,20 @@ public class GameManager : MonoBehaviour
     {
         if (MusicToggle.isOn == false)
         {
-            DataPersistance.DracoState.MusicToggle = 0;
+            DataPersistance.MusicToggle = 0;
         }
         else
         {
-            DataPersistance.DracoState.MusicToggle = 1;
+            DataPersistance.MusicToggle = 1;
         }
 
         if (SoundToggle.isOn == false)
         {
-            DataPersistance.DracoState.SoundToggle = 0;
+            DataPersistance.SoundToggle = 0;
         }
         else
         {
-            DataPersistance.DracoState.SoundToggle = 1;
+            DataPersistance.SoundToggle = 1;
         }
     }
 }

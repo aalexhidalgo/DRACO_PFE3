@@ -84,31 +84,31 @@ public class BetweenLevelsManager : MonoBehaviour
         Attack_Image.SetActive(false);
         Defense_Image.SetActive(false);
         Boost_Image.SetActive(false);
-        DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel-2][CurrentDialogueText];
-        MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
-        DataPersistance.DracoState.Storedone = 0;
-        DataPersistance.DracoState.SaveForFutureGames();
+        DialogueText.text = DialogoList[DataPersistance.CurrentLevel-2][CurrentDialogueText];
+        MoneyText.text = DataPersistance.MoneyCounter.ToString();
+        DataPersistance.Storedone = 0;
+        DataPersistance.SaveForFutureGames();
 
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        MainCameraAudioSource.volume = DataPersistance.DracoState.MusicVolume;
+        MainCameraAudioSource.volume = DataPersistance.MusicVolume;
 
 
         BetweenLevelsManagerAudioSource = GetComponent<AudioSource>();
-        BetweenLevelsManagerAudioSource.volume = DataPersistance.DracoState.SoundVolume;
+        BetweenLevelsManagerAudioSource.volume = DataPersistance.SoundVolume;
         //BetweenLevelsManagerAudioSource.Stop();
 
 
-        if (DataPersistance.DracoState.Fireball == 0)
+        if (DataPersistance.Fireball == 0)
         {
             FueradeStock_Fireball.SetActive(true);
             Attack_Image.SetActive(false);
         }
-        if(DataPersistance.DracoState.Shield == 0)
+        if(DataPersistance.Shield == 0)
         {
             FueradeStock_Shield.SetActive(true);
             Defense_Image.SetActive(false);
         }
-        if(DataPersistance.DracoState.Fly == 0)
+        if(DataPersistance.Fly == 0)
         {
             FueradeStock_Fly.SetActive(true);
             Boost_Image.SetActive(false);
@@ -134,7 +134,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void UpdateMusicSound_Active()
     {
-        if (DataPersistance.DracoState.MusicToggle == 0)
+        if (DataPersistance.MusicToggle == 0)
         {
             MainCameraAudioSource.enabled = false;
         }
@@ -143,7 +143,7 @@ public class BetweenLevelsManager : MonoBehaviour
             MainCameraAudioSource.enabled = true;
         }
 
-        if (DataPersistance.DracoState.SoundToggle == 0)
+        if (DataPersistance.SoundToggle == 0)
         {
             BetweenLevelsManagerAudioSource.enabled = false;
         }
@@ -156,45 +156,45 @@ public class BetweenLevelsManager : MonoBehaviour
     #region Borrar
     public void Level_1()
     {
-        DataPersistance.DracoState.CurrentLevel = 0;
-        DataPersistance.DracoState.Storedone = 1;
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.CurrentLevel = 0;
+        DataPersistance.Storedone = 1;
+        DataPersistance.SaveForFutureGames();
         Debug.Log("Level 1");
         SceneManager.LoadScene("Level_1");
     }
 
     public void Level_2()
     {
-        DataPersistance.DracoState.CurrentLevel = 1;
-        DataPersistance.DracoState.Storedone = 1;
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.CurrentLevel = 1;
+        DataPersistance.Storedone = 1;
+        DataPersistance.SaveForFutureGames();
         Debug.Log("Level 2");
         SceneManager.LoadScene("Level_2");
     }
 
     public void Level_3()
     {
-        DataPersistance.DracoState.CurrentLevel = 2;
-        DataPersistance.DracoState.Storedone = 1;
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.CurrentLevel = 2;
+        DataPersistance.Storedone = 1;
+        DataPersistance.SaveForFutureGames();
         Debug.Log("Level 3");
         SceneManager.LoadScene("Level_3");
     }
 
     public void Level_4()
     {
-        DataPersistance.DracoState.CurrentLevel = 3;
-        DataPersistance.DracoState.Storedone = 1;
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.CurrentLevel = 3;
+        DataPersistance.Storedone = 1;
+        DataPersistance.SaveForFutureGames();
         Debug.Log("Level 4");
         SceneManager.LoadScene("Level_4");
     }
 
     public void Level_Boss()
     {
-        DataPersistance.DracoState.CurrentLevel = 4;
-        DataPersistance.DracoState.Storedone = 1;
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.CurrentLevel = 4;
+        DataPersistance.Storedone = 1;
+        DataPersistance.SaveForFutureGames();
         Debug.Log("Level Boss");
         SceneManager.LoadScene("Level_Boss");
     }
@@ -202,9 +202,9 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void ContinueButton()
     {
-        DataPersistance.DracoState.Storedone = 1;
-        SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.Storedone = 1;
+        SceneManager.LoadScene(DataPersistance.CurrentLevel);
+        DataPersistance.SaveForFutureGames();
     }
 
     //Despertamos al vendedor, que nos hablará
@@ -241,30 +241,30 @@ public class BetweenLevelsManager : MonoBehaviour
                     continueButton.Select();
                     BetweenLevelsManagerAudioSource.Stop();
 
-                    if (DataPersistance.DracoState.Fireball <= 0)
+                    if (DataPersistance.Fireball <= 0)
                     {
                         StartCoroutine(FadeIn(FueradeStock_Fireball));
                     }
-                    if (DataPersistance.DracoState.Shield <= 0)
+                    if (DataPersistance.Shield <= 0)
                     {
                         StartCoroutine(FadeIn(FueradeStock_Shield));
                     }
-                    if (DataPersistance.DracoState.Fly <= 0)
+                    if (DataPersistance.Fly <= 0)
                     {
                         StartCoroutine(FadeIn(FueradeStock_Fly));
                     }
 
-                    if (DataPersistance.DracoState.Fireball > 0)
+                    if (DataPersistance.Fireball > 0)
                     {
                         EntranceParticleSystem[0].Play();
                         Attack_Image.SetActive(true);
                     }
-                    if (DataPersistance.DracoState.Shield > 0)
+                    if (DataPersistance.Shield > 0)
                     {
                         EntranceParticleSystem[1].Play();
                         Defense_Image.SetActive(true);
                     }
-                    if (DataPersistance.DracoState.Fly > 0)
+                    if (DataPersistance.Fly > 0)
                     {
                         EntranceParticleSystem[2].Play();
                         Boost_Image.SetActive(true);
@@ -273,7 +273,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 }
                 else
                 {
-                    DialogueText.text = DialogoList[DataPersistance.DracoState.CurrentLevel - 2][CurrentDialogueText];
+                    DialogueText.text = DialogoList[DataPersistance.CurrentLevel - 2][CurrentDialogueText];
                     StartCoroutine(Letters(Next));
                     BetweenLevelsManagerAudioSource.Play();
 
@@ -344,20 +344,20 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         if(DialogueAnimDone == true)
         {
-            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fireball > 0)
+            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fireball > 0)
             {
                 PayMoney(propValue);
                 UpdateMoney();
-                DataPersistance.DracoState.Fireball--;
-                DataPersistance.DracoState.FireballValue+= Increment;
+                DataPersistance.Fireball--;
+                DataPersistance.FireballValue+= Increment;
                 DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
 
-                if (DataPersistance.DracoState.Fireball == 0)
+                if (DataPersistance.Fireball == 0)
                 {
                     StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab", FueradeStock_Fireball));
                 }
             }
-            else if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fireball <= 0)
+            else if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fireball <= 0)
             {
                 DialogueText.text = "Viva méxico ay ay ay ay";
             }
@@ -373,22 +373,22 @@ public class BetweenLevelsManager : MonoBehaviour
         if (DialogueAnimDone == true)
         {
 
-            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Shield > 0)
+            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Shield > 0)
             {
                 PayMoney(propValue);
                 UpdateMoney();
-                DataPersistance.DracoState.Shield--;
-                DataPersistance.DracoState.ShieldValue ++;
+                DataPersistance.Shield--;
+                DataPersistance.ShieldValue ++;
 
                 DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
 
-                if (DataPersistance.DracoState.Shield == 0)
+                if (DataPersistance.Shield == 0)
                 {
                     StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab", FueradeStock_Shield));
                 }
 
             }
-            else if(DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Shield <= 0)
+            else if(DataPersistance.MoneyCounter >= propValue && DataPersistance.Shield <= 0)
             {
                 DialogueText.text = "No quedan gusilus ninio";
             }
@@ -403,20 +403,20 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         if (DialogueAnimDone == true)
         {
-            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fly > 0)
+            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fly > 0)
             {
                 PayMoney(propValue);
                 UpdateMoney();
-                DataPersistance.DracoState.Fly--;
-                DataPersistance.DracoState.FlyValue += Increment;
+                DataPersistance.Fly--;
+                DataPersistance.FlyValue += Increment;
                 DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
 
-                if (DataPersistance.DracoState.Fly == 0)
+                if (DataPersistance.Fly == 0)
                 {
                     StartCoroutine(YesButtonCoroutine(Pos3, "Cloud_prefab", FueradeStock_Fly));
                 }
             }
-            else if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fly <= 0)
+            else if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fly <= 0)
             {
                 DialogueText.text = "No quedan papas ninio";
             }
@@ -471,7 +471,7 @@ public class BetweenLevelsManager : MonoBehaviour
         isShopping = true;
         if (DialogueAnimDone == true)
         {
-            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fireball <= 0)
+            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fireball <= 0)
             {
                 DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
             }
@@ -497,7 +497,7 @@ public class BetweenLevelsManager : MonoBehaviour
         isShopping = true;
         if (DialogueAnimDone == true)
         {
-            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Shield <= 0)
+            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Shield <= 0)
             {
                 DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
             }
@@ -522,7 +522,7 @@ public class BetweenLevelsManager : MonoBehaviour
         isShopping = true;
         if (DialogueAnimDone == true)
         {
-            if (DataPersistance.DracoState.MoneyCounter >= propValue && DataPersistance.DracoState.Fly <= 0)
+            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fly <= 0)
             {
                 DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
             }
@@ -546,12 +546,12 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void PayMoney(int value)
     {
-        DataPersistance.DracoState.MoneyCounter -= value;
+        DataPersistance.MoneyCounter -= value;
     }
 
     public void UpdateMoney()
     {
-        MoneyText.text = DataPersistance.DracoState.MoneyCounter.ToString();
+        MoneyText.text = DataPersistance.MoneyCounter.ToString();
         BetweenLevelsManagerAudioSource.PlayOneShot(Money, 1f);
     }
 }

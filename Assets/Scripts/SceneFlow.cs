@@ -18,10 +18,10 @@ public class SceneFlow : MonoBehaviour
     {
         if (otherCollider.gameObject.CompareTag("Player"))
         {
-            DataPersistance.DracoState.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
-            DataPersistance.DracoState.CurrentLevel++;
+            DataPersistance.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
+            DataPersistance.CurrentLevel++;
 
-            DataPersistance.DracoState.SaveForFutureGames();
+            DataPersistance.SaveForFutureGames();
 
             SceneManager.LoadScene("Store");
         }
@@ -31,19 +31,19 @@ public class SceneFlow : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Fireball_Stock"))
         {
-            DataPersistance.DracoState.MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
-            DataPersistance.DracoState.CurrentLevel = PlayerPrefs.GetInt("Current_Level");
-            DataPersistance.DracoState.Storedone = PlayerPrefs.GetInt("Store_Done");
-            DataPersistance.DracoState.Fireball = PlayerPrefs.GetInt("Fireball_Stock");
-            DataPersistance.DracoState.Shield = PlayerPrefs.GetInt("Shield_Stock");
-            DataPersistance.DracoState.Fly = PlayerPrefs.GetInt("Fly_Stock");
-            DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
-            DataPersistance.DracoState.ShieldValue = PlayerPrefs.GetInt("Shield_Value");
-            DataPersistance.DracoState.FlyValue = PlayerPrefs.GetFloat("Fly_Value");
-            DataPersistance.DracoState.MusicVolume = PlayerPrefs.GetFloat("Music_Volume");
-            DataPersistance.DracoState.SoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
-            DataPersistance.DracoState.MusicToggle = PlayerPrefs.GetInt("Music_Toggle");
-            DataPersistance.DracoState.SoundToggle = PlayerPrefs.GetInt("Sound_Toggle");
+            DataPersistance.MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
+            DataPersistance.CurrentLevel = PlayerPrefs.GetInt("Current_Level");
+            DataPersistance.Storedone = PlayerPrefs.GetInt("Store_Done");
+            DataPersistance.Fireball = PlayerPrefs.GetInt("Fireball_Stock");
+            DataPersistance.Shield = PlayerPrefs.GetInt("Shield_Stock");
+            DataPersistance.Fly = PlayerPrefs.GetInt("Fly_Stock");
+            DataPersistance.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
+            DataPersistance.ShieldValue = PlayerPrefs.GetInt("Shield_Value");
+            DataPersistance.FlyValue = PlayerPrefs.GetFloat("Fly_Value");
+            DataPersistance.MusicVolume = PlayerPrefs.GetFloat("Music_Volume");
+            DataPersistance.SoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
+            DataPersistance.MusicToggle = PlayerPrefs.GetInt("Music_Toggle");
+            DataPersistance.SoundToggle = PlayerPrefs.GetInt("Sound_Toggle");
 
             /*
             MenuGameManagerScript.MenuMusicVolume = PlayerPrefs.GetFloat("Music_Volume");

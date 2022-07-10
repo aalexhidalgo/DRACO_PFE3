@@ -111,7 +111,7 @@ public class BossLogic : MonoBehaviour
         {
             if (otherTrigger.gameObject.CompareTag("Fire") && ShieldBoss == 0)
             {
-                BossLife -= DataPersistance.DracoState.FireballValue;
+                BossLife -= DataPersistance.FireballValue;
                 LifeBoss.fillAmount = BossLife / MaxBossLife;
                 Destroy(otherTrigger.gameObject);
 

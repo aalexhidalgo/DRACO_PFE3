@@ -62,8 +62,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MaxShieldValue = DataPersistance.DracoState.ShieldValue + 1;
-        MaxFlyTime = DataPersistance.DracoState.FlyValue;
+        MaxShieldValue = DataPersistance.ShieldValue + 1;
+        MaxFlyTime = DataPersistance.FlyValue;
         MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
         GameOver = false;
 

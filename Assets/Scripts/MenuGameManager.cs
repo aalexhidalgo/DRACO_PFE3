@@ -69,24 +69,24 @@ public class MenuGameManager : MonoBehaviour
     #region MenuButtons
     public void StartButton()
     {
-        DataPersistance.DracoState.MoneyCounter = 0;
-        DataPersistance.DracoState.Storedone = 1;
-        DataPersistance.DracoState.CurrentLevel = 1;
-        DataPersistance.DracoState.Fireball = 4;
-        DataPersistance.DracoState.Shield = 3;
-        DataPersistance.DracoState.Fly = 2;
-        DataPersistance.DracoState.FireballValue = 1f;
-        DataPersistance.DracoState.ShieldValue = 0;
-        DataPersistance.DracoState.FlyValue = 0.5f;
-        DataPersistance.DracoState.SaveForFutureGames();
-        SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
+        DataPersistance.MoneyCounter = 0;
+        DataPersistance.Storedone = 1;
+        DataPersistance.CurrentLevel = 1;
+        DataPersistance.Fireball = 4;
+        DataPersistance.Shield = 3;
+        DataPersistance.Fly = 2;
+        DataPersistance.FireballValue = 1f;
+        DataPersistance.ShieldValue = 0;
+        DataPersistance.FlyValue = 0.5f;
+        DataPersistance.SaveForFutureGames();
+        SceneManager.LoadScene(DataPersistance.CurrentLevel);
 
     }
     public void ContinueButton()
     {
-        if (DataPersistance.DracoState.Storedone == 1)
+        if (DataPersistance.Storedone == 1)
         {
-            SceneManager.LoadScene(DataPersistance.DracoState.CurrentLevel);
+            SceneManager.LoadScene(DataPersistance.CurrentLevel);
         }
         else
         {
@@ -99,7 +99,7 @@ public class MenuGameManager : MonoBehaviour
         MainMenuPanel.SetActive(false);
         HowToPlayPanel.SetActive(true);
 
-        if(DataPersistance.DracoState.SwitchControls == 0)
+        if(DataPersistance.SwitchControls == 0)
         {
             GamepadPanel.SetActive(false);
             KeyboardPanel.SetActive(true);
@@ -128,9 +128,9 @@ public class MenuGameManager : MonoBehaviour
         OptionsPanel.SetActive(false);
         HowToPlayPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
-        DataPersistance.DracoState.MusicToggle = intToggleMusic;
-        DataPersistance.DracoState.SoundToggle = intToggleSound;
-        DataPersistance.DracoState.SaveForFutureGames();
+        DataPersistance.MusicToggle = intToggleMusic;
+        DataPersistance.SoundToggle = intToggleSound;
+        DataPersistance.SaveForFutureGames();
     }
 
     //Mostramos el tipo de controles dependiendo de si se juega con teclado o mando
@@ -138,20 +138,20 @@ public class MenuGameManager : MonoBehaviour
     {
         GamepadPanel.SetActive(false);
         KeyboardPanel.SetActive(true);
-        DataPersistance.DracoState.SwitchControls = 0;
+        DataPersistance.SwitchControls = 0;
     }
     public void GamePadControls()
     {
         KeyboardPanel.SetActive(false);
         GamepadPanel.SetActive(true);
-        DataPersistance.DracoState.SwitchControls = 1;
+        DataPersistance.SwitchControls = 1;
     }
 
     public void LoadGameControls()
     {
         if (PlayerPrefs.HasKey("Switch_Controls"))
         {
-            DataPersistance.DracoState.SwitchControls = PlayerPrefs.GetInt("Switch_Controls");
+            DataPersistance.SwitchControls = PlayerPrefs.GetInt("Switch_Controls");
         }
     }
     #endregion
@@ -162,7 +162,7 @@ public class MenuGameManager : MonoBehaviour
     public void UpdateMusicVolume(float v)
     {
         MainCameraAudioSource.volume = v;
-        DataPersistance.DracoState.MusicVolume = v;
+        DataPersistance.MusicVolume = v;
        
     }
 
@@ -189,7 +189,7 @@ public class MenuGameManager : MonoBehaviour
     public void UpdateSoundVolume(float v)
     {
         MenuGameManagerAudioSource.volume = v;
-        DataPersistance.DracoState.SoundVolume = v;
+        DataPersistance.SoundVolume = v;
     }
 
     public int BoolToInt(bool b)

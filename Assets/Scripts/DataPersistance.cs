@@ -1,56 +1,35 @@
 using UnityEngine;
 
-public class DataPersistance : MonoBehaviour
+public class DataPersistance
 {
-    //Instancia compartida
-
-    public static DataPersistance DracoState;
 
     //Variables
 
-    public int MoneyCounter = 0;
-    public int CurrentLevel = 1;
-    public int Storedone = 1;
+    public static int MoneyCounter = 0;
+    public static int CurrentLevel = 1;
+    public static int Storedone = 1;
 
     //Store Stock
-    public int Fireball;
-    public int Shield;
-    public int Fly;
+    public static int Fireball;
+    public static int Shield;
+    public static int Fly;
 
     //Store Value
-    public float FireballValue;
-    public int ShieldValue = 1;
-    public float FlyValue;
+    public static float FireballValue;
+    public static int ShieldValue = 1;
+    public static float FlyValue;
 
     //Music
-    public float SoundVolume;
-    public int SoundToggle;
+    public static float SoundVolume;
+    public static int SoundToggle;
 
-    public float MusicVolume;
-    public int MusicToggle;
+    public static float MusicVolume;
+    public static int MusicToggle;
 
     //Controls
-    public int SwitchControls;
+    public static int SwitchControls;
 
-    void Awake()
-    {
-        // Si la instancia no existe
-        if (DracoState == null)
-        {
-            // Configuramos la instancia
-            DracoState = this;
-            // Nos aseguramos de que no sea destruida con el cambio de escena
-            DontDestroyOnLoad(DracoState);
-        }
-        else
-        {
-            // Como ya existe una instancia, destruimos la copia
-            Destroy(this);
-        }
-    }
-
-
-    public void SaveForFutureGames()
+    public static void SaveForFutureGames()
     {
         //Contador de monedas
         PlayerPrefs.SetInt("Money_Counter", MoneyCounter);
@@ -81,7 +60,7 @@ public class DataPersistance : MonoBehaviour
         y cámara música fondo)*/
     }
 
-    public void SaveCoins(int Coins)
+    public static void SaveCoins(int Coins)
     {
         //Contador de monedas
         MoneyCounter = Coins;
