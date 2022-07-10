@@ -4,9 +4,19 @@ using UnityEngine;
 
 public class DetectBoss : MonoBehaviour
 {
+    public static DetectBoss SharedInstance;
+
     private BossLogic BossLogicScript;
     private SpawnManager SpawnManagerScript;
+    private GameManager GameManagerScript;
     private GameObject LifeBoss;
+
+    public bool Damage = false;
+
+    private void Awake()
+    {
+        SharedInstance = this;
+    }
 
     private void OnTriggerEnter(Collider otherCollider)
     {
@@ -18,6 +28,7 @@ public class DetectBoss : MonoBehaviour
             SpawnManagerScript.enabled = true;
             //DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
             LifeBoss.SetActive(true);
+            Damage = true;
         }
     }
 
@@ -26,6 +37,9 @@ public class DetectBoss : MonoBehaviour
         //DataPersistance.DracoState.FireballValue = 0;
         LifeBoss = GameObject.Find("LifeBoss");
         LifeBoss.SetActive(false);
+
+        GameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
+        GameManagerScript.FlybarCounter = 0;
     }
 
     //Las líneas comentadas es porque ya no las necesitamos

@@ -107,44 +107,47 @@ public class BossLogic : MonoBehaviour
 
     public void OnTriggerEnter (Collider otherTrigger)
     {
-        if(otherTrigger.gameObject.CompareTag("Fire") && ShieldBoss == 0)
-        {  
-            BossLife -= DataPersistance.DracoState.FireballValue;
-            LifeBoss.fillAmount = BossLife / MaxBossLife;
-            Destroy(otherTrigger.gameObject);
-
-            if(BossLife <= 0)
-            {
-                BossLife = 0;
-                LifeBoss.fillAmount = BossLife / MaxBossLife;
-                StartCoroutine(Boss_Death());
-            }
-        }
-
-        if (otherTrigger.gameObject.CompareTag("Fire") && ShieldBoss == 1)
+        if(DetectBoss.SharedInstance.Damage == true)
         {
-            ShieldValueBoss--;
-            Destroy(otherTrigger.gameObject);
+            if (otherTrigger.gameObject.CompareTag("Fire") && ShieldBoss == 0)
+            {
+                BossLife -= DataPersistance.DracoState.FireballValue;
+                LifeBoss.fillAmount = BossLife / MaxBossLife;
+                Destroy(otherTrigger.gameObject);
 
-            if (ShieldValueBoss <= 0)
-            {
-                ShieldBoss = 0;
-                UpdateShield();
+                if (BossLife <= 0)
+                {
+                    BossLife = 0;
+                    LifeBoss.fillAmount = BossLife / MaxBossLife;
+                    StartCoroutine(Boss_Death());
+                }
             }
-            else
+
+            if (otherTrigger.gameObject.CompareTag("Fire") && ShieldBoss == 1)
             {
+                ShieldValueBoss--;
+                Destroy(otherTrigger.gameObject);
+
+                if (ShieldValueBoss <= 0)
+                {
+                    ShieldBoss = 0;
+                    UpdateShield();
+                }
+                else
+                {
+                    UpdateShieldImage();
+                }
+
+            }
+
+            if (otherTrigger.gameObject.CompareTag("Shield_Boss"))
+            {
+                ShieldBoss = 1;
+                ShieldValueBoss++;
+                Destroy(otherTrigger.gameObject);
+                UpdateShield();
                 UpdateShieldImage();
             }
-
-        }
-
-        if (otherTrigger.gameObject.CompareTag("Shield_Boss"))
-        {
-            ShieldBoss = 1;
-            ShieldValueBoss++;
-            Destroy(otherTrigger.gameObject);
-            UpdateShield();
-            UpdateShieldImage();
         }
     }
 
