@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
 {
 
     //Botones
-    public Button resumeButton;
+    public Button resumeButton; //PAUSA
+    public Button restartButton; //GAMEOVER
 
     //Paneles
     public GameObject PauseMenuPanel;
@@ -48,8 +49,9 @@ public class GameManager : MonoBehaviour
     private AutoDestroy AutoDestroyScript;
 
     //PostProcesado
+    public GameObject GameOverPanel;
     private GameObject PostProcesadoMuerte;
-
+    public bool GameOver = false;
 
     //PauseMenuPanel
 
@@ -64,7 +66,7 @@ public class GameManager : MonoBehaviour
     //Descansito
     public void ResumeButton()
     {
-        resumeButton.Select();
+        restartButton.Select();
         PauseMenuPanel.SetActive(false);
         pause = false;
         PauseButton.sprite = UnPause;
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
     {
         if(pause == false)
         {
+            resumeButton.Select();
             PauseMenuPanel.SetActive(true);
             Debug.Log("Me pauso");
             pause = true;
@@ -131,13 +134,18 @@ public class GameManager : MonoBehaviour
 
         UpdateMusicSound_Value();
         UpdateMusicSound_Active();
+
+        restartButton.Select();
+
     }
 
     void Update()
     {
-        if(PlayerControllerScript.GameOver)
+        if(GameOver == true)
         {
             PostProcesadoMuerte.SetActive(true);
+            GameOverPanel.SetActive(true);
+            Time.timeScale = 0;
         }
 
         //Ratón o Options

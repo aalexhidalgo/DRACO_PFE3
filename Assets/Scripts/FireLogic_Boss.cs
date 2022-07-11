@@ -57,8 +57,8 @@ public class FireLogic_Boss : MonoBehaviour
                 if (PlayerControllerScript.CurrentLive <= 0)
                 {
                     PlayerControllerScript.CurrentLive = 0;
-                    PlayerControllerScript.GameOver = true;
-                    PlayerControllerScript.GameOverPanel.SetActive(true);
+                    GameManagerScript.GameOver = true;
+                    GameManagerScript.GameOverPanel.SetActive(true);
                     PlayerControllerScript.UpdateLife();
                 }
                 

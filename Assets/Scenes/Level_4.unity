@@ -82893,6 +82893,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1000717061220203950}
     - target: {fileID: 7170273641819324968, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
+      propertyPath: GameOverPanel
+      value: 
+      objectReference: {fileID: 1000717061220203948}
+    - target: {fileID: 7170273641819324968, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
       propertyPath: PauseMenuPanel
       value: 
       objectReference: {fileID: 243130677}

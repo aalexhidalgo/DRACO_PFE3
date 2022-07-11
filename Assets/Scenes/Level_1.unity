@@ -1075,6 +1075,30 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1000717059607779027, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059607779027, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1000717061220203951}
+    - target: {fileID: 1000717059607779027, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.7843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059607779027, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.7843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059607779027, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.7843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059607779027, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1000717061220203951}
+    - target: {fileID: 1000717059607779027, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 775411997}
@@ -1082,6 +1106,30 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 775411997}
+    - target: {fileID: 1000717059948919024, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059948919024, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1000717061220203950}
+    - target: {fileID: 1000717059948919024, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.b
+      value: 0.7843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059948919024, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.g
+      value: 0.7843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059948919024, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Colors.m_SelectedColor.r
+      value: 0.7843138
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000717059948919024, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1000717061220203950}
     - target: {fileID: 1000717059948919024, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -1281,7 +1329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!1 &1000717061220203948 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 1000717060374642700, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+  m_CorrespondingSourceObject: {fileID: 1000717059607779029, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
   m_PrefabInstance: {fileID: 1000717061220203942}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1000717061220203949 stripped
@@ -1289,7 +1337,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1000717060374642698, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
   m_PrefabInstance: {fileID: 1000717061220203942}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1000717061220203950 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1000717059607779027, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+  m_PrefabInstance: {fileID: 1000717061220203942}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000717061220203948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1000717061220203951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1000717059948919024, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
+  m_PrefabInstance: {fileID: 1000717061220203942}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
@@ -1390,6 +1460,14 @@ PrefabInstance:
       propertyPath: resumeButton
       value: 
       objectReference: {fileID: 1000717061220203949}
+    - target: {fileID: 7170273641819324968, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
+      propertyPath: GameOverPanel
+      value: 
+      objectReference: {fileID: 682685740}
+    - target: {fileID: 7170273641819324968, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
+      propertyPath: restartButton
+      value: 
+      objectReference: {fileID: 1000717061220203950}
     - target: {fileID: 7170273641819324968, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
       propertyPath: PauseMenuPanel
       value: 

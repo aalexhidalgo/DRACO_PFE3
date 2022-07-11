@@ -27,7 +27,7 @@ public class SpawnManager : MonoBehaviour
 
     public IEnumerator SpawnRandomPrefab()
     {
-        while (PlayerControllerScript.GameOver == false && BossLogicScript.Win == false) //mientras no hemos ganado ni perdido, es decir jugamos
+        while (GameManagerScript.GameOver == false && BossLogicScript.Win == false) //mientras no hemos ganado ni perdido, es decir jugamos
         {
             float SpawnRate = Random.Range(MinTimeSpawn, MaxTimeSpawn); //Generamos un spawn  rate aleatorio para los prefabs (escudos) que vamos a instanciar
             yield return new WaitForSeconds(SpawnRate); //esperamos

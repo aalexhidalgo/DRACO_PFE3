@@ -44,8 +44,8 @@ public class PlayerController : MonoBehaviour
     private EnemyLogic EnemyLogicScript;
     private GameManager GameManagerScript;
 
-    public GameObject GameOverPanel;
-    public bool GameOver;
+    //public GameObject GameOverPanel;
+    //public bool GameOver;
 
     //AudioSources para acceder a sonidos
 
@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
         MaxShieldValue = DataPersistance.ShieldValue + 1;
         MaxFlyTime = DataPersistance.FlyValue;
         MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
-        GameOver = false;
 
         DracoRigidbody = GetComponent<Rigidbody>();
         Physics.gravity = NewGravity;
@@ -86,85 +85,79 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameOver == false)
+        if(GameManagerScript.GameOver == false)
         {
-           if (GameManagerScript.pause == false)
-           {
-                StartCoroutine(DracoWalking());
-                StartCoroutine(DracoFlying());
+            StartCoroutine(DracoWalking());
+            StartCoroutine(DracoFlying());
 
-                //Controladores principales de DRACO
+            //Controladores principales de DRACO
 
-                //Movimiento horizontal
-                //TECLADO: RightArrow, LeftArrow o bien A D.
-                //GAMEPAD: Joystick Axis X (izquierdo), 3rd Axis Joystick (derecho)
+            //Movimiento horizontal
+            //TECLADO: RightArrow, LeftArrow o bien A D.
+            //GAMEPAD: Joystick Axis X (izquierdo), 3rd Axis Joystick (derecho)
 
-                HorizontalInput = Input.GetAxis("Horizontal");
-                DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
+            HorizontalInput = Input.GetAxis("Horizontal");
+            DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
 
-                //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
-                if (HorizontalInput < 0)
-                {
-                    transform.rotation = Quaternion.Euler(0, YRotationLimit, 0);
-                }
-                if (HorizontalInput > 0)
-                {
+            //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
+            if (HorizontalInput < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, YRotationLimit, 0);
+            }
+            if (HorizontalInput > 0)
+            {
 
-                    transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
-                }
+                transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
+            }
 
-                //Salto
-                //TECLADO: Spacebar.
-                //GAMEPAD: Joystick button 1 (X).
+            //Salto
+            //TECLADO: Spacebar.
+            //GAMEPAD: Joystick button 1 (X).
 
-                if (Input.GetButtonDown("UpMove") && IsOnTheGround) //X, Axis
-                {
-                    DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
-                    //Evitamos doble salto
-                    GameManagerAudioSource.PlayOneShot(Jumping);
-                    DracoSprite.sprite = DracoSpritesArray[3];
-                    IsOnTheGround = false;
-                }
+            if (Input.GetButtonDown("UpMove") && IsOnTheGround) //X, Axis
+            {
+                DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
+                //Evitamos doble salto
+                GameManagerAudioSource.PlayOneShot(Jumping);
+                DracoSprite.sprite = DracoSpritesArray[3];
+                IsOnTheGround = false;
+            }
 
-                //Vuelo
-                //TECLADO: Q.
-                //GAMEPAD: Joystick button 7.
-                if (Input.GetButton("FlyMove") && GameManagerScript.FlybarCounter > 0)
-                {
-                    DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
-                    IsOnTheGround = false;
-                    IsFlying = true;
+            //Vuelo
+            //TECLADO: Q.
+            //GAMEPAD: Joystick button 7.
+            if (Input.GetButton("FlyMove") && GameManagerScript.FlybarCounter > 0)
+            {
+                DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
+                IsOnTheGround = false;
+                IsFlying = true;
 
-                    //Tiempo de vuelo
-                    CurrentTime += Time.deltaTime;
-                    AntiTime = MaxFlyTime - CurrentTime;
-                    GameManagerScript.FlybarCounter = AntiTime / MaxFlyTime;
-                    GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
-                }
+                //Tiempo de vuelo
+                CurrentTime += Time.deltaTime;
+                AntiTime = MaxFlyTime - CurrentTime;
+                GameManagerScript.FlybarCounter = AntiTime / MaxFlyTime;
+                GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
+            }
 
-                //Fuego
-                //TECLADO: E.
-                //GAMEPAD: Joystick button 2.
-                if (Input.GetButtonDown("Fire"))
-                {
-                    StartCoroutine(FireCooldown());
-                }
+            //Fuego
+            //TECLADO: E.
+            //GAMEPAD: Joystick button 2.
+            if (Input.GetButtonDown("Fire"))
+            {
+                StartCoroutine(FireCooldown());
+            }
 
 
-                if (IsOnTheGround == true && HorizontalInput == 0) //al estar en el suelo y no estar en movimiento cambiamos el sprite a estado neutral o idle
-                {
-                    DracoSprite.sprite = DracoSpritesArray[1];
-                }
+            if (IsOnTheGround == true && HorizontalInput == 0) //al estar en el suelo y no estar en movimiento cambiamos el sprite a estado neutral o idle
+            {
+                DracoSprite.sprite = DracoSpritesArray[1];
+            }
 
-                if(IsOnTheGround == true)
-                {
-                    IsFlying = false;
-                }
-
-            }     
-            
-        }
-        
+            if (IsOnTheGround == true)
+            {
+                IsFlying = false;
+            }
+        }                    
     }
 
     private IEnumerator DracoWalking() //cambio de sprites al caminar
@@ -208,8 +201,7 @@ public class PlayerController : MonoBehaviour
         {
             CurrentLive = 0;
             UpdateLife();
-            GameOver = true;
-            GameOverPanel.SetActive(true);
+            GameManagerScript.GameOver = true;
         }
 
         //Si jugador pierde vida si colisiona contra un enemigo
@@ -222,8 +214,7 @@ public class PlayerController : MonoBehaviour
             {
                 CurrentLive = 0;
                 Debug.Log("Sa matao Paco");
-                GameOver = true;
-                GameOverPanel.SetActive(true);
+                GameManagerScript.GameOver = true;
             }
 
             UpdateLife();
@@ -244,7 +235,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(GameOver == true) //si muero, paro la música y pongo el sonido de muerte
+        if(GameManagerScript.GameOver == true) //si muero, paro la música y pongo el sonido de muerte
         {
             GameObject.Find("Main Camera").GetComponent<AudioSource>().Pause();
             GameManagerAudioSource.PlayOneShot(GameOverSound);
@@ -293,8 +284,8 @@ public class PlayerController : MonoBehaviour
             CurrentLive = 0;
 
             Debug.Log("Chanelazo");
-            GameOver = true;
-            GameOverPanel.SetActive(true);
+            GameManagerScript.GameOver = true;
+            
 
             UpdateLife();
         }
@@ -330,8 +321,8 @@ public class PlayerController : MonoBehaviour
             {
                 CurrentLive = 0;
                 Debug.Log("Quack, quack, quack...");
-                GameOver = true;
-                GameOverPanel.SetActive(true);
+                GameManagerScript.GameOver = true;
+                
                 UpdateLife();
             }
 
