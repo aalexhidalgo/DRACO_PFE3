@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     public Sprite[] DracoSpritesArray;
     private bool IsFlying;
 
+    private Animator PlayerAnimator;
+
     //Contadores Props
     public float CurrentLive = 3;
     public int Shield = 0;
@@ -70,6 +72,7 @@ public class PlayerController : MonoBehaviour
         Physics.gravity = NewGravity;
 
         DracoSprite = GetComponent<SpriteRenderer>();
+        PlayerAnimator = GetComponent<Animator>();
 
         PropLogicScript = FindObjectOfType<PropLogic>();
         EnemyLogicScript = FindObjectOfType<EnemyLogic>();
@@ -87,8 +90,11 @@ public class PlayerController : MonoBehaviour
     {
         if(GameManagerScript.GameOver == false)
         {
-            StartCoroutine(DracoWalking());
-            StartCoroutine(DracoFlying());
+            IsWalking();
+            PlayerAnimator.SetBool("IsJumping", !IsOnTheGround);
+            PlayerAnimator.SetBool("IsFlying", IsFlying);
+            //StartCoroutine(DracoWalking());
+            //StartCoroutine(DracoFlying());
 
             //Controladores principales de DRACO
 
@@ -119,7 +125,7 @@ public class PlayerController : MonoBehaviour
                 DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
                 GameManagerAudioSource.PlayOneShot(Jumping);
-                DracoSprite.sprite = DracoSpritesArray[3];
+                //DracoSprite.sprite = DracoSpritesArray[3];
                 IsOnTheGround = false;
             }
 
@@ -131,6 +137,7 @@ public class PlayerController : MonoBehaviour
                 DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
                 IsOnTheGround = false;
                 IsFlying = true;
+                PlayerAnimator.SetBool("IsFlying", IsFlying);
 
                 //Tiempo de vuelo
                 CurrentTime += Time.deltaTime;
@@ -148,19 +155,32 @@ public class PlayerController : MonoBehaviour
             }
 
 
-            if (IsOnTheGround == true && HorizontalInput == 0) //al estar en el suelo y no estar en movimiento cambiamos el sprite a estado neutral o idle
+            /*if (IsOnTheGround == true && HorizontalInput == 0) //al estar en el suelo y no estar en movimiento cambiamos el sprite a estado neutral o idle
             {
                 DracoSprite.sprite = DracoSpritesArray[1];
-            }
+            }*/
 
             if (IsOnTheGround == true)
             {
                 IsFlying = false;
+
             }
-        }                    
+        }                  
     }
 
-    private IEnumerator DracoWalking() //cambio de sprites al caminar
+    private void IsWalking()
+    {
+        if (IsOnTheGround == true && HorizontalInput != 0)
+        {
+            PlayerAnimator.SetBool("IsWalking", true);
+        }
+        else
+        {
+            PlayerAnimator.SetBool("IsWalking", false);
+        }
+    }
+
+    /*private IEnumerator DracoWalking() //cambio de sprites al caminar
     {
         while(IsOnTheGround == true && HorizontalInput != 0)
         {
@@ -182,7 +202,7 @@ public class PlayerController : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             DracoSprite.sprite = DracoSpritesArray[6];
         }
-    }
+    }*/
 
     public void OnCollisionEnter(Collision otherCollider)
     {

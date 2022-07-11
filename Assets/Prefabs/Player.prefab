@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8991849128666538486}
   - component: {fileID: 8991849128666538442}
   - component: {fileID: 8991849128477017568}
+  - component: {fileID: 8991849127889756650}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -162,8 +163,6 @@ MonoBehaviour:
   IsOnTheGround: 0
   CanFly: 0
   ShootFire: 0
-  GameOverPanel: {fileID: 0}
-  GameOver: 0
   GameManagerAudioSource: {fileID: 0}
   Jumping: {fileID: 8300000, guid: b0e5668918a3d504596bce201ef595d1, type: 3}
   GameOverSound: {fileID: 8300000, guid: 768eb5f150cf17742a408b747cb1dad4, type: 3}
@@ -283,3 +282,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &8991849127889756650
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8991849128666538485}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a4990e1766e0df4d9f9c2eef60da30c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

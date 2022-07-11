@@ -1652,10 +1652,6 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
-      propertyPath: GameOverPanel
-      value: 
-      objectReference: {fileID: 682685740}
-    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: GameManagerAudioSource
       value: 
       objectReference: {fileID: 1476662617}
