@@ -247,4 +247,19 @@ public class MenuGameManager : MonoBehaviour
         Next.SetActive(true);
         nextButton.Select();
     }
+
+    void Update()
+    {
+        if(Input.GetButtonDown("Press Me")) //Mediante ratón o Joystick button 0
+        {
+            MenuGameManagerAudioSource.Play();
+        }
+
+        //Trampita: Saltarse el diálogo inicial Mediante X en teclado y Joystick button 3 en mando
+        if(Input.GetButtonDown("Tramposo"))
+        {
+            Debug.Log("De oca a oca y tiro porque me toca");
+            StartButton();
+        }
+    }
 }

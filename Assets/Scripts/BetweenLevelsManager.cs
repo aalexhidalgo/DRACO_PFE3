@@ -126,7 +126,7 @@ public class BetweenLevelsManager : MonoBehaviour
             VendedorImage.sprite = VendedorDespierto; //NO FUNCIONA
         }
 
-        if(Input.GetButtonDown("Awake"))
+        if(Input.GetButtonDown("Awake")) //Vendedor: Mediante ratón o Joystick button 0
         {
             ShowDialogue();
         }
@@ -210,7 +210,6 @@ public class BetweenLevelsManager : MonoBehaviour
     //Despertamos al vendedor, que nos hablará
     public void ShowDialogue()
     {
-        //VendedorImage.sprite = VendedorDespierto;
 
         if (CanClick)
         {

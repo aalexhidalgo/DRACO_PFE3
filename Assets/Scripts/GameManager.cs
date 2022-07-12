@@ -7,6 +7,15 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
+    //La navegación entre botones con mando:
+    //Cruzeta: 7th Axis y 8th Axis
+    //Joystick izquierdo: X Axis y Y axis
+    //Joystick derecho: 3rd Axis y 6th Axis
+
+    //Navegación entre botones con Teclado:
+    //Ratón
+    //Flechas: UpArrow, DownArrow, LeftArrow y RightArrow
+    //WASD
 
     //Botones
     public Button resumeButton; //PAUSA
@@ -58,9 +67,10 @@ public class GameManager : MonoBehaviour
     //Reinciamos el nivel en el que nos encontramos
     public void RestartButton()
     {
+        GameOver = false;
         DataPersistance.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
-        Time.timeScale = 1;
+        Time.timeScale = 1;       
     }
     
     //Descansito
@@ -84,6 +94,7 @@ public class GameManager : MonoBehaviour
     //Nos vamos del juego
     public void ExitButton()
     {
+        GameOver = false;
         Debug.Log("Exit");
         DataPersistance.SaveForFutureGames();
         Application.Quit();
@@ -105,12 +116,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("Me despauso");
             ResumeButton();
         }
-    }
-
-    //Borrar luego
-    public void BossPauseMenuButton()
-    {
-        Time.timeScale = 0;
     }
 
     void Start()
@@ -136,7 +141,6 @@ public class GameManager : MonoBehaviour
         UpdateMusicSound_Active();
 
         restartButton.Select();
-
     }
 
     void Update()
@@ -148,8 +152,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        //Ratón o Options
-        if(Input.GetButtonDown("Pausa"))
+        //Pausa: Mediante Ratón o Joystick button 9 (Options)
+        if (Input.GetButtonDown("Pausa"))
         {
 
             if (pause == true)
