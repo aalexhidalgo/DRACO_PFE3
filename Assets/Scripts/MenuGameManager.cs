@@ -11,7 +11,7 @@ public class MenuGameManager : MonoBehaviour
     //botones
     public Button nextButton;
     public Button returnButton;
-    public Button switchControlButton;
+    public Button[] switchControlButton;
     public Button startButton;
 
     //Variables
@@ -95,7 +95,7 @@ public class MenuGameManager : MonoBehaviour
     }
     public void HowToPlayButton()
     {
-        switchControlButton.Select();
+        switchControlButton[DataPersistance.SwitchControls].Select();
         MainMenuPanel.SetActive(false);
         HowToPlayPanel.SetActive(true);
 
