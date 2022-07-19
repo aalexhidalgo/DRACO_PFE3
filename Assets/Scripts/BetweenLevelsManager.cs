@@ -15,6 +15,12 @@ public class BetweenLevelsManager : MonoBehaviour
     public GameObject StorePanel;
     public List<string[]> DialogoList = new List<string[]>();
 
+    //PreDiálogo
+    public GameObject PreDialogueImage;
+    public TextMeshProUGUI PreDialogueText;
+    public GameObject SquareButtonImage;
+    public GameObject CursorImage;
+
     //Diálogo
     public GameObject DialogueImage;
     public TextMeshProUGUI DialogueText;
@@ -69,12 +75,16 @@ public class BetweenLevelsManager : MonoBehaviour
     //Stock
     private bool closeDialogue;
 
+    //Comunicación Scripts
+    private GamePadController GamePadControllerScript;
+
     private void Awake()
     {
         DialogoList.Add(DA1);
         DialogoList.Add(DA2);
         DialogoList.Add(DA3);
         DialogoList.Add(DA4);
+
     }
 
     void Start()
@@ -117,17 +127,33 @@ public class BetweenLevelsManager : MonoBehaviour
         VendedorImage.GetComponent<Image>();
 
         UpdateMusicSound_Active();
+
+        GamePadControllerScript = FindObjectOfType<GamePadController>();
     }
 
     void Update()
     {
-        if(DialogueAnimDone == false && isTalking)
+        if(GamePadControllerScript.PS4_Controller == 1)
+        {
+            PreDialogueText.text = "Presiona           para hablar con el vendedor";
+            SquareButtonImage.SetActive(true);
+            CursorImage.SetActive(false);
+        }
+        else
+        {
+            PreDialogueText.text = "Presiona            sobre el vendedor para hablar";
+            SquareButtonImage.SetActive(false);
+            CursorImage.SetActive(true);
+        }
+
+        if (DialogueAnimDone == false && isTalking)
         {
             VendedorImage.sprite = VendedorDespierto; //NO FUNCIONA
         }
 
-        if(Input.GetButtonDown("Awake")) //Vendedor: Mediante ratón o Joystick button 0
+        if(Input.GetButtonDown("Awake")) //Vendedor: Mediante ratón o Joystick button 0 (Cuadrado)
         {
+            PreDialogueImage.SetActive(false);
             ShowDialogue();
         }
     }
@@ -213,6 +239,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
         if (CanClick)
         {
+            PreDialogueImage.SetActive(false);
             isTalking = true;
             BetweenLevelsManagerAudioSource.Play();
             DialogueImage.SetActive(true);
