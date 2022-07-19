@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MenuGameManager : MonoBehaviour
 {
@@ -56,6 +57,8 @@ public class MenuGameManager : MonoBehaviour
     public GameObject SquareButton;
 
     private GamePadController GamePadControllerScript;
+
+    private EventSystem UIEventSystem;
     void Start()
     {
         MainMenuPanel.SetActive(true);
@@ -69,7 +72,14 @@ public class MenuGameManager : MonoBehaviour
         MenuGameManagerAudioSource.Stop();
         LoadMusicSoundValue();
         LoadGameControls();
+
         GamePadControllerScript = FindObjectOfType<GamePadController>();
+
+        if (GamePadControllerScript.PS4_Controller == 1)
+        {
+            Debug.Log("Funciona, tranquilo");
+            EventSystem.current.SetSelectedGameObject(startButton.gameObject);
+        }
     }
 
 
