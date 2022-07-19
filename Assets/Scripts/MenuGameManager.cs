@@ -14,6 +14,7 @@ public class MenuGameManager : MonoBehaviour
     public Button[] switchControlButton;
     public Button startButton;
 
+
     //Variables
     private AudioSource MenuGameManagerAudioSource;
     private AudioSource MainCameraAudioSource;
@@ -50,6 +51,11 @@ public class MenuGameManager : MonoBehaviour
     public bool DialogueAnimDone = false;
     public GameObject Next;
 
+    //Images
+
+    public GameObject SquareButton;
+
+    private GamePadController GamePadControllerScript;
     void Start()
     {
         MainMenuPanel.SetActive(true);
@@ -63,6 +69,7 @@ public class MenuGameManager : MonoBehaviour
         MenuGameManagerAudioSource.Stop();
         LoadMusicSoundValue();
         LoadGameControls();
+        GamePadControllerScript = FindObjectOfType<GamePadController>();
     }
 
 
@@ -261,5 +268,15 @@ public class MenuGameManager : MonoBehaviour
             Debug.Log("De oca a oca y tiro porque me toca");
             StartButton();
         }
+
+        if(GamePadControllerScript.PS4_Controller == 1)
+        {
+            SquareButton.SetActive(true);
+        }
+        else
+        {
+            SquareButton.SetActive(false);
+        }
+
     }
 }
