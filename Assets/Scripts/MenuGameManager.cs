@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEngine.EventSystems;
 
 public class MenuGameManager : MonoBehaviour
 {
@@ -52,13 +51,12 @@ public class MenuGameManager : MonoBehaviour
     public bool DialogueAnimDone = false;
     public GameObject Next;
 
-    //Images
-
+    //UI GAMEPAD
     public GameObject SquareButton;
 
+    //Scripts
     private GamePadController GamePadControllerScript;
 
-    private EventSystem UIEventSystem;
     void Start()
     {
         MainMenuPanel.SetActive(true);
@@ -73,13 +71,7 @@ public class MenuGameManager : MonoBehaviour
         LoadMusicSoundValue();
         LoadGameControls();
 
-        GamePadControllerScript = FindObjectOfType<GamePadController>();
-
-        if (GamePadControllerScript.PS4_Controller == 1)
-        {
-            Debug.Log("Funciona, tranquilo");
-            EventSystem.current.SetSelectedGameObject(startButton.gameObject);
-        }
+        GamePadControllerScript = FindObjectOfType<GamePadController>();       
     }
 
 
@@ -141,7 +133,11 @@ public class MenuGameManager : MonoBehaviour
 
     public void ReturnButton()
     {
-        startButton.Select();
+
+        if(GamePadControllerScript.PS4_Controller == 1)
+        {
+            startButton.Select();
+        }
         OptionsPanel.SetActive(false);
         HowToPlayPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
@@ -267,7 +263,7 @@ public class MenuGameManager : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetButtonDown("Press Me")) //Mediante ratón o Joystick button 0
+        if (Input.GetButtonDown("Press Me")) //Mediante ratón o Joystick button 0
         {
             MenuGameManagerAudioSource.Play();
         }
