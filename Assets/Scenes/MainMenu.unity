@@ -600,8 +600,8 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2035425168}
-        m_TargetAssemblyTypeName: GamePadController, Assembly-CSharp
+      - m_Target: {fileID: 2035425164}
+        m_TargetAssemblyTypeName: MenuGameManager, Assembly-CSharp
         m_MethodName: AutoSelectButton
         m_Mode: 1
         m_Arguments:
@@ -6835,6 +6835,11 @@ MonoBehaviour:
   DialogueAnimDone: 0
   Next: {fileID: 8527025848001928296}
   SquareButton: {fileID: 188921510}
+  Controller: {fileID: 105289843}
+  MenuPanel: {fileID: 1137674700}
+  OptionPanel: {fileID: 1652078037}
+  ControlPanel: {fileID: 1332321896}
+  controlReturnButton: {fileID: 659792754}
 --- !u!4 &2035425165
 Transform:
   m_ObjectHideFlags: 0
@@ -6969,13 +6974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee1d2ddac576da42921a506d4a4c287, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controller: {fileID: 105289843}
-  startButton: {fileID: 79841683}
-  MenuPanel: {fileID: 1137674700}
-  OptionPanel: {fileID: 1652078037}
-  ControlPanel: {fileID: 1332321896}
-  returnButton: {fileID: 1988901911}
-  controlReturnButton: {fileID: 659792754}
   Keyboard_Controller: 0
   PS4_Controller: 0
   names: []

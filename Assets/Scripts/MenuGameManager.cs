@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class MenuGameManager : MonoBehaviour
 {
-
-    //botones
+    //Botones
     public Button nextButton;
     public Button returnButton;
     public Button[] switchControlButton;
@@ -53,6 +53,11 @@ public class MenuGameManager : MonoBehaviour
 
     //UI GAMEPAD
     public GameObject SquareButton;
+    public Toggle Controller;
+    public GameObject MenuPanel;
+    public GameObject OptionPanel;
+    public GameObject ControlPanel;
+    public Button controlReturnButton;
 
     //Scripts
     private GamePadController GamePadControllerScript;
@@ -278,11 +283,38 @@ public class MenuGameManager : MonoBehaviour
         if(GamePadControllerScript.PS4_Controller == 1)
         {
             SquareButton.SetActive(true);
+            Controller.isOn = true;
         }
         else
         {
             SquareButton.SetActive(false);
+            Controller.isOn = false;
         }
 
+    }
+
+    //Mando: Toggle
+    public void AutoSelectButton()
+    {
+        if (Controller.isOn == true)
+        {
+            if (MenuPanel.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(startButton.gameObject);
+            }
+            else if (OptionPanel.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(returnButton.gameObject);
+            }
+            else if (ControlPanel.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(controlReturnButton.gameObject);
+            }
+
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
     }
 }

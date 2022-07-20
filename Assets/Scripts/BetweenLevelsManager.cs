@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class BetweenLevelsManager : MonoBehaviour
 {
-
-    //botones
+    //Botones
     public Button continueButton;
-    //
-    public GameObject LevelPanel;
+    //public Button nextButton;
+    
+    //public GameObject LevelPanel;
     public GameObject StorePanel;
     public List<string[]> DialogoList = new List<string[]>();
 
@@ -78,6 +79,9 @@ public class BetweenLevelsManager : MonoBehaviour
     //Comunicación Scripts
     private GamePadController GamePadControllerScript;
 
+    //UI GAMEPAD
+    public Toggle Controller;
+
     private void Awake()
     {
         DialogoList.Add(DA1);
@@ -138,12 +142,14 @@ public class BetweenLevelsManager : MonoBehaviour
             PreDialogueText.text = "Presiona           para hablar con el vendedor";
             SquareButtonImage.SetActive(true);
             CursorImage.SetActive(false);
+            Controller.isOn = true;
         }
         else
         {
             PreDialogueText.text = "Presiona            sobre el vendedor para hablar";
             SquareButtonImage.SetActive(false);
             CursorImage.SetActive(true);
+            Controller.isOn = false;
         }
 
         if (DialogueAnimDone == false && isTalking)
@@ -579,5 +585,37 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         MoneyText.text = DataPersistance.MoneyCounter.ToString();
         BetweenLevelsManagerAudioSource.PlayOneShot(Money, 1f);
+    }
+
+    //Mando: Toggle
+    public void AutoSelectButton()
+    {
+        if (Controller.isOn == true)
+        {
+            if (Next.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(Next.gameObject);
+            }
+            else if (DialogueAnimDone == true && isShopping == false)
+            {
+                EventSystem.current.SetSelectedGameObject(continueButton.gameObject);
+            }
+            else if (isShopping == true && Yes_1.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(Yes_1.gameObject);
+            }
+            else if (isShopping == true && Yes_2.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(Yes_2.gameObject);
+            }
+            else if (isShopping == true && Yes_3.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(Yes_3.gameObject);
+            }
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
     }
 }

@@ -6,19 +6,13 @@ using UnityEngine.UI;
 
 public class GamePadController : MonoBehaviour
 {
-    public Toggle Controller;
-    public Button startButton;
-    public GameObject MenuPanel;
-    public GameObject OptionPanel;
-    public GameObject ControlPanel;
-    public Button returnButton;
-    public Button controlReturnButton;
     public int Keyboard_Controller = 0;
     public int PS4_Controller = 0;
     public string[] names;
 
     private void Awake()
     {
+
         names = Input.GetJoystickNames();
         for (int x = 0; x < names.Length; x++)
         {
@@ -29,7 +23,6 @@ public class GamePadController : MonoBehaviour
                 Debug.Log("PS4 CONTROLLER IS CONNECTED");
                 PS4_Controller = 1;
                 Keyboard_Controller = 0;
-                Controller.isOn = true;
             }
 
             if (names[0].Length == 0)
@@ -38,11 +31,11 @@ public class GamePadController : MonoBehaviour
                 //set a controller bool to true
                 PS4_Controller = 0;
                 Keyboard_Controller = 1;
-                Controller.isOn = false;
             }
 
         }
     }
+
     void Update()
     {
         names = Input.GetJoystickNames();
@@ -55,7 +48,6 @@ public class GamePadController : MonoBehaviour
                 Debug.Log("PS4 CONTROLLER IS CONNECTED");
                 PS4_Controller = 1;
                 Keyboard_Controller = 0;
-                Controller.isOn = true;
             }
 
             /*else if (names[x].Length == 0)
@@ -74,8 +66,6 @@ public class GamePadController : MonoBehaviour
                 //set a controller bool to true
                 PS4_Controller = 0;
                 Keyboard_Controller = 1;
-                Controller.isOn = false;
-
             }
         }
 
@@ -90,30 +80,6 @@ public class GamePadController : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
-        }
-    }
-
-    public void AutoSelectButton()
-    {
-        if (Controller.isOn == true)
-        {
-            if (MenuPanel.activeInHierarchy)
-            {
-                EventSystem.current.SetSelectedGameObject(startButton.gameObject);
-            }
-            else if (OptionPanel.activeInHierarchy)
-            {
-                EventSystem.current.SetSelectedGameObject(returnButton.gameObject);
-            }
-            else if (ControlPanel.activeInHierarchy)
-            {
-                EventSystem.current.SetSelectedGameObject(controlReturnButton.gameObject);
-            }
-
-        }
-        else
-        {
-            EventSystem.current.SetSelectedGameObject(null);
         }
     }
 }
