@@ -226,12 +226,14 @@ public class MenuGameManager : MonoBehaviour
     {
         DialoguePanel.SetActive(true);
         StartCoroutine(Letters());
+        EventSystem.current.SetSelectedGameObject(null);
     }
     public void NextButton()
     {
         //Hasta que no se haya acabado de reproducir el diálogo, el jugador no podrá darle a next.
         if (DialogueAnimDone == true)
         {
+            Debug.Log("Tengo sueño >.< zzZ");
             CurrentDialogueText++;
             Next.SetActive(false);
             if (CurrentDialogueText >= Dialogo.Length)
@@ -243,6 +245,10 @@ public class MenuGameManager : MonoBehaviour
                 DialogueText.text = Dialogo[CurrentDialogueText];
                 StartCoroutine(Letters());
             }
+        }
+        else
+        {
+            Debug.Log("Give me vacations Javi :3");
         }
 
     }
@@ -273,7 +279,7 @@ public class MenuGameManager : MonoBehaviour
             MenuGameManagerAudioSource.Play();
         }
 
-        //Trampita: Saltarse el diálogo inicial Mediante X en teclado y Joystick button 3 en mando
+        //Trampita: Saltarse el diálogo inicial Mediante X en teclado y Joystick button 3 en mando (Triángulo)
         if(Input.GetButtonDown("Tramposo"))
         {
             Debug.Log("De oca a oca y tiro porque me toca");
@@ -309,6 +315,11 @@ public class MenuGameManager : MonoBehaviour
             else if (ControlPanel.activeInHierarchy)
             {
                 EventSystem.current.SetSelectedGameObject(controlReturnButton.gameObject);
+            }
+            else if (Next.activeInHierarchy && DialogueAnimDone == true)
+            {
+                Debug.Log("Tengo sueño >.< Give me vacations Javi :3");
+                EventSystem.current.SetSelectedGameObject(nextButton.gameObject);
             }
 
         }
