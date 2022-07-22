@@ -141,6 +141,7 @@ public class MenuGameManager : MonoBehaviour
 
         if(GamePadControllerScript.PS4_Controller == 1)
         {
+            
             startButton.Select();
         }
         OptionsPanel.SetActive(false);
@@ -233,7 +234,6 @@ public class MenuGameManager : MonoBehaviour
         //Hasta que no se haya acabado de reproducir el diálogo, el jugador no podrá darle a next.
         if (DialogueAnimDone == true)
         {
-            Debug.Log("Tengo sueño >.< zzZ");
             CurrentDialogueText++;
             Next.SetActive(false);
             if (CurrentDialogueText >= Dialogo.Length)
@@ -248,7 +248,7 @@ public class MenuGameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Give me vacations Javi :3");
+           
         }
 
     }
@@ -266,10 +266,10 @@ public class MenuGameManager : MonoBehaviour
             DialogueText.text += d;
             yield return new WaitForSeconds(0.02f);
         }
-
-        DialogueAnimDone = true;
+       
         Next.SetActive(true);
         nextButton.Select();
+        DialogueAnimDone = true;
     }
 
     void Update()
@@ -306,20 +306,20 @@ public class MenuGameManager : MonoBehaviour
         {
             if (MenuPanel.activeInHierarchy)
             {
+                EventSystem.current.SetSelectedGameObject(null);
                 EventSystem.current.SetSelectedGameObject(startButton.gameObject);
             }
             else if (OptionPanel.activeInHierarchy)
-            {
+            {                
                 EventSystem.current.SetSelectedGameObject(returnButton.gameObject);
             }
             else if (ControlPanel.activeInHierarchy)
             {
                 EventSystem.current.SetSelectedGameObject(controlReturnButton.gameObject);
-            }
-            else if (Next.activeInHierarchy && DialogueAnimDone == true)
+            }            
+            else if (DialoguePanel.activeInHierarchy && Next.activeInHierarchy && DialogueAnimDone == true)
             {
-                Debug.Log("Tengo sueño >.< Give me vacations Javi :3");
-                EventSystem.current.SetSelectedGameObject(nextButton.gameObject);
+                EventSystem.current.SetSelectedGameObject(Next);
             }
 
         }
