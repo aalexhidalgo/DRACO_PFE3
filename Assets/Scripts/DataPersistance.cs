@@ -65,6 +65,5 @@ public class DataPersistance
         //Contador de monedas
         MoneyCounter = Coins;
     }
-
    
 }

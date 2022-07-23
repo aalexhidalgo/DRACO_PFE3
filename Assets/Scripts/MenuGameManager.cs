@@ -43,6 +43,9 @@ public class MenuGameManager : MonoBehaviour
 
     //Panel principal
 
+    //Nivel
+    public TextMeshProUGUI LevelText;
+
     //DIALOGO
     public GameObject DialoguePanel;
     public int CurrentDialogueText;
@@ -76,9 +79,16 @@ public class MenuGameManager : MonoBehaviour
         LoadMusicSoundValue();
         LoadGameControls();
 
-        GamePadControllerScript = FindObjectOfType<GamePadController>();       
+        GamePadControllerScript = FindObjectOfType<GamePadController>();
     }
 
+    public void CurrentLevel()
+    {
+        if (PlayerPrefs.HasKey("Current_Level"))
+        {
+            LevelText.text = $"Level {PlayerPrefs.GetInt("Current_Level")}";
+        }
+    }
 
     #region MenuButtons
     public void StartButton()
