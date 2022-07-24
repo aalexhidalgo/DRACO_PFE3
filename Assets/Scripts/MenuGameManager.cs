@@ -235,6 +235,7 @@ public class MenuGameManager : MonoBehaviour
 
     public void ShowPanels()
     {
+        MenuPanel.SetActive(false);
         DialoguePanel.SetActive(true);
         StartCoroutine(Letters());
         EventSystem.current.SetSelectedGameObject(null);
