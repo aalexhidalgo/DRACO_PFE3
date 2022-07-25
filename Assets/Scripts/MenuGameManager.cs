@@ -13,6 +13,7 @@ public class MenuGameManager : MonoBehaviour
     public Button returnButton;
     public Button[] switchControlButton;
     public Button startButton;
+    public Button continueButton;
 
 
     //Variables
@@ -62,6 +63,10 @@ public class MenuGameManager : MonoBehaviour
     public GameObject ControlPanel;
     public Button controlReturnButton;
 
+    //Continue
+    public GameObject LevelBox;
+    public GameObject DataBox;
+
     //Scripts
     private GamePadController GamePadControllerScript;
 
@@ -80,6 +85,7 @@ public class MenuGameManager : MonoBehaviour
         LoadGameControls();
 
         GamePadControllerScript = FindObjectOfType<GamePadController>();
+        DataPersistance.CurrentLevel = 0;
     }
 
     public void CurrentLevel()
@@ -87,6 +93,22 @@ public class MenuGameManager : MonoBehaviour
         if (PlayerPrefs.HasKey("Current_Level"))
         {
             LevelText.text = $"Level {PlayerPrefs.GetInt("Current_Level")}";
+        }
+        else if (DataPersistance.CurrentLevel == 0)
+        {
+            LevelText.text = $"Level 0";
+        }
+    }
+
+    public void ShowLevelBox()
+    {
+        if(DataPersistance.CurrentLevel == 0)
+        {
+            LevelBox.SetActive(false);
+        }
+        else
+        {
+            LevelBox.SetActive(true);
         }
     }
 
@@ -235,6 +257,8 @@ public class MenuGameManager : MonoBehaviour
 
     public void ShowPanels()
     {
+        DataPersistance.CurrentLevel = 0;
+        DataPersistance.SaveForFutureGames();
         MenuPanel.SetActive(false);
         DialoguePanel.SetActive(true);
         StartCoroutine(Letters());
@@ -283,6 +307,41 @@ public class MenuGameManager : MonoBehaviour
         DialogueAnimDone = true;
     }
 
+    public IEnumerator FadeOut()
+    {
+        float AlphaValue = 1;
+        Image NoDataImage = DataBox.GetComponent<Image>();
+        Color Color = NoDataImage.color;
+
+        yield return new WaitForSeconds(4f);
+
+        while (AlphaValue >= 0)
+        {
+            Color.a = AlphaValue;
+            NoDataImage.color = Color;
+            AlphaValue -= 0.2f;
+            yield return new WaitForSeconds(0.075f);
+            Debug.Log("Eh");
+            //0.09803922
+            //0.01960784
+        }
+
+        DataBox.SetActive(false);
+        Debug.Log("Khé");
+    }
+
+    public void ShowDataBox()
+    {
+        if (DataPersistance.CurrentLevel == 0)
+        {
+            
+
+            DataBox.SetActive(true);
+            StartCoroutine(FadeOut());
+        }
+        
+    }
+
     void Update()
     {
         if (Input.GetButtonDown("Press Me")) //Mediante ratón o Joystick button 0
@@ -308,6 +367,10 @@ public class MenuGameManager : MonoBehaviour
             Controller.isOn = false;
         }
 
+        if(DataPersistance.CurrentLevel == 0)
+        {
+            continueButton.interactable = false;
+        }
     }
 
     //Mando: Toggle

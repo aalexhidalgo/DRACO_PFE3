@@ -6,7 +6,7 @@ public class DataPersistance
     //Variables
 
     public static int MoneyCounter = 0;
-    public static int CurrentLevel = 1;
+    public static int CurrentLevel = 0;
     public static int Storedone = 1;
 
     //Store Stock
