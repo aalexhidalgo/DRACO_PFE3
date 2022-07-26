@@ -66,6 +66,7 @@ public class MenuGameManager : MonoBehaviour
     //Continue
     public GameObject LevelBox;
     public GameObject DataBox;
+    public Animator DataBoxAnim;
 
     //Scripts
     private GamePadController GamePadControllerScript;
@@ -307,7 +308,7 @@ public class MenuGameManager : MonoBehaviour
         DialogueAnimDone = true;
     }
 
-    public IEnumerator FadeOut()
+    /*public IEnumerator FadeOut()
     {
         float AlphaValue = 1;
         Image NoDataImage = DataBox.GetComponent<Image>();
@@ -328,19 +329,25 @@ public class MenuGameManager : MonoBehaviour
 
         DataBox.SetActive(false);
         Debug.Log("Khé");
+    }*/
+
+    public IEnumerator FadeOutAnim()
+    {
+        DataBoxAnim.Play("Base Layer.Normal");
+        yield return new WaitForSeconds(4f);
+        DataBox.SetActive(false);
     }
 
     public void ShowDataBox()
     {
         if (DataPersistance.CurrentLevel == 0)
         {
-            
-
             DataBox.SetActive(true);
-            StartCoroutine(FadeOut());
+            StartCoroutine(FadeOutAnim());
         }
         
     }
+
 
     void Update()
     {
