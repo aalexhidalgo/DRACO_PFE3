@@ -9255,27 +9255,20 @@ MonoBehaviour:
   DialoguePanel: {fileID: 959004898}
   CurrentDialogueText: 0
   Dialogo:
-  - "Hace mucho mucho tiempo... existio un mundo donde convivian criaturas, humanos
-    y monstruos de las profundidades del abismo,  un fatidico dia se cirnio sobre
-    el reino el imponente rey Dragon King, que abrasa, arrasa y destruye a todo aquel
-    que no decida acatar sus mandatos.  Tras a\xF1os de paz, el rey en su deseo insaciable
-    de conseguir mas poder enloquecio y empezo a pagarlo con su propio reino."
-  - Los primeros en rebelarse ante el fueron los dragones, estos estaban hartos de
-    ser juzgados y perseguidos con la mirada alla donde iban, de sentir miedo.  Un
-    dia los dragones prepararon un ataque para destronar a King, uniendo fuerzas
-    con  todas las especies para luchar contra aquel que trajo pena, dolor y desgracia
-    al reino.
-  - Con lo que no contaron fue que el rey decretaria entonces legal la caza de dragones
-    en sus dominios, probocando que las escamas y cabezas de dragon adquirieron de
-    pronto mucho valor economico y social.  El pueblo decidio traicionar a los dragones
-    y fueron matandolos uno a uno. Con lo que no contaron fue que el rey decretaria
-    entonces legal la caza de dragones en sus dominios, provocando que las escamas
-    y cabezas de dragon adquirieran de pronto mucho valor economico y social. El
-    pueblo decidio traicionar a los dragones y fueron asesinandolos uno a uno. Hasta
-    que solo quedaron unos pocos.
-  - "Los a\xF1os pasaron, el reino prospero hasta la actualidad y uno de los ultimos
-    dragones que queda se encuentra en una cueva, una madre poniendo a salvo un huevo
-    que pronto naceria, Draco...   "
+  - "Hace mucho tiempo, en el reino de Mugen conviv\xEDan criaturas, humanos y monstruos,
+    cuidados y protegidos por un rey sabio y bueno. Tras a\xF1os de paz, un ser maligno
+    atac\xF3 el reino y se hizo con el poder, iniciando as\xED su reinado del terror,
+    el reinado de King."
+  - "Los habitantes viv\xEDan en la pobreza y la desgracia obligados a cumplir  \xF3rdenes
+    y a darle ofrendas al nuevo rey. Con el tiempo se volvieron hostiles y empezaron
+    a enfrentarse entre especies por la escasez de recursos"
+  - "Entre tanto malestar y caos se alz\xF3 un grupo de criaturas, con la esperanza
+    de volver a unir al reino en contra de King y regresar a los a\xF1os de paz.
+    Lamentablemente algo sali\xF3 mal, fueron derrotados y perseguidos por todo el
+    reino."
+  - "Durante a\xF1os King gobern\xF3, sin nadie que pudiera quitarle el poder, pero
+    sin saber que dentro de una cueva se encontraba un peque\xF1o huevo, as\xED comenzar\xEDa
+    la historia de Draco\u2026"
   DialogueText: {fileID: 4308509814198078272}
   DialogueAnimDone: 0
   Next: {fileID: 8527025848001928296}
