@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -400,7 +400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670437988}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 9.930002, y: 4.2399964, z: -8.769465}
+  m_LocalPosition: {x: 9.930001, y: 4.2400002, z: -11.760001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2131747699}
@@ -451,7 +451,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1d15fa195ff7efb449d7693e93eb2df3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 4326dba24a13ef740a213424cb3f8933, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1680,6 +1680,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: Jumping
+      value: 
+      objectReference: {fileID: 8300000, guid: 78944c2f93cc37947b14b5b64f0cc6a1, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: CoinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 799d8ae128310c74d9d61120aad7f60b, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: FireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 246dd3b590375dd409c8a666c0a8b3e3, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: RecogerItem
+      value: 
+      objectReference: {fileID: 8300000, guid: 2758aba968d25544a9eccf2424d0556d, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: GameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 84cb632567cd9d846a26b241b28a554f, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: RockExplotion
+      value: 
+      objectReference: {fileID: 8300000, guid: 77bbd116ed3ea5344a2711936e78e350, type: 3}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: GameManagerAudioSource
       value: 
