@@ -21,23 +21,32 @@ public class GameManager : MonoBehaviour
     public Button resumeButton; //PAUSA
     public Button restartButton; //GAMEOVER
 
-    //Paneles
+    #region Pausa
     public GameObject PauseMenuPanel;
     public bool pause = false;
+    public Image PauseButton;
+    public Sprite UnPause;
+    public Sprite Pause;
+    #endregion
 
-    //Contadores y movidas de los props
+    //Contadores: Vida, Escudo, Vuelo y Money
+    #region Contadores Draco
+    //Vida
     public Image LifeImage;
     public Sprite[] LifeSprites;
+    //Escudo
     public GameObject ShieldImage;
     public Sprite[] ShieldSprites;
     public Image ShieldState;
+    //Vuelo
     public Image Flybar;
     public float FlybarCounter;
-
+    //Money
     public TextMeshProUGUI MoneyText;
-    private int NumberOfCoins;
-    
+    #endregion
 
+
+    #region Musica y Sonido
     //Ajustes Player
     private AudioSource GameManagerAudioSource;
     private AudioSource MainCameraAudioSource;
@@ -48,22 +57,20 @@ public class GameManager : MonoBehaviour
     public Slider SoundSlider; 
     public Toggle SoundToggle;
 
-    public Image PauseButton;
-    public Sprite UnPause;
-    public Sprite Pause;
+    #endregion
+
+    
 
     //Scripts
-    private PlayerController PlayerControllerScript;
     private SpawnManager SpawnManagerScript;
-    private AutoDestroy AutoDestroyScript;
 
     //PostProcesado
     public GameObject GameOverPanel;
     private GameObject PostProcesadoMuerte;
     public bool GameOver = false;
 
-    //PauseMenuPanel
 
+    #region Pause Panel
     //Reinciamos el nivel en el que nos encontramos
     public void RestartButton()
     {
@@ -118,20 +125,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    #endregion
     void Start()
     {
         MoneyText.text = DataPersistance.MoneyCounter.ToString();
+
         LifeImage = LifeImage.GetComponent<Image>();
+
         FlybarCounter = Flybar.fillAmount;
+
         ShieldState = ShieldState.GetComponent<Image>();
-        PlayerControllerScript = FindObjectOfType<PlayerController>();
+
         SpawnManagerScript = FindObjectOfType<SpawnManager>();
-        AutoDestroyScript = FindObjectOfType<AutoDestroy>();
 
         PostProcesadoMuerte = GameObject.Find("PostProcesado");
         PostProcesadoMuerte.SetActive(false);
 
-
+        #region AudioSources
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MainCameraAudioSource.volume = DataPersistance.MusicVolume;
         GameManagerAudioSource = GetComponent<AudioSource>();
@@ -139,6 +149,7 @@ public class GameManager : MonoBehaviour
 
         UpdateMusicSound_Value();
         UpdateMusicSound_Active();
+        #endregion
 
         restartButton.Select();
     }
@@ -168,13 +179,11 @@ public class GameManager : MonoBehaviour
     }
 
     //Conectamos los valores de los sliders al volumen de los AudioSource
+    #region Musica y Sonido
     public void UpdateMusicSound_Value()
     {
         MusicSlider.value = MainCameraAudioSource.volume;
         SoundSlider.value = GameManagerAudioSource.volume;
-
-        //DataPersistance.DracoState.MusicVolume = MusicSlider.value;
-        //DataPersistance.DracoState.SoundVolume = SoundSlider.value;
     }
 
     public void UpdateMusicSound_Active()
@@ -226,4 +235,5 @@ public class GameManager : MonoBehaviour
             DataPersistance.SoundToggle = 1;
         }
     }
+    #endregion
 }

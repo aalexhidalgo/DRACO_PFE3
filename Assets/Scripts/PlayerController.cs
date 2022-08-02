@@ -5,33 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    #region Draco Movement Variables
     //Controladores de DRACO
     public float Speed = 8f;
     public float UpSpeed = 20f;
     public float FlySpeed = 3f;
-
     public float HorizontalInput;
-
-    private float YRotationLimit = 90;
+    private float YRotation = 90;
     //private float SkyLimit = 16.5f;
-
     private Rigidbody DracoRigidbody;
     private Vector3 NewGravity = new Vector3 (0f, -29.4f, 0f);
+    #endregion
 
     public GameObject FuegoPrefab;
-
-    private SpriteRenderer DracoSprite;
-    public Sprite[] DracoSpritesArray;
-    private bool IsFlying;
-
+    
     private Animator PlayerAnimator;
 
     //Contadores Props
     public float CurrentLive = 3;
+    private int Multiply = 2;
+
     public int Shield = 0;
     public int MaxShieldValue = 1;
-    private int Multiply = 2;
+
     public int MoneyCounter = 0;
+
     private float MaxFlyTime = 0.5f; //Max_S
     private float CurrentTime;  //Timepassed(S)
     private float AntiTime;
@@ -40,19 +38,15 @@ public class PlayerController : MonoBehaviour
     public bool IsOnTheGround;
     public bool CanFly;
     public bool ShootFire;
+    private bool IsFlying;
 
     //Comunicación con scripts
-    private PropLogic PropLogicScript;
-    private EnemyLogic EnemyLogicScript;
     private GameManager GameManagerScript;
 
-    //public GameObject GameOverPanel;
-    //public bool GameOver;
+    #region Audio
 
     //AudioSources para acceder a sonidos
-
     public AudioSource GameManagerAudioSource;
-
     //AudioClips
     public AudioClip Jumping; //funciona
     public AudioClip GameOverSound; //funciona
@@ -60,32 +54,30 @@ public class PlayerController : MonoBehaviour
     public AudioClip CoinSound; //funciona
     public AudioClip RockExplotion; //funciona
     public AudioClip RecogerItem; //funciona
+    #endregion
 
-    // Start is called before the first frame update
     void Start()
     {
-        MaxShieldValue = DataPersistance.ShieldValue + 1;
-        MaxFlyTime = DataPersistance.FlyValue;
-        MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
-
+        //RigidBody y Animator
         DracoRigidbody = GetComponent<Rigidbody>();
         Physics.gravity = NewGravity;
-
-        DracoSprite = GetComponent<SpriteRenderer>();
         PlayerAnimator = GetComponent<Animator>();
 
-        PropLogicScript = FindObjectOfType<PropLogic>();
-        EnemyLogicScript = FindObjectOfType<EnemyLogic>();
+        //Find
         GameManagerScript = FindObjectOfType<GameManager>();
+        GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
 
+        //Shield Fly y Money inicial
+        MaxShieldValue = DataPersistance.ShieldValue + 1;
+        MaxFlyTime = DataPersistance.FlyValue;
         FlySpeed = FlySpeed + Physics.gravity.magnitude;
+        MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
         UpdateShield();
         UpdateShieldImage();
 
-        GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
+        
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(GameManagerScript.GameOver == false)
@@ -93,29 +85,32 @@ public class PlayerController : MonoBehaviour
             IsWalking();
             PlayerAnimator.SetBool("IsJumping", !IsOnTheGround);
             PlayerAnimator.SetBool("IsFlying", IsFlying);
-            //StartCoroutine(DracoWalking());
-            //StartCoroutine(DracoFlying());
 
             //Controladores principales de DRACO
 
+            #region Movimiento Draco
             //Movimiento horizontal
             //TECLADO: RightArrow, LeftArrow o bien A D.
             //GAMEPAD: Joystick Axis X (izquierdo), 3rd Axis Joystick (derecho)
 
             HorizontalInput = Input.GetAxis("Horizontal");
             DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
+            #endregion
 
+            #region Giro Draco
             //Invertimos su escala con tal de que si avanzamos hacia la izquierda nuestro personaje no va de espaldas hacia esa dirección
             if (HorizontalInput < 0)
             {
-                transform.rotation = Quaternion.Euler(0, YRotationLimit, 0);
+                transform.rotation = Quaternion.Euler(0, YRotation, 0);
             }
             if (HorizontalInput > 0)
             {
 
-                transform.rotation = Quaternion.Euler(0, -YRotationLimit, 0);
+                transform.rotation = Quaternion.Euler(0, -YRotation, 0);
             }
+            #endregion
 
+            #region Salto Draco
             //Salto
             //TECLADO: Spacebar.
             //GAMEPAD: Joystick button 1 (X).
@@ -125,10 +120,12 @@ public class PlayerController : MonoBehaviour
                 DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
                 GameManagerAudioSource.PlayOneShot(Jumping);
-                //DracoSprite.sprite = DracoSpritesArray[3];
+                
                 IsOnTheGround = false;
             }
+            #endregion
 
+            #region Vuelo Draco
             //Vuelo
             //TECLADO: Q.
             //GAMEPAD: Joystick button 7.
@@ -145,7 +142,9 @@ public class PlayerController : MonoBehaviour
                 GameManagerScript.FlybarCounter = AntiTime / MaxFlyTime;
                 GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
             }
+            #endregion
 
+            #region Fuego
             //Fuego
             //TECLADO: E.
             //GAMEPAD: Joystick button 2.
@@ -153,17 +152,11 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(FireCooldown());
             }
-
-
-            /*if (IsOnTheGround == true && HorizontalInput == 0) //al estar en el suelo y no estar en movimiento cambiamos el sprite a estado neutral o idle
-            {
-                DracoSprite.sprite = DracoSpritesArray[1];
-            }*/
+            #endregion
 
             if (IsOnTheGround == true)
             {
                 IsFlying = false;
-
             }
         }                  
     }
@@ -180,30 +173,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /*private IEnumerator DracoWalking() //cambio de sprites al caminar
-    {
-        while(IsOnTheGround == true && HorizontalInput != 0)
-        {
-            DracoSprite.sprite = DracoSpritesArray[0];
-            yield return new WaitForSeconds(0.2f);
-            DracoSprite.sprite = DracoSpritesArray[1];
-            yield return new WaitForSeconds(0.2f);
-            DracoSprite.sprite = DracoSpritesArray[2];
-        }
-    }
-
-    private IEnumerator DracoFlying() //cambio de sprites al volar
-    {
-        while (IsFlying == true)
-        {
-            DracoSprite.sprite = DracoSpritesArray[4];
-            yield return new WaitForSeconds(0.2f);
-            DracoSprite.sprite = DracoSpritesArray[5];
-            yield return new WaitForSeconds(0.2f);
-            DracoSprite.sprite = DracoSpritesArray[6];
-        }
-    }*/
-
     public void OnCollisionEnter(Collision otherCollider)
     {
         //Si colisiona contra el suelo el jugador puede volver a saltar
@@ -212,11 +181,6 @@ public class PlayerController : MonoBehaviour
             IsOnTheGround = true;
         }
 
-        /*if (otherCollider.gameObject.CompareTag("Wall"))
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        }*/
-
         if(otherCollider.gameObject.CompareTag("Lava") || otherCollider.gameObject.CompareTag("Water"))
         {
             CurrentLive = 0;
@@ -224,6 +188,7 @@ public class PlayerController : MonoBehaviour
             GameManagerScript.GameOver = true;
         }
 
+        #region Collide Enemy
         //Si jugador pierde vida si colisiona contra un enemigo
         if (otherCollider.gameObject.CompareTag("Enemy") && Shield == 0)
         {
@@ -255,13 +220,13 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if(GameManagerScript.GameOver == true) //si muero, paro la música y pongo el sonido de muerte
+        #endregion
+
+        if (GameManagerScript.GameOver == true) //si muero, paro la música y pongo el sonido de muerte
         {
             GameObject.Find("Main Camera").GetComponent<AudioSource>().Pause();
             GameManagerAudioSource.PlayOneShot(GameOverSound);
-        }
-
-        
+        }    
     }
 
     public void OnTriggerEnter(Collider otherTrigger)
@@ -276,6 +241,7 @@ public class PlayerController : MonoBehaviour
             UpdateMoney();
         }
 
+        #region Collide Live
         //Actualizamos la vida del jugador
         if (otherTrigger.gameObject.CompareTag("Live"))
         {
@@ -298,7 +264,9 @@ public class PlayerController : MonoBehaviour
             UpdateLife();
 
         }
+        #endregion
 
+        #region Collide Spikes
         if (otherTrigger.gameObject.CompareTag("Spike") && Shield == 0)
         {
             CurrentLive = 0;
@@ -316,6 +284,9 @@ public class PlayerController : MonoBehaviour
             UpdateShield();
         }
 
+        #endregion
+
+        #region Collide Bullet
         //Daño de los enemigos al jugador (proyectil)
         if (otherTrigger.gameObject.CompareTag("Bullet") && Shield == 1)
         {
@@ -349,8 +320,9 @@ public class PlayerController : MonoBehaviour
             UpdateLife();
 
         }
+        #endregion
 
-
+        #region PowerUps
         //Si recogemos una nube, permite volar al jugador
         if (otherTrigger.gameObject.CompareTag("Cloud"))
         {
@@ -367,8 +339,8 @@ public class PlayerController : MonoBehaviour
             UpdateShield();
             Destroy(otherTrigger.gameObject);
         }
+        #endregion
 
-        
     }
 
     //Actualizamos la imagen según la vida del jugador
@@ -378,6 +350,7 @@ public class PlayerController : MonoBehaviour
        GameManagerScript.LifeImage.sprite = GameManagerScript.LifeSprites[(int)CurrentImage];
     }
 
+    #region Escudo Draco
     public void UpdateShield()
     {
         if(Shield == 1)
@@ -401,7 +374,7 @@ public class PlayerController : MonoBehaviour
             GameManagerScript.ShieldState.sprite = GameManagerScript.ShieldSprites[MaxShieldValue - 2];
         }       
     }
-
+    #endregion
     //Actualizamos el contador de monedas
     public void UpdateMoney()
     {

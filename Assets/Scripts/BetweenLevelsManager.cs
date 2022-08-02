@@ -10,19 +10,17 @@ public class BetweenLevelsManager : MonoBehaviour
 {
     //Botones
     public Button continueButton;
-    //public Button nextButton;
-    
-    //public GameObject LevelPanel;
-    public GameObject StorePanel;
+    //Lista de Arrays con los dialogos en cada nivel
     public List<string[]> DialogoList = new List<string[]>();
 
-    //PreDiálogo
+    #region Despertar Vendedor variables
     public GameObject PreDialogueImage;
     public TextMeshProUGUI PreDialogueText;
     public GameObject SquareButtonImage;
     public GameObject CursorImage;
+    #endregion 
 
-    //Diálogo
+    #region Dialogo variables
     public GameObject DialogueImage;
     public TextMeshProUGUI DialogueText;
     public GameObject Next;
@@ -37,44 +35,47 @@ public class BetweenLevelsManager : MonoBehaviour
     public int CurrentDialogueText;
     public bool DialogueAnimDone = false;
     public bool CanClick = true;
-
     public bool isTalking = false;
     public bool isShopping = false;
+    private bool closeDialogue;
+    #endregion
 
+    #region Productos Tienda variables
     public GameObject Attack_Image;
     public GameObject Defense_Image;
     public GameObject Boost_Image;
-
-    //Partículas
-    public ParticleSystem[] EntranceParticleSystem;
-    public ParticleSystem ChooseParticleSystem;
-    private Vector3 Pos1 = new Vector3(-661.599976f, 330f, 711.400024f);
-    private Vector3 Pos2 = new Vector3(-250f, 330f, 711.400024f);
-    private Vector3 Pos3 = new Vector3(150f, 330f, 711.400024f);
-
-
-    //Money
-    public TextMeshProUGUI MoneyText;
     private int propValue;
-    public AudioClip Money;
-
     private float Increment = 0.25f;
-
-    //Musica y sonido (voz del vendedor cuando te habla)
-    private AudioSource MainCameraAudioSource;
-    private AudioSource BetweenLevelsManagerAudioSource;
-
-    public Animator VendedorAnim;
-    public Image VendedorImage;
-    public Sprite VendedorDespierto;
 
     //Imgágenes de Fuera de Stock
     public GameObject FueradeStock_Fireball;
     public GameObject FueradeStock_Shield;
     public GameObject FueradeStock_Fly;
+    #endregion
 
-    //Stock
-    private bool closeDialogue;
+    #region Particulas variables
+    public ParticleSystem[] EntranceParticleSystem;
+    public ParticleSystem ChooseParticleSystem;
+    private Vector3 Pos1 = new Vector3(-661.599976f, 330f, 711.400024f);
+    private Vector3 Pos2 = new Vector3(-250f, 330f, 711.400024f);
+    private Vector3 Pos3 = new Vector3(150f, 330f, 711.400024f);
+    #endregion
+
+    #region Money variables
+    public TextMeshProUGUI MoneyText;
+    public AudioClip Money;
+    #endregion
+
+    #region Musica y Sonido
+    private AudioSource MainCameraAudioSource;
+    private AudioSource BetweenLevelsManagerAudioSource;
+    #endregion
+
+    #region Vendedor variables
+    public Animator VendedorAnim;
+    public Image VendedorImage;
+    public Sprite VendedorDespierto;
+    #endregion
 
     //Comunicación Scripts
     private GamePadController GamePadControllerScript;
@@ -88,7 +89,6 @@ public class BetweenLevelsManager : MonoBehaviour
         DialogoList.Add(DA2);
         DialogoList.Add(DA3);
         DialogoList.Add(DA4);
-
     }
 
     void Start()
@@ -105,7 +105,6 @@ public class BetweenLevelsManager : MonoBehaviour
 
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MainCameraAudioSource.volume = DataPersistance.MusicVolume;
-
 
         BetweenLevelsManagerAudioSource = GetComponent<AudioSource>();
         BetweenLevelsManagerAudioSource.volume = DataPersistance.SoundVolume;
@@ -137,7 +136,8 @@ public class BetweenLevelsManager : MonoBehaviour
 
     void Update()
     {
-        if(GamePadControllerScript.PS4_Controller == 1)
+        #region DetectController
+        if (GamePadControllerScript.PS4_Controller == 1)
         {
             PreDialogueText.text = "Presiona           para hablar con el vendedor";
             SquareButtonImage.SetActive(true);
@@ -151,6 +151,7 @@ public class BetweenLevelsManager : MonoBehaviour
             CursorImage.SetActive(true);
             Controller.isOn = false;
         }
+        #endregion
 
         if (DialogueAnimDone == false && isTalking)
         {
@@ -166,7 +167,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
     public void UpdateMusicSound_Active()
     {
-        if (DataPersistance.MusicToggle == 0)
+        if (DataPersistance.MusicToggle == 0) //si tenemos la música apagada apaga el audiosource de la cam
         {
             MainCameraAudioSource.enabled = false;
         }
@@ -175,7 +176,7 @@ public class BetweenLevelsManager : MonoBehaviour
             MainCameraAudioSource.enabled = true;
         }
 
-        if (DataPersistance.SoundToggle == 0)
+        if (DataPersistance.SoundToggle == 0) //si tenemos el sonido apagado apaga el audiosource del betweenLevelsManager
         {
             BetweenLevelsManagerAudioSource.enabled = false;
         }
@@ -185,62 +186,13 @@ public class BetweenLevelsManager : MonoBehaviour
         }
     }
 
-    #region Borrar
-    public void Level_1()
-    {
-        DataPersistance.CurrentLevel = 0;
-        DataPersistance.Storedone = 1;
-        DataPersistance.SaveForFutureGames();
-        Debug.Log("Level 1");
-        SceneManager.LoadScene("Level_1");
-    }
-
-    public void Level_2()
-    {
-        DataPersistance.CurrentLevel = 1;
-        DataPersistance.Storedone = 1;
-        DataPersistance.SaveForFutureGames();
-        Debug.Log("Level 2");
-        SceneManager.LoadScene("Level_2");
-    }
-
-    public void Level_3()
-    {
-        DataPersistance.CurrentLevel = 2;
-        DataPersistance.Storedone = 1;
-        DataPersistance.SaveForFutureGames();
-        Debug.Log("Level 3");
-        SceneManager.LoadScene("Level_3");
-    }
-
-    public void Level_4()
-    {
-        DataPersistance.CurrentLevel = 3;
-        DataPersistance.Storedone = 1;
-        DataPersistance.SaveForFutureGames();
-        Debug.Log("Level 4");
-        SceneManager.LoadScene("Level_4");
-    }
-
-    public void Level_Boss()
-    {
-        DataPersistance.CurrentLevel = 4;
-        DataPersistance.Storedone = 1;
-        DataPersistance.SaveForFutureGames();
-        Debug.Log("Level Boss");
-        SceneManager.LoadScene("Level_Boss");
-    }
-    #endregion
-
     public void ContinueButton()
     {
         DataPersistance.Storedone = 1;
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
         DataPersistance.SaveForFutureGames();
     }
-
-    //Despertamos al vendedor, que nos hablará
-    public void ShowDialogue()
+    public void ShowDialogue() //Despertamos al vendedor, que nos hablará
     {
 
         if (CanClick)
@@ -253,9 +205,8 @@ public class BetweenLevelsManager : MonoBehaviour
             
             VendedorAnim.SetBool("Talk", true);
 
-        }  
-    }
-
+        }
+    } 
     public void NextButton()
     {
         //Hasta que no se haya acabado de reproducir el diálogo, el jugador no podrá darle a next.
@@ -372,6 +323,8 @@ public class BetweenLevelsManager : MonoBehaviour
     }
 
     //Según el prefab que seleccionemos a mejorar, se nos activarán uno botones, que en la condición de sí mostrará:
+
+    #region YesButtons
     public void YesButton_1()
     {
         if(DialogueAnimDone == true)
@@ -481,6 +434,8 @@ public class BetweenLevelsManager : MonoBehaviour
         StartCoroutine(Letters(Next));
     }
 
+    #endregion
+
     public void NoButton()
     {
         if (DialogueAnimDone == true)
@@ -498,6 +453,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
     //Prefabs posibles a mejorar
 
+    #region Seleccion Productos
     public void AttackStat_1()
     {
         isShopping = true;
@@ -576,6 +532,9 @@ public class BetweenLevelsManager : MonoBehaviour
         }
     }
 
+    #endregion
+
+    #region Money
     public void PayMoney(int value)
     {
         DataPersistance.MoneyCounter -= value;
@@ -586,6 +545,7 @@ public class BetweenLevelsManager : MonoBehaviour
         MoneyText.text = DataPersistance.MoneyCounter.ToString();
         BetweenLevelsManagerAudioSource.PlayOneShot(Money, 1f);
     }
+    #endregion
 
     //Mando: Toggle
     public void AutoSelectButton()

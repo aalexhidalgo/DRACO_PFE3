@@ -6,43 +6,44 @@ using UnityEngine.SceneManagement;
 
 public class BossLogic : MonoBehaviour
 {
+    #region MovimientoBoss variables
     [SerializeField] private float speed = 30;
-
-    //Puntos a seguir
     [SerializeField] private Transform[] points;
     private int totalPoints;
     private int nextPoint;
+    public bool canMove;
+    public Transform PlayerTransform;
+    #endregion
 
     public GameObject Fireball;
-    public Transform PlayerTransform;
-    public bool canMove;
-
+    
+    #region Vida Boss variables
+    public float MaxBossLife = 20f;
     public float BossLife = 20f; //vida del boss
     public bool Win = false;
-    public Image LifeBoss; 
-    public float MaxBossLife = 20f;
+    public Image LifeBoss;
+    #endregion
 
+    #region Escudo variables
     public int ShieldBoss;
     public GameObject ShieldBossImage;
     public Image ShieldStateBoss;
     public Sprite[] ShieldBossSprites;
     public int ShieldValueBoss;
+    #endregion
 
     private AudioSource GameManagerAudioSource;
     public AudioClip Boss_Death_Clip;
 
+    #region Particulas variables
     public ParticleSystem Fireworks_1;
     public ParticleSystem Fireworks_2;
     public ParticleSystem Fireworks_3;
     public ParticleSystem Fireworks_4;
-
+    #endregion
     //Comunicación con scripts
     private GameManager GameManagerScript;
 
-    void Awake()
-    {
-
-    }
     void Start()
     {
         transform.position = points[0].position;
@@ -68,24 +69,23 @@ public class BossLogic : MonoBehaviour
     {
         if(canMove && Win == false)
         {
-            if (GameManagerScript.pause == false)
+            
+            if (Vector3.Distance(transform.position, points[nextPoint].position) < 0.1f)
             {
-                if (Vector3.Distance(transform.position, points[nextPoint].position) < 0.1f)
+                canMove = false;
+
+                nextPoint++;
+
+                if (nextPoint == totalPoints)
                 {
-                    canMove = false;
-
-                    nextPoint++;
-
-                    if (nextPoint == totalPoints)
-                    {
-                        nextPoint = 0;
-                    }
-                    StartCoroutine(BossAttack());
-                    //transform.LookAt(points[nextPoint].position);
+                    nextPoint = 0;
                 }
+                StartCoroutine(BossAttack());
+                //transform.LookAt(points[nextPoint].position);
+            }
 
-                transform.position = Vector3.MoveTowards(transform.position, points[nextPoint].position, speed * Time.deltaTime);
-            }   
+            transform.position = Vector3.MoveTowards(transform.position, points[nextPoint].position, speed * Time.deltaTime);
+               
         }
 
         transform.GetChild(0).transform.LookAt(PlayerTransform);
@@ -105,9 +105,55 @@ public class BossLogic : MonoBehaviour
         canMove = true;
     }
 
-    public void OnTriggerEnter (Collider otherTrigger)
+    #region Escudo
+    public void UpdateShield() //activa la imagen del escudo o la apaga
     {
-        if(DetectBoss.SharedInstance.Damage == true)
+        if (ShieldBoss == 1)
+        {
+            ShieldBossImage.SetActive(true);
+        }
+        else
+        {
+            ShieldBossImage.SetActive(false);
+        }
+    }
+
+    public void UpdateShieldImage() //activa la barra del nivel del escudo o la actualiza
+    {
+        if (ShieldValueBoss <= 1)
+        {
+            ShieldBossImage.transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else
+        {
+            ShieldBossImage.transform.GetChild(0).gameObject.SetActive(true);
+            ShieldStateBoss.sprite = ShieldBossSprites[ShieldValueBoss - 2];
+        }
+    }
+
+    #endregion
+    public IEnumerator Boss_Death()
+    {
+        //Cambio sprite
+        GameManagerAudioSource.PlayOneShot(Boss_Death_Clip);
+        Win = true;
+        Fireworks_1.Play();
+        yield return new WaitForSeconds(0.6f);
+        Fireworks_2.Play();
+        yield return new WaitForSeconds(0.6f);
+        Fireworks_3.Play();
+        yield return new WaitForSeconds(0.6f);
+        Fireworks_4.Play();
+        yield return new WaitForSeconds(0.6f);
+       
+        float Timer = 2.1f;
+        yield return new WaitForSeconds(Timer);
+        SceneManager.LoadScene("Credits");
+    }
+
+    public void OnTriggerEnter(Collider otherTrigger)
+    {
+        if (DetectBoss.SharedInstance.Damage == true)
         {
             if (otherTrigger.gameObject.CompareTag("Fire") && ShieldBoss == 0)
             {
@@ -149,49 +195,5 @@ public class BossLogic : MonoBehaviour
                 UpdateShieldImage();
             }
         }
-    }
-
-    public void UpdateShield()
-    {
-        if (ShieldBoss == 1)
-        {
-            ShieldBossImage.SetActive(true);
-        }
-        else
-        {
-            ShieldBossImage.SetActive(false);
-        }
-    }
-
-    public void UpdateShieldImage()
-    {
-        if (ShieldValueBoss <= 1)
-        {
-            ShieldBossImage.transform.GetChild(0).gameObject.SetActive(false);
-        }
-        else
-        {
-            ShieldBossImage.transform.GetChild(0).gameObject.SetActive(true);
-            ShieldStateBoss.sprite = ShieldBossSprites[ShieldValueBoss - 2];
-        }
-    }
-
-    public IEnumerator Boss_Death()
-    {
-        //Cambio sprite
-        GameManagerAudioSource.PlayOneShot(Boss_Death_Clip);
-        Win = true;
-        Fireworks_1.Play();
-        yield return new WaitForSeconds(0.6f);
-        Fireworks_2.Play();
-        yield return new WaitForSeconds(0.6f);
-        Fireworks_3.Play();
-        yield return new WaitForSeconds(0.6f);
-        Fireworks_4.Play();
-        yield return new WaitForSeconds(0.6f);
-       
-        float Timer = 2.1f;
-        yield return new WaitForSeconds(Timer);
-        SceneManager.LoadScene("Credits");
     }
 }
