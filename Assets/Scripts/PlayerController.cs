@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             //TECLADO: RightArrow, LeftArrow o bien A D.
             //GAMEPAD: Joystick Axis X (izquierdo), 3rd Axis Joystick (derecho)
 
-            HorizontalInput = Input.GetAxis("Horizontal");
+            HorizontalInput = Input.GetAxisRaw("Horizontal");
             DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
             #endregion
 
@@ -159,6 +159,11 @@ public class PlayerController : MonoBehaviour
                 IsFlying = false;
             }
         }                  
+    }
+
+    void FixedUpdate()
+    {
+
     }
 
     private void IsWalking()
