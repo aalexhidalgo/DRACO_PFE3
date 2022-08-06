@@ -222,8 +222,8 @@ public class MenuGameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Music_Volume"))
         {
-            MusicSlider.value = PlayerPrefs.GetFloat("Music_Volume");
-            SoundSlider.value = PlayerPrefs.GetFloat("Sound_Volume");
+            //MusicSlider.value = PlayerPrefs.GetFloat("Music_Volume");
+            //SoundSlider.value = PlayerPrefs.GetFloat("Sound_Volume");
             MusicToggle.isOn = IntToBool(PlayerPrefs.GetInt("Music_Toggle"));
             SoundToggle.isOn = IntToBool(PlayerPrefs.GetInt("Sound_Toggle"));
 
