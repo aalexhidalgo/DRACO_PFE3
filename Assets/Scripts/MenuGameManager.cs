@@ -173,8 +173,7 @@ public class MenuGameManager : MonoBehaviour
     {
 
         if(GamePadControllerScript.PS4_Controller == 1)
-        {
-            
+        {            
             startButton.Select();
         }
         OptionsPanel.SetActive(false);

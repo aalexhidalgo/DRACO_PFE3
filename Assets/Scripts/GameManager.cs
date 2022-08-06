@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
@@ -63,11 +64,16 @@ public class GameManager : MonoBehaviour
 
     //Scripts
     private SpawnManager SpawnManagerScript;
+    private GamePadController GamePadControllerScript;
+
 
     //PostProcesado
     public GameObject GameOverPanel;
     private GameObject PostProcesadoMuerte;
     public bool GameOver = false;
+
+    //UI GAMEPAD
+    public Toggle Controller;
 
 
     #region Pause Panel
@@ -111,7 +117,10 @@ public class GameManager : MonoBehaviour
     {
         if(pause == false)
         {
-            resumeButton.Select();
+            if (GamePadControllerScript.PS4_Controller == 1)
+            {
+                resumeButton.Select();
+            }
             PauseMenuPanel.SetActive(true);
             Debug.Log("Me pauso");
             pause = true;
@@ -137,6 +146,7 @@ public class GameManager : MonoBehaviour
         ShieldState = ShieldState.GetComponent<Image>();
 
         SpawnManagerScript = FindObjectOfType<SpawnManager>();
+        GamePadControllerScript = FindObjectOfType<GamePadController>();
 
         PostProcesadoMuerte = GameObject.Find("PostProcesado");
         PostProcesadoMuerte.SetActive(false);
@@ -150,8 +160,6 @@ public class GameManager : MonoBehaviour
         UpdateMusicSound_Value();
         UpdateMusicSound_Active();
         #endregion
-
-        restartButton.Select();
     }
 
     void Update()
@@ -160,6 +168,7 @@ public class GameManager : MonoBehaviour
         {
             PostProcesadoMuerte.SetActive(true);
             GameOverPanel.SetActive(true);
+
             Time.timeScale = 0;
         }
 
@@ -175,6 +184,16 @@ public class GameManager : MonoBehaviour
             {
                 PauseMenuButton();
             }
+        }
+
+
+        if (GamePadControllerScript.PS4_Controller == 1)
+        {
+            Controller.isOn = true;
+        }
+        else
+        {
+            Controller.isOn = false;
         }
     }
 
@@ -236,4 +255,28 @@ public class GameManager : MonoBehaviour
         }
     }
     #endregion
+
+    //Mando: Toggle
+    public void AutoSelectButton()
+    {
+        if (Controller.isOn == true)
+        {
+            if (PauseMenuPanel.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(resumeButton.gameObject);
+            }
+            else if (GameOverPanel.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(null);
+                EventSystem.current.SetSelectedGameObject(restartButton.gameObject);
+            }
+
+        }
+        else
+        {
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+    }
+
 }
