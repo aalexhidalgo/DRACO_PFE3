@@ -9,6 +9,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance;
 
     public AudioMixer Mixer;
+
     public const string MusicKey = "MusicVolume";
     public const string SFXKey = "SFXVolume";
 
