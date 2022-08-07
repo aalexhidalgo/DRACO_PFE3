@@ -153,11 +153,11 @@ public class GameManager : MonoBehaviour
 
         #region AudioSources
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
-        MainCameraAudioSource.volume = DataPersistance.MusicVolume;
+        //MainCameraAudioSource.volume = DataPersistance.MusicVolume;
         GameManagerAudioSource = GetComponent<AudioSource>();
         GameManagerAudioSource.volume = DataPersistance.SoundVolume;
 
-        UpdateMusicSound_Value();
+        //UpdateMusicSound_Value();
         UpdateMusicSound_Active();
         #endregion
     }
@@ -199,12 +199,12 @@ public class GameManager : MonoBehaviour
 
     //Conectamos los valores de los sliders al volumen de los AudioSource
     #region Musica y Sonido
-    public void UpdateMusicSound_Value()
+    /*public void UpdateMusicSound_Value()
     {
         MusicSlider.value = MainCameraAudioSource.volume;
         SoundSlider.value = GameManagerAudioSource.volume;
     }
-
+    */
     public void UpdateMusicSound_Active()
     {
         if(DataPersistance.MusicToggle == 0)

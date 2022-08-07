@@ -13,9 +13,6 @@ public class VolumeSettings : MonoBehaviour
     public Slider MusicSlider;
     public Slider SFXSlider;
 
-    public Toggle MusicToggle;
-    public Toggle SFXToggle;
-
     //nombre de los exposed parameter del volumen
     public const string MixerMusic = "MusicVolume"; 
     public const string MixerSFX = "SFXVolume";
@@ -23,18 +20,18 @@ public class VolumeSettings : MonoBehaviour
     private void Awake()
     {
         //AddListener asocia una funcion al slider, en ese caso una que se ejecuta cuando su valor cambia
+        //MusicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
+        //SFXSlider = GameObject.Find("SoundSlider").GetComponent<Slider>();
+
         MusicSlider.onValueChanged.AddListener(SetMusicVolume);
         SFXSlider.onValueChanged.AddListener(SetSFXVolume);
 
-        //MusicToggle.onValueChanged.AddListener(SetMusicToggle);
-        //SFXToggle.onValueChanged.AddListener(SetSFXToggle);
     }
 
     private void Start()
     {
         MusicSlider.value = PlayerPrefs.GetFloat(AudioManager.MusicKey, 0.5f);
         SFXSlider.value = PlayerPrefs.GetFloat(AudioManager.SFXKey, 0.5f);
-
     }
     private void OnDisable()
     {
@@ -50,11 +47,5 @@ public class VolumeSettings : MonoBehaviour
     {
         Mixer.SetFloat(MixerSFX, Mathf.Log10(value) * 20);
     }
-    
-    /*
-    void SetMusicToggle()
-    {
 
-    }
-    */
 }
