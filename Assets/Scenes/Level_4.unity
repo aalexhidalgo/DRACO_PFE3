@@ -83027,6 +83027,10 @@ PrefabInstance:
       propertyPath: PauseMenuPanel
       value: 
       objectReference: {fileID: 243130677}
+    - target: {fileID: 7170273642118319724, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 4178618542787121365, guid: c8fadd64705bd3d4cbb8b639866dc87e, type: 2}
     - target: {fileID: 8742365305516347498, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
       propertyPath: Pause
       value: 
