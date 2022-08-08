@@ -126,5 +126,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66d9a7d8077986842baa518c01a84de5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RockCrash: {fileID: 8300000, guid: f334128dce3411447914bd07e7e1fd57, type: 3}
+  RockCrash: {fileID: 8300000, guid: 77bbd116ed3ea5344a2711936e78e350, type: 3}
   RockParticleSystem: {fileID: 1832354522556379478, guid: 6e949a3b9a990de4783c68fa9b89db99, type: 3}

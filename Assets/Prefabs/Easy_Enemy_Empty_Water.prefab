@@ -91,6 +91,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}

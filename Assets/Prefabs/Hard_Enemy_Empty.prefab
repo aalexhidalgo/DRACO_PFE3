@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 2198651551857849564, guid: c8e05d4ac6f7d8e409d0377ce5fcf7c9, type: 3}
+  BulletPoint: {fileID: 0}
   HardEnemyAnim: {fileID: 5212268565866255507}
   AttackRange: 7
   PlayerinAttackRange: 0
@@ -151,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 3
-  DeadSound: {fileID: 8300000, guid: be7bca86e81670e409792e61a28db418, type: 3}
+  DeadSound: {fileID: 8300000, guid: 08d1298d2f8a0784f9a3c2625b0e4cf3, type: 3}
 --- !u!54 &5212268565866255517
 Rigidbody:
   m_ObjectHideFlags: 0
