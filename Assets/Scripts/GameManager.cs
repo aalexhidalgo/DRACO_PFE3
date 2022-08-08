@@ -159,6 +159,7 @@ public class GameManager : MonoBehaviour
 
         //UpdateMusicSound_Value();
         UpdateMusicSound_Active();
+        restartButton.Select();
         #endregion
     }
 
