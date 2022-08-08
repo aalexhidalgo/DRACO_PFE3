@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 592125457090031571}
   - component: {fileID: 7170273641819324968}
   - component: {fileID: 7170273642118319724}
+  - component: {fileID: 7170273641446972215}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -44,8 +45,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec3aefeffe85d040895bf65e24b120a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resumeButton: {fileID: 0}
+  restartButton: {fileID: 0}
   PauseMenuPanel: {fileID: 0}
   pause: 0
+  PauseButton: {fileID: 0}
+  UnPause: {fileID: 21300000, guid: 80530d4c12c12e44396421a76ef37480, type: 3}
+  Pause: {fileID: 21300000, guid: ff53536088a41ff49b9a47a674ec9d17, type: 3}
   LifeImage: {fileID: 0}
   LifeSprites:
   - {fileID: 21300000, guid: ec74a54037e58eb42a84a25c828e0e91, type: 3}
@@ -68,9 +74,9 @@ MonoBehaviour:
   MusicToggle: {fileID: 0}
   SoundSlider: {fileID: 0}
   SoundToggle: {fileID: 0}
-  PauseButton: {fileID: 0}
-  UnPause: {fileID: 21300000, guid: 80530d4c12c12e44396421a76ef37480, type: 3}
-  Pause: {fileID: 21300000, guid: ff53536088a41ff49b9a47a674ec9d17, type: 3}
+  GameOverPanel: {fileID: 0}
+  GameOver: 0
+  Controller: {fileID: 0}
 --- !u!82 &7170273642118319724
 AudioSource:
   m_ObjectHideFlags: 0
@@ -80,7 +86,7 @@ AudioSource:
   m_GameObject: {fileID: 7748877895018057602}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4178618542787121365, guid: c8fadd64705bd3d4cbb8b639866dc87e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 57b0603c434c2d348a3f695ff5fd0dd5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -167,3 +173,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7170273641446972215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7748877895018057602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee1d2ddac576da42921a506d4a4c287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Keyboard_Controller: 0
+  PS4_Controller: 0
+  names: []
