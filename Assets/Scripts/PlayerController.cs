@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     //private float SkyLimit = 16.5f;
     private Rigidbody DracoRigidbody;
     private Vector3 NewGravity = new Vector3 (0f, -29.4f, 0f);
+
+    public bool canShoot = true;
     #endregion
 
     public GameObject FuegoPrefab;
@@ -56,6 +58,10 @@ public class PlayerController : MonoBehaviour
     public AudioClip RecogerItem; //funciona
     #endregion
 
+    private void Awake()
+    {
+        canShoot = true;
+    }
     void Start()
     {
         //RigidBody y Animator
@@ -148,7 +154,7 @@ public class PlayerController : MonoBehaviour
             //Fuego
             //TECLADO: E.
             //GAMEPAD: Joystick button 2.
-            if (Input.GetButtonDown("Fire"))
+            if (Input.GetButtonDown("Fire") && canShoot)
             {
                 StartCoroutine(FireCooldown());
             }
