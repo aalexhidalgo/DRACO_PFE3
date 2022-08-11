@@ -13,6 +13,7 @@ public class BossLogic : MonoBehaviour
     private int nextPoint;
     public bool canMove;
     public Transform PlayerTransform;
+    private int BossStage;
     #endregion
 
     public GameObject Fireball;
@@ -46,6 +47,7 @@ public class BossLogic : MonoBehaviour
 
     void Start()
     {
+        BossStage = 0;
         transform.position = points[0].position;
         totalPoints = points.Length;
         nextPoint = 1;
@@ -76,9 +78,23 @@ public class BossLogic : MonoBehaviour
 
                 nextPoint++;
 
-                if (nextPoint == totalPoints)
+                if (nextPoint == 6 && BossStage == 0)
                 {
                     nextPoint = 0;
+                }
+
+                else if(nextPoint == 12 && BossStage == 1)
+                {
+                    nextPoint = 6;
+                }
+
+                else if(nextPoint == 18 && BossStage == 2)
+                {
+                    nextPoint = 12;
+                }
+                else if(nextPoint == 19 && BossStage == 3)
+                {
+                    nextPoint = 18;
                 }
                 StartCoroutine(BossAttack());
                 //transform.LookAt(points[nextPoint].position);
@@ -166,6 +182,23 @@ public class BossLogic : MonoBehaviour
                     BossLife = 0;
                     LifeBoss.fillAmount = BossLife / MaxBossLife;
                     StartCoroutine(Boss_Death());
+                }
+
+                else if(BossLife <= 18 && BossStage == 0)
+                {
+                    BossStage = 1;
+                    nextPoint = 6;
+                }
+
+                else if(BossLife <= 12 && BossStage == 1)
+                {
+                    BossStage = 2;
+                    nextPoint = 12;
+                }
+                else if(BossLife <= 6 && BossStage == 2)
+                {
+                    BossStage = 3;
+                    nextPoint = 18;
                 }
             }
 
