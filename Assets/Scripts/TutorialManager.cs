@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 
 public class TutorialManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class TutorialManager : MonoBehaviour
     private int index;
 
     private PlayerController playerController;
+    private GameManager GameManagerScript;
+
     private float jumpForceValue;
 
     private float mov = 0.000001f;
@@ -20,20 +23,21 @@ public class TutorialManager : MonoBehaviour
         index = 0;
         ShowTutorial(index);
         playerController = FindObjectOfType<PlayerController>();
+        GameManagerScript = FindObjectOfType<GameManager>();
         jumpForceValue = playerController.UpSpeed;
         playerController.UpSpeed = 0;
         playerController.canShoot = false;
     }
     void Update()
     {
-        if (index == 0)
+        if (index == 0) //si te mueves desaparece el primer tip
         {
             if (Mathf.Abs(Input.GetAxis("Horizontal")) > mov)
             {
                 StartCoroutine(ShowNext());
             }
         }
-        else if (index == 1)
+        else if (index == 1) //si saltas desaparece el segundo tip
         {
             if (Input.GetButtonDown("UpMove"))
             {
@@ -42,11 +46,19 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
-        else if(index == 2)
+        else if(index == 2) //si disparas fuego desaparece el tercer tip
         {
             if(Input.GetButtonDown("Fire"))
             {
                 playerController.canShoot = true;
+                StartCoroutine(ShowNext());
+            }
+        }
+
+        else if(index == 3) //si coges la nube desaparece el último tip
+        {
+            if(GameManagerScript.FlybarCounter>0)
+            {
                 StartCoroutine(ShowNext());
             }
         }
@@ -76,28 +88,46 @@ public class TutorialManager : MonoBehaviour
     private IEnumerator FadeIn(int idx)
     {
         GameObject child = MensajesTutorial[idx].transform.GetChild(0).gameObject;
-        TextMeshProUGUI textAlpha = child.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        GameObject DracoImage = MensajesTutorial[idx].transform.GetChild(1).gameObject;
+
+        Color boxColor = child.GetComponent<Image>().color;
+        //Color DracoColor = DracoImage.GetComponent<Image>().color;
+
         textAlpha.alpha = 0;
+        boxColor = new Color(boxColor.r,boxColor.g, boxColor.b, 0);
+        //DracoColor.a = 0;
 
         for (float i = 0; i < 1; i += 0.1f)
         {
+            boxColor.a= i;
             textAlpha.alpha = i;
+            //DracoColor.a = i;
             yield return new WaitForSeconds(0.2f);
         }
-        textAlpha.alpha = 1;
+        boxColor.a = 1;
     }
 
     private IEnumerator FadeOut(int idx)
     {
         GameObject child = MensajesTutorial[idx].transform.GetChild(0).gameObject;
-        TextMeshProUGUI textAlpha = child.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        //GameObject DracoImage = MensajesTutorial[idx].transform.GetChild(1).gameObject;
+
+        Color boxColor = child.GetComponent<Image>().color;
+        //Color DracoColor = DracoImage.GetComponent<Image>().color;
+
         textAlpha.alpha = 1;
+        boxColor.a = 1;
+        //DracoColor.a = 0;
 
         for (float i = 1; i > 0; i -= 0.1f)
         {
+            boxColor.a = i;
             textAlpha.alpha = i;
+            //DracoColor.a = i;
             yield return new WaitForSeconds(0.1f);
         }
-        textAlpha.alpha = 0;
+        boxColor.a = 0;
     }
 }
