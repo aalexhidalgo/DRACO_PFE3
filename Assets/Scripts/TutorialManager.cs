@@ -40,18 +40,16 @@ public class TutorialManager : MonoBehaviour
         }
         else if (index == 1) //si saltas desaparece el segundo tip
         {
-            if (Input.GetButtonDown("UpMove"))
+            if (Input.GetButtonDown("UpMove") && playerController.UpSpeed > 0)
             {
-                playerController.UpSpeed = jumpForceValue;
                 StartCoroutine(ShowNext());
             }
         }
 
         else if(index == 2) //si disparas fuego desaparece el tercer tip
         {
-            if(Input.GetButtonDown("Fire"))
+            if(Input.GetButtonDown("Fire") && playerController.canShoot)
             {
-                playerController.canShoot = true;
                 StartCoroutine(ShowNext());
             }
         }
@@ -115,29 +113,54 @@ public class TutorialManager : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
-        /*for (float i = 0; i < 1; i += 0.1f)
+        if (index == 1)
         {
-            boxColor.a= i;
-            textAlpha.alpha = i;
-            //DracoColor.a = i;
-            yield return new WaitForSeconds(0.2f);
+            playerController.UpSpeed = jumpForceValue;
         }
-        */
-    }
+
+        else if (index == 2) //si disparas fuego desaparece el tercer tip
+        {
+            playerController.canShoot = true;
+        }
+            /*for (float i = 0; i < 1; i += 0.1f)
+            {
+                boxColor.a= i;
+                textAlpha.alpha = i;
+                //DracoColor.a = i;
+                yield return new WaitForSeconds(0.2f);
+            }
+            */
+        }
 
     private IEnumerator FadeOut(int idx)
     {
+        float Alphavalue = 1;
+
         GameObject child = MensajesTutorial[idx].transform.GetChild(0).gameObject;
+        Image childImage = child.GetComponent<Image>();
+        Color boxColor = childImage.color;
+
+        GameObject DracoImage = child.transform.GetChild(1).gameObject;
+        SpriteRenderer ImageDraco = DracoImage.GetComponent<SpriteRenderer>();
+        Color DracoColor = ImageDraco.color;
+
         TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        //GameObject DracoImage = MensajesTutorial[idx].transform.GetChild(1).gameObject;
 
-        Color boxColor = child.GetComponent<Image>().color;
-        //Color DracoColor = DracoImage.GetComponent<Image>().color;
+        textAlpha.alpha = Alphavalue;
 
-        textAlpha.alpha = 1;
-        boxColor.a = 1;
-        //DracoColor.a = 0;
+        while (Alphavalue > 0)
+        {
+            boxColor.a = Alphavalue;
+            childImage.color = boxColor;
 
+            DracoColor.a = Alphavalue;
+            ImageDraco.color = DracoColor;
+
+            textAlpha.alpha = Alphavalue;
+            Alphavalue -= 0.1f;
+            yield return new WaitForSeconds(0.2f);
+        }
+        /*
         for (float i = 1; i > 0; i -= 0.1f)
         {
             boxColor.a = i;
@@ -146,5 +169,6 @@ public class TutorialManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         boxColor.a = 0;
+        */
     }
 }
