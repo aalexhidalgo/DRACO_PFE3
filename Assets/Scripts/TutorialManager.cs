@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 
 public class TutorialManager : MonoBehaviour
@@ -87,25 +88,41 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator FadeIn(int idx)
     {
+        float Alphavalue = 0;
+
         GameObject child = MensajesTutorial[idx].transform.GetChild(0).gameObject;
+        Image childImage = child.GetComponent<Image>();
+        Color boxColor = childImage.color;
+
+        GameObject DracoImage = child.transform.GetChild(1).gameObject;
+        SpriteRenderer ImageDraco = DracoImage.GetComponent<SpriteRenderer>();
+        Color DracoColor = ImageDraco.color;
+        
         TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        GameObject DracoImage = MensajesTutorial[idx].transform.GetChild(1).gameObject;
 
-        Color boxColor = child.GetComponent<Image>().color;
-        //Color DracoColor = DracoImage.GetComponent<Image>().color;
+        textAlpha.alpha = Alphavalue;
 
-        textAlpha.alpha = 0;
-        boxColor = new Color(boxColor.r,boxColor.g, boxColor.b, 0);
-        //DracoColor.a = 0;
+        while (Alphavalue <= 1)
+        {
+            boxColor.a = Alphavalue;
+            childImage.color = boxColor;
 
-        for (float i = 0; i < 1; i += 0.1f)
+            DracoColor.a = Alphavalue;
+            ImageDraco.color = DracoColor;
+
+            textAlpha.alpha = Alphavalue;
+            Alphavalue += 0.1f;
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        /*for (float i = 0; i < 1; i += 0.1f)
         {
             boxColor.a= i;
             textAlpha.alpha = i;
             //DracoColor.a = i;
             yield return new WaitForSeconds(0.2f);
         }
-        boxColor.a = 1;
+        */
     }
 
     private IEnumerator FadeOut(int idx)
