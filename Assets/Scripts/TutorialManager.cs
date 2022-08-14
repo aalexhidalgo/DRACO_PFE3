@@ -14,10 +14,16 @@ public class TutorialManager : MonoBehaviour
 
     private PlayerController playerController;
     private GameManager GameManagerScript;
+    private GamePadController GamePadControllerScript;
 
     private float jumpForceValue;
 
     private float mov = 0.000001f;
+
+    public TextMeshProUGUI Tutorialtext1;
+    public TextMeshProUGUI Tutorialtext2;
+    public TextMeshProUGUI Tutorialtext3;
+    public TextMeshProUGUI Tutorialtext4;
 
     void Start()
     {
@@ -25,12 +31,34 @@ public class TutorialManager : MonoBehaviour
         ShowTutorial(index);
         playerController = FindObjectOfType<PlayerController>();
         GameManagerScript = FindObjectOfType<GameManager>();
+        GamePadControllerScript = FindObjectOfType<GamePadController>();
         jumpForceValue = playerController.UpSpeed;
         playerController.UpSpeed = 0;
         playerController.canShoot = false;
     }
     void Update()
     {
+        if (GamePadControllerScript.PS4_Controller == 0)
+        {
+            Tutorialtext1.text = "Prueba a usar las teclas A y D o las flechas para moverte a los lados";
+            Tutorialtext2.text = "Salta usando la barra espaciadora";
+            Tutorialtext3.text = "Pulsa E para lanzar una bola de fuego";
+            Tutorialtext4.text = "Agarra la nube y pulsa Q para consumir la barra de vuelo";
+            //SquareButtonImage.SetActive(true);
+            //CursorImage.SetActive(false);
+            //Controller.isOn = true;
+        }
+        else
+        {
+            Tutorialtext1.text = "Prueba a usar el joystick izquierdo para moverte a los lados";
+            Tutorialtext2.text = "Presiona            para saltar";
+            Tutorialtext3.text = "Presiona            para lanzar una bola de fuego";
+            Tutorialtext4.text = "Aarra la nube y presiona            para consumir la barra de vuelo";
+            //SquareButtonImage.SetActive(false);
+            //CursorImage.SetActive(true);
+            //Controller.isOn = false;
+        }
+
         if (index == 0) //si te mueves desaparece el primer tip
         {
             if (Mathf.Abs(Input.GetAxis("Horizontal")) > mov)
@@ -97,6 +125,7 @@ public class TutorialManager : MonoBehaviour
         Color DracoColor = ImageDraco.color;
         
         TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI KeyTutorial = child.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
 
         textAlpha.alpha = Alphavalue;
 
@@ -109,6 +138,8 @@ public class TutorialManager : MonoBehaviour
             ImageDraco.color = DracoColor;
 
             textAlpha.alpha = Alphavalue;
+            KeyTutorial.alpha = Alphavalue;
+
             Alphavalue += 0.1f;
             yield return new WaitForSeconds(0.2f);
         }
@@ -145,6 +176,7 @@ public class TutorialManager : MonoBehaviour
         Color DracoColor = ImageDraco.color;
 
         TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI KeyTutorial = child.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
 
         textAlpha.alpha = Alphavalue;
 
@@ -157,6 +189,7 @@ public class TutorialManager : MonoBehaviour
             ImageDraco.color = DracoColor;
 
             textAlpha.alpha = Alphavalue;
+            KeyTutorial.alpha = Alphavalue;
             Alphavalue -= 0.1f;
             yield return new WaitForSeconds(0.2f);
         }

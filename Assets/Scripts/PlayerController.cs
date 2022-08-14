@@ -121,7 +121,7 @@ public class PlayerController : MonoBehaviour
             //TECLADO: Spacebar.
             //GAMEPAD: Joystick button 1 (X).
 
-            if (Input.GetButtonDown("UpMove") && IsOnTheGround) //X, Axis
+            if (Input.GetButtonDown("UpMove") && IsOnTheGround && UpSpeed > 0) //X, Axis
             {
                 DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
