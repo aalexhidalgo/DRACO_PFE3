@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public bool CanFly;
     public bool ShootFire;
     private bool IsFlying;
+    private bool CanWalk = true;
 
     //Comunicación con scripts
     private GameManager GameManagerScript;
@@ -98,8 +99,15 @@ public class PlayerController : MonoBehaviour
             //Movimiento horizontal
             //TECLADO: RightArrow, LeftArrow o bien A D.
             //GAMEPAD: Joystick Axis X (izquierdo), 3rd Axis Joystick (derecho)
-
-            HorizontalInput = Input.GetAxisRaw("Horizontal");
+            if(CanWalk)
+            {
+                HorizontalInput = Input.GetAxisRaw("Horizontal");
+            }
+            
+            else
+            {
+                HorizontalInput = 1;
+            }
             DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
             #endregion
 
@@ -240,6 +248,20 @@ public class PlayerController : MonoBehaviour
         }    
     }
 
+
+    public void OnTriggerStay(Collider otherCollider)
+    {
+        if (otherCollider.gameObject.CompareTag("AutoWalk"))
+        {
+            CanWalk = false;
+        }
+    }
+
+    public void OnTriggerExit(Collider otherCollider)
+    {
+        CanWalk = true;
+        Destroy(otherCollider.gameObject);
+    }
     public void OnTriggerEnter(Collider otherTrigger)
     {
         //Actualizamos el número de monedas recogidas

@@ -23,6 +23,7 @@ TagManager:
   - Shield_Boss
   - Objeto_Mobil
   - Boss
+  - AutoWalk
   layers:
   - Default
   - TransparentFX
