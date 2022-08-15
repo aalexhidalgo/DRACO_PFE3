@@ -144,6 +144,16 @@ public class TutorialManager : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
 
+        boxColor.a = Alphavalue;
+        childImage.color = boxColor;
+
+        DracoColor.a = Alphavalue;
+        ImageDraco.color = DracoColor;
+
+        textAlpha.alpha = Alphavalue;
+        KeyTutorial.alpha = Alphavalue;
+
+
         if (index == 1)
         {
             playerController.UpSpeed = jumpForceValue;
