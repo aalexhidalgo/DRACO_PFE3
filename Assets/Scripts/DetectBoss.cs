@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class DetectBoss : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class DetectBoss : MonoBehaviour
     private SpawnManager SpawnManagerScript;
     private GameManager GameManagerScript;
     private GameObject LifeBoss;
+
+    public GameObject CajaDialogo;
 
     public bool Damage = false;
 
@@ -42,5 +46,35 @@ public class DetectBoss : MonoBehaviour
         GameManagerScript.FlybarCounter = 0;
     }
 
-    //Las líneas comentadas es porque ya no las necesitamos
+    public IEnumerator FadeIn()
+    {
+        float Alphavalue = 0;
+
+        GameObject child = CajaDialogo.transform.GetChild(0).gameObject;
+        Image childImage = child.GetComponent<Image>();
+        Color boxColor = childImage.color;
+
+        GameObject DracoImage = child.transform.GetChild(1).gameObject;
+        SpriteRenderer ImageDraco = DracoImage.GetComponent<SpriteRenderer>();
+        Color DracoColor = ImageDraco.color;
+
+        TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
+
+        textAlpha.alpha = Alphavalue;
+
+        while (Alphavalue <= 1)
+        {
+            boxColor.a = Alphavalue;
+            childImage.color = boxColor;
+
+            DracoColor.a = Alphavalue;
+            ImageDraco.color = DracoColor;
+
+            textAlpha.alpha = Alphavalue;
+
+            Alphavalue += 0.1f;
+            yield return new WaitForSeconds(0.2f);
+        }
+
+    }
 }
