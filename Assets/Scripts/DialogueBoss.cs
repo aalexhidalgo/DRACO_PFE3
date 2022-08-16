@@ -7,10 +7,12 @@ using UnityEngine.UI;
 public class DialogueBoss : MonoBehaviour
 {
     public GameObject CajaDialogo;
+    private Rigidbody PlayerRigidbody;
 
     void Start()
     {
         CajaDialogo.SetActive(false);
+        PlayerRigidbody = GameObject.Find("Player").GetComponent<Rigidbody>();
     }
     public IEnumerator FadeIn()
     {
