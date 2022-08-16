@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+
+    //Hola Tomás, si lees esto dimelo por whatsapp, hackear está mal, lo sabías?
+
     #region Draco Movement Variables
     //Controladores de DRACO
     public float Speed = 8f;
