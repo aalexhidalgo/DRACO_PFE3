@@ -259,8 +259,11 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerExit(Collider otherCollider)
     {
-        CanWalk = true;
-        Destroy(otherCollider.gameObject, 3.5f);
+        if(otherCollider.gameObject.CompareTag("AutoWalk"))
+        {
+            CanWalk = true;
+            Destroy(otherCollider.gameObject, 3.5f);
+        }
     }
     public void OnTriggerEnter(Collider otherTrigger)
     {
