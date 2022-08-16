@@ -262,6 +262,7 @@ public class PlayerController : MonoBehaviour
         if(otherCollider.gameObject.CompareTag("AutoWalk"))
         {
             CanWalk = true;
+            DracoRigidbody.velocity = Vector3.zero;
             Destroy(otherCollider.gameObject, 3.5f);
         }
     }
