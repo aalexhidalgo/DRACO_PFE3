@@ -14,6 +14,7 @@ public class DialogueBoss : MonoBehaviour
     }
     public IEnumerator FadeIn()
     {
+        yield return new WaitForSeconds(2f);
         CajaDialogo.SetActive(true);
         float Alphavalue = 0;
 

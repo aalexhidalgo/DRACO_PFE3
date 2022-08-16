@@ -81,15 +81,6 @@ public class FireLogic_Boss : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter(Collision otherCollider)
-    {
-        if (otherCollider.gameObject.CompareTag("Ground"))
-        {
-            Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
-        }
-    }
-
     /*private void OnDestroy()
     {
         Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
