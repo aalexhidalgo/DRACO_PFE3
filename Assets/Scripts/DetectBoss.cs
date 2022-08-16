@@ -28,11 +28,7 @@ public class DetectBoss : MonoBehaviour
         {
             BossLogicScript = GameObject.Find("Boss").GetComponent<BossLogic>();
             SpawnManagerScript = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
-            BossLogicScript.enabled = true;
-            SpawnManagerScript.enabled = true;
-            //DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
-            LifeBoss.SetActive(true);
-            Damage = true;
+            StartCoroutine("WaitingTime");
         }
     }
 
@@ -46,4 +42,13 @@ public class DetectBoss : MonoBehaviour
         GameManagerScript.FlybarCounter = 0;
     }
 
+    public IEnumerator WaitingTime()
+    {
+        yield return new WaitForSeconds(3f);
+        BossLogicScript.enabled = true;
+        SpawnManagerScript.enabled = true;
+        //DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
+        LifeBoss.SetActive(true);
+        Damage = true;
+    }
 }

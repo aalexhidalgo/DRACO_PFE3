@@ -3824,9 +3824,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: Speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: Jumping
       value: 
       objectReference: {fileID: 8300000, guid: 78944c2f93cc37947b14b5b64f0cc6a1, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: UpSpeed
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: CoinSound
       value: 

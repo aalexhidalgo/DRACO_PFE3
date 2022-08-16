@@ -55,7 +55,7 @@ public class DialogueBoss : MonoBehaviour
 
     public IEnumerator FadeOut()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         CajaDialogo.SetActive(true);
         float Alphavalue = 1;
 
@@ -82,7 +82,7 @@ public class DialogueBoss : MonoBehaviour
             textAlpha.alpha = Alphavalue;
 
             Alphavalue -= 0.1f;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.08f);
         }
 
         boxColor.a = Alphavalue;

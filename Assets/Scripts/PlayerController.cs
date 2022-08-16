@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     public bool ShootFire;
     private bool IsFlying;
     private bool CanWalk = true;
+    private bool jump = false;
 
     //Comunicación con scripts
     private GameManager GameManagerScript;
@@ -108,7 +109,7 @@ public class PlayerController : MonoBehaviour
             {
                 HorizontalInput = 1;
             }
-            DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
+            //DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput);
             #endregion
 
             #region Giro Draco
@@ -131,8 +132,9 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("UpMove") && IsOnTheGround && UpSpeed > 0) //X, Axis
             {
-                DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
+                //DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
+                jump = true;
                 GameManagerAudioSource.PlayOneShot(Jumping);
                 
                 IsOnTheGround = false;
@@ -177,7 +179,12 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        DracoRigidbody.AddForce(Vector3.forward * Speed * HorizontalInput, ForceMode.Impulse);
+        if (jump)
+        {
+            DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
+            jump = false;
+        }
     }
 
     private void IsWalking()
@@ -263,7 +270,7 @@ public class PlayerController : MonoBehaviour
         {
             CanWalk = true;
             DracoRigidbody.velocity = Vector3.zero;
-            Destroy(otherCollider.gameObject, 3.5f);
+            Destroy(otherCollider.gameObject, 2.1f);
         }
     }
     public void OnTriggerEnter(Collider otherTrigger)
