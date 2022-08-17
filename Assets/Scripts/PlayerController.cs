@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     private bool IsFlying;
     private bool CanWalk = true;
     private bool jump = false;
+    public bool DracoCanMov;
 
     //Comunicación con scripts
     private GameManager GameManagerScript;
@@ -69,6 +70,14 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        if(DataPersistance.CurrentLevel == 1)
+        {
+            DracoCanMov = false;
+        }
+        else
+        {
+            DracoCanMov = true;
+        }
         //RigidBody y Animator
         DracoRigidbody = GetComponent<Rigidbody>();
         Physics.gravity = NewGravity;
@@ -103,9 +112,14 @@ public class PlayerController : MonoBehaviour
             //Movimiento horizontal
             //TECLADO: RightArrow, LeftArrow o bien A D.
             //GAMEPAD: Joystick Axis X (izquierdo), 3rd Axis Joystick (derecho)
-            if(CanWalk)
+            if(CanWalk && DracoCanMov)
             {
                 HorizontalInput = Input.GetAxisRaw("Horizontal");
+            }
+
+            else if(!DracoCanMov)
+            {
+                HorizontalInput = 0;
             }
             
             else

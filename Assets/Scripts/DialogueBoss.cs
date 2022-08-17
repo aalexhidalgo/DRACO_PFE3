@@ -8,11 +8,13 @@ public class DialogueBoss : MonoBehaviour
 {
     public GameObject CajaDialogo;
     private Rigidbody PlayerRigidbody;
+    private PlayerController playerControllerScript;
 
     void Start()
     {
         CajaDialogo.SetActive(false);
         PlayerRigidbody = GameObject.Find("Player").GetComponent<Rigidbody>();
+        playerControllerScript = FindObjectOfType<PlayerController>();
     }
     public IEnumerator FadeIn()
     {
@@ -24,10 +26,6 @@ public class DialogueBoss : MonoBehaviour
         Image childImage = child.GetComponent<Image>();
         Color boxColor = childImage.color;
 
-        GameObject DracoImage = child.transform.GetChild(1).gameObject;
-        SpriteRenderer ImageDraco = DracoImage.GetComponent<SpriteRenderer>();
-        Color DracoColor = ImageDraco.color;
-
         TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
 
         textAlpha.alpha = Alphavalue;
@@ -37,9 +35,6 @@ public class DialogueBoss : MonoBehaviour
             boxColor.a = Alphavalue;
             childImage.color = boxColor;
 
-            DracoColor.a = Alphavalue;
-            ImageDraco.color = DracoColor;
-
             textAlpha.alpha = Alphavalue;
 
             Alphavalue += 0.1f;
@@ -47,8 +42,6 @@ public class DialogueBoss : MonoBehaviour
         }
         boxColor.a = Alphavalue;
         childImage.color = boxColor;
-        DracoColor.a = Alphavalue;
-        ImageDraco.color = DracoColor;
 
         textAlpha.alpha = Alphavalue;
     }
@@ -63,10 +56,6 @@ public class DialogueBoss : MonoBehaviour
         Image childImage = child.GetComponent<Image>();
         Color boxColor = childImage.color;
 
-        GameObject DracoImage = child.transform.GetChild(1).gameObject;
-        SpriteRenderer ImageDraco = DracoImage.GetComponent<SpriteRenderer>();
-        Color DracoColor = ImageDraco.color;
-
         TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
 
         textAlpha.alpha = Alphavalue;
@@ -76,9 +65,6 @@ public class DialogueBoss : MonoBehaviour
             boxColor.a = Alphavalue;
             childImage.color = boxColor;
 
-            DracoColor.a = Alphavalue;
-            ImageDraco.color = DracoColor;
-
             textAlpha.alpha = Alphavalue;
 
             Alphavalue -= 0.1f;
@@ -87,11 +73,9 @@ public class DialogueBoss : MonoBehaviour
 
         boxColor.a = Alphavalue;
         childImage.color = boxColor;
-        DracoColor.a = Alphavalue;
-        ImageDraco.color = DracoColor;
 
         textAlpha.alpha = Alphavalue;
-
+        playerControllerScript.DracoCanMov = true;
         CajaDialogo.SetActive(false);
     }
     public void OnTriggerEnter(Collider otherTrigger)
@@ -106,6 +90,7 @@ public class DialogueBoss : MonoBehaviour
     {
         if (otherCollider.gameObject.CompareTag("Player"))
         {
+            playerControllerScript.DracoCanMov = false;
             StartCoroutine("FadeOut");
         }
     }

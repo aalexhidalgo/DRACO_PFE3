@@ -61,7 +61,7 @@ public class TutorialManager : MonoBehaviour
 
         if (index == 0) //si te mueves desaparece el primer tip
         {
-            if (Mathf.Abs(Input.GetAxis("Horizontal")) > mov)
+            if (Mathf.Abs(Input.GetAxis("Horizontal")) > mov && playerController.DracoCanMov)
             {
                 StartCoroutine(ShowNext());
             }
@@ -119,13 +119,9 @@ public class TutorialManager : MonoBehaviour
         GameObject child = MensajesTutorial[idx].transform.GetChild(0).gameObject;
         Image childImage = child.GetComponent<Image>();
         Color boxColor = childImage.color;
-
-        GameObject DracoImage = child.transform.GetChild(1).gameObject;
-        SpriteRenderer ImageDraco = DracoImage.GetComponent<SpriteRenderer>();
-        Color DracoColor = ImageDraco.color;
         
         TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI KeyTutorial = child.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI KeyTutorial = child.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
 
         textAlpha.alpha = Alphavalue;
 
@@ -133,9 +129,6 @@ public class TutorialManager : MonoBehaviour
         {
             boxColor.a = Alphavalue;
             childImage.color = boxColor;
-
-            DracoColor.a = Alphavalue;
-            ImageDraco.color = DracoColor;
 
             textAlpha.alpha = Alphavalue;
             KeyTutorial.alpha = Alphavalue;
@@ -147,12 +140,13 @@ public class TutorialManager : MonoBehaviour
         boxColor.a = Alphavalue;
         childImage.color = boxColor;
 
-        DracoColor.a = Alphavalue;
-        ImageDraco.color = DracoColor;
-
         textAlpha.alpha = Alphavalue;
         KeyTutorial.alpha = Alphavalue;
 
+        if(index == 0)
+        {
+            playerController.DracoCanMov = true;
+        }
 
         if (index == 1)
         {
@@ -181,12 +175,8 @@ public class TutorialManager : MonoBehaviour
         Image childImage = child.GetComponent<Image>();
         Color boxColor = childImage.color;
 
-        GameObject DracoImage = child.transform.GetChild(1).gameObject;
-        SpriteRenderer ImageDraco = DracoImage.GetComponent<SpriteRenderer>();
-        Color DracoColor = ImageDraco.color;
-
         TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI KeyTutorial = child.transform.GetChild(2).gameObject.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI KeyTutorial = child.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
 
         textAlpha.alpha = Alphavalue;
 
@@ -194,9 +184,6 @@ public class TutorialManager : MonoBehaviour
         {
             boxColor.a = Alphavalue;
             childImage.color = boxColor;
-
-            DracoColor.a = Alphavalue;
-            ImageDraco.color = DracoColor;
 
             textAlpha.alpha = Alphavalue;
             KeyTutorial.alpha = Alphavalue;

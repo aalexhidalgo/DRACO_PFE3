@@ -67,6 +67,12 @@ public class FireLogic_Boss : MonoBehaviour
             }
         }
 
+        if(otherTrigger.gameObject.CompareTag("Fire"))
+        {
+            Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
+            Destroy(gameObject);
+        }
+
         if(otherTrigger.gameObject.CompareTag("Ground"))
         {
             Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);

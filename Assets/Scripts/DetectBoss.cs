@@ -44,7 +44,7 @@ public class DetectBoss : MonoBehaviour
 
     public IEnumerator WaitingTime()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.5f);
         BossLogicScript.enabled = true;
         SpawnManagerScript.enabled = true;
         //DataPersistance.DracoState.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
