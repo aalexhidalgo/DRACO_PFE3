@@ -25,6 +25,9 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI Tutorialtext3;
     public TextMeshProUGUI Tutorialtext4;
 
+    public GameObject[] TutorialButtonImages;
+
+
     void Start()
     {
         index = 0;
@@ -41,22 +44,26 @@ public class TutorialManager : MonoBehaviour
         if (GamePadControllerScript.PS4_Controller == 0)
         {
             Tutorialtext1.text = "Prueba a usar las teclas A y D o las flechas para moverte a los lados";
-            Tutorialtext2.text = "Salta usando la barra espaciadora";
+            Tutorialtext2.text = "Usa la barra espaciadora, la W o la flecha hacia arriba para saltar";
             Tutorialtext3.text = "Pulsa E para lanzar una bola de fuego";
             Tutorialtext4.text = "Agarra la nube y pulsa Q para consumir la barra de vuelo";
-            //SquareButtonImage.SetActive(true);
-            //CursorImage.SetActive(false);
-            //Controller.isOn = true;
+
+            foreach (GameObject i in TutorialButtonImages)
+            {
+                i.SetActive(false);
+            }
         }
         else
         {
-            Tutorialtext1.text = "Prueba a usar el joystick izquierdo para moverte a los lados";
-            Tutorialtext2.text = "Presiona            para saltar";
+            Tutorialtext1.text = "Usa         o            para moverte a los lados";
+            Tutorialtext2.text = "Usa         para saltar";
             Tutorialtext3.text = "Presiona            para lanzar una bola de fuego";
-            Tutorialtext4.text = "Aarra la nube y presiona            para consumir la barra de vuelo";
-            //SquareButtonImage.SetActive(false);
-            //CursorImage.SetActive(true);
-            //Controller.isOn = false;
+            Tutorialtext4.text = "Agarra la nube y presiona            para consumir la barra de vuelo";
+
+            foreach(GameObject i in TutorialButtonImages)
+            {
+                i.SetActive(true);
+            }
         }
 
         if (index == 0) //si te mueves desaparece el primer tip
@@ -133,6 +140,15 @@ public class TutorialManager : MonoBehaviour
             textAlpha.alpha = Alphavalue;
             KeyTutorial.alpha = Alphavalue;
 
+            foreach (GameObject i in TutorialButtonImages)
+            {
+                Image ButtonImage = i.GetComponent<Image>();
+                Color ImageColor = ButtonImage.color;
+                ImageColor.a = Alphavalue;
+                ButtonImage.color = ImageColor;
+            }
+
+
             Alphavalue += 0.1f;
             yield return new WaitForSeconds(0.2f);
         }
@@ -143,7 +159,7 @@ public class TutorialManager : MonoBehaviour
         textAlpha.alpha = Alphavalue;
         KeyTutorial.alpha = Alphavalue;
 
-        if(index == 0)
+        if (index == 0)
         {
             playerController.DracoCanMov = true;
         }
@@ -187,18 +203,17 @@ public class TutorialManager : MonoBehaviour
 
             textAlpha.alpha = Alphavalue;
             KeyTutorial.alpha = Alphavalue;
+
+            foreach (GameObject i in TutorialButtonImages)
+            {
+                Image ButtonImage = i.GetComponent<Image>();
+                Color ImageColor = ButtonImage.color;
+                ImageColor.a = Alphavalue;
+                ButtonImage.color = ImageColor;
+            }
+
             Alphavalue -= 0.1f;
             yield return new WaitForSeconds(0.2f);
         }
-        /*
-        for (float i = 1; i > 0; i -= 0.1f)
-        {
-            boxColor.a = i;
-            textAlpha.alpha = i;
-            //DracoColor.a = i;
-            yield return new WaitForSeconds(0.1f);
-        }
-        boxColor.a = 0;
-        */
     }
 }

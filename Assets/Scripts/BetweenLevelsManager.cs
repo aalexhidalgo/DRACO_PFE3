@@ -146,7 +146,7 @@ public class BetweenLevelsManager : MonoBehaviour
         }
         else
         {
-            PreDialogueText.text = "Presiona            sobre el vendedor para hablar";
+            PreDialogueText.text = "Presiona    sobre el vendedor para hablar";
             SquareButtonImage.SetActive(false);
             CursorImage.SetActive(true);
             Controller.isOn = false;
