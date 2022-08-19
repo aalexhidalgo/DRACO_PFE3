@@ -22,7 +22,7 @@ public class BossLogic : MonoBehaviour
     public float MaxBossLife = 20f;
     public float BossLife = 20f; //vida del boss
     public bool Win = false;
-    public Image LifeBoss;
+    public Image LifeBoss; 
     #endregion
 
     #region Escudo variables
@@ -44,6 +44,7 @@ public class BossLogic : MonoBehaviour
     #endregion
     //Comunicación con scripts
     private GameManager GameManagerScript;
+    private DeathBoss DeathBossScript;
 
     void Start()
     {
@@ -60,10 +61,12 @@ public class BossLogic : MonoBehaviour
         GameManagerScript = FindObjectOfType<GameManager>();
         GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
 
-    //transform.LookAt(points[nextPoint].position);
+        DeathBossScript = FindObjectOfType<DeathBoss>();
 
-    //Colisión con pared que nos permita hacer los puntos de ruta (if blablabla)
-    //StartCoroutine(BossAttack());
+        //transform.LookAt(points[nextPoint].position);
+
+        //Colisión con pared que nos permita hacer los puntos de ruta (if blablabla)
+        //StartCoroutine(BossAttack());
 
     }
 
@@ -164,7 +167,8 @@ public class BossLogic : MonoBehaviour
        
         float Timer = 2.1f;
         yield return new WaitForSeconds(Timer);
-        SceneManager.LoadScene("Credits");
+        StartCoroutine(DeathBossScript.FadeInMuerte());
+
     }
 
     public void OnTriggerEnter(Collider otherTrigger)
@@ -181,7 +185,12 @@ public class BossLogic : MonoBehaviour
                 {
                     BossLife = 0;
                     LifeBoss.fillAmount = BossLife / MaxBossLife;
-                    StartCoroutine(Boss_Death());
+
+                    if(Win == false)
+                    {
+                        StartCoroutine(Boss_Death());
+                    }
+
                 }
 
                 else if(BossLife <= 18 && BossStage == 0)
