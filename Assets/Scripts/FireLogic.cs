@@ -63,14 +63,14 @@ public class FireLogic : MonoBehaviour
 
         if (otherTrigger.gameObject.CompareTag("Wall"))
         {
-            Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(DamageParticleSystem, transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
 
 
         if (otherTrigger.gameObject.CompareTag("Ground"))
         {
-            Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
+            Instantiate(DamageParticleSystem, transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
 
