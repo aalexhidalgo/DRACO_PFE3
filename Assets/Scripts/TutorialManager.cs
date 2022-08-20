@@ -149,8 +149,8 @@ public class TutorialManager : MonoBehaviour
             }
 
 
-            Alphavalue += 0.1f;
-            yield return new WaitForSeconds(0.2f);
+            Alphavalue += 0.075f;
+            yield return new WaitForSeconds(0.1f);
         }
 
         boxColor.a = Alphavalue;
@@ -173,15 +173,15 @@ public class TutorialManager : MonoBehaviour
         {
             playerController.canShoot = true;
         }
-            /*for (float i = 0; i < 1; i += 0.1f)
-            {
-                boxColor.a= i;
-                textAlpha.alpha = i;
-                //DracoColor.a = i;
-                yield return new WaitForSeconds(0.2f);
-            }
-            */
+        /*for (float i = 0; i < 1; i += 0.1f)
+        {
+            boxColor.a= i;
+            textAlpha.alpha = i;
+            //DracoColor.a = i;
+            yield return new WaitForSeconds(0.2f);
         }
+        */
+    }
 
     private IEnumerator FadeOut(int idx)
     {
@@ -212,8 +212,8 @@ public class TutorialManager : MonoBehaviour
                 ButtonImage.color = ImageColor;
             }
 
-            Alphavalue -= 0.1f;
-            yield return new WaitForSeconds(0.2f);
+            Alphavalue -= 0.075f;
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
