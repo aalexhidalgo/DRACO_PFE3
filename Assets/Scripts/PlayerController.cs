@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
 
-    //Hola Tomás, si lees esto dimelo por whatsapp, hackear está mal, lo sabías?
+    //Hola Tomás, si lees esto dimelo por whatsapp, hackear está mal, lo sabías? No se si entenderás algo, pero adelante, mira
 
     #region Draco Movement Variables
     //Controladores de DRACO
