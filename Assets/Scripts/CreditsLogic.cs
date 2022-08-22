@@ -22,6 +22,7 @@ public class CreditsLogic : MonoBehaviour
     {
         CreditsPlayerScript = FindObjectOfType<CreditsPlayer>();
         StartCoroutine(FadeIn());
+
     }
 
     //Salimos del juego
@@ -58,6 +59,8 @@ public class CreditsLogic : MonoBehaviour
 
         textAlpha.alpha = Alphavalue;
 
+        StartCoroutine(Credits());
+
     }
 
     private IEnumerator Credits()
@@ -78,7 +81,74 @@ public class CreditsLogic : MonoBehaviour
         Canvas[canvaIndex].SetActive(true);
 
         OriginalMessage = "A poco a poco fue reuniendo a los pocos dragones que quedaban, regresando también la convivencia entre especies y la vida que tiempo atrás caracterizó a Mugen.";
+        yield return new WaitForSeconds(2f);
 
+        foreach (var d in OriginalMessage)
+        {
+            textAlpha.text += d;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(4f);
+
+        Canvas[canvaIndex].SetActive(false);
+        canvaIndex++;
+        Canvas[canvaIndex].SetActive(true);
+
+        OriginalMessage = "Festejos, festines y canciones se dedicaron a aquel glorioso día y por primera vez el pueblo pudo descansar con la tranquilidad de que aquel malvado rey no volvería a espantarles.";
+        yield return new WaitForSeconds(2f);
+
+        foreach (var d in OriginalMessage)
+        {
+            textAlpha.text += d;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(4f);
+
+        Canvas[canvaIndex].SetActive(false);
+        canvaIndex++;
+        Canvas[canvaIndex].SetActive(true);
+
+        OriginalMessage = "A la mañana siguiente el pueblo decidió nombrar a Draco como nuevo rey, dando inicio así a una nueva era de paz y harmonía, una era en la que los males ya no yacían.";
+        yield return new WaitForSeconds(2f);
+
+        foreach (var d in OriginalMessage)
+        {
+            textAlpha.text += d;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        yield return new WaitForSeconds(4f);
+        StartCoroutine(FadeOut());
+    }
+
+    private IEnumerator FadeOut()
+    {
+        yield return new WaitForSeconds(2);
+        float Alphavalue = 1;
+
+        GameObject child = FinalTextBox.transform.GetChild(0).gameObject;
+        Image childImage = child.GetComponent<Image>();
+        Color boxColor = childImage.color;
+
+        textAlpha.alpha = Alphavalue;
+
+        while (Alphavalue >= 0)
+        {
+            boxColor.a = Alphavalue;
+            childImage.color = boxColor;
+
+            textAlpha.alpha = Alphavalue;
+
+            Alphavalue -= 0.075f;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        boxColor.a = Alphavalue;
+        childImage.color = boxColor;
+
+        textAlpha.alpha = Alphavalue;
     }
 
     private IEnumerator WaitForSeconds(int Timer)
