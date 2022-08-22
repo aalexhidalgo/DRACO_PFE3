@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CreditsPlayer: MonoBehaviour
 {
     public GameObject MovingFloor;
-    
+    public bool florIsMoving = false;
 
     #region Draco Movement Variables
     //Controladores de DRACO
@@ -26,6 +26,8 @@ public class CreditsPlayer: MonoBehaviour
     private bool jump = false;
     private bool IsFlying = false;
     public bool DracoCanMov;
+
+    
 
     #region Audio
 
@@ -118,6 +120,7 @@ public class CreditsPlayer: MonoBehaviour
         if(otherCollider.gameObject.CompareTag("AutoWalk"))
         {
             DracoCanMov = false;
+            florIsMoving = true;
             Destroy(otherCollider.gameObject);
             gameObject.GetComponent<BoxCollider>().isTrigger = true;
         }

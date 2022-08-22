@@ -9,11 +9,18 @@ public class CreditsLogic : MonoBehaviour
 {
     //Maybe incluir alguna cinemática o animación
     public GameObject FinalTextBox;
+    public TextMeshProUGUI textAlpha;
     public string OriginalMessage;
+
+    private CreditsPlayer CreditsPlayerScript;
+
+    public GameObject[] Canvas;
+    public int canvaIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        CreditsPlayerScript = FindObjectOfType<CreditsPlayer>();
         StartCoroutine(FadeIn());
     }
 
@@ -33,8 +40,6 @@ public class CreditsLogic : MonoBehaviour
         Image childImage = child.GetComponent<Image>();
         Color boxColor = childImage.color;
 
-        TextMeshProUGUI textAlpha = child.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-
         textAlpha.alpha = Alphavalue;
 
         while (Alphavalue <= 1)
@@ -53,6 +58,11 @@ public class CreditsLogic : MonoBehaviour
 
         textAlpha.alpha = Alphavalue;
 
+    }
+
+    private IEnumerator Credits()
+    {
+        OriginalMessage = "Y así Draco consiguió restaurar la paz en el reino tras derrotar al malvado King, devolviendo la felicidad a sus habitantes que elogiaron al pequeño dragón por su gran valentía.";
         yield return new WaitForSeconds(2f);
 
         foreach (var d in OriginalMessage)
@@ -60,6 +70,14 @@ public class CreditsLogic : MonoBehaviour
             textAlpha.text += d;
             yield return new WaitForSeconds(0.1f);
         }
+
+        yield return new WaitForSeconds(4f);
+
+        Canvas[canvaIndex].SetActive(false);
+        canvaIndex++;
+        Canvas[canvaIndex].SetActive(true);
+
+        OriginalMessage = "A poco a poco fue reuniendo a los pocos dragones que quedaban, regresando también la convivencia entre especies y la vida que tiempo atrás caracterizó a Mugen.";
 
     }
 
