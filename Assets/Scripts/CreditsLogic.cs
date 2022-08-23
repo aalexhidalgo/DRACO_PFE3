@@ -10,6 +10,7 @@ public class CreditsLogic : MonoBehaviour
     //Maybe incluir alguna cinemática o animación
     public GameObject FinalTextBox;
     public TextMeshProUGUI textAlpha;
+    public TextMeshProUGUI NombresText;
     public string OriginalMessage;
 
     private CreditsPlayer CreditsPlayerScript;
@@ -71,56 +72,79 @@ public class CreditsLogic : MonoBehaviour
         foreach (var d in OriginalMessage)
         {
             textAlpha.text += d;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.09f);
         }
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3.5f);
 
         Canvas[canvaIndex].SetActive(false);
         canvaIndex++;
         Canvas[canvaIndex].SetActive(true);
 
+        textAlpha.text ="";
         OriginalMessage = "A poco a poco fue reuniendo a los pocos dragones que quedaban, regresando también la convivencia entre especies y la vida que tiempo atrás caracterizó a Mugen.";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+
 
         foreach (var d in OriginalMessage)
         {
             textAlpha.text += d;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.09f);
         }
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3.5f);
 
         Canvas[canvaIndex].SetActive(false);
         canvaIndex++;
         Canvas[canvaIndex].SetActive(true);
 
+        textAlpha.text ="";
         OriginalMessage = "Festejos, festines y canciones se dedicaron a aquel glorioso día y por primera vez el pueblo pudo descansar con la tranquilidad de que aquel malvado rey no volvería a espantarles.";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         foreach (var d in OriginalMessage)
         {
             textAlpha.text += d;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.09f);
         }
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3.5f);
 
         Canvas[canvaIndex].SetActive(false);
         canvaIndex++;
         Canvas[canvaIndex].SetActive(true);
 
+        textAlpha.text ="";
         OriginalMessage = "A la mañana siguiente el pueblo decidió nombrar a Draco como nuevo rey, dando inicio así a una nueva era de paz y harmonía, una era en la que los males ya no yacían.";
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         foreach (var d in OriginalMessage)
         {
             textAlpha.text += d;
+            yield return new WaitForSeconds(0.09f);
+        }
+
+        yield return new WaitForSeconds(3.5f);
+        StartCoroutine(FadeOut());
+
+    }
+
+    private IEnumerator FadeInNombres()
+    {
+        yield return new WaitForSeconds(2);
+        float Alphavalue = 0;
+
+        NombresText.alpha = Alphavalue;
+
+        while (Alphavalue <= 1)
+        {
+            NombresText.alpha = Alphavalue;
+
+            Alphavalue += 0.075f;
             yield return new WaitForSeconds(0.1f);
         }
 
-        yield return new WaitForSeconds(4f);
-        StartCoroutine(FadeOut());
+        NombresText.alpha = Alphavalue;
     }
 
     private IEnumerator FadeOut()
@@ -149,6 +173,13 @@ public class CreditsLogic : MonoBehaviour
         childImage.color = boxColor;
 
         textAlpha.alpha = Alphavalue;
+
+        yield return new WaitForSeconds(2f);
+        Canvas[canvaIndex].SetActive(false);
+        canvaIndex++;
+        Canvas[canvaIndex].SetActive(true);
+
+        StartCoroutine(FadeInNombres());
     }
 
     private IEnumerator WaitForSeconds(int Timer)
