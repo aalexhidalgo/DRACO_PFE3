@@ -11,6 +11,7 @@ public class CreditsLogic : MonoBehaviour
     public GameObject FinalTextBox;
     public TextMeshProUGUI textAlpha;
     public TextMeshProUGUI NombresText;
+    public TextMeshProUGUI GraciasText;
     public string OriginalMessage;
 
     private CreditsPlayer CreditsPlayerScript;
@@ -131,7 +132,7 @@ public class CreditsLogic : MonoBehaviour
 
     private IEnumerator FadeInNombres()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
         float Alphavalue = 0;
 
         NombresText.alpha = Alphavalue;
@@ -145,6 +146,21 @@ public class CreditsLogic : MonoBehaviour
         }
 
         NombresText.alpha = Alphavalue;
+
+        yield return new WaitForSeconds(4f);
+
+        float AlphaValue = 0;
+        GraciasText.alpha = AlphaValue;
+
+        while (AlphaValue <= 1)
+        {
+            GraciasText.alpha = AlphaValue;
+
+            AlphaValue += 0.075f;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        GraciasText.alpha = AlphaValue;
     }
 
     private IEnumerator FadeOut()
