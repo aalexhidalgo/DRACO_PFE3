@@ -22,7 +22,7 @@ public class CreditsPlayer: MonoBehaviour
     //Booleanas de condiciones
     public bool IsOnTheGround;
     
-    private bool CanWalk = false;
+    public bool CanWalk = true;
     private bool jump = false;
     private bool IsFlying = false;
     public bool DracoCanMov;
@@ -44,6 +44,7 @@ public class CreditsPlayer: MonoBehaviour
 
     void Start()
     {
+        CanWalk = true;
         if(DataPersistance.CurrentLevel == 1)
         {
             DracoCanMov = false;
@@ -60,7 +61,16 @@ public class CreditsPlayer: MonoBehaviour
 
     void Update()
     {
-        IsWalking();
+        if(CanWalk)
+        {
+            IsWalking();
+        }
+        
+        else
+        {
+            PlayerAnimator.SetBool("IsWalking", false);
+        }
+        
         PlayerAnimator.SetBool("IsJumping", !IsOnTheGround);
         PlayerAnimator.SetBool("IsFlying", IsFlying);
 
@@ -111,7 +121,7 @@ public class CreditsPlayer: MonoBehaviour
         if (otherCollider.gameObject.CompareTag("AutoWalk"))
         {
             DracoCanMov = true;
-            CanWalk = false;
+            //CanWalk = false;
         }
     }
 

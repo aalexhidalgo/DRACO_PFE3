@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 public class CreditsLogic : MonoBehaviour
@@ -83,7 +84,7 @@ public class CreditsLogic : MonoBehaviour
         Canvas[canvaIndex].SetActive(true);
 
         textAlpha.text ="";
-        OriginalMessage = "A poco a poco fue reuniendo a los pocos dragones que quedaban, regresando también la convivencia entre especies y la vida que tiempo atrás caracterizó a Mugen.";
+        OriginalMessage = "Poco a poco fue reuniendo a los pocos dragones que quedaban, regresando también la convivencia entre especies y la vida que tiempo atrás caracterizó a Mugen.";
         yield return new WaitForSeconds(1f);
 
 
@@ -147,7 +148,7 @@ public class CreditsLogic : MonoBehaviour
 
         NombresText.alpha = Alphavalue;
 
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(2.75f);
 
         float AlphaValue = 0;
         GraciasText.alpha = AlphaValue;
@@ -161,6 +162,9 @@ public class CreditsLogic : MonoBehaviour
         }
 
         GraciasText.alpha = AlphaValue;
+
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene("MainMenu");
     }
 
     private IEnumerator FadeOut()
@@ -189,6 +193,7 @@ public class CreditsLogic : MonoBehaviour
         childImage.color = boxColor;
 
         textAlpha.alpha = Alphavalue;
+        CreditsPlayerScript.CanWalk = false;
 
         yield return new WaitForSeconds(2f);
         Canvas[canvaIndex].SetActive(false);
