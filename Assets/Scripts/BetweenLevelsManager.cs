@@ -44,6 +44,19 @@ public class BetweenLevelsManager : MonoBehaviour
     public GameObject Attack_Image;
     public GameObject Defense_Image;
     public GameObject Boost_Image;
+
+    public GameObject Fireball_Prefab;
+    public GameObject Shield_Prefab;
+    public GameObject Fly_Prefab;
+
+    private Vector3 Scale1 = new Vector3(942.251343f, 1058.56946f, 1058.56982f);
+    private Vector3 Scale2 = new Vector3(1457.8241f, 1457.8241f, 4919.2207f);
+    private Vector3 Scale3 = new Vector3(1199.5675f, 1199.5675f, 4913.56641f);
+
+    private Vector3 NormalScale1 = new Vector3(764.700195f, 859.099976f, 859.100525f);
+    private Vector3 NormalScale2 = new Vector3(1196.90002f, 1196.90002f, 4038.76904f);
+    private Vector3 NormalScale3 = new Vector3(986f, 986f, 4038.76904f);
+
     private int propValue;
     private float Increment = 0.25f;
 
@@ -95,9 +108,14 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         closeDialogue = false;
         isShopping = false;
+
         Attack_Image.SetActive(false);
         Defense_Image.SetActive(false);
         Boost_Image.SetActive(false);
+        Fireball_Prefab.SetActive(false);
+        Shield_Prefab.SetActive(false);
+        Fly_Prefab.SetActive(false);
+
         DialogueText.text = DialogoList[DataPersistance.CurrentLevel-2][CurrentDialogueText];
         MoneyText.text = DataPersistance.MoneyCounter.ToString();
         DataPersistance.Storedone = 0;
@@ -115,16 +133,19 @@ public class BetweenLevelsManager : MonoBehaviour
         {
             FueradeStock_Fireball.SetActive(true);
             Attack_Image.SetActive(false);
+            Fireball_Prefab.SetActive(false);
         }
         if(DataPersistance.Shield == 0)
         {
             FueradeStock_Shield.SetActive(true);
             Defense_Image.SetActive(false);
+            Shield_Prefab.SetActive(false);
         }
         if(DataPersistance.Fly == 0)
         {
             FueradeStock_Fly.SetActive(true);
             Boost_Image.SetActive(false);
+            Fly_Prefab.SetActive(false);
         }
 
         VendedorImage.GetComponent<Image>();
@@ -139,7 +160,7 @@ public class BetweenLevelsManager : MonoBehaviour
         #region DetectController
         if (GamePadControllerScript.PS4_Controller == 1)
         {
-            PreDialogueText.text = "Presiona           para hablar con el vendedor";
+            PreDialogueText.text = "Presiona     para hablar con el vendedor";
             SquareButtonImage.SetActive(true);
             CursorImage.SetActive(false);
             Controller.isOn = true;
@@ -164,6 +185,38 @@ public class BetweenLevelsManager : MonoBehaviour
             ShowDialogue();
         }
     }
+
+    #region Escalado productos
+    public void Fireball_Scale()
+    {
+        Fireball_Prefab.transform.localScale = Scale1;
+    }
+
+    public void Fireball_ScaleNormal()
+    {
+        Fireball_Prefab.transform.localScale = NormalScale1;
+    }
+
+    public void Shield_Scale()
+    {
+        Shield_Prefab.transform.localScale = Scale2;
+    }
+
+    public void Shield_ScaleNormal()
+    {
+        Shield_Prefab.transform.localScale = NormalScale2;
+    }
+
+    public void Fly_Scale()
+    {
+        Fly_Prefab.transform.localScale = Scale3;
+    }
+
+    public void Fly_ScaleNormal()
+    {
+        Fly_Prefab.transform.localScale = NormalScale3;
+    }
+    #endregion
 
     public void UpdateMusicSound_Active()
     {
@@ -241,16 +294,19 @@ public class BetweenLevelsManager : MonoBehaviour
                     {
                         EntranceParticleSystem[0].Play();
                         Attack_Image.SetActive(true);
+                        Fireball_Prefab.SetActive(true);
                     }
                     if (DataPersistance.Shield > 0)
                     {
                         EntranceParticleSystem[1].Play();
                         Defense_Image.SetActive(true);
+                        Shield_Prefab.SetActive(true);
                     }
                     if (DataPersistance.Fly > 0)
                     {
                         EntranceParticleSystem[2].Play();
                         Boost_Image.SetActive(true);
+                        Fly_Prefab.SetActive(true);
                     }
 
                 }
@@ -288,17 +344,25 @@ public class BetweenLevelsManager : MonoBehaviour
         }
 
         DialogueAnimDone = true;
-        if(isShopping == false)
+
+        if (isShopping == false)
         {
             Button.SetActive(true);
-            Button.GetComponent<Button>().Select();
+            if (GamePadControllerScript.PS4_Controller == 1)
+            {
+                Button.GetComponent<Button>().Select();
+            }
         }
         else
         {
             Button.SetActive(true);
-            Button.GetComponent<Button>().Select();
+            if (GamePadControllerScript.PS4_Controller == 1)
+            {
+                Button.GetComponent<Button>().Select();
+            }
             No.SetActive(true);
         }
+
         VendedorAnim.SetBool("Talk", false);
     }
 
