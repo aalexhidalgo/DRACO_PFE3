@@ -93,11 +93,11 @@ public class MenuGameManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey("Current_Level"))
         {
-            LevelText.text = $"Level {PlayerPrefs.GetInt("Current_Level")}";
+            LevelText.text = $"{PlayerPrefs.GetInt("Current_Level")}";
         }
         else if (DataPersistance.CurrentLevel == 0)
         {
-            LevelText.text = $"Level 0";
+            LevelText.text = $"0";
         }
     }
 
