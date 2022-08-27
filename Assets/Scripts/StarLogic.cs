@@ -13,10 +13,12 @@ public class StarLogic : MonoBehaviour
     }
 
     public IEnumerator StarAnim()
-    {       
+    {
+        Debug.Log("Hola, no estoy roto");
         yield return new WaitForSeconds(1f);
         Active = true;
         StarAnimator.SetBool("IsActive", Active);
         Active = false;
+        Destroy(gameObject);
     }
 }
