@@ -25,6 +25,7 @@ TagManager:
   - Boss
   - AutoWalk
   - Star
+  - StarLimits
   layers:
   - Default
   - TransparentFX

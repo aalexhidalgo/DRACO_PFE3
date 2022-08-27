@@ -19,44 +19,45 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 8325885952
-    m_Localized: Hey? Where is everyone? Maybe they're out of the cave. To go outside
-      I first must learn to move.
+    m_Localized: "Eh? Donde estar\xE1n todos? A lo mejor est\xE1n fuera de la cueva.
+      Para salir primero tengo que aprender a moverme."
     m_Metadata:
       m_Items: []
   - m_Id: 619893157888
-    m_Localized: Use         or            to move side to side
+    m_Localized: Usa         o            para moverte a los lados
     m_Metadata:
       m_Items: []
   - m_Id: 1176963837952
-    m_Localized: Wow, so that's walking... Oh there are platforms overthere, i'm
-      going to try to jump to reach them.
+    m_Localized: "Wow, as\xED que esto es caminar... Oh all\xED hay plataformas,
+      voy a intentar saltar para alcanzarlas."
     m_Metadata:
       m_Items: []
   - m_Id: 2272549597184
-    m_Localized: Use         to jump
+    m_Localized: Usa         para saltar
     m_Metadata:
       m_Items: []
   - m_Id: 2418041614336
-    m_Localized: I think that rock is covering the exit, i could throw a fireball
-      to destroy it.
+    m_Localized: "Creo que esa piedra est\xE1 tapando la salida, podr\xEDa lanzarle
+      una bola de fuego para destruirla."
     m_Metadata:
       m_Items: []
   - m_Id: 2928438079488
-    m_Localized: '   Press            para lanzar una bola de fuego'
+    m_Localized: Presiona            para lanzar una bola de fuego
     m_Metadata:
       m_Items: []
   - m_Id: 3538252132352
-    m_Localized: '!Look, a cloud! If i use their power maybe i could use my wings
-      to fly a little bit.'
+    m_Localized: "\xA1Mira, una nube! Si uso su poder tal vez pueda usar mis alas
+      para volar un poco."
     m_Metadata:
       m_Items: []
   - m_Id: 3858965393408
-    m_Localized: Grab the cloud and hold           to consume the flybar
+    m_Localized: "Agarra la nube y mant\xE9n            para consumir la barra de
+      vuelo"
     m_Metadata:
       m_Items: []
   - m_Id: 4113811304448
-    m_Localized: Wellcome to my castle. Do you think that your little claws have
-      any chance against me? One more step and you will die between my flames
+    m_Localized: "Bienvenido a mi castillo, \xBFCrees que tus peque\xF1as garras
+      pueden hacer algo contra mi? Da un paso m\xE1s y morir\xE1s entre mis llamas."
     m_Metadata:
       m_Items: []
   references:

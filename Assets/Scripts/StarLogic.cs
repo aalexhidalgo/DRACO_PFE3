@@ -5,28 +5,18 @@ using UnityEngine;
 public class StarLogic : MonoBehaviour
 {
     private bool Active = false;
+    private Animator StarAnimator;
 
-    public void OnTriggerEnter(Collider otherTrigger)
+    void Start()
     {
-        if(otherTrigger.CompareTag("Star"))
-        {
-            Active = true;
-        }
-    }
-
-    public void OnTriggerExit(Collider otherTrigger)
-    {
-        if (otherTrigger.CompareTag("Star"))
-        {
-            Destroy(otherTrigger.gameObject);
-        }
+        StarAnimator = GetComponent<Animator>();
     }
 
     public IEnumerator StarAnim()
-    {
+    {       
         yield return new WaitForSeconds(1f);
-        //Activar animación: Set blabla
-        //Movimiento z (empty antes o script a parte???)
+        Active = true;
+        StarAnimator.SetBool("IsActive", Active);
         Active = false;
     }
 }
