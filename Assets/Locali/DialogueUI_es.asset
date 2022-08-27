@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: DialogueUI_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: 63206e2f510596a468f70778bde44ba2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 8325885952
+    m_Localized: Hey? Where is everyone? Maybe they're out of the cave. To go outside
+      I first must learn to move.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619893157888
+    m_Localized: Use         or            to move side to side
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1176963837952
+    m_Localized: Wow, so that's walking... Oh there are platforms overthere, i'm
+      going to try to jump to reach them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2272549597184
+    m_Localized: Use         to jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418041614336
+    m_Localized: I think that rock is covering the exit, i could throw a fireball
+      to destroy it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928438079488
+    m_Localized: '   Press            para lanzar una bola de fuego'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3538252132352
+    m_Localized: '!Look, a cloud! If i use their power maybe i could use my wings
+      to fly a little bit.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3858965393408
+    m_Localized: Grab the cloud and hold           to consume the flybar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4113811304448
+    m_Localized: Wellcome to my castle. Do you think that your little claws have
+      any chance against me? One more step and you will die between my flames
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1

@@ -10,41 +10,45 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: GameUi Shared Data
+  m_Name: DialogueUI Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: GameUi
-  m_TableCollectionNameGuidString: 100d711f6e72d4845a7fa10300e549bd
+  m_TableCollectionName: DialogueUI
+  m_TableCollectionNameGuidString: 63206e2f510596a468f70778bde44ba2
   m_Entries:
-  - m_Id: 53754392576
-    m_Key: gameover_text
+  - m_Id: 8325885952
+    m_Key: tutorial1
     m_Metadata:
       m_Items: []
-  - m_Id: 282406875136
-    m_Key: restart_button
+  - m_Id: 619893157888
+    m_Key: tutorial1_buttons
     m_Metadata:
       m_Items: []
-  - m_Id: 419111825408
-    m_Key: exit_button
+  - m_Id: 1176963837952
+    m_Key: tutorial2
     m_Metadata:
       m_Items: []
-  - m_Id: 2919785230336
-    m_Key: pause_text
+  - m_Id: 2272549597184
+    m_Key: tutorial2_buttons
     m_Metadata:
       m_Items: []
-  - m_Id: 2987128975360
-    m_Key: resume_button
+  - m_Id: 2418041614336
+    m_Key: tutorial3
     m_Metadata:
       m_Items: []
-  - m_Id: 3128024035328
-    m_Key: music_text
+  - m_Id: 2928438079488
+    m_Key: tutorial3_button
     m_Metadata:
       m_Items: []
-  - m_Id: 3324992745472
-    m_Key: sound_text
+  - m_Id: 3538252132352
+    m_Key: tutorial4
     m_Metadata:
       m_Items: []
-  - m_Id: 9619355398144
-    m_Key: thanks_button
+  - m_Id: 3858965393408
+    m_Key: tutorial4_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4113811304448
+    m_Key: DialogueBoss_1
     m_Metadata:
       m_Items: []
   m_Metadata:
@@ -56,4 +60,4 @@ MonoBehaviour:
     00000000:
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1661553952351
+        m_CustomEpoch: 1661556385001

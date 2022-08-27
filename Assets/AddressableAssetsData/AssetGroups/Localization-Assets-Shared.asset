@@ -25,6 +25,10 @@ MonoBehaviour:
     m_Address: Assets/Locali/GameUi Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+  - m_GUID: 63206e2f510596a468f70778bde44ba2
+    m_Address: Assets/Locali/DialogueUI Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 140799aabd4ea7f4e9a05a48b1dd95a3, type: 2}
   m_SchemaSet:

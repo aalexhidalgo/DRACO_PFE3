@@ -46,5 +46,9 @@ MonoBehaviour:
     m_Localized: Sonido
     m_Metadata:
       m_Items: []
+  - m_Id: 9619355398144
+    m_Localized: Thanks for playing!
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: DialogueUI_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 63206e2f510596a468f70778bde44ba2, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 8325885952
+    m_Localized: "Eh? Donde estar\xE1n todos? A lo mejor est\xE1n fuera de la cueva.
+      Para salir primero tengo que aprender a moverme."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619893157888
+    m_Localized: Usa         o            para moverte a los lados
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1176963837952
+    m_Localized: "Wow, as\xED que esto es caminar... Oh all\xED hay plataformas,
+      voy a intentar saltar para alcanzarlas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2272549597184
+    m_Localized: Usa         para saltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418041614336
+    m_Localized: "Creo que esa piedra est\xE1 tapando la salida, podr\xEDa lanzarle
+      una bola de fuego para destruirla.\n"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928438079488
+    m_Localized: Presiona            para lanzar una bola de fuego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3538252132352
+    m_Localized: "\xA1Mira, una nube! Si uso su poder tal vez pueda usar mis alas
+      para volar un poco."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3858965393408
+    m_Localized: "Agarra la nube y mant\xE9n            para consumir la barra de
+      vuelo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4113811304448
+    m_Localized: "Bienvenido a mi castillo, \xBFCrees que tus peque\xF1as garras
+      pueden hacer algo contra mi? Da un paso m\xE1s y morir\xE1s entre mis llamas. "
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1
