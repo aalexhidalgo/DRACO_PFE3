@@ -24,6 +24,7 @@ TagManager:
   - Objeto_Mobil
   - Boss
   - AutoWalk
+  - Star
   layers:
   - Default
   - TransparentFX
