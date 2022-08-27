@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class StarLogic : MonoBehaviour
 {
-    private bool Active = false;
     private Animator StarAnimator;
 
     void Start()
@@ -15,10 +14,8 @@ public class StarLogic : MonoBehaviour
     public IEnumerator StarAnim()
     {
         Debug.Log("Hola, no estoy roto");
-        yield return new WaitForSeconds(1f);
-        Active = true;
-        StarAnimator.SetBool("IsActive", Active);
-        Active = false;
-        Destroy(gameObject);
+        StarAnimator.SetBool("Active", true);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(transform.parent.gameObject);
     }
 }
