@@ -14,8 +14,7 @@ public class StarLimits : MonoBehaviour
     {
         if (otherTrigger.gameObject.CompareTag("Star"))
         {
-            //obj.StartCoroutine(obj.Counter());
-            //StarLogic.StartCoroutine(StarLogic.StarAnim());
+            StarLogicScript.StartCoroutine(StarLogicScript.StarAnim());
             Destroy(otherTrigger.gameObject);
         }
     }
