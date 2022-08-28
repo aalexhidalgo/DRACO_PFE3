@@ -17,6 +17,38 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 100d711f6e72d4845a7fa10300e549bd, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 53754392576
+    m_Localized: HAS PERDUT
+    m_Metadata:
+      m_Items: []
+  - m_Id: 282406875136
+    m_Localized: REINTENTAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 419111825408
+    m_Localized: SORTIR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2919785230336
+    m_Localized: PAUSA
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2987128975360
+    m_Localized: CONTINUAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3128024035328
+    m_Localized: Musica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3324992745472
+    m_Localized: So
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9619355398144
+    m_Localized: "Graci\xE8s per jugar!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

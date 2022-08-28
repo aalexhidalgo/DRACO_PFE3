@@ -19,7 +19,97 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 929579593728
-    m_Localized: 
+    m_Localized: INICIAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 955676553216
+    m_Localized: CONTINUAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1007585259520
+    m_Localized: OPCIONS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1534284984320
+    m_Localized: CONTROLS
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1583341563904
+    m_Localized: SORTIR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303503352459264
+    m_Localized: '"Volar"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303747192516608
+    m_Localized: '"Disparar"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 303889396199424
+    m_Localized: '"Botar"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 304164894863360
+    m_Localized: '"Esquerra"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 304290874978304
+    m_Localized: '"Dreta"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 310852226052096
+    m_Localized: '"Interactuar"'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 346727790080000
+    m_Localized: TORNAR
+    m_Metadata:
+      m_Items: []
+  - m_Id: 349781385998336
+    m_Localized: Opcions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 349885668978688
+    m_Localized: Botar/Interactuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 350186350243840
+    m_Localized: Mov. Horitzontal
+    m_Metadata:
+      m_Items: []
+  - m_Id: 350345800904704
+    m_Localized: Nav. Vertical
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351263548174336
+    m_Localized: R2 Volar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351986541326336
+    m_Localized: 'Mov. Horitzontal
+
+      Nav. Vertical/Horitzontal'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 356818874462208
+    m_Localized: Musica
+    m_Metadata:
+      m_Items: []
+  - m_Id: 356956321804288
+    m_Localized: So
+    m_Metadata:
+      m_Items: []
+  - m_Id: 363249975619584
+    m_Localized: ESPAI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365461414014976
+    m_Localized: "PITJA \nAQU\xCD!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 368007658532864
+    m_Localized: Nivell
     m_Metadata:
       m_Items: []
   references:

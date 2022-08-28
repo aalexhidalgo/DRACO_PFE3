@@ -19,8 +19,8 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 8325885952
-    m_Localized: "Eh? Donde estar\xE1n todos? A lo mejor est\xE1n fuera de la cueva.
-      Para salir primero tengo que aprender a moverme."
+    m_Localized: "\xBFEh? \xBFDonde estar\xE1n todos? A lo mejor est\xE1n fuera de
+      la cueva. Para salir primero tengo que aprender a moverme."
     m_Metadata:
       m_Items: []
   - m_Id: 619893157888
@@ -56,7 +56,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4113811304448
-    m_Localized: "Bienvenido a mi castillo, \xBFCrees que tus peque\xF1as garras
+    m_Localized: "Bienvenido a mi castillo. \xBFCrees que tus peque\xF1as garras
       pueden hacer algo contra mi? Da un paso m\xE1s y morir\xE1s entre mis llamas."
     m_Metadata:
       m_Items: []
@@ -171,7 +171,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 602051263930368
-    m_Localized: SI
+    m_Localized: "S\xCD"
     m_Metadata:
       m_Items: []
   - m_Id: 603420649660416
@@ -185,7 +185,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603507119431680
-    m_Localized: "\xBFDESEAS ADQUIRIR ALGO PARA EQUIPARTE?."
+    m_Localized: "\xBFDESEAS ADQUIRIR ALGO PARA EQUIPARTE?"
     m_Metadata:
       m_Items: []
   - m_Id: 603528795594752
@@ -210,9 +210,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603636937334784
-    m_Localized: UN DIA CUALQUIERA COMO HOY LLEGO TAN PRONTO COMO LO DESTRUYO TODO
-      A SU PASO. LAS CASAS ARDIAN Y LAS TORRES ERAN DERRIBADAS, EL REY NO PUDO CONTENERLO
-      Y KING SE HIZO CON EL PODER. TODO AQUEL QUE NO OBEDECIERA ERA CALZINADO O DESTERRADO.
+    m_Localized: "UN DIA CUALQUIERA COMO HOY LLEGO TAN PRONTO COMO LO DESTRUYO TODO
+      A SU PASO. LAS CASAS ARD\xCDAN Y LAS TORRES ERAN DERRIBADAS, EL REY NO PUDO
+      CONTENERLO Y KING SE HIZO CON EL PODER. TODO AQUEL QUE NO OBEDECIERA ERA CALZINADO
+      O DESTERRADO."
     m_Metadata:
       m_Items: []
   - m_Id: 603676397346816

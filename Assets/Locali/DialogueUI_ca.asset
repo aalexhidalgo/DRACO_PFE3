@@ -17,6 +17,226 @@ MonoBehaviour:
   m_SharedData: {fileID: 11400000, guid: 63206e2f510596a468f70778bde44ba2, type: 2}
   m_Metadata:
     m_Items: []
-  m_TableData: []
+  m_TableData:
+  - m_Id: 8325885952
+    m_Localized: "Eh? On seran tots? Potser s\xF3n fora de la cova. Per sortir primer
+      he d'aprendre a moure'm."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 619893157888
+    m_Localized: Utilitza         o            per moure't als costats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1176963837952
+    m_Localized: "Wow, aix\xED que aix\xF2 \xE9s caminar... Oh all\xE0 hi ha plataformes,
+      intentar\xE9 botar per assolir-les."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2272549597184
+    m_Localized: Utilitza         per botar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2928438079488
+    m_Localized: "Prem            per llan\xE7ar una bolla de foc"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2418041614336
+    m_Localized: "Crec que aquella pedra est\xE0 taponant la sortida, podria llan\xE7ar-li
+      una bolla de foc per destruir-la."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3538252132352
+    m_Localized: "Mira, un n\xFAvol! Si faig servir el seu poder potser pugui utilitzar
+      les meves ales per volar una mica."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3858965393408
+    m_Localized: "Agafa el n\xFAvol i mantingues           per consumir la barra
+      de vol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4113811304448
+    m_Localized: "Benvingut al meu castell. Creus que les teves petites urpes poden
+      fer alguna cosa contra mi? Fes un pas m\xE9s i morir\xE0s entre les meves flames."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 343232458452992
+    m_Localized: "Fa molt de temps, al regne de Mugen convivien criatures, humans
+      i monstres, cuidats i protegits per un rei savi i bo. Despr\xE9s d'anys de
+      pau, un \xE9sser maligne va atacar el regne i va aconseguir el poder, iniciant
+      aix\xED el seu regnat del terror, el regnat de King."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351910137884672
+    m_Localized: "Els habitants vivien en la pobresa i la desgr\xE0cia obligats a
+      complir ordres ia donar ofrenes al nou rei. Amb el temps es van tornar hostils
+      i es van comen\xE7ar a enfrontar entre esp\xE8cies per l'escassetat de recursos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 357925545766912
+    m_Localized: "Mentrestant, malestar i caos es va al\xE7ar un grup de criatures,
+      amb l'esperan\xE7a de tornar a unir el regne en contra de King i tornar als
+      anys de pau. Lamentablement alguna cosa va sortir malament, van ser derrotats
+      i perseguits per tot el regne."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360420636553216
+    m_Localized: "Durant anys King va governar, sense ning\xFA que pogu\xE9s treure-li
+      el poder, per\xF2 sense saber que dins una cova es trobava un petit ou, aix\xED
+      comen\xE7aria la hist\xF2ria de Draco\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364903009546240
+    m_Localized: Em...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365153585655808
+    m_Localized: Has derrotat...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371244574896128
+    m_Localized: "I aix\xED Draco va aconseguir restaurar la pau al regne despr\xE9s
+      de derrotar el malvat King, tornant la felicitat als seus habitants que van
+      elogiar el petit drac per la seva gran valentia."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371500477771776
+    m_Localized: "A poc a poc va anar reunint els pocs dracs que quedaven, tornant
+      tamb\xE9 la conviv\xE8ncia entre esp\xE8cies i la vida que temps enrere va
+      caracteritzar Mugen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371844578471936
+    m_Localized: "Festetjos, festins i can\xE7ons es van dedicar a aquell glori\xF3s
+      dia i per primera vegada el poble va poder descansar amb la tranquil\xB7litat
+      que aquell malvat rei no els tornaria a espantar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372775512633344
+    m_Localized: "Al mat\xED seg\xFCent el poble va decidir nomenar Draco com a nou
+      rei, donant inici aix\xED a una nova era de pau i harmonia, una era en qu\xE8
+      els mals ja no jeien."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579879187324928
+    m_Localized: Prova de fer servir les tecles A i D o les fletxes per moure't als
+      costats
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579927157579776
+    m_Localized: Utilitza la barra espaiadora, la W o la fletxa cap amunt per saltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579963127930880
+    m_Localized: "Clica E per llan\xE7ar una bolla de foc"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579997722550272
+    m_Localized: "Agafa el n\xFAvol i mantingues Q per consumir la barra de vol"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582360998944768
+    m_Localized: Clica    sobre el venedor per parlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583717772402688
+    m_Localized: Clica     per parlar amb el venedor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593643173388288
+    m_Localized: "MMM, BONA ELECCI\xD3...! INCREMENTA L'ATAC B\xC0SIC. T'HO POTS
+      PORTAR PEL PREU DE 75\u20AC. DESITGES COMPRAR?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593697451876352
+    m_Localized: "GRAN DEFENSA! INCREMENTA LA DEFENSA B\xC0SICA. T'HO POTS PORTAR
+      PEL PREU DE 50\u20AC. DESITGES COMPRAR?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593716338827264
+    m_Localized: "FINS L'INFINIT I M\xC9S ALLA! INCREMENTA LA CAPACITAT DE VOL. T'HO
+      POTS PORTAR PEL PREU DE 100\u20AC. DESITGES COMPRAR?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593759422717952
+    m_Localized: M'he quedat sense producte, ho sento, tria una altra cosa
+    m_Metadata:
+      m_Items: []
+  - m_Id: 600405863636992
+    m_Localized: "Gr\xE0cies per comprar! Vols comprar-ne un altre m\xE9s?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 600431755075584
+    m_Localized: "No tens prou diners. No donc res gratu\xEFt. Volies alguna cosa?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 602051263930368
+    m_Localized: SI
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603420649660416
+    m_Localized: "HEY! COM VA LA TEVA DIA? FA MOLT TEMPS QUE NO VEIG A ALG\xDA COM
+      EL TEU PER AQUI."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603482154934272
+    m_Localized: "EL M\xD3N EXTERIOR POT SER PERILL\xD3S, ET DESITJO MOLTA SORT EN
+      LA TEVA AVENTURA PETIT DRAC, VES AMB CURA."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603507119431680
+    m_Localized: DESITJES ADQUIRIR ALGUNA COSA PER EQUIPAR-TE?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603528795594752
+    m_Localized: "HAS TORNAT! SAPS PERQU\xC8 ET PERSEGUEIXEN I ATAQUEN LES CRIATURES
+      D'ALL\xC0 FORA?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603580066766848
+    m_Localized: "TEMPS ENRERE ELS DRACS VAN SER ELS QUE VAN UNIR AL POBLE CONTRA
+      KING A LA GRAN REBEL\xB7LI\xD3. DAVANT AIX\xD2 DECLAR LEGAL LA CA\xC7A DE DRACS,
+      OFERINT GRANS RECOMPENSES A LA RESTA DE LA POBLACION."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603595833155584
+    m_Localized: "EL POBLE TRAICIONO ALS DRACS I AQUELLS POCS QUE VAN SOBREVIVER
+      TRACTAREN DE FUGIR. JO NO ET FARE MAL, NOM\xC9S S\xD3C UN HUMILD VENEDOR. VOLS
+      ALGUNA COSA DE LA BOTIGA ABANS DE CONTINUAR LA TEVA AVENTURA?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603611536629760
+    m_Localized: "HOLA UNA ALTRA VEGADA PETIT DRAC! QU\xC8 HAS ESCOLTAT SOBRE KING?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603636937334784
+    m_Localized: "UN DIA QUALSEVOL COM AVUI VA ARRIBAR TAN AVIAT COM HO VA DESTRUIR
+      TOT AL SEU PAS. LES CASES ES CREMAVEN I LES TORRES EREN DERRIVADES, EL REI
+      NO VA PODER CONTENIR-HO I KING ES VA FER AMB EL PODER. TOT AQUELL QUE NO OBEIX\xC9S
+      ERA CALZINAT O DESTERRAT."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603676397346816
+    m_Localized: "CADA VEGADA EST\xC0S M\xC9S A PROP DEL SEU CASTELL, NO ET DENTINDR\xC9
+      SI VOLS ANAR A PER ELL, PER\xD2 MIRA SI DESITGES ALGUNA COSA DE LA BOTIGA,
+      EL CAM\xCD \xC9S DUR."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603703010205696
+    m_Localized: "SEGUEIXES VIU! HO HE D'ADMETRE PETIT DRAC, T'HAVIA SUBESTIMAT,
+      HAS DE SER MOLT VALENT I FORT PER ARRIBAR FINS AQU\xCD."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603735318929408
+    m_Localized: "HAS ACONSEGUIT ARRIBAR A LES PORTES DEL CASTELL. DE VERITAT T'ENFRONTAR\xC0S
+      A ELL? B\xC9 NING\xDA HA ARRIBAT TAN LLUNY COM TU."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603761797570560
+    m_Localized: "POTSER LA TEVA VALENTIA I PETITA ESTATURA PUGUI ALLIBERAR EL POBLE.
+      PER\xD2 CAL ANAR BEN PREPARAT, DIGUES SI DESITGES ALGUNA COSA DE LA BOTIGA
+      ABANS DE LA GRAN BATALLA."
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
