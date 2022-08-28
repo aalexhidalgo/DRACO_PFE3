@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
 
 
 public class TutorialManager : MonoBehaviour
@@ -25,6 +26,13 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI Tutorialtext3;
     public TextMeshProUGUI Tutorialtext4;
 
+
+    //Localized Strings
+    public LocalizedString[] DialogueLocalizeGamePad;
+    public string[] LocalizeStringsGamePad;
+    public LocalizedString[] DialogueLocalizeKeyboard;
+    public string[] LocalizeStringsKeyboard;
+
     public GameObject[] TutorialButtonImages;
 
 
@@ -43,10 +51,10 @@ public class TutorialManager : MonoBehaviour
     {
         if (GamePadControllerScript.PS4_Controller == 0)
         {
-            Tutorialtext1.text = "Prueba a usar las teclas A y D o las flechas para moverte a los lados";
-            Tutorialtext2.text = "Usa la barra espaciadora, la W o la flecha hacia arriba para saltar";
-            Tutorialtext3.text = "Pulsa E para lanzar una bola de fuego";
-            Tutorialtext4.text = "Agarra la nube y pulsa Q para consumir la barra de vuelo";
+            Tutorialtext1.text = DialogueLocalizeKeyboard[0].GetLocalizedString(LocalizeStringsKeyboard[0]);
+            Tutorialtext2.text = DialogueLocalizeKeyboard[1].GetLocalizedString(LocalizeStringsKeyboard[1]);
+            Tutorialtext3.text = DialogueLocalizeKeyboard[2].GetLocalizedString(LocalizeStringsKeyboard[2]);
+            Tutorialtext4.text = DialogueLocalizeKeyboard[3].GetLocalizedString(LocalizeStringsKeyboard[3]);
 
             foreach (GameObject i in TutorialButtonImages)
             {
@@ -55,12 +63,12 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            Tutorialtext1.text = "Usa         o            para moverte a los lados";
-            Tutorialtext2.text = "Usa         para saltar";
-            Tutorialtext3.text = "Presiona            para lanzar una bola de fuego";
-            Tutorialtext4.text = "Agarra la nube y presiona            para consumir la barra de vuelo";
+            Tutorialtext1.text = DialogueLocalizeGamePad[0].GetLocalizedString(LocalizeStringsGamePad[0]);
+            Tutorialtext2.text = DialogueLocalizeGamePad[1].GetLocalizedString(LocalizeStringsGamePad[1]);
+            Tutorialtext3.text = DialogueLocalizeGamePad[2].GetLocalizedString(LocalizeStringsGamePad[2]);
+            Tutorialtext4.text = DialogueLocalizeGamePad[3].GetLocalizedString(LocalizeStringsGamePad[3]);
 
-            foreach(GameObject i in TutorialButtonImages)
+            foreach (GameObject i in TutorialButtonImages)
             {
                 i.SetActive(true);
             }

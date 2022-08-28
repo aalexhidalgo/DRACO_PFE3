@@ -36,7 +36,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2928438079488
-    m_Key: tutorial3_button
+    m_Key: tutorial3_buttons
     m_Metadata:
       m_Items: []
   - m_Id: 3538252132352
@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3858965393408
-    m_Key: tutorial4_button
+    m_Key: tutorial4_buttons
     m_Metadata:
       m_Items: []
   - m_Id: 4113811304448
@@ -89,6 +89,30 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 372775512633344
     m_Key: credits_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579879187324928
+    m_Key: tutorial1_keyboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579927157579776
+    m_Key: tutorial2_keyboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579963127930880
+    m_Key: tutorial3_keyboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579997722550272
+    m_Key: tutorial4_keyboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582360998944768
+    m_Key: predialogue_keyboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583717772402688
+    m_Key: predialogue_gamepad
     m_Metadata:
       m_Items: []
   m_Metadata:

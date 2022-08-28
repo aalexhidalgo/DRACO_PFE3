@@ -638,6 +638,82 @@ MonoBehaviour:
   Tutorialtext2: {fileID: 555306626}
   Tutorialtext3: {fileID: 1564774307}
   Tutorialtext4: {fileID: 406271234}
+  DialogueLocalizeGamePad:
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 619893157888
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 2272549597184
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 2928438079488
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 3858965393408
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  LocalizeStringsGamePad:
+  - tutorial1_buttons
+  - tutorial2_buttons
+  - tutorial3_buttons
+  - tutorial4_buttons
+  DialogueLocalizeKeyboard:
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 579879187324928
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 579927157579776
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 579963127930880
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 579997722550272
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  LocalizeStringsKeyboard:
+  - tutorial1_keyboard
+  - tutorial2_keyboard
+  - tutorial3_keyboard
+  - tutorial4_keyboard
   TutorialButtonImages:
   - {fileID: 381944640}
   - {fileID: 1177039243}
@@ -647,6 +723,8 @@ MonoBehaviour:
   - {fileID: 1076363556}
   - {fileID: 2135259030}
   - {fileID: 844884439}
+  references:
+    version: 1
 --- !u!4 &168230377
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
 
 public class BetweenLevelsManager : MonoBehaviour
 {
@@ -90,6 +91,11 @@ public class BetweenLevelsManager : MonoBehaviour
     public Sprite VendedorDespierto;
     #endregion
 
+    //Localized Strings
+    public LocalizedString[] PreDialogue;
+    public string[] LocalizedStringsPreDialogue;
+    public LocalizedString[] LevelDialogue;
+
     //Comunicación Scripts
     private GamePadController GamePadControllerScript;
 
@@ -160,14 +166,14 @@ public class BetweenLevelsManager : MonoBehaviour
         #region DetectController
         if (GamePadControllerScript.PS4_Controller == 1)
         {
-            PreDialogueText.text = "Presiona     para hablar con el vendedor";
+            PreDialogueText.text = PreDialogue[1].GetLocalizedString(LocalizedStringsPreDialogue[1]);
             SquareButtonImage.SetActive(true);
             CursorImage.SetActive(false);
             Controller.isOn = true;
         }
         else
         {
-            PreDialogueText.text = "Presiona    sobre el vendedor para hablar";
+            PreDialogueText.text = PreDialogue[0].GetLocalizedString(LocalizedStringsPreDialogue[0]);
             SquareButtonImage.SetActive(false);
             CursorImage.SetActive(true);
             Controller.isOn = false;

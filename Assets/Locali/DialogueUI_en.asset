@@ -42,7 +42,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2928438079488
-    m_Localized: '   Press            para lanzar una bola de fuego'
+    m_Localized: '   Press            to throw a fireball'
     m_Metadata:
       m_Items: []
   - m_Id: 3538252132352
@@ -113,6 +113,30 @@ MonoBehaviour:
     m_Localized: The next morning the people decided to name Draco as the new king,
       thus beginning a new era of peace and harmony, an era in which evils no longer
       lay.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579997722550272
+    m_Localized: Grab the cloud and hold Q to consume the flybar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579927157579776
+    m_Localized: Use the spacebar, W or the up arrow to jump
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579963127930880
+    m_Localized: Press E to throw a fireball
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579879187324928
+    m_Localized: Try to use the A and D keys or the arrows to move side to side
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582360998944768
+    m_Localized: Click     on the seller to talk
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583717772402688
+    m_Localized: Press     to talk to the seller
     m_Metadata:
       m_Items: []
   references:

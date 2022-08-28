@@ -118,5 +118,30 @@ MonoBehaviour:
       en la que los males ya no yac\xEDan."
     m_Metadata:
       m_Items: []
+  - m_Id: 579879187324928
+    m_Localized: Prueba a usar las teclas A y D o las flechas para moverte a los
+      lados
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579927157579776
+    m_Localized: Usa la barra espaciadora, la W o la flecha hacia arriba para saltar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579963127930880
+    m_Localized: Pulsa E para lanzar una bola de fuego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 579997722550272
+    m_Localized: "Agarra la nube y mant\xE9n Q para consumir la barra de vuelo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 582360998944768
+    m_Localized: Presiona    sobre el vendedor para hablar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 583717772402688
+    m_Localized: Presiona     para hablar con el vendedor
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
