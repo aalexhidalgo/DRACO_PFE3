@@ -139,5 +139,100 @@ MonoBehaviour:
     m_Localized: Press     to talk to the seller
     m_Metadata:
       m_Items: []
+  - m_Id: 593759422717952
+    m_Localized: I'm out of product, sorry, choose something else
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593716338827264
+    m_Localized: "TO INFINITY AND BEYOND! INCREASES FLIGHT CAPACITY. YOU CAN TAKE
+      IT FOR THE PRICE OF 100\u20AC. DO YOU WANT TO BUY?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593697451876352
+    m_Localized: "GREAT DEFENSE! INCREASES THE BASIC DEFENSE. YOU CAN TAKE IT FOR
+      THE PRICE OF 50\u20AC. DO YOU WANT TO BUY?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593643173388288
+    m_Localized: "MMM, GREAT CHOICE...! INCREASES THE BASIC ATTACK. YOU CAN TAKE
+      IT FOR THE PRICE OF 75\u20AC. DO YOU WANT TO BUY?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 600405863636992
+    m_Localized: Thanks for shopping! Do you want to buy another one of these?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 600431755075584
+    m_Localized: You don't have enough money. I don't give anything for free. Did
+      you want something?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 602051263930368
+    m_Localized: YES
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603420649660416
+    m_Localized: HEY! HOW IS YOUR DAY? I HAVE NOT SEEN SOMEONE LIKE YOU HERE IN A
+      LONG TIME.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603482154934272
+    m_Localized: THE OUTSIDE WORLD CAN BE DANGEROUS, I WISH YOU GOOD LUCK IN YOUR
+      ADVENTURE LITTLE DRAGON, BE CAREFUL.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603507119431680
+    m_Localized: WOULD YOU LIKE TO BUY SOMETHING TO EQUIP YOURSELF?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603528795594752
+    m_Localized: YOU HAVE RETURNED! DO YOU KNOW WHY YOU ARE CHASED AND ATTACKED BY
+      THE CREATURES OUT THERE?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603580066766848
+    m_Localized: TIME AGO THE DRAGONS WERE THE ONES THAT UNITED THE PEOPLE AGAINST
+      KING IN THE GREAT REBELLION. GIVEN THIS, I DECLARE THE DRAGON HUNTING LEGAL,
+      OFFERING GREAT REWARDS TO THE REST OF THE POPULATION.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603595833155584
+    m_Localized: THE PEOPLE BETRAYED THE DRAGONS AND THOSE FEW THAT SURVIVED TRIED
+      TO FLEE. I WILL NOT HURT YOU, I AM JUST A HUMBLE SELLER. WOULD YOU LIKE ANYTHING
+      FROM THE STORE BEFORE YOU FOLLOW YOUR ADVENTURE?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603611536629760
+    m_Localized: HELLO AGAIN LITTLE DRAGON! WHAT HAVE YOU HEARD ABOUT KING?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603636937334784
+    m_Localized: AN ANY DAY LIKE TODAY HE ARRIVE AS SOON AS HE DESTROY EVERYTHING
+      IN ITS PASS. HOUSES BURNED AND TOWERS WERE TAKEN DOWN, THE KING COULD NOT HOLD
+      HIM DOWN AND KING TAKEN THE POWER. EVERYONE WHO DID NOT OBEY WAS CALZINATED
+      OR BANISHED.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603676397346816
+    m_Localized: YOU ARE EVER CLOSER TO HIS CASTLE, I WILL NOT STOP YOU IF YOU WANT
+      TO GO FOR HIM, BUT LOOK IF YOU WANT SOMETHING FROM THE SHOP, THE ROAD IS HARD.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603703010205696
+    m_Localized: YOU'RE STILL ALIVE! I HAVE TO ADMIT IT, LITTLE DRAGON, I HAD UNDERESTIMATED
+      YOU, YOU MUST BE VERY COURAGEOUS AND STRONG TO GET HERE.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603735318929408
+    m_Localized: YOU HAVE MANAGED TO GET TO THE GATES OF THE CASTLE. ARE YOU REALLY
+      GOING TO FACE HIM? WELL, NOBODY HAS COME AS FAR AS YOU.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603761797570560
+    m_Localized: MAYBE YOUR COURAGE AND SMALL HEIGHT CAN FREE THE PEOPLE. BUT YOU
+      HAVE TO GO WELL PREPARED, TELL ME IF YOU WANT ANYTHING FROM THE SHOP BEFORE
+      THE BIG BATTLE.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

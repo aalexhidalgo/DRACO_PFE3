@@ -115,6 +115,82 @@ MonoBehaviour:
     m_Key: predialogue_gamepad
     m_Metadata:
       m_Items: []
+  - m_Id: 593643173388288
+    m_Key: productdialogue_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593697451876352
+    m_Key: productdialogue_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593716338827264
+    m_Key: productdialogue_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 593759422717952
+    m_Key: sold_out
+    m_Metadata:
+      m_Items: []
+  - m_Id: 600405863636992
+    m_Key: offer_product
+    m_Metadata:
+      m_Items: []
+  - m_Id: 600431755075584
+    m_Key: no_money
+    m_Metadata:
+      m_Items: []
+  - m_Id: 602051263930368
+    m_Key: Yes_button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603420649660416
+    m_Key: dialogue_level1_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603482154934272
+    m_Key: dialogue_level1_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603507119431680
+    m_Key: dialogue_level1_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603528795594752
+    m_Key: dialogue_level2_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603580066766848
+    m_Key: dialogue_level2_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603595833155584
+    m_Key: dialogue_level2_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603611536629760
+    m_Key: dialogue_level3_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603636937334784
+    m_Key: dialogue_level3_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603676397346816
+    m_Key: dialogue_level3_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603703010205696
+    m_Key: dialogue_level4_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603735318929408
+    m_Key: dialogue_level4_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 603761797570560
+    m_Key: dialogue_level4_3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

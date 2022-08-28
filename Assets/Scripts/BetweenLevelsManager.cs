@@ -13,6 +13,7 @@ public class BetweenLevelsManager : MonoBehaviour
     public Button continueButton;
     //Lista de Arrays con los dialogos en cada nivel
     public List<string[]> DialogoList = new List<string[]>();
+    public List<LocalizedString[]> DialogoList_LS = new List<LocalizedString[]>();
 
     #region Despertar Vendedor variables
     public GameObject PreDialogueImage;
@@ -94,7 +95,13 @@ public class BetweenLevelsManager : MonoBehaviour
     //Localized Strings
     public LocalizedString[] PreDialogue;
     public string[] LocalizedStringsPreDialogue;
-    public LocalizedString[] LevelDialogue;
+    public LocalizedString[] ProductsDialogue;
+    public string[] LocalizedStringsProductsDialogue;
+    public LocalizedString[] DA1_LS;
+    public LocalizedString[] DA2_LS;
+    public LocalizedString[] DA3_LS;
+    public LocalizedString[] DA4_LS;
+    //public string[] LocalizedStringsDA_Levels;
 
     //Comunicación Scripts
     private GamePadController GamePadControllerScript;
@@ -104,10 +111,10 @@ public class BetweenLevelsManager : MonoBehaviour
 
     private void Awake()
     {
-        DialogoList.Add(DA1);
-        DialogoList.Add(DA2);
-        DialogoList.Add(DA3);
-        DialogoList.Add(DA4);
+        DialogoList_LS.Add(DA1_LS);
+        DialogoList_LS.Add(DA2_LS);
+        DialogoList_LS.Add(DA3_LS);
+        DialogoList_LS.Add(DA4_LS);
     }
 
     void Start()
@@ -122,7 +129,7 @@ public class BetweenLevelsManager : MonoBehaviour
         Shield_Prefab.SetActive(false);
         Fly_Prefab.SetActive(false);
 
-        DialogueText.text = DialogoList[DataPersistance.CurrentLevel-2][CurrentDialogueText];
+        DialogueText.text = DialogoList_LS[DataPersistance.CurrentLevel - 2][CurrentDialogueText].ToString();
         MoneyText.text = DataPersistance.MoneyCounter.ToString();
         DataPersistance.Storedone = 0;
         DataPersistance.SaveForFutureGames();
@@ -276,7 +283,7 @@ public class BetweenLevelsManager : MonoBehaviour
             if (closeDialogue == false)
             {
                 CurrentDialogueText++;
-                if (CurrentDialogueText >= DA1.Length)
+                if (CurrentDialogueText >= DA1_LS.Length)
                 {
                     isTalking = false;
                     DialogueImage.SetActive(false);
@@ -318,7 +325,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 }
                 else
                 {
-                    DialogueText.text = DialogoList[DataPersistance.CurrentLevel - 2][CurrentDialogueText];
+                    DialogueText.text = DialogoList_LS[DataPersistance.CurrentLevel - 2][CurrentDialogueText].ToString();
                     StartCoroutine(Letters(Next));
                     BetweenLevelsManagerAudioSource.Play();
 
@@ -405,20 +412,16 @@ public class BetweenLevelsManager : MonoBehaviour
                 UpdateMoney();
                 DataPersistance.Fireball--;
                 DataPersistance.FireballValue+= Increment;
-                DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
+                DialogueText.text = ProductsDialogue[3].GetLocalizedString(LocalizedStringsProductsDialogue[3]);
 
                 if (DataPersistance.Fireball == 0)
                 {
                     StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab", FueradeStock_Fireball));
                 }
             }
-            else if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fireball <= 0)
-            {
-                DialogueText.text = "Viva méxico ay ay ay ay";
-            }
             else
             {
-                DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querias algo? ";
+                DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }
     }
@@ -435,7 +438,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 DataPersistance.Shield--;
                 DataPersistance.ShieldValue ++;
 
-                DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
+                DialogueText.text = ProductsDialogue[3].GetLocalizedString(LocalizedStringsProductsDialogue[3]);
 
                 if (DataPersistance.Shield == 0)
                 {
@@ -443,13 +446,9 @@ public class BetweenLevelsManager : MonoBehaviour
                 }
 
             }
-            else if(DataPersistance.MoneyCounter >= propValue && DataPersistance.Shield <= 0)
-            {
-                DialogueText.text = "No quedan gusilus ninio";
-            }
             else
             {
-                DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querias algo? ";
+                DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }
     }
@@ -464,20 +463,16 @@ public class BetweenLevelsManager : MonoBehaviour
                 UpdateMoney();
                 DataPersistance.Fly--;
                 DataPersistance.FlyValue += Increment;
-                DialogueText.text = "Gracias por comprar! Quieres comprar otro mas de estos? ";
+                DialogueText.text = ProductsDialogue[3].GetLocalizedString(LocalizedStringsProductsDialogue[3]);
 
                 if (DataPersistance.Fly == 0)
                 {
                     StartCoroutine(YesButtonCoroutine(Pos3, "Cloud_prefab", FueradeStock_Fly));
                 }
             }
-            else if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fly <= 0)
-            {
-                DialogueText.text = "No quedan papas ninio";
-            }
             else
             {
-                DialogueText.text = "No tienes suficiente dinero. No doy nada gratis. Querias algo? ";
+                DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }
     }
@@ -500,7 +495,7 @@ public class BetweenLevelsManager : MonoBehaviour
         No.SetActive(false);
         closeDialogue = true;
         isShopping = false;
-        DialogueText.text = "Me he quedado sin producto, lo siento, elige otra cosa";
+        DialogueText.text = ProductsDialogue[5].GetLocalizedString(LocalizedStringsProductsDialogue[5]);
         StartCoroutine(Letters(Next));
     }
 
@@ -521,32 +516,22 @@ public class BetweenLevelsManager : MonoBehaviour
         }
     }
 
-    //Prefabs posibles a mejorar
-
     #region Seleccion Productos
     public void AttackStat_1()
     {
         isShopping = true;
         if (DialogueAnimDone == true)
         {
-            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fireball <= 0)
-            {
-                DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
-            }
-
-            else
-            {
-                propValue = 75;
-                VendedorAnim.SetBool("Talk", true);
-                DialogueImage.SetActive(true);
-                DialogueText.text = $"MMM, BUENA ELECCION...! INCREMENTA EL ATAQUE BASICO EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-                StartCoroutine(Letters(Yes_1));
-                Next.SetActive(false);
-                Yes_2.SetActive(false);
-                Yes_3.SetActive(false);
-                //Yes_1.SetActive(true);
-                //No.SetActive(true);
-            }
+            propValue = 75;
+            VendedorAnim.SetBool("Talk", true);
+            DialogueImage.SetActive(true);
+            DialogueText.text = ProductsDialogue[0].GetLocalizedString(LocalizedStringsProductsDialogue[0]);
+            StartCoroutine(Letters(Yes_1));
+            Next.SetActive(false);
+            Yes_2.SetActive(false);
+            Yes_3.SetActive(false);
+            //Yes_1.SetActive(true);
+            //No.SetActive(true);
         }
     }
 
@@ -555,24 +540,16 @@ public class BetweenLevelsManager : MonoBehaviour
         isShopping = true;
         if (DialogueAnimDone == true)
         {
-            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Shield <= 0)
-            {
-                DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
-            }
-
-            else
-            {
-                propValue = 50;
-                VendedorAnim.SetBool("Talk", true);
-                DialogueImage.SetActive(true);
-                DialogueText.text = $"GRAN DEFENSA! INCREMENTA LA DEFENSA BASICA EN UN 25%. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-                StartCoroutine(Letters(Yes_2));
-                Next.SetActive(false);
-                Yes_1.SetActive(false);
-                Yes_3.SetActive(false);
-                //Yes_2.SetActive(true);
-                //No.SetActive(true);
-            }  
+            propValue = 50;
+            VendedorAnim.SetBool("Talk", true);
+            DialogueImage.SetActive(true);
+            DialogueText.text = ProductsDialogue[1].GetLocalizedString(LocalizedStringsProductsDialogue[1]);
+            StartCoroutine(Letters(Yes_2));
+            Next.SetActive(false);
+            Yes_1.SetActive(false);
+            Yes_3.SetActive(false);
+            //Yes_2.SetActive(true);
+            //No.SetActive(true);
         }
     }
     public void BoostStat_3()
@@ -580,25 +557,16 @@ public class BetweenLevelsManager : MonoBehaviour
         isShopping = true;
         if (DialogueAnimDone == true)
         {
-            if (DataPersistance.MoneyCounter >= propValue && DataPersistance.Fly <= 0)
-            {
-                DialogueText.text = "Nos hemos quedado sin stock, vuelve en otro momento";
-            }
-
-            else
-            {
-                propValue = 100;
-                VendedorAnim.SetBool("Talk", true);
-                DialogueImage.SetActive(true);
-                DialogueText.text = $"HASTA EL INFINITO Y MAS ALLA! INCREMENTA LA CAPACIDAD DE VUELO. TE LO PUEDES LLEVAR POR EL PRECIO DE {propValue}€. DESEAS COMPRAR?";
-                StartCoroutine(Letters(Yes_3));
-                Next.SetActive(false);
-                Yes_1.SetActive(false);
-                Yes_2.SetActive(false);
-                //Yes_3.SetActive(true);
-                //No.SetActive(true);
-            }   
-
+            propValue = 100;
+            VendedorAnim.SetBool("Talk", true);
+            DialogueImage.SetActive(true);
+            DialogueText.text = ProductsDialogue[2].GetLocalizedString(LocalizedStringsProductsDialogue[2]);
+            StartCoroutine(Letters(Yes_3));
+            Next.SetActive(false);
+            Yes_1.SetActive(false);
+            Yes_2.SetActive(false);
+            //Yes_3.SetActive(true);
+            //No.SetActive(true);  
         }
     }
 
