@@ -51,6 +51,46 @@ MonoBehaviour:
     m_Key: DialogueBoss_1
     m_Metadata:
       m_Items: []
+  - m_Id: 343232458452992
+    m_Key: introduction_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351910137884672
+    m_Key: introduction_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 357925545766912
+    m_Key: introduction_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360420636553216
+    m_Key: introduction_4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364903009546240
+    m_Key: bossDeath_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365153585655808
+    m_Key: bossDeah_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371244574896128
+    m_Key: credits_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371500477771776
+    m_Key: credits_2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371844578471936
+    m_Key: credits_3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372775512633344
+    m_Key: credits_4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

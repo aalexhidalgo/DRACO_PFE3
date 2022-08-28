@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
+
 
 public class MenuGameManager : MonoBehaviour
 {
@@ -55,6 +57,9 @@ public class MenuGameManager : MonoBehaviour
     public bool DialogueAnimDone = false;
     public GameObject Next;
 
+    public LocalizedString[] DialogueLocalize;
+    public string[] LocalizeStrings;
+
     //UI GAMEPAD
     public GameObject SquareButton;
     public Toggle Controller;
@@ -77,7 +82,7 @@ public class MenuGameManager : MonoBehaviour
         OptionsPanel.SetActive(false);
         HowToPlayPanel.SetActive(false);
 
-        DialogueText.text = Dialogo[CurrentDialogueText];
+        DialogueText.text = DialogueLocalize[0].ToString();
         //Audiosource
         MenuGameManagerAudioSource = GetComponent<AudioSource>();
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
@@ -87,6 +92,9 @@ public class MenuGameManager : MonoBehaviour
 
         GamePadControllerScript = FindObjectOfType<GamePadController>();
         DataPersistance.CurrentLevel = 0;
+
+
+        //Dialogo[0] = DialogueLocalize.
     }
 
     public void CurrentLevel()
@@ -270,13 +278,13 @@ public class MenuGameManager : MonoBehaviour
         {
             CurrentDialogueText++;
             Next.SetActive(false);
-            if (CurrentDialogueText >= Dialogo.Length)
+            if (CurrentDialogueText >= DialogueLocalize.Length)
             {
                 StartButton();
             }
             else
             {
-                DialogueText.text = Dialogo[CurrentDialogueText];
+                DialogueText.text = DialogueLocalize[CurrentDialogueText].GetLocalizedString(LocalizeStrings[CurrentDialogueText]);
                 StartCoroutine(Letters());
             }
         }

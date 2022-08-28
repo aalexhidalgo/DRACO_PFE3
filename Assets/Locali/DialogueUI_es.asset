@@ -60,5 +60,63 @@ MonoBehaviour:
       pueden hacer algo contra mi? Da un paso m\xE1s y morir\xE1s entre mis llamas."
     m_Metadata:
       m_Items: []
+  - m_Id: 343232458452992
+    m_Localized: "Hace mucho tiempo, en el reino de Mugen conviv\xEDan criaturas,
+      humanos y monstruos, cuidados y protegidos por un rey sabio y bueno. Tras a\xF1os
+      de paz, un ser maligno atac\xF3 el reino y se hizo con el poder, iniciando
+      as\xED su reinado del terror, el reinado de King."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351910137884672
+    m_Localized: "Los habitantes viv\xEDan en la pobreza y la desgracia obligados
+      a cumplir  \xF3rdenes y a darle ofrendas al nuevo rey. Con el tiempo se volvieron
+      hostiles y empezaron a enfrentarse entre especies por la escasez de recursos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 357925545766912
+    m_Localized: "Entre tanto malestar y caos se alz\xF3 un grupo de criaturas, con
+      la esperanza de volver a unir al reino en contra de King y regresar a los a\xF1os
+      de paz. Lamentablemente algo sali\xF3 mal, fueron derrotados y perseguidos
+      por todo el reino."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360420636553216
+    m_Localized: "Durante a\xF1os King gobern\xF3, sin nadie que pudiera quitarle
+      el poder, pero sin saber que dentro de una cueva se encontraba un peque\xF1o
+      huevo, as\xED comenzar\xEDa la historia de Draco\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364903009546240
+    m_Localized: Me...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365153585655808
+    m_Localized: Derrotaste...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371244574896128
+    m_Localized: "Y as\xED Draco consigui\xF3 restaurar la paz en el reino tras derrotar
+      al malvado King, devolviendo la felicidad a sus habitantes que elogiaron al
+      peque\xF1o drag\xF3n por su gran valent\xEDa."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371500477771776
+    m_Localized: "Poco a poco fue reuniendo a los pocos dragones que quedaban, regresando
+      tambi\xE9n la convivencia entre especies y la vida que tiempo atr\xE1s caracteriz\xF3
+      a Mugen."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371844578471936
+    m_Localized: "Festejos, festines y canciones se dedicaron a aquel glorioso d\xEDa
+      y por primera vez el pueblo pudo descansar con la tranquilidad de que aquel
+      malvado rey no volver\xEDa a espantarles."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372775512633344
+    m_Localized: "A la ma\xF1ana siguiente el pueblo decidi\xF3 nombrar a Draco como
+      nuevo rey, dando inicio as\xED a una nueva era de paz y harmon\xEDa, una era
+      en la que los males ya no yac\xEDan."
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

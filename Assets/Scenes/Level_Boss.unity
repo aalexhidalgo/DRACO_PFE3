@@ -36307,6 +36307,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MuerteDialogo: {fileID: 1978951553}
   DeathText: {fileID: 2081282881}
+  DialogueLocalize:
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 364903009546240
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 365153585655808
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  LocalizeStrings:
+  - bossDeath_1
+  - bossDeath_2
+  references:
+    version: 1
 --- !u!4 &1720619103
 Transform:
   m_ObjectHideFlags: 0
@@ -41016,7 +41038,6 @@ GameObject:
   - component: {fileID: 1978951556}
   - component: {fileID: 1978951555}
   - component: {fileID: 1978951554}
-  - component: {fileID: 1978951558}
   m_Layer: 5
   m_Name: Muerte_Dialogo
   m_TagString: Untagged
@@ -41105,20 +41126,6 @@ RectTransform:
   m_AnchoredPosition: {x: 3.33, y: 98}
   m_SizeDelta: {x: 17, y: 3.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1978951558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1978951553}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a384259c4f5324545b5e303dbecc541b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MuerteDialogo: {fileID: 0}
-  DeathText: {fileID: 0}
 --- !u!1 &1982520336
 GameObject:
   m_ObjectHideFlags: 0

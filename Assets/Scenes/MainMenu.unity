@@ -7872,7 +7872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1332321897
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10854,6 +10854,44 @@ MonoBehaviour:
   DialogueText: {fileID: 4308509814198078272}
   DialogueAnimDone: 0
   Next: {fileID: 8527025848001928296}
+  DialogueLocalize:
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 343232458452992
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 351910137884672
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 357925545766912
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 360420636553216
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  LocalizeStrings:
+  - introduction_1
+  - introduction_2
+  - introduction_3
+  - introduction_4
   SquareButton: {fileID: 188921510}
   Controller: {fileID: 105289843}
   MenuPanel: {fileID: 1137674700}
@@ -10863,6 +10901,8 @@ MonoBehaviour:
   LevelBox: {fileID: 87578661}
   DataBox: {fileID: 107388120}
   DataBoxAnim: {fileID: 107388122}
+  references:
+    version: 1
 --- !u!4 &2035425165
 Transform:
   m_ObjectHideFlags: 0
@@ -12043,9 +12083,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 343232458452992
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -12054,13 +12094,13 @@ MonoBehaviour:
   m_UpdateString:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2035425163}
+      - m_Target: {fileID: 4308509814198078272}
         m_TargetAssemblyTypeName: TMPro.TMP_Text, Unity.TextMeshPro
-        m_MethodName: 
+        m_MethodName: set_text
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

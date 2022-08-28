@@ -4,12 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Localization;
 
 public class DeathBoss : MonoBehaviour
 {
     public GameObject MuerteDialogo;
     public TextMeshProUGUI DeathText;
-    
+    public LocalizedString[] DialogueLocalize;
+    public string[] LocalizeStrings;
+
     void Start()
     {
         MuerteDialogo.SetActive(false);
@@ -46,7 +49,7 @@ public class DeathBoss : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        string Originalmessage1 = "Me... ";
+        string Originalmessage1 = DialogueLocalize[0].GetLocalizedString(LocalizeStrings[0]);
         foreach (var d in Originalmessage1)
         {
             DeathText.text += d;
@@ -55,7 +58,7 @@ public class DeathBoss : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        string Originalmessage2 = "Derrotaste...";
+        string Originalmessage2 = DialogueLocalize[1].GetLocalizedString(LocalizeStrings[1]);
         foreach (var d in Originalmessage2)
         {
             DeathText.text += d;

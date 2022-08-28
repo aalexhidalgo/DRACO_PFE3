@@ -59,5 +59,61 @@ MonoBehaviour:
       chance against me? One more step and you will die between my flames.
     m_Metadata:
       m_Items: []
+  - m_Id: 343232458452992
+    m_Localized: Long time ago, in the kingdom of Mugen, creatures, humans and monsters
+      coexist, taken care and protected by a wise and good king. After years of peace
+      an evil being atacked the kingdom and take the power, thus begining his reign.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 351910137884672
+    m_Localized: The population lived in poverty and the misfortune forced to follow
+      orders and to give offerings to the new king. Over the time they become more
+      hostile and began to fight between species due to the shortage of resources.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 357925545766912
+    m_Localized: Between so much disconfort and chaos, a group of creatures rise
+      up, with the hope of re-unite the kingdom against King and return to the years
+      of peace. Unfortunately something went wrong, they were defeated and chased
+      through all the kingdom.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 360420636553216
+    m_Localized: For years King ruled the kingdom, without anyone who could take
+      away his power, but not knowing that inside a cave there was a small egg, that's
+      how it start the story of Draco...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 364903009546240
+    m_Localized: You...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 365153585655808
+    m_Localized: Defeated me...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371244574896128
+    m_Localized: And so Draco managed to restore peace in the kingdom after defeating
+      the evil King, returning happiness to its inhabitants who praised the little
+      dragon for his great courage.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371500477771776
+    m_Localized: Step by step, he gathered the few remaining dragons, also returning
+      the coexistence between species and the life that long ago characterized Mugen.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 371844578471936
+    m_Localized: Festivities, feasts and songs were dedicated to that glorious day
+      and for the first time the people could rest peacefully knowing that that evil
+      king would not scare them again.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 372775512633344
+    m_Localized: The next morning the people decided to name Draco as the new king,
+      thus beginning a new era of peace and harmony, an era in which evils no longer
+      lay.
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

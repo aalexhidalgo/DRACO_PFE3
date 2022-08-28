@@ -6687,6 +6687,44 @@ MonoBehaviour:
   NombresText: {fileID: 335336373}
   GraciasText: {fileID: 890186661}
   OriginalMessage: 
+  DialogueLocalize:
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 371244574896128
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 371500477771776
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 371844578471936
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  - m_TableReference:
+      m_TableCollectionName: GUID:63206e2f510596a468f70778bde44ba2
+    m_TableEntryReference:
+      m_KeyId: 372775512633344
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  LocalizeStrings:
+  - credits_1
+  - credits_2
+  - credits_3
+  - credits_4
   Canvas:
   - {fileID: 1206776226}
   - {fileID: 2014130556}
@@ -6694,6 +6732,8 @@ MonoBehaviour:
   - {fileID: 170256655}
   - {fileID: 251288874}
   canvaIndex: 0
+  references:
+    version: 1
 --- !u!4 &1984924137
 Transform:
   m_ObjectHideFlags: 0

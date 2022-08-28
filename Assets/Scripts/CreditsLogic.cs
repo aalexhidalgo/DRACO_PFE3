@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Localization;
 
 public class CreditsLogic : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class CreditsLogic : MonoBehaviour
     public TextMeshProUGUI NombresText;
     public TextMeshProUGUI GraciasText;
     public string OriginalMessage;
+
+    public LocalizedString[] DialogueLocalize;
+    public string[] LocalizeStrings;
 
     private CreditsPlayer CreditsPlayerScript;
 
@@ -68,7 +72,7 @@ public class CreditsLogic : MonoBehaviour
 
     private IEnumerator Credits()
     {
-        OriginalMessage = "Y así Draco consiguió restaurar la paz en el reino tras derrotar al malvado King, devolviendo la felicidad a sus habitantes que elogiaron al pequeño dragón por su gran valentía.";
+        OriginalMessage = DialogueLocalize[0].GetLocalizedString(LocalizeStrings[0]);
         yield return new WaitForSeconds(2f);
 
         foreach (var d in OriginalMessage)
@@ -84,7 +88,7 @@ public class CreditsLogic : MonoBehaviour
         Canvas[canvaIndex].SetActive(true);
 
         textAlpha.text ="";
-        OriginalMessage = "Poco a poco fue reuniendo a los pocos dragones que quedaban, regresando también la convivencia entre especies y la vida que tiempo atrás caracterizó a Mugen.";
+        OriginalMessage = DialogueLocalize[1].GetLocalizedString(LocalizeStrings[1]);
         yield return new WaitForSeconds(1f);
 
 
@@ -101,7 +105,7 @@ public class CreditsLogic : MonoBehaviour
         Canvas[canvaIndex].SetActive(true);
 
         textAlpha.text ="";
-        OriginalMessage = "Festejos, festines y canciones se dedicaron a aquel glorioso día y por primera vez el pueblo pudo descansar con la tranquilidad de que aquel malvado rey no volvería a espantarles.";
+        OriginalMessage = DialogueLocalize[2].GetLocalizedString(LocalizeStrings[2]);
         yield return new WaitForSeconds(1f);
 
         foreach (var d in OriginalMessage)
@@ -117,7 +121,7 @@ public class CreditsLogic : MonoBehaviour
         Canvas[canvaIndex].SetActive(true);
 
         textAlpha.text ="";
-        OriginalMessage = "A la mañana siguiente el pueblo decidió nombrar a Draco como nuevo rey, dando inicio así a una nueva era de paz y harmonía, una era en la que los males ya no yacían.";
+        OriginalMessage = DialogueLocalize[3].GetLocalizedString(LocalizeStrings[3]);
         yield return new WaitForSeconds(1f);
 
         foreach (var d in OriginalMessage)

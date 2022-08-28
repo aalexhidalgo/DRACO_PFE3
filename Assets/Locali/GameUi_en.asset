@@ -47,9 +47,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9619355398144
-    m_Localized: 'Gracias por jugar!
-
-'
+    m_Localized: "Thanks for playing! \n"
     m_Metadata:
       m_Items: []
   references:
