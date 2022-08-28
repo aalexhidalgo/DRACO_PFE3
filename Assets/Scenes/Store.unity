@@ -2423,19 +2423,22 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  LocalizedStringsDA_Levels:
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  LocalizedStringsLevels:
+  - dialogue_level1_1
+  - dialogue_level1_2
+  - dialogue_level1_3
+  LocalizedStringsLevels2:
+  - dialogue_level2_1
+  - dialogue_level2_2
+  - dialogue_level2_3
+  LocalizedStringsLevels3:
+  - dialogue_level3_1
+  - dialogue_level3_2
+  - dialogue_level3_3
+  LocalizedStringsLevels4:
+  - dialogue_level4_1
+  - dialogue_level4_2
+  - dialogue_level4_3
   Controller: {fileID: 237396578}
   references:
     version: 1

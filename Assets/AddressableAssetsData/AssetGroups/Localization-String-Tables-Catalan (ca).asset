@@ -10,31 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: Localization-Locales
+  m_Name: Localization-String-Tables-Catalan (ca)
   m_EditorClassIdentifier: 
-  m_GroupName: Localization-Locales
+  m_GroupName: Localization-String-Tables-Catalan (ca)
   m_Data:
     m_SerializedData: []
-  m_GUID: 85c8500afb6840c4da09904d0bd9ad80
+  m_GUID: f3b5b2feb7a3b934c976249949d72eb3
   m_SerializeEntries:
-  - m_GUID: 53f6cad11786e244fa6cd46cf6d04bcd
-    m_Address: English (en)
+  - m_GUID: 0eb998321a984594288797c2121eda16
+    m_Address: DialogueUI_ca
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale
-  - m_GUID: 8dc3b894c7af5fd4ca8686aa8e8dec5c
-    m_Address: Spanish (es)
+    - Locale-ca
+    - Preload
+  - m_GUID: 2e92a5946e3afba4885f1d357ecea62d
+    m_Address: GameUi_ca
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale
-  - m_GUID: 1e98ea155d738ca45a5457610cb804a3
-    m_Address: Catalan (ca)
+    - Locale-ca
+    - Preload
+  - m_GUID: ac947801acdd69944bcd3882d04f5eba
+    m_Address: UiMenu_ca
     m_ReadOnly: 1
     m_SerializedLabels:
-    - Locale
+    - Locale-ca
+    - Preload
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 140799aabd4ea7f4e9a05a48b1dd95a3, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 86ab42bb7f6c62944b9fda048853d76a, type: 2}
-    - {fileID: 11400000, guid: 30abf106b616c8240a9d4af5c0753881, type: 2}
+    - {fileID: 11400000, guid: 0d4f5511d38ad9147abe51ac5bedb63f, type: 2}
+    - {fileID: 11400000, guid: 30e584bc13e26a14aaff6fcf39f87b7f, type: 2}
