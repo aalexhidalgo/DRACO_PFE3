@@ -101,7 +101,7 @@ public class BetweenLevelsManager : MonoBehaviour
     public LocalizedString[] DA2_LS;
     public LocalizedString[] DA3_LS;
     public LocalizedString[] DA4_LS;
-    //public string[] LocalizedStringsDA_Levels;
+    public string[] LocalizedStringsDA_Levels;
 
     //Comunicación Scripts
     private GamePadController GamePadControllerScript;
