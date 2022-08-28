@@ -101,6 +101,13 @@ public class BetweenLevelsManager : MonoBehaviour
     public LocalizedString[] DA2_LS;
     public LocalizedString[] DA3_LS;
     public LocalizedString[] DA4_LS;
+
+    public string[] LocalizedStringsLevels;
+    public string[] LocalizedStringsLevels2;
+    public string[] LocalizedStringsLevels3;
+    public string[] LocalizedStringsLevels4;
+    public List<string[]> LocalizedStringsList= new List<string[]>();
+
     //public string[] LocalizedStringsDA_Levels;
 
     //Comunicación Scripts
@@ -115,6 +122,11 @@ public class BetweenLevelsManager : MonoBehaviour
         DialogoList_LS.Add(DA2_LS);
         DialogoList_LS.Add(DA3_LS);
         DialogoList_LS.Add(DA4_LS);
+
+        LocalizedStringsList.Add(LocalizedStringsLevels);
+        LocalizedStringsList.Add(LocalizedStringsLevels2);
+        LocalizedStringsList.Add(LocalizedStringsLevels3);
+        LocalizedStringsList.Add(LocalizedStringsLevels4);
     }
 
     void Start()
@@ -129,7 +141,7 @@ public class BetweenLevelsManager : MonoBehaviour
         Shield_Prefab.SetActive(false);
         Fly_Prefab.SetActive(false);
 
-        DialogueText.text = DialogoList_LS[DataPersistance.CurrentLevel - 2][CurrentDialogueText].ToString();
+        DialogueText.text = DialogoList_LS[DataPersistance.CurrentLevel - 2][CurrentDialogueText].GetLocalizedString(LocalizedStringsList[DataPersistance.CurrentLevel - 2][CurrentDialogueText]);
         MoneyText.text = DataPersistance.MoneyCounter.ToString();
         DataPersistance.Storedone = 0;
         DataPersistance.SaveForFutureGames();
@@ -325,7 +337,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 }
                 else
                 {
-                    DialogueText.text = DialogoList_LS[DataPersistance.CurrentLevel - 2][CurrentDialogueText].ToString();
+                    DialogueText.text = DialogoList_LS[DataPersistance.CurrentLevel - 2][CurrentDialogueText].GetLocalizedString(LocalizedStringsList[DataPersistance.CurrentLevel - 2][CurrentDialogueText]);
                     StartCoroutine(Letters(Next));
                     BetweenLevelsManagerAudioSource.Play();
 

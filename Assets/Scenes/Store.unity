@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2423,6 +2423,22 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  LocalizedStringsLevels:
+  - dialogue_level1_1
+  - dialogue_level1_2
+  - dialogue_level1_3
+  LocalizedStringsLevels2:
+  - dialogue_level2_1
+  - dialogue_level2_2
+  - dialogue_level2_3
+  LocalizedStringsLevels3:
+  - dialogue_level3_1
+  - dialogue_level3_2
+  - dialogue_level3_3
+  LocalizedStringsLevels4:
+  - dialogue_level4_1
+  - dialogue_level4_2
+  - dialogue_level4_3
   Controller: {fileID: 237396578}
   references:
     version: 1
