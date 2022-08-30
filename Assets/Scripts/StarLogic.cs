@@ -13,9 +13,8 @@ public class StarLogic : MonoBehaviour
 
     public IEnumerator StarAnim()
     {
-        yield return new WaitForSeconds(1f);
+        //yield return new WaitForSeconds(1f);
         StarAnimator.SetBool("Active", true);
         yield return new WaitForSeconds(1f);
-        Destroy(transform.parent.gameObject);
     }
 }
