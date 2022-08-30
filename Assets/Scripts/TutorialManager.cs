@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 
 public class TutorialManager : MonoBehaviour
@@ -81,10 +82,30 @@ public class TutorialManager : MonoBehaviour
                 i.SetActive(false);
             }
 
-            foreach (GameObject i in TutorialButtons[PlayerPrefs.GetInt("Languange_Int")])
+            if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
             {
-                i.SetActive(true);
+                foreach (GameObject i in TutorialButtons[0])
+                {
+                    i.SetActive(true);
+                }
             }
+
+            else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English))
+            {
+                foreach (GameObject i in TutorialButtons[1])
+                {
+                    i.SetActive(true);
+                }
+            }
+
+            else
+            {
+                foreach (GameObject i in TutorialButtons[2])
+                {
+                    i.SetActive(true);
+                }
+            }
+
         }
 
         if (index == 0) //si te mueves desaparece el primer tip
