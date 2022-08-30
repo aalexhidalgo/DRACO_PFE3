@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class StarLimits : MonoBehaviour
 {
-    private StarLogic StarLogicScript;
+    //private StarLogic StarLogicScript;
 
     void Start()
     {
-        StarLogicScript = FindObjectOfType<StarLogic>();
+        //StarLogicScript = FindObjectOfType<StarLogic>();
     }
-    public void OnTriggerEnter(Collider otherTrigger)
+    /*public void OnTriggerEnter(Collider otherTrigger)
     {
         if (otherTrigger.gameObject.CompareTag("Star"))
         {
@@ -18,4 +18,5 @@ public class StarLimits : MonoBehaviour
             //Destroy(otherTrigger.gameObject);
         }
     }
+    */
 }

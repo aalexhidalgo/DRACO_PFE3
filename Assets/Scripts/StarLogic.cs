@@ -16,5 +16,24 @@ public class StarLogic : MonoBehaviour
         yield return new WaitForSeconds(RandomTime);
         StarAnimator.SetBool("Active", true);
         yield return new WaitForSeconds(1f);
+        StarAnimator.SetBool("Active", false);
+        yield return new WaitForSeconds(3.5f);
+        StarAnimator.SetBool("Active", true);
+        yield return new WaitForSeconds(1f);
+        StarAnimator.SetBool("Active", false);
+        yield return new WaitForSeconds(6.5f);
+        StarAnimator.SetBool("Active", true);
+        yield return new WaitForSeconds(1f);
+        Destroy(transform.parent.gameObject);
+        
+    }
+
+    public void OnTriggerEnter(Collider otherTrigger)
+    {
+        if (otherTrigger.gameObject.CompareTag("StarLimits"))
+        {
+            StartCoroutine(StarAnim());
+            //Destroy(otherTrigger.gameObject);
+        }
     }
 }
