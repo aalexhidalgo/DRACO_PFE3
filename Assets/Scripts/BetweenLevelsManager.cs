@@ -194,6 +194,24 @@ public class BetweenLevelsManager : MonoBehaviour
             Mouses[PlayerPrefs.GetInt("Language_Int")].SetActive(false);
             //SquareButtonImage.SetActive(true);
             //CursorImage.SetActive(false);
+
+            if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
+            {
+                SquareButtons[0].SetActive(true);
+                Mouses[0].SetActive(false);
+            }
+
+            else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English))
+            {
+                SquareButtons[1].SetActive(true);
+                Mouses[1].SetActive(false);
+            }
+
+            else
+            {
+                SquareButtons[2].SetActive(true);
+                Mouses[2].SetActive(false);
+            }
             Controller.isOn = true;
         }
         else
@@ -201,8 +219,24 @@ public class BetweenLevelsManager : MonoBehaviour
             PreDialogueText.text = PreDialogue[0].GetLocalizedString(LocalizedStringsPreDialogue[0]);
             //SquareButtonImage.SetActive(false);
             //CursorImage.SetActive(true);
-            SquareButtons[PlayerPrefs.GetInt("Language_Int")].SetActive(false);
-            Mouses[PlayerPrefs.GetInt("Language_Int")].SetActive(true);
+            if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
+            {
+                SquareButtons[0].SetActive(false);
+                Mouses[0].SetActive(true);
+            }
+
+            else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English))
+            {
+                SquareButtons[1].SetActive(false);
+                Mouses[1].SetActive(true);
+            }
+
+            else
+            {
+                SquareButtons[2].SetActive(false);
+                Mouses[2].SetActive(true);
+            }
+            
             Controller.isOn = false;
         }
         #endregion
