@@ -29,6 +29,9 @@ public class DataPersistance
     //Controls
     public static int SwitchControls;
 
+    //Languages
+    public static int LanguageIntValue;
+
     public static void SaveForFutureGames()
     {
         //Contador de monedas
@@ -54,6 +57,9 @@ public class DataPersistance
 
         //Controles con los que jugamos
         PlayerPrefs.SetInt("Switch_Controls", SwitchControls);
+
+        //En que idioma hemos configurado el juego
+        PlayerPrefs.SetInt("Language_Int", LanguageIntValue);
 
         /*Meter audiosource en main menu a la cámara (música de fondo) a la cámara de cada nivel
         (música de fondo) y jugador (sonidos) + store (empty betweenlevels sonido
