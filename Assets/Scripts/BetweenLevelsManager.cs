@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 public class BetweenLevelsManager : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class BetweenLevelsManager : MonoBehaviour
     public bool isTalking = false;
     public bool isShopping = false;
     private bool closeDialogue;
+    public GameObject[] SquareButtons;
+    public GameObject[] Mouses;
     #endregion
 
     #region Productos Tienda variables
@@ -114,6 +117,8 @@ public class BetweenLevelsManager : MonoBehaviour
     //UI GAMEPAD
     public Toggle Controller;
 
+
+
     private void Awake()
     {
         DialogoList_LS.Add(DA1_LS);
@@ -184,15 +189,20 @@ public class BetweenLevelsManager : MonoBehaviour
         if (GamePadControllerScript.PS4_Controller == 1)
         {
             PreDialogueText.text = PreDialogue[1].GetLocalizedString(LocalizedStringsPreDialogue[1]);
-            SquareButtonImage.SetActive(true);
-            CursorImage.SetActive(false);
+
+            SquareButtons[PlayerPrefs.GetInt("Language_Int")].SetActive(true);
+            Mouses[PlayerPrefs.GetInt("Language_Int")].SetActive(false);
+            //SquareButtonImage.SetActive(true);
+            //CursorImage.SetActive(false);
             Controller.isOn = true;
         }
         else
         {
             PreDialogueText.text = PreDialogue[0].GetLocalizedString(LocalizedStringsPreDialogue[0]);
-            SquareButtonImage.SetActive(false);
-            CursorImage.SetActive(true);
+            //SquareButtonImage.SetActive(false);
+            //CursorImage.SetActive(true);
+            SquareButtons[PlayerPrefs.GetInt("Language_Int")].SetActive(false);
+            Mouses[PlayerPrefs.GetInt("Language_Int")].SetActive(true);
             Controller.isOn = false;
         }
         #endregion

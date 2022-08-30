@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 
 public class MenuGameManager : MonoBehaviour
@@ -76,11 +77,18 @@ public class MenuGameManager : MonoBehaviour
     //Scripts
     private GamePadController GamePadControllerScript;
 
+    //IDIOMAS
+    public string[] Locals;
+    public TMP_Dropdown LanguageDropdown;
+    public Image Flag;
+    public Sprite[] LanguageFlags;
+
     void Start()
     {
         MainMenuPanel.SetActive(true);
         OptionsPanel.SetActive(false);
         HowToPlayPanel.SetActive(false);
+
 
         DialogueText.text = DialogueLocalize[0].ToString();
         //Audiosource
@@ -89,6 +97,9 @@ public class MenuGameManager : MonoBehaviour
         MenuGameManagerAudioSource.Stop();
         LoadMusicSoundValue();
         LoadGameControls();
+
+        LoadInitialLanguage();
+        LoadLenguageSelection();
 
         GamePadControllerScript = FindObjectOfType<GamePadController>();
         DataPersistance.CurrentLevel = 0;
@@ -135,7 +146,6 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.FlyValue = 0.5f;
         DataPersistance.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
-
     }
     public void ContinueButton()
     {
@@ -189,7 +199,10 @@ public class MenuGameManager : MonoBehaviour
         MainMenuPanel.SetActive(true);
         DataPersistance.MusicToggle = intToggleMusic;
         DataPersistance.SoundToggle = intToggleSound;
+        Flag.sprite = LanguageFlags[LanguageDropdown.value];
         DataPersistance.SaveForFutureGames();
+
+
     }
 
     //Mostramos el tipo de controles dependiendo de si se juega con teclado o mando
@@ -337,6 +350,7 @@ public class MenuGameManager : MonoBehaviour
         Debug.Log("Khé");
     }*/
 
+    
     public IEnumerator FadeOutAnim()
     {
         DataBoxAnim.Play("Base Layer.Normal");
@@ -413,6 +427,64 @@ public class MenuGameManager : MonoBehaviour
         else
         {
             EventSystem.current.SetSelectedGameObject(null);
+        }
+    }
+
+    public void CharacterSelectionDrop(int selection) //funcion para que haga lo necesario segun que opcion del desplegable marquemos, selection.
+    {
+        if(selection == 0)
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan);
+        }
+        else if (selection == 1)
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English);
+        }
+        else
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Spanish);
+        }
+        DataPersistance.LanguageIntValue = selection;
+    }
+
+    public void LoadInitialLanguage()
+    {
+        if(PlayerPrefs.HasKey("Language_Int"))
+        {
+            if (PlayerPrefs.GetInt("Language_Int") == 0)
+            {
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan);
+                Flag.sprite = LanguageFlags[0];
+            }
+            else if (PlayerPrefs.GetInt("Language_Int") == 1)
+            {
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English);
+                Flag.sprite = LanguageFlags[1];
+            }
+            else
+            {
+                LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Spanish);
+                Flag.sprite = LanguageFlags[2];
+            }
+        }
+    }
+    public void LoadLenguageSelection()
+    {
+        if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
+        {
+            LanguageDropdown.value = 0;
+            Flag.sprite = LanguageFlags[0];
+
+        }
+        else if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English))
+        {
+            LanguageDropdown.value = 1;
+            Flag.sprite = LanguageFlags[1];
+        }
+        else
+        {
+            LanguageDropdown.value = 2;
+            Flag.sprite = LanguageFlags[2];
         }
     }
 }

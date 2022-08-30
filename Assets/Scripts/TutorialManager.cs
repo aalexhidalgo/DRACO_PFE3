@@ -26,6 +26,11 @@ public class TutorialManager : MonoBehaviour
     public TextMeshProUGUI Tutorialtext3;
     public TextMeshProUGUI Tutorialtext4;
 
+    public GameObject[] Tutorial_spa;
+    public GameObject[] Tutorial_cat;
+    public GameObject[] Tutorial_engl;
+
+    public List<GameObject[]> TutorialButtons = new List<GameObject[]>();
 
     //Localized Strings
     public LocalizedString[] DialogueLocalizeGamePad;
@@ -46,6 +51,9 @@ public class TutorialManager : MonoBehaviour
         jumpForceValue = playerController.UpSpeed;
         playerController.UpSpeed = 0;
         playerController.canShoot = false;
+        TutorialButtons.Add(Tutorial_cat);
+        TutorialButtons.Add(Tutorial_engl);
+        TutorialButtons.Add(Tutorial_spa);
     }
     void Update()
     {
@@ -69,6 +77,11 @@ public class TutorialManager : MonoBehaviour
             Tutorialtext4.text = DialogueLocalizeGamePad[3].GetLocalizedString(LocalizeStringsGamePad[3]);
 
             foreach (GameObject i in TutorialButtonImages)
+            {
+                i.SetActive(false);
+            }
+
+            foreach (GameObject i in TutorialButtons[PlayerPrefs.GetInt("Languange_Int")])
             {
                 i.SetActive(true);
             }
