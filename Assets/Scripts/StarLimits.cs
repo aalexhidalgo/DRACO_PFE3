@@ -17,13 +17,4 @@ public class StarLimits : MonoBehaviour
             StarLogicScript.StartCoroutine(StarLogicScript.StarAnim());
         }
     }
-
-    /*public void OnTriggerStay(Collider otherTrigger)
-    {
-        if (otherTrigger.gameObject.CompareTag("Initial_Star"))
-        {
-            StarLogicScript.StartCoroutine(StarLogicScript.StarAnim());
-        }
-    }
-    */
 }
