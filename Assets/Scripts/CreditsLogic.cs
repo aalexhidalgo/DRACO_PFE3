@@ -24,6 +24,8 @@ public class CreditsLogic : MonoBehaviour
     public GameObject[] Canvas;
     public int canvaIndex = 0;
 
+    public ParticleSystem[] FireWorks;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -199,10 +201,17 @@ public class CreditsLogic : MonoBehaviour
         textAlpha.alpha = Alphavalue;
         CreditsPlayerScript.CanWalk = false;
 
-        yield return new WaitForSeconds(2f);
+        foreach (ParticleSystem particle in FireWorks)
+        {
+            particle.Play();
+            yield return new WaitForSeconds(0.50f);
+        }
+        yield return new WaitForSeconds(0.5f);
+
         Canvas[canvaIndex].SetActive(false);
         canvaIndex++;
         Canvas[canvaIndex].SetActive(true);
+
 
         StartCoroutine(FadeInNombres());
     }
