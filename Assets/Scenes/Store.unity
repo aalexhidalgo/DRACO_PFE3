@@ -4883,6 +4883,54 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 809564214}
+    - target: {fileID: 1171519550992792624, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519550992792630, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_text
+      value: "S\xCD"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519550992792630, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519550992792630, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 74c4fdf7cc8a9b4498b6b0af26346766, type: 2}
+    - target: {fileID: 1171519550992792630, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519550992792630, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8744207126845488903, guid: 74c4fdf7cc8a9b4498b6b0af26346766, type: 2}
+    - target: {fileID: 1171519550992792630, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519551381195628, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519551381195628, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 74c4fdf7cc8a9b4498b6b0af26346766, type: 2}
+    - target: {fileID: 1171519551381195628, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519551381195628, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8744207126845488903, guid: 74c4fdf7cc8a9b4498b6b0af26346766, type: 2}
+    - target: {fileID: 1171519551381195630, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1171519551385396034, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -4955,6 +5003,46 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 809564214}
+    - target: {fileID: 1171519551455127309, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519551455127347, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519551455127347, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 74c4fdf7cc8a9b4498b6b0af26346766, type: 2}
+    - target: {fileID: 1171519551455127347, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519551455127347, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8744207126845488903, guid: 74c4fdf7cc8a9b4498b6b0af26346766, type: 2}
+    - target: {fileID: 1171519552020880532, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519552020880532, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 74c4fdf7cc8a9b4498b6b0af26346766, type: 2}
+    - target: {fileID: 1171519552020880532, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 1171519552020880532, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8744207126845488903, guid: 74c4fdf7cc8a9b4498b6b0af26346766, type: 2}
+    - target: {fileID: 1171519552020880534, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1171519552418205827, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
       propertyPath: m_Transition
       value: 1
@@ -5109,9 +5197,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 509e069da04031546bbe3e178145269f, type: 3}
     - target: {fileID: 4308509813421514651, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
       propertyPath: m_text
-      value: "QUIZAS TU VALENTIA Y PEQUE\xD1A ESTATURA PUEDA LIBERAR AL PUEBLO. PERO
-        HAY QUE IR BIEN PREPARADO, DIME SI DESEAS ALGO DE LA TIENDA ANTES DE LA GRAN
-        BATALLA."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4308509813421514651, guid: fadd9be6206e1ad48a286c78b32db928, type: 3}
       propertyPath: m_fontSize

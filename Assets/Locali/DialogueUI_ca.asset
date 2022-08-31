@@ -74,7 +74,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 357925545766912
-    m_Localized: "Mentrestant, malestar i caos es va al\xE7ar un grup de criatures,
+    m_Localized: "Entre tant de malestar i caos es va al\xE7ar un grup de criatures,
       amb l'esperan\xE7a de tornar a unir el regne en contra de King i tornar als
       anys de pau. Lamentablement alguna cosa va sortir malament, van ser derrotats
       i perseguits per tot el regne."
@@ -87,11 +87,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 364903009546240
-    m_Localized: Em...
+    m_Localized: M'has...
     m_Metadata:
       m_Items: []
   - m_Id: 365153585655808
-    m_Localized: Has derrotat...
+    m_Localized: Derrotat...
     m_Metadata:
       m_Items: []
   - m_Id: 371244574896128
@@ -154,8 +154,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 593716338827264
-    m_Localized: "FINS L'INFINIT I M\xC9S ALLA! INCREMENTA LA CAPACITAT DE VOL. T'HO
-      POTS PORTAR PEL PREU DE 100\u20AC. DESITGES COMPRAR?"
+    m_Localized: "FINS L'INFINIT I M\xC9S ENLL\xC0! INCREMENTA LA CAPACITAT DE VOL.
+      T'HO POTS PORTAR PEL PREU DE 100\u20AC. DESITGES COMPRAR?"
     m_Metadata:
       m_Items: []
   - m_Id: 593759422717952
@@ -175,7 +175,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603420649660416
-    m_Localized: "HEY! COM VA LA TEVA DIA? FA MOLT TEMPS QUE NO VEIG A ALG\xDA COM
+    m_Localized: "HEY! COM VA EL TEU DIA? FA MOLT TEMPS QUE NO VEIG A ALG\xDA COM
       EL TEU PER AQUI."
     m_Metadata:
       m_Items: []
@@ -195,12 +195,12 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 603580066766848
     m_Localized: "TEMPS ENRERE ELS DRACS VAN SER ELS QUE VAN UNIR AL POBLE CONTRA
-      KING A LA GRAN REBEL\xB7LI\xD3. DAVANT AIX\xD2 DECLAR LEGAL LA CA\xC7A DE DRACS,
-      OFERINT GRANS RECOMPENSES A LA RESTA DE LA POBLACION."
+      KING A LA GRAN REBEL\xB7LI\xD3. DAVANT AIX\xD2 VA DECLARAR LEGAL LA CA\xC7A
+      DE DRACS, OFERINT GRANS RECOMPENSES A LA RESTA DE LA POBLACI\xD3."
     m_Metadata:
       m_Items: []
   - m_Id: 603595833155584
-    m_Localized: "EL POBLE TRAICIONO ALS DRACS I AQUELLS POCS QUE VAN SOBREVIVER
+    m_Localized: "EL POBLE VA TRAICIONAR ALS DRACS I AQUELLS POCS QUE VAN SOBREVIVER
       TRACTAREN DE FUGIR. JO NO ET FARE MAL, NOM\xC9S S\xD3C UN HUMILD VENEDOR. VOLS
       ALGUNA COSA DE LA BOTIGA ABANS DE CONTINUAR LA TEVA AVENTURA?"
     m_Metadata:
@@ -210,10 +210,10 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603636937334784
-    m_Localized: "UN DIA QUALSEVOL COM AVUI VA ARRIBAR TAN AVIAT COM HO VA DESTRUIR
-      TOT AL SEU PAS. LES CASES ES CREMAVEN I LES TORRES EREN DERRIVADES, EL REI
-      NO VA PODER CONTENIR-HO I KING ES VA FER AMB EL PODER. TOT AQUELL QUE NO OBEIX\xC9S
-      ERA CALZINAT O DESTERRAT."
+    m_Localized: "UN DIA QUALSEVOL VA ARRIBAR TAN AVIAT COM HO VA DESTRUIR TOT AL
+      SEU PAS. LES CASES ES CREMAVEN I LES TORRES EREN DERRIVADES, EL REI NO VA PODER
+      CONTENIR-HO I KING ES VA FER AMB EL PODER. TOT AQUELL QUE NO OBEIX\xC9S ERA
+      CALCINAT O DESTERRAT."
     m_Metadata:
       m_Items: []
   - m_Id: 603676397346816
