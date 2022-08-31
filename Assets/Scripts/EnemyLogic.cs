@@ -9,13 +9,11 @@ public class EnemyLogic : MonoBehaviour
     public AudioClip DeadSound; //funciona
     //public ParticleSystem SmokeParticleSystem;
 
-    // Start is called before the first frame update
     void Start()
     {
         AudioManagerAudiosource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (EnemyLife <= 0)

@@ -86,7 +86,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
     #region Musica y Sonido
     private AudioSource MainCameraAudioSource;
-    private AudioSource BetweenLevelsManagerAudioSource;
+    public AudioSource AudioManagerAudioSource;
     #endregion
 
     #region Vendedor variables
@@ -152,9 +152,11 @@ public class BetweenLevelsManager : MonoBehaviour
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MainCameraAudioSource.volume = DataPersistance.MusicVolume;
 
-        BetweenLevelsManagerAudioSource = GetComponent<AudioSource>();
-        BetweenLevelsManagerAudioSource.volume = DataPersistance.SoundVolume;
-        //BetweenLevelsManagerAudioSource.Stop();
+        Debug.Log(PlayerPrefs.GetFloat("Music_Volume"));
+        Debug.Log(PlayerPrefs.GetFloat("Sound_Volume"));
+        AudioManagerAudioSource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
+        AudioManagerAudioSource.volume = DataPersistance.SoundVolume;
+        //AudioManagerAudioSource.Stop();
 
 
         if (DataPersistance.Fireball == 0)
@@ -298,11 +300,11 @@ public class BetweenLevelsManager : MonoBehaviour
 
         if (DataPersistance.SoundToggle == 0) //si tenemos el sonido apagado apaga el audiosource del betweenLevelsManager
         {
-            BetweenLevelsManagerAudioSource.enabled = false;
+            AudioManagerAudioSource.enabled = false;
         }
         else
         {
-            BetweenLevelsManagerAudioSource.enabled = true;
+            AudioManagerAudioSource.enabled = true;
         }
     }
 
@@ -319,7 +321,7 @@ public class BetweenLevelsManager : MonoBehaviour
         {
             PreDialogueImage.SetActive(false);
             isTalking = true;
-            BetweenLevelsManagerAudioSource.Play();
+            AudioManagerAudioSource.Play();
             DialogueImage.SetActive(true);
             StartCoroutine(Letters(Next));
             
@@ -342,7 +344,7 @@ public class BetweenLevelsManager : MonoBehaviour
                     isTalking = false;
                     DialogueImage.SetActive(false);
                     continueButton.Select();
-                    BetweenLevelsManagerAudioSource.Stop();
+                    AudioManagerAudioSource.Stop();
 
                     if (DataPersistance.Fireball <= 0)
                     {
@@ -381,7 +383,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 {
                     DialogueText.text = DialogoList_LS[DataPersistance.CurrentLevel - 2][CurrentDialogueText].GetLocalizedString(LocalizedStringsList[DataPersistance.CurrentLevel - 2][CurrentDialogueText]);
                     StartCoroutine(Letters(Next));
-                    BetweenLevelsManagerAudioSource.Play();
+                    AudioManagerAudioSource.Play();
 
                     VendedorAnim.SetBool("Talk", true);
                 }
@@ -470,7 +472,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.Fireball == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos1, "Fireball_prefab", FueradeStock_Fireball));
+                    StartCoroutine(YesButtonCoroutine(Pos1, Fireball_Prefab, FueradeStock_Fireball));
                 }
             }
             else
@@ -496,7 +498,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.Shield == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos2, "Escudo_prefab", FueradeStock_Shield));
+                    StartCoroutine(YesButtonCoroutine(Pos2, Shield_Prefab, FueradeStock_Shield));
                 }
 
             }
@@ -521,7 +523,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.Fly == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos3, "Cloud_prefab", FueradeStock_Fly));
+                    StartCoroutine(YesButtonCoroutine(Pos3, Fly_Prefab, FueradeStock_Fly));
                 }
             }
             else
@@ -532,14 +534,14 @@ public class BetweenLevelsManager : MonoBehaviour
     }
 
     //Al tener un stock limitado, al comprar el último item este es destruido mostrando su no disponibilidad
-    public IEnumerator YesButtonCoroutine(Vector3 Position, string Prefab, GameObject Image)
+    public IEnumerator YesButtonCoroutine(Vector3 Position, GameObject Prefab, GameObject Image)
     {
         float Timer = 1.5f;
         //Restar monedas(PlayerController), recoger item, instanciar partículas y minimizar alpha imagen a través de animación???
         Instantiate(ChooseParticleSystem, Position, ChooseParticleSystem.transform.rotation);
         yield return new WaitForSeconds(Timer);
         //Destruir el objeto como si lo hubieras seleccionado
-        Destroy(GameObject.Find(Prefab));
+        Destroy(Prefab);
         //Mostramos la imagen de Fuera de Stock    
         Image.SetActive(true);
         StartCoroutine(FadeIn(Image));
@@ -635,7 +637,7 @@ public class BetweenLevelsManager : MonoBehaviour
     public void UpdateMoney()
     {
         MoneyText.text = DataPersistance.MoneyCounter.ToString();
-        BetweenLevelsManagerAudioSource.PlayOneShot(Money, 1f);
+        AudioManagerAudioSource.PlayOneShot(Money, 1f);
     }
     #endregion
 

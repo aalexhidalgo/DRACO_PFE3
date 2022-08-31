@@ -334,7 +334,9 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("Chanelazo");
             GameManagerScript.GameOver = true;
-            
+            GameObject.Find("Main Camera").GetComponent<AudioSource>().Pause();
+            GameManagerAudioSource.PlayOneShot(GameOverSound);
+
 
             UpdateLife();
         }
@@ -445,7 +447,7 @@ public class PlayerController : MonoBehaviour
     //Cooldown del fuego, el jugador solo podrá disprar cada 0.5 segundos
     public IEnumerator FireCooldown()
     {
-        float FireTimer = 0.5f;
+        float FireTimer = 0.75f;
         if (ShootFire == true)
         {
             Instantiate(FuegoPrefab, transform.GetChild(0).transform.position, transform.rotation);

@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 2
-  DeadSound: {fileID: 0}
+  DeadSound: {fileID: 8300000, guid: 6ba1f0c93697fbd4e9a7033da37ee952, type: 3}
 --- !u!114 &1651674565411103327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,6 @@ MonoBehaviour:
   PlayerLayer:
     serializedVersion: 2
     m_Bits: 8
-  DeadSound: {fileID: 8300000, guid: 6ba1f0c93697fbd4e9a7033da37ee952, type: 3}
 --- !u!82 &1651674565411103326
 AudioSource:
   m_ObjectHideFlags: 0

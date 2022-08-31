@@ -19,23 +19,15 @@ public class HardEnemy : MonoBehaviour
 
     //Script
 
-    private GameManager GameManagerScript;
-
-    //sonidos y AudioSource
-    private AudioSource GameManagerAudiosource;
-   
+    private GameManager GameManagerScript;   
 
     void Start()
     {
         //BulletPoint = GameObject.Find("BulletPoint");
         GameManagerScript = FindObjectOfType<GameManager>();
-
-        GameManagerAudiosource = GameObject.Find("GameManager").GetComponent<AudioSource>();
-        //HardAudioSource = GetComponent<AudioSource>();
         HardEnemyAnim.SetBool("Throw_Active", false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 Pos = transform.position;
@@ -49,17 +41,6 @@ public class HardEnemy : MonoBehaviour
         {
             HardEnemyAnim.SetBool("Throw_Active", false);
         }
-
-        /*if(GameManagerScript.pause == false)
-        {
-            HardEnemyAnim.SetBool("Throw_Active", true);
-        }
-
-        if(GameManagerScript.pause == true)
-        {
-            HardEnemyAnim.SetBool("Throw_Active", false);
-        }
-        */
     }
 
     public void Attack()

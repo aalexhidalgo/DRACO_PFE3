@@ -21,7 +21,6 @@ public class BulletLogic : MonoBehaviour
 
     public void OnTriggerEnter(Collider otherTrigger)
     {
-        //Actualizamos el número de monedas recogidas
         if (otherTrigger.gameObject.CompareTag("Ground"))
         {
             Destroy(gameObject);

@@ -33,7 +33,7 @@ public class BossLogic : MonoBehaviour
     public int ShieldValueBoss;
     #endregion
 
-    private AudioSource GameManagerAudioSource;
+    public AudioSource AudioManagerAudioSource;
     public AudioClip Boss_Death_Clip;
 
     #region Particulas variables
@@ -59,7 +59,7 @@ public class BossLogic : MonoBehaviour
         UpdateShieldImage();
 
         GameManagerScript = FindObjectOfType<GameManager>();
-        GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
+        AudioManagerAudioSource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
 
         DeathBossScript = FindObjectOfType<DeathBoss>();
 
@@ -154,7 +154,7 @@ public class BossLogic : MonoBehaviour
     public IEnumerator Boss_Death()
     {
         //Cambio sprite
-        GameManagerAudioSource.PlayOneShot(Boss_Death_Clip);
+        AudioManagerAudioSource.PlayOneShot(Boss_Death_Clip);
         Win = true;
         Fireworks_1.Play();
         yield return new WaitForSeconds(0.6f);

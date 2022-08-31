@@ -10,18 +10,10 @@ public class MediumEnemy : MonoBehaviour
     public bool PlayerinMoveRange;
     [SerializeField] private LayerMask PlayerLayer;
 
-    private bool CanMove = true;
-
     //Script
     private GameManager GameManagerScript;
-
-    //Sonidos
-    private AudioSource GameManagerAudiosource;
-    public AudioClip DeadSound;
-
     void Start()
     {
-        GameManagerAudiosource = GameObject.Find("GameManager").GetComponent<AudioSource>();
         MediumEnemyAnim.SetBool("Active", false);
     }
 
@@ -34,7 +26,7 @@ public class MediumEnemy : MonoBehaviour
         if (PlayerinMoveRange)
         {
             MediumEnemyAnim.SetBool("Active", true);
-        }     
+        }
     }
 }
 
