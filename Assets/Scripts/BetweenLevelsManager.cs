@@ -477,6 +477,12 @@ public class BetweenLevelsManager : MonoBehaviour
             }
             else
             {
+                Yes_1.SetActive(false);
+                Yes_2.SetActive(false);
+                Yes_3.SetActive(false);
+                No.SetActive(false);
+                Next.SetActive(true);
+                closeDialogue = true;
                 DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }
@@ -504,6 +510,12 @@ public class BetweenLevelsManager : MonoBehaviour
             }
             else
             {
+                Yes_1.SetActive(false);
+                Yes_2.SetActive(false);
+                Yes_3.SetActive(false);
+                No.SetActive(false);
+                Next.SetActive(true);
+                closeDialogue = true;
                 DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }
@@ -528,6 +540,12 @@ public class BetweenLevelsManager : MonoBehaviour
             }
             else
             {
+                Yes_1.SetActive(false);
+                Yes_2.SetActive(false);
+                Yes_3.SetActive(false);
+                No.SetActive(false);
+                Next.SetActive(true);
+                closeDialogue = true;
                 DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }

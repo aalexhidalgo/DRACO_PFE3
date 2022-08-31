@@ -110,7 +110,10 @@ public class GameManager : MonoBehaviour
         GameOver = false;
         Debug.Log("Exit");
         DataPersistance.SaveForFutureGames();
-        Application.Quit();
+        //Application.Quit();
+        Time.timeScale = 1;
+        SceneManager.LoadScene("MainMenu");
+
     }
 
     public void PauseMenuButton()

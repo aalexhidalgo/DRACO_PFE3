@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEditor;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
@@ -185,6 +186,7 @@ public class MenuGameManager : MonoBehaviour
     {
         Debug.Log("Exit");
         Application.Quit();
+        EditorApplication.isPlaying = false;
     }
 
     public void ReturnButton()

@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BulletLogic : MonoBehaviour
 {
-    private AudioSource GameManagerAudiosource;
+    private AudioSource AudioManagerAudiosource;
     public AudioClip RockCrash;
 
     public ParticleSystem RockParticleSystem;
     void Start()
     {
-        GameManagerAudiosource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
+        AudioManagerAudiosource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -23,16 +23,12 @@ public class BulletLogic : MonoBehaviour
     {
         if (otherTrigger.gameObject.CompareTag("Ground"))
         {
+            Instantiate(RockParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
+            AudioManagerAudiosource.PlayOneShot(RockCrash);
             Destroy(gameObject);
             //Meter partículas
         }
         
-    }
-
-    private void OnDestroy()
-    {
-        GameManagerAudiosource.PlayOneShot(RockCrash);
-        Instantiate(RockParticleSystem,gameObject.transform.position, gameObject.transform.rotation);
     }
 
 }

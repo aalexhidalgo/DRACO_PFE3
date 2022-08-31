@@ -37,7 +37,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2928438079488
-    m_Localized: "Prem            per llan\xE7ar una bolla de foc"
+    m_Localized: "Prem            per llan\xE7ar una bola de foc"
     m_Metadata:
       m_Items: []
   - m_Id: 2418041614336
@@ -76,7 +76,7 @@ MonoBehaviour:
   - m_Id: 357925545766912
     m_Localized: "Entre tant de malestar i caos es va al\xE7ar un grup de criatures,
       amb l'esperan\xE7a de tornar a unir el regne en contra de King i tornar als
-      anys de pau. Lamentablement alguna cosa va sortir malament, van ser derrotats
+      anys de pau. Lamentablement, alguna cosa va sortir malament, van ser derrotats
       i perseguits per tot el regne."
     m_Metadata:
       m_Items: []
@@ -101,21 +101,21 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 371500477771776
-    m_Localized: "A poc a poc va anar reunint els pocs dracs que quedaven, tornant
+    m_Localized: "Poc a poc va anar reunint als pocs dracs que quedaven, tornant
       tamb\xE9 la conviv\xE8ncia entre esp\xE8cies i la vida que temps enrere va
       caracteritzar Mugen."
     m_Metadata:
       m_Items: []
   - m_Id: 371844578471936
-    m_Localized: "Festetjos, festins i can\xE7ons es van dedicar a aquell glori\xF3s
+    m_Localized: "Festejos, festins i can\xE7ons es van dedicar a aquell glori\xF3s
       dia i per primera vegada el poble va poder descansar amb la tranquil\xB7litat
       que aquell malvat rei no els tornaria a espantar."
     m_Metadata:
       m_Items: []
   - m_Id: 372775512633344
-    m_Localized: "Al mat\xED seg\xFCent el poble va decidir nomenar Draco com a nou
-      rei, donant inici aix\xED a una nova era de pau i harmonia, una era en qu\xE8
-      els mals ja no jeien."
+    m_Localized: "L'endem\xE0 el poble va decidir nomenar Draco com a nou rei, donant
+      inici aix\xED a una nova era de pau i harmonia, una era en qu\xE8 els mals
+      ja no jeien."
     m_Metadata:
       m_Items: []
   - m_Id: 579879187324928
@@ -128,7 +128,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 579963127930880
-    m_Localized: "Clica E per llan\xE7ar una bolla de foc"
+    m_Localized: "Prem E per llan\xE7ar una bolla de foc"
     m_Metadata:
       m_Items: []
   - m_Id: 579997722550272
@@ -140,26 +140,26 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 583717772402688
-    m_Localized: Clica     per parlar amb el venedor
+    m_Localized: Prem     per parlar amb el venedor
     m_Metadata:
       m_Items: []
   - m_Id: 593643173388288
     m_Localized: "MMM, BONA ELECCI\xD3...! INCREMENTA L'ATAC B\xC0SIC. T'HO POTS
-      PORTAR PEL PREU DE 75\u20AC. DESITGES COMPRAR?"
+      PORTAR PEL PREU DE 75\u20AC. VOLS COMPRAR-HO?"
     m_Metadata:
       m_Items: []
   - m_Id: 593697451876352
     m_Localized: "GRAN DEFENSA! INCREMENTA LA DEFENSA B\xC0SICA. T'HO POTS PORTAR
-      PEL PREU DE 50\u20AC. DESITGES COMPRAR?"
+      PEL PREU DE 50\u20AC. VOLS COMPRAR-HO?"
     m_Metadata:
       m_Items: []
   - m_Id: 593716338827264
     m_Localized: "FINS L'INFINIT I M\xC9S ENLL\xC0! INCREMENTA LA CAPACITAT DE VOL.
-      T'HO POTS PORTAR PEL PREU DE 100\u20AC. DESITGES COMPRAR?"
+      T'HO POTS PORTAR PEL PREU DE 100\u20AC. VOLS COMPRAR-HO?"
     m_Metadata:
       m_Items: []
   - m_Id: 593759422717952
-    m_Localized: M'he quedat sense producte, ho sento, tria una altra cosa
+    m_Localized: M'he quedat sense producte, ho sento, tria una altra cosa.
     m_Metadata:
       m_Items: []
   - m_Id: 600405863636992
@@ -171,17 +171,17 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 602051263930368
-    m_Localized: SI
+    m_Localized: "S\xCD"
     m_Metadata:
       m_Items: []
   - m_Id: 603420649660416
     m_Localized: "HEY! COM VA EL TEU DIA? FA MOLT TEMPS QUE NO VEIG A ALG\xDA COM
-      EL TEU PER AQUI."
+      TU PER AQU\xCD."
     m_Metadata:
       m_Items: []
   - m_Id: 603482154934272
     m_Localized: "EL M\xD3N EXTERIOR POT SER PERILL\xD3S, ET DESITJO MOLTA SORT EN
-      LA TEVA AVENTURA PETIT DRAC, VES AMB CURA."
+      LA TEVA AVENTURA PETIT DRAC, V\xC9S AMB COMPTE."
     m_Metadata:
       m_Items: []
   - m_Id: 603507119431680
@@ -189,7 +189,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603528795594752
-    m_Localized: "HAS TORNAT! SAPS PERQU\xC8 ET PERSEGUEIXEN I ATAQUEN LES CRIATURES
+    m_Localized: "HAS TORNAT! SAPS PER QU\xC8 ET PERSEGUEIXEN I ATAQUEN LES CRIATURES
       D'ALL\xC0 FORA?"
     m_Metadata:
       m_Items: []
@@ -200,9 +200,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603595833155584
-    m_Localized: "EL POBLE VA TRAICIONAR ALS DRACS I AQUELLS POCS QUE VAN SOBREVIVER
-      TRACTAREN DE FUGIR. JO NO ET FARE MAL, NOM\xC9S S\xD3C UN HUMILD VENEDOR. VOLS
-      ALGUNA COSA DE LA BOTIGA ABANS DE CONTINUAR LA TEVA AVENTURA?"
+    m_Localized: "EL POBLE VA TRAIR ALS DRACS I AQUELLS POCS QUE VAN SOBREVIURE TRACTAREN
+      DE FUGIR. JO NO ET FAR\xC9 MAL, NOM\xC9S SOC UN HUMIL VENEDOR. VOLS ALGUNA
+      COSA DE LA BOTIGA ABANS DE CONTINUAR LA TEVA AVENTURA?"
     m_Metadata:
       m_Items: []
   - m_Id: 603611536629760
@@ -211,19 +211,19 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 603636937334784
     m_Localized: "UN DIA QUALSEVOL VA ARRIBAR TAN AVIAT COM HO VA DESTRUIR TOT AL
-      SEU PAS. LES CASES ES CREMAVEN I LES TORRES EREN DERRIVADES, EL REI NO VA PODER
-      CONTENIR-HO I KING ES VA FER AMB EL PODER. TOT AQUELL QUE NO OBEIX\xC9S ERA
-      CALCINAT O DESTERRAT."
+      SEU PAS. LES CASES ES CREMAVEN I LES TORRES EREN ENDERROCADES, EL REI NO VA
+      PODER CONTENIR-HO I KING ES VA FER AMB EL PODER. TOT AQUELL QUE NO OBE\xCDS
+      ERA CALCINAT O DESTERRAT."
     m_Metadata:
       m_Items: []
   - m_Id: 603676397346816
-    m_Localized: "CADA VEGADA EST\xC0S M\xC9S A PROP DEL SEU CASTELL, NO ET DENTINDR\xC9
-      SI VOLS ANAR A PER ELL, PER\xD2 MIRA SI DESITGES ALGUNA COSA DE LA BOTIGA,
-      EL CAM\xCD \xC9S DUR."
+    m_Localized: "CADA VEGADA EST\xC0S M\xC9S A PROP DEL SEU CASTELL, NO ET DETINDR\xC9
+      SI VOLS ANAR PER ELL, PER\xD2 MIRA SI DESITGES ALGUNA COSA DE LA BOTIGA, EL
+      CAM\xCD \xC9S DUR."
     m_Metadata:
       m_Items: []
   - m_Id: 603703010205696
-    m_Localized: "SEGUEIXES VIU! HO HE D'ADMETRE PETIT DRAC, T'HAVIA SUBESTIMAT,
+    m_Localized: "ENCARA ETS VIU! HO HE D'ADMETRE PETIT DRAC, T'HAVIA SUBESTIMAT,
       HAS DE SER MOLT VALENT I FORT PER ARRIBAR FINS AQU\xCD."
     m_Metadata:
       m_Items: []
@@ -234,8 +234,8 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 603761797570560
     m_Localized: "POTSER LA TEVA VALENTIA I PETITA ESTATURA PUGUI ALLIBERAR EL POBLE.
-      PER\xD2 CAL ANAR BEN PREPARAT, DIGUES SI DESITGES ALGUNA COSA DE LA BOTIGA
-      ABANS DE LA GRAN BATALLA."
+      PER\xD2 CAL ANAR BEN PREPARAT, DIGUES SI VOLS ALGUNA COSA DE LA BOTIGA ABANS
+      DE LA GRAN BATALLA."
     m_Metadata:
       m_Items: []
   references:

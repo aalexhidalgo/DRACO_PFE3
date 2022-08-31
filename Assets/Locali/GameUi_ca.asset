@@ -39,7 +39,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3128024035328
-    m_Localized: Musica
+    m_Localized: "M\xFAsica"
     m_Metadata:
       m_Items: []
   - m_Id: 3324992745472
@@ -47,7 +47,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 9619355398144
-    m_Localized: "Graci\xE8s per jugar!"
+    m_Localized: "Gr\xE0cies per jugar!"
     m_Metadata:
       m_Items: []
   references:

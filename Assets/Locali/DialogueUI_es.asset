@@ -76,7 +76,7 @@ MonoBehaviour:
   - m_Id: 357925545766912
     m_Localized: "Entre tanto malestar y caos se alz\xF3 un grupo de criaturas, con
       la esperanza de volver a unir al reino en contra de King y regresar a los a\xF1os
-      de paz. Lamentablemente algo sali\xF3 mal, fueron derrotados y perseguidos
+      de paz. Lamentablemente, algo sali\xF3 mal, fueron derrotados y perseguidos
       por todo el reino."
     m_Metadata:
       m_Items: []
@@ -144,30 +144,31 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 593759422717952
-    m_Localized: Me he quedado sin producto, lo siento, elige otra cosa
+    m_Localized: Me he quedado sin producto, lo siento, elige otra cosa.
     m_Metadata:
       m_Items: []
   - m_Id: 593643173388288
-    m_Localized: "MMM, BUENA ELECCION...! INCREMENTA EL ATAQUE B\xC1SICO. TE LO PUEDES
-      LLEVAR POR EL PRECIO DE 75\u20AC. DESEAS COMPRAR?"
+    m_Localized: "MMM, \xA1BUENA ELECCI\xD3N...! INCREMENTA EL ATAQUE B\xC1SICO.
+      TE LO PUEDES LLEVAR POR EL PRECIO DE 75\u20AC. \xBFDESEAS COMPRARLO?"
     m_Metadata:
       m_Items: []
   - m_Id: 593697451876352
-    m_Localized: "GRAN DEFENSA! INCREMENTA LA DEFENSA B\xC1SICA. TE LO PUEDES LLEVAR
-      POR EL PRECIO DE 50\u20AC. DESEAS COMPRAR?"
+    m_Localized: "\xA1GRAN DEFENSA! INCREMENTA LA DEFENSA B\xC1SICA. TE LO PUEDES
+      LLEVAR POR EL PRECIO DE 50\u20AC. \xBFDESEAS COMPRAR?"
     m_Metadata:
       m_Items: []
   - m_Id: 593716338827264
-    m_Localized: "HASTA EL INFINITO Y M\xC1S ALL\xC1! INCREMENTA LA CAPACIDAD DE
-      VUELO. TE LO PUEDES LLEVAR POR EL PRECIO DE 100\u20AC. DESEAS COMPRAR?"
+    m_Localized: "\xA1HASTA EL INFINITO Y M\xC1S ALL\xC1! INCREMENTA LA CAPACIDAD
+      DE VUELO. TE LO PUEDES LLEVAR POR EL PRECIO DE 100\u20AC. \xBFDESEAS COMPRAR?"
     m_Metadata:
       m_Items: []
   - m_Id: 600405863636992
-    m_Localized: "Gracias por comprar! Quieres comprar otro m\xE1s de estos? "
+    m_Localized: "\xA1Gracias por comprar! \xBFQuieres comprar otro m\xE1s de estos? "
     m_Metadata:
       m_Items: []
   - m_Id: 600431755075584
-    m_Localized: "No tienes suficiente dinero. No doy nada gratis. Quer\xEDas algo? "
+    m_Localized: "No tienes suficiente dinero. No doy nada gratis. \xBFQuer\xEDas
+      algo? "
     m_Metadata:
       m_Items: []
   - m_Id: 602051263930368
@@ -176,7 +177,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 603420649660416
     m_Localized: "\xA1HEY! \xBFC\xD3MO VA TU D\xCDA? HACE MUCHO TIEMPO QUE NO VEO
-      A ALGUIEN COMO T\xDA POR AQUI."
+      A ALGUIEN COMO T\xDA POR AQU\xCD."
     m_Metadata:
       m_Items: []
   - m_Id: 603482154934272
@@ -210,7 +211,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603636937334784
-    m_Localized: "UN D\xCDA CUALQUIERA COMO HOY LLEGO TAN PRONTO COMO LO DESTRUYO
+    m_Localized: "UN D\xCDA CUALQUIERA COMO HOY LLEG\xD3 TAN PRONTO COMO LO DESTRUYO
       TODO A SU PASO. LAS CASAS ARD\xCDAN Y LAS TORRES ERAN DERRIBADAS, EL REY NO
       PUDO CONTENERLO Y KING SE HIZO CON EL PODER. TODO AQUEL QUE NO OBEDECIERA ERA
       CALZINADO O DESTERRADO."
@@ -233,9 +234,9 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603761797570560
-    m_Localized: "QUIZ\xC1S TU VALENTIA Y PEQUE\xD1A ESTATURA PUEDA LIBERAR AL PUEBLO.
-      PERO HAY QUE IR BIEN PREPARADO, DIME SI DESEAS ALGO DE LA TIENDA ANTES DE LA
-      GRAN BATALLA."
+    m_Localized: "QUIZ\xC1S TU VALENT\xCDA Y PEQUE\xD1A ESTATURA PUEDA LIBERAR AL
+      PUEBLO. PERO HAY QUE IR BIEN PREPARADO, DIME SI DESEAS ALGO DE LA TIENDA ANTES
+      DE LA GRAN BATALLA."
     m_Metadata:
       m_Items: []
   references:

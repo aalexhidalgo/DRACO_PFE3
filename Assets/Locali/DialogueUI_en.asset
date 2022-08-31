@@ -74,7 +74,7 @@ MonoBehaviour:
   - m_Id: 357925545766912
     m_Localized: Between so much disconfort and chaos, a group of creatures rise
       up, with the hope of re-unite the kingdom against King and return to the years
-      of peace. Unfortunately something went wrong, they were defeated and chased
+      of peace. Unfortunately, something went wrong, they were defeated and chased
       through all the kingdom.
     m_Metadata:
       m_Items: []
@@ -140,7 +140,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 593759422717952
-    m_Localized: I'm out of product, sorry, choose something else
+    m_Localized: I'm out of product, sorry, choose something else.
     m_Metadata:
       m_Items: []
   - m_Id: 593716338827264
@@ -155,7 +155,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 593643173388288
     m_Localized: "MMM, GREAT CHOICE...! INCREASES THE BASIC ATTACK. YOU CAN TAKE
-      IT FOR THE PRICE OF 75\u20AC. DO YOU WANT TO BUY?"
+      IT FOR THE PRICE OF 75\u20AC. DO YOU WANT TO BUY IT?"
     m_Metadata:
       m_Items: []
   - m_Id: 600405863636992
@@ -186,8 +186,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 603528795594752
-    m_Localized: YOU HAVE RETURNED! DO YOU KNOW WHY YOU ARE CHASED AND ATTACKED BY
-      THE CREATURES OUT THERE?
+    m_Localized: YOU ARE BACK! DO YOU KNOW WHY YOU ARE CHASED AND ATTACKED BY THE
+      CREATURES OUT THERE?
     m_Metadata:
       m_Items: []
   - m_Id: 603580066766848
