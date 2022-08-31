@@ -10,7 +10,7 @@ public class BulletLogic : MonoBehaviour
     public ParticleSystem RockParticleSystem;
     void Start()
     {
-        GameManagerAudiosource = GameObject.Find("GameManager").GetComponent<AudioSource>();
+        GameManagerAudiosource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

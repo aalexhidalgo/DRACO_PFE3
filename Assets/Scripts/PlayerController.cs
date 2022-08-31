@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
 
         //Find
         GameManagerScript = FindObjectOfType<GameManager>();
-        GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
+        //GameManagerAudioSource = GameObject.Find("GameManager").GetComponent<AudioSource>();
 
         //Shield Fly y Money inicial
         MaxShieldValue = DataPersistance.ShieldValue + 1;

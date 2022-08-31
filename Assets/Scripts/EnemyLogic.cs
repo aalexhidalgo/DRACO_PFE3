@@ -5,14 +5,14 @@ using UnityEngine;
 public class EnemyLogic : MonoBehaviour
 {
     public float EnemyLife;
-    private AudioSource GameManagerAudiosource;
+    private AudioSource AudioManagerAudiosource;
     public AudioClip DeadSound; //funciona
     //public ParticleSystem SmokeParticleSystem;
 
     // Start is called before the first frame update
     void Start()
     {
-        GameManagerAudiosource = GameObject.Find("GameManager").GetComponent<AudioSource>();
+        AudioManagerAudiosource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,7 +20,8 @@ public class EnemyLogic : MonoBehaviour
     {
         if (EnemyLife <= 0)
         {
-            GameManagerAudiosource.PlayOneShot(DeadSound);
+            AudioManagerAudiosource.PlayOneShot(DeadSound);
+
             Destroy(gameObject);
         }
     }
@@ -28,6 +29,5 @@ public class EnemyLogic : MonoBehaviour
     private void OnDestroy()
     {
         //Instantiate(SmokeParticleSystem, transform.position, transform.rotation);
-        
     }
 }
