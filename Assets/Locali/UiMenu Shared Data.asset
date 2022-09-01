@@ -109,6 +109,10 @@ MonoBehaviour:
     m_Key: level_text
     m_Metadata:
       m_Items: []
+  - m_Id: 2539128268333056
+    m_Key: NoData_text
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

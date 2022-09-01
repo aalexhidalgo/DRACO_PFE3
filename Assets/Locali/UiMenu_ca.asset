@@ -112,5 +112,9 @@ MonoBehaviour:
     m_Localized: Nivell
     m_Metadata:
       m_Items: []
+  - m_Id: 2539128268333056
+    m_Localized: No tens dades guardades...
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

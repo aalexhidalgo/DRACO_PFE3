@@ -112,5 +112,9 @@ MonoBehaviour:
     m_Localized: Level
     m_Metadata:
       m_Items: []
+  - m_Id: 2539128268333056
+    m_Localized: You don't have saved data...
+    m_Metadata:
+      m_Items: []
   references:
     version: 1
