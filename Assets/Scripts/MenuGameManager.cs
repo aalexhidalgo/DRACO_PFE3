@@ -137,6 +137,7 @@ public class MenuGameManager : MonoBehaviour
     public void StartButton()
     {
         DataPersistance.MoneyCounter = 0;
+        DataPersistance.CoinsColected = 0;
         DataPersistance.Storedone = 1;
         DataPersistance.CurrentLevel = 1;
         DataPersistance.Fireball = 4;
@@ -145,6 +146,8 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.FireballValue = 1f;
         DataPersistance.ShieldValue = 0;
         DataPersistance.FlyValue = 0.5f;
+        DataPersistance.PacificRoute = 1; //Pacific route activada
+        DataPersistance.GenocideRoute = 0; //Genocida por defecto desactivada
         DataPersistance.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
     }

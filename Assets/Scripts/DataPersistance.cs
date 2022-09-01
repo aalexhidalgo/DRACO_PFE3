@@ -32,6 +32,12 @@ public class DataPersistance
     //Languages
     public static int LanguageIntValue;
 
+    //Logros
+    public static int CoinsColected;
+    public static int PacificRoute = 1; //1 es true, recuerda
+    public static int GenocideRoute = 0; // 0 es false, recuerdalo
+
+
     public static void SaveForFutureGames()
     {
         //Contador de monedas
@@ -61,15 +67,20 @@ public class DataPersistance
         //En que idioma hemos configurado el juego
         PlayerPrefs.SetInt("Language_Int", LanguageIntValue);
 
+        //Monedas recolectadas durante la partida, sin restarle las compras
+        PlayerPrefs.SetInt("Coins_Colected", CoinsColected);
+
+        PlayerPrefs.SetInt("Pacific_Route", PacificRoute);
+        PlayerPrefs.SetInt("Genocide_Route", GenocideRoute);
         /*Meter audiosource en main menu a la cámara (música de fondo) a la cámara de cada nivel
         (música de fondo) y jugador (sonidos) + store (empty betweenlevels sonido
         y cámara música fondo)*/
     }
 
-    public static void SaveCoins(int Coins)
+    public static void SaveCoins(int CurrentCoins, int CollectedMoney)
     {
         //Contador de monedas
-        MoneyCounter = Coins;
+        MoneyCounter = CurrentCoins;
+        CoinsColected += CollectedMoney;
     }
-   
 }

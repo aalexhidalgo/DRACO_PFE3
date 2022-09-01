@@ -51,6 +51,11 @@ public class PlayerController : MonoBehaviour
     //Comunicación con scripts
     private GameManager GameManagerScript;
 
+    //Logros
+    public int ThisLevelCoins;
+    public int PacificRoute;
+    public int GenocideRoute;
+
     #region Audio
 
     //AudioSources para acceder a sonidos
@@ -70,6 +75,10 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
+        PacificRoute = DataPersistance.PacificRoute;
+        GenocideRoute = DataPersistance.GenocideRoute;
+        ThisLevelCoins = 0;
+        Debug.Log($"Has conseguido {DataPersistance.CoinsColected} monedas, enhorabuena");
         if(DataPersistance.CurrentLevel == 1)
         {
             DracoCanMov = false;
@@ -298,7 +307,8 @@ public class PlayerController : MonoBehaviour
             GameManagerAudioSource.PlayOneShot(CoinSound);  
             Destroy(otherTrigger.gameObject);
             MoneyCounter += 5;
-            Debug.Log($"Tienes {MoneyCounter} monedas, crack");
+            ThisLevelCoins += 5;
+            //Debug.Log($"Tienes {MoneyCounter} monedas, crack");
             UpdateMoney();
         }
 

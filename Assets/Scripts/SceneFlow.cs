@@ -18,7 +18,7 @@ public class SceneFlow : MonoBehaviour
     {
         if (otherCollider.gameObject.CompareTag("Player"))
         {
-            DataPersistance.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
+            DataPersistance.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter, otherCollider.gameObject.GetComponent<PlayerController>().ThisLevelCoins); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
             DataPersistance.CurrentLevel++;
 
             DataPersistance.SaveForFutureGames();
@@ -45,30 +45,10 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.MusicToggle = PlayerPrefs.GetInt("Music_Toggle");
             DataPersistance.SoundToggle = PlayerPrefs.GetInt("Sound_Toggle");
 
-            /*
-            MenuGameManagerScript.MenuMusicVolume = PlayerPrefs.GetFloat("Music_Volume");
-            MenuGameManagerScript.MusicSlider.value = MenuGameManagerScript.MenuMusicVolume;
-            MenuGameManagerScript.MenuSoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
-            MenuGameManagerScript.SoundSlider.value = MenuGameManagerScript.MenuSoundVolume;
-            
-            if(PlayerPrefs.GetInt("Music_Toggle") == 0)
-            {
-                MenuGameManagerScript.MusicToggle.isOn = false;
-            }
-            else if(PlayerPrefs.GetInt("Music_Toggle") == 1)
-            {
-                MenuGameManagerScript.MusicToggle.isOn = true;
-            }
-            
-            if(PlayerPrefs.GetInt("Sound_Toggle") == 0)
-            {
-                MenuGameManagerScript.SoundToggle.isOn = false;
-            }
-            else if(PlayerPrefs.GetInt("Sound_Toggle") == 1)
-            {
-                MenuGameManagerScript.SoundToggle.isOn = true;
-            }
-            */
+            //Logros zone
+            DataPersistance.CoinsColected = PlayerPrefs.GetInt("Coins_Colected");
+            DataPersistance.PacificRoute = PlayerPrefs.GetInt("Pacific_Route");
+            DataPersistance.GenocideRoute = PlayerPrefs.GetInt("Genocide_Route");
         }
     }
 

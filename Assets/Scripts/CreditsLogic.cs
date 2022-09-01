@@ -154,7 +154,7 @@ public class CreditsLogic : MonoBehaviour
 
         NombresText.alpha = Alphavalue;
 
-        yield return new WaitForSeconds(2.75f);
+        yield return new WaitForSeconds(2.25f);
 
         float AlphaValue = 0;
         GraciasText.alpha = AlphaValue;
@@ -175,7 +175,7 @@ public class CreditsLogic : MonoBehaviour
 
     private IEnumerator FadeOut()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1f);
         float Alphavalue = 1;
 
         GameObject child = FinalTextBox.transform.GetChild(0).gameObject;

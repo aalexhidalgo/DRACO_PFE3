@@ -6,12 +6,14 @@ public class EnemyLogic : MonoBehaviour
 {
     public float EnemyLife;
     private AudioSource AudioManagerAudiosource;
-    public AudioClip DeadSound; //funciona
+    public AudioClip DeadSound;
+    public PlayerController PlayerControllerScript;
     //public ParticleSystem SmokeParticleSystem;
 
     void Start()
     {
         AudioManagerAudiosource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
+        PlayerControllerScript = FindObjectOfType<PlayerController>();
     }
 
     void Update()
@@ -26,6 +28,7 @@ public class EnemyLogic : MonoBehaviour
 
     private void OnDestroy()
     {
-        //Instantiate(SmokeParticleSystem, transform.position, transform.rotation);
+        PlayerControllerScript.PacificRoute = 0;
+        Debug.Log("Has matado, ya no eres puro de corazón como Goku jeje");
     }
 }

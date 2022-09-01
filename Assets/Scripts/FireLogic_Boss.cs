@@ -71,6 +71,7 @@ public class FireLogic_Boss : MonoBehaviour
         {
             Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
+            Destroy(otherTrigger.gameObject);
         }
 
         if(otherTrigger.gameObject.CompareTag("Ground"))
