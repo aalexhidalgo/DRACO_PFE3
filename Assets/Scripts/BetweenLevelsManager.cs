@@ -152,8 +152,8 @@ public class BetweenLevelsManager : MonoBehaviour
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MainCameraAudioSource.volume = DataPersistance.MusicVolume;
 
-        Debug.Log(PlayerPrefs.GetFloat("Music_Volume"));
-        Debug.Log(PlayerPrefs.GetFloat("Sound_Volume"));
+        //Debug.Log(PlayerPrefs.GetFloat("Music_Volume"));
+        //Debug.Log(PlayerPrefs.GetFloat("Sound_Volume"));
         AudioManagerAudioSource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
         AudioManagerAudioSource.volume = DataPersistance.SoundVolume;
         //AudioManagerAudioSource.Stop();
@@ -472,7 +472,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.Fireball == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos1, Fireball_Prefab, FueradeStock_Fireball));
+                    StartCoroutine(YesButtonCoroutine(Pos1, Fireball_Prefab, FueradeStock_Fireball, Attack_Image));
                 }
             }
             else
@@ -504,7 +504,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.Shield == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos2, Shield_Prefab, FueradeStock_Shield));
+                    StartCoroutine(YesButtonCoroutine(Pos2, Shield_Prefab, FueradeStock_Shield, Defense_Image));
                 }
 
             }
@@ -535,7 +535,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.Fly == 0)
                 {
-                    StartCoroutine(YesButtonCoroutine(Pos3, Fly_Prefab, FueradeStock_Fly));
+                    StartCoroutine(YesButtonCoroutine(Pos3, Fly_Prefab, FueradeStock_Fly, Boost_Image));
                 }
             }
             else
@@ -552,7 +552,7 @@ public class BetweenLevelsManager : MonoBehaviour
     }
 
     //Al tener un stock limitado, al comprar el último item este es destruido mostrando su no disponibilidad
-    public IEnumerator YesButtonCoroutine(Vector3 Position, GameObject Prefab, GameObject Image)
+    public IEnumerator YesButtonCoroutine(Vector3 Position, GameObject Prefab, GameObject Image, GameObject ProductImage)
     {
         float Timer = 1.5f;
         //Restar monedas(PlayerController), recoger item, instanciar partículas y minimizar alpha imagen a través de animación???
@@ -563,6 +563,7 @@ public class BetweenLevelsManager : MonoBehaviour
         //Mostramos la imagen de Fuera de Stock    
         Image.SetActive(true);
         StartCoroutine(FadeIn(Image));
+        ProductImage.SetActive(false);
         Yes_1.SetActive(false);
         Yes_2.SetActive(false);
         Yes_3.SetActive(false);

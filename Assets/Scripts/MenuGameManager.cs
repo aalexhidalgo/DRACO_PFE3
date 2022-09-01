@@ -147,7 +147,8 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.ShieldValue = 0;
         DataPersistance.FlyValue = 0.5f;
         DataPersistance.PacificRoute = 1; //Pacific route activada
-        DataPersistance.GenocideRoute = 0; //Genocida por defecto desactivada
+        DataPersistance.KilledEnemies = 0; //Genocida por defecto desactivada
+        DataPersistance.HasKilledSlums = 0;
         DataPersistance.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
     }

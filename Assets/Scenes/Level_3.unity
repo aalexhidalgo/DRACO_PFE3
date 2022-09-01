@@ -6720,6 +6720,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: IsSlums
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -11882,6 +11886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 2
   DeadSound: {fileID: 8300000, guid: 6ba1f0c93697fbd4e9a7033da37ee952, type: 3}
+  IsSlums: 0
 --- !u!212 &1788267129056260355
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12291,6 +12296,10 @@ PrefabInstance:
     - target: {fileID: 8057123041233988143, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: IsSlums
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
@@ -23959,6 +23968,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: IsSlums
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -29728,6 +29741,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: IsSlums
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -29801,6 +29818,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: IsSlums
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -29872,6 +29893,10 @@ PrefabInstance:
     - target: {fileID: 8057123041233988143, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: IsSlums
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
@@ -29951,6 +29976,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: IsSlums
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -30026,6 +30055,10 @@ PrefabInstance:
     - target: {fileID: 8057123041233988143, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: IsSlums
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem

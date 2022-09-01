@@ -8139,6 +8139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!65 &2202133149876222638
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15886,6 +15887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 2
   DeadSound: {fileID: 8300000, guid: 6ba1f0c93697fbd4e9a7033da37ee952, type: 3}
+  IsSlums: 0
 --- !u!212 &2778992386068247241
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22760,6 +22762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!1 &6844040773781355566
 GameObject:
   m_ObjectHideFlags: 0
@@ -26177,6 +26180,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!65 &6844040774080316205
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28639,6 +28643,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!65 &6844040774266088195
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35850,6 +35855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!212 &6844040774723617744
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -36075,6 +36081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!1 &6844040774730650378
 GameObject:
   m_ObjectHideFlags: 0
@@ -36740,6 +36747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!65 &6844040774766921901
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45526,6 +45534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!1 &6844040775414931582
 GameObject:
   m_ObjectHideFlags: 0

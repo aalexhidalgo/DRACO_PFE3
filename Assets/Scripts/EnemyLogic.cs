@@ -7,7 +7,8 @@ public class EnemyLogic : MonoBehaviour
     public float EnemyLife;
     private AudioSource AudioManagerAudiosource;
     public AudioClip DeadSound;
-    public PlayerController PlayerControllerScript;
+    private PlayerController PlayerControllerScript;
+    public bool IsSlums;
     //public ParticleSystem SmokeParticleSystem;
 
     void Start()
@@ -29,6 +30,11 @@ public class EnemyLogic : MonoBehaviour
     private void OnDestroy()
     {
         PlayerControllerScript.PacificRoute = 0;
+        PlayerControllerScript.KilledEnemies += 1;
+        if(IsSlums == true)
+        {
+            PlayerControllerScript.HasKilledSlums = 1;
+        }
         Debug.Log("Has matado, ya no eres puro de corazón como Goku jeje");
     }
 }

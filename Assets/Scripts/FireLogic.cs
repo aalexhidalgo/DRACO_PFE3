@@ -85,4 +85,9 @@ public class FireLogic : MonoBehaviour
             Instantiate(DamageParticleSystem, otherTrigger.gameObject.transform.position, gameObject.transform.rotation);
         }
     }
+
+    private void OnDestroy()
+    {
+        PlayerControllerScript.FireBallCounter += 1;
+    }
 }

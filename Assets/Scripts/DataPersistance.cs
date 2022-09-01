@@ -35,7 +35,9 @@ public class DataPersistance
     //Logros
     public static int CoinsColected;
     public static int PacificRoute = 1; //1 es true, recuerda
-    public static int GenocideRoute = 0; // 0 es false, recuerdalo
+    public static int KilledEnemies = 0; // 0 es false, recuerdalo
+    public static int HasKilledSlums = 0; //No has matado Slums (slimes)
+    public static int Fireballs = 0;
 
 
     public static void SaveForFutureGames()
@@ -67,14 +69,18 @@ public class DataPersistance
         //En que idioma hemos configurado el juego
         PlayerPrefs.SetInt("Language_Int", LanguageIntValue);
 
+
+        //Logros zone
+
         //Monedas recolectadas durante la partida, sin restarle las compras
         PlayerPrefs.SetInt("Coins_Colected", CoinsColected);
 
         PlayerPrefs.SetInt("Pacific_Route", PacificRoute);
-        PlayerPrefs.SetInt("Genocide_Route", GenocideRoute);
-        /*Meter audiosource en main menu a la cámara (música de fondo) a la cámara de cada nivel
-        (música de fondo) y jugador (sonidos) + store (empty betweenlevels sonido
-        y cámara música fondo)*/
+        PlayerPrefs.SetInt("Killed_Enemies", KilledEnemies);
+
+        PlayerPrefs.SetInt("Has_Killed_Slums", HasKilledSlums);
+
+        PlayerPrefs.SetInt("FireBalls", Fireballs);
     }
 
     public static void SaveCoins(int CurrentCoins, int CollectedMoney)

@@ -2523,6 +2523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!212 &4360445648692553418
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6033,6 +6034,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!54 &4360445649004334679
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10598,6 +10600,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!54 &4360445649454219187
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -15967,6 +15970,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!54 &4360445649991889285
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21247,6 +21251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyLife: 1
   DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  IsSlums: 1
 --- !u!1 &4360445650439889878
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,7 +54,9 @@ public class PlayerController : MonoBehaviour
     //Logros
     public int ThisLevelCoins;
     public int PacificRoute;
-    public int GenocideRoute;
+    public int KilledEnemies;
+    public int HasKilledSlums;
+    public int FireBallCounter;
 
     #region Audio
 
@@ -76,9 +78,16 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         PacificRoute = DataPersistance.PacificRoute;
-        GenocideRoute = DataPersistance.GenocideRoute;
+        KilledEnemies = DataPersistance.KilledEnemies;
+        HasKilledSlums = DataPersistance.HasKilledSlums;
+        FireBallCounter = DataPersistance.Fireballs;
+
         ThisLevelCoins = 0;
         Debug.Log($"Has conseguido {DataPersistance.CoinsColected} monedas, enhorabuena");
+        Debug.Log($"Has matado a {DataPersistance.KilledEnemies} enemigos, ole tu");
+        Debug.Log($"Has matado al menos a un Slum: {DataPersistance.HasKilledSlums == 1}");
+        Debug.Log($"Has disparado {DataPersistance.Fireballs} bolas de fuego, estás que ardes men");
+
         if(DataPersistance.CurrentLevel == 1)
         {
             DracoCanMov = false;
@@ -323,6 +332,7 @@ public class PlayerController : MonoBehaviour
             {
                 CurrentLive = 3f;
                 MoneyCounter += 10;
+                ThisLevelCoins += 10;
                 UpdateMoney();
                 Destroy(otherTrigger.gameObject);
             }

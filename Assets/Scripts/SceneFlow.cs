@@ -21,8 +21,14 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter, otherCollider.gameObject.GetComponent<PlayerController>().ThisLevelCoins); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
             DataPersistance.CurrentLevel++;
 
-            DataPersistance.SaveForFutureGames();
+            //Logros Update zone
+            DataPersistance.PacificRoute = otherCollider.gameObject.GetComponent<PlayerController>().PacificRoute;
+            DataPersistance.KilledEnemies = otherCollider.gameObject.GetComponent<PlayerController>().KilledEnemies;
+            DataPersistance.HasKilledSlums = otherCollider.gameObject.GetComponent<PlayerController>().HasKilledSlums;
+            DataPersistance.Fireballs = otherCollider.gameObject.GetComponent<PlayerController>().FireBallCounter;
 
+            DataPersistance.SaveForFutureGames();
+            
             SceneManager.LoadScene("Store");
         }
     }
@@ -48,7 +54,9 @@ public class SceneFlow : MonoBehaviour
             //Logros zone
             DataPersistance.CoinsColected = PlayerPrefs.GetInt("Coins_Colected");
             DataPersistance.PacificRoute = PlayerPrefs.GetInt("Pacific_Route");
-            DataPersistance.GenocideRoute = PlayerPrefs.GetInt("Genocide_Route");
+            DataPersistance.KilledEnemies= PlayerPrefs.GetInt("Killed_Enemies");
+            DataPersistance.HasKilledSlums = PlayerPrefs.GetInt("Has_Killed_Slums");
+            DataPersistance.Fireballs = PlayerPrefs.GetInt("FireBalls");
         }
     }
 
