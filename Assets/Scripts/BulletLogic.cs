@@ -26,7 +26,6 @@ public class BulletLogic : MonoBehaviour
             Instantiate(RockParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
             AudioManagerAudiosource.PlayOneShot(RockCrash);
             Destroy(gameObject);
-            //Meter partículas
         }
         
     }

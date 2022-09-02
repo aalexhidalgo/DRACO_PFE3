@@ -38,6 +38,12 @@ public class DataPersistance
     public static int KilledEnemies = 0; // 0 es false, recuerdalo
     public static int HasKilledSlums = 0; //No has matado Slums (slimes)
     public static int Fireballs = 0;
+    public static int ItemsCollected = 0; //Escudo, corazón y vuelo de todo el juegos recogidos
+    public static int TotalAttack; //Si vale 1 agotamos el producto
+    public static int TotalDefense;
+    public static int TotalBoost;
+    public static int Bullets = 0;
+    public static int MediumAttack = 0;
 
 
     public static void SaveForFutureGames()
@@ -81,6 +87,15 @@ public class DataPersistance
         PlayerPrefs.SetInt("Has_Killed_Slums", HasKilledSlums);
 
         PlayerPrefs.SetInt("FireBalls", Fireballs);
+
+        PlayerPrefs.SetInt("Items_Collected", ItemsCollected);
+
+        PlayerPrefs.SetInt("Total_Attack", TotalAttack);
+        PlayerPrefs.SetInt("Total_Defense", TotalDefense);
+        PlayerPrefs.SetInt("Total_Boost", TotalBoost);
+
+        PlayerPrefs.SetInt("Bullets_Count", Bullets);
+        PlayerPrefs.SetInt("Medium_Attack", MediumAttack);
     }
 
     public static void SaveCoins(int CurrentCoins, int CollectedMoney)

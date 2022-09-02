@@ -9,7 +9,6 @@ public class EnemyLogic : MonoBehaviour
     public AudioClip DeadSound;
     private PlayerController PlayerControllerScript;
     public bool IsSlums;
-    //public ParticleSystem SmokeParticleSystem;
 
     void Start()
     {

@@ -13,7 +13,6 @@ public class BetweenLevelsManager : MonoBehaviour
     //Botones
     public Button continueButton;
     //Lista de Arrays con los dialogos en cada nivel
-    public List<string[]> DialogoList = new List<string[]>();
     public List<LocalizedString[]> DialogoList_LS = new List<LocalizedString[]>();
 
     #region Despertar Vendedor variables
@@ -468,10 +467,13 @@ public class BetweenLevelsManager : MonoBehaviour
                 UpdateMoney();
                 DataPersistance.Fireball--;
                 DataPersistance.FireballValue+= Increment;
+                
                 DialogueText.text = ProductsDialogue[3].GetLocalizedString(LocalizedStringsProductsDialogue[3]);
 
                 if (DataPersistance.Fireball == 0)
                 {
+                    DataPersistance.TotalAttack = 1;
+                    Debug.Log("Has mejorado en sus totalidad el ataque total");
                     StartCoroutine(YesButtonCoroutine(Pos1, Fireball_Prefab, FueradeStock_Fireball, Attack_Image));
                 }
             }
@@ -504,6 +506,8 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.Shield == 0)
                 {
+                    DataPersistance.TotalDefense = 1;
+                    Debug.Log("Has mejorado en sus totalidad la defensa total");
                     StartCoroutine(YesButtonCoroutine(Pos2, Shield_Prefab, FueradeStock_Shield, Defense_Image));
                 }
 
@@ -535,6 +539,8 @@ public class BetweenLevelsManager : MonoBehaviour
 
                 if (DataPersistance.Fly == 0)
                 {
+                    DataPersistance.TotalBoost = 1;
+                    Debug.Log("Has mejorado en sus totalidad el ataque total");
                     StartCoroutine(YesButtonCoroutine(Pos3, Fly_Prefab, FueradeStock_Fly, Boost_Image));
                 }
             }

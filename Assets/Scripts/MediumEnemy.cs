@@ -12,20 +12,31 @@ public class MediumEnemy : MonoBehaviour
 
     //Script
     private GameManager GameManagerScript;
+    private PlayerController PlayerControllerScript;
+
     void Start()
     {
+        PlayerControllerScript = FindObjectOfType<PlayerController>();
         MediumEnemyAnim.SetBool("Active", false);
     }
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         Vector3 Pos = transform.position;
 
         PlayerinMoveRange = Physics.CheckSphere(Pos, MoveRange, PlayerLayer);
         if (PlayerinMoveRange)
         {
             MediumEnemyAnim.SetBool("Active", true);
+        }
+    }
+
+    public void OnCollisionEnter(Collision otherCollider)
+    {
+        if (otherCollider.gameObject.CompareTag("Player")) //&& Shield == 0)??
+        {
+            PlayerControllerScript.MediumCounter += 1;
         }
     }
 }

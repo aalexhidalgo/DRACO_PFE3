@@ -149,6 +149,13 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.PacificRoute = 1; //Pacific route activada
         DataPersistance.KilledEnemies = 0; //Genocida por defecto desactivada
         DataPersistance.HasKilledSlums = 0;
+        DataPersistance.Fireballs = 0;
+        DataPersistance.ItemsCollected = 0;
+        DataPersistance.TotalAttack = 0;
+        DataPersistance.TotalDefense = 0;
+        DataPersistance.TotalBoost = 0;
+        DataPersistance.Bullets = 0;
+        DataPersistance.MediumAttack = 0;
         DataPersistance.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
     }
@@ -332,30 +339,6 @@ public class MenuGameManager : MonoBehaviour
         nextButton.Select();
         DialogueAnimDone = true;
     }
-
-    /*public IEnumerator FadeOut()
-    {
-        float AlphaValue = 1;
-        Image NoDataImage = DataBox.GetComponent<Image>();
-        Color Color = NoDataImage.color;
-
-        yield return new WaitForSeconds(4f);
-
-        while (AlphaValue >= 0)
-        {
-            Color.a = AlphaValue;
-            NoDataImage.color = Color;
-            AlphaValue -= 0.2f;
-            yield return new WaitForSeconds(0.075f);
-            Debug.Log("Eh");
-            //0.09803922
-            //0.01960784
-        }
-
-        DataBox.SetActive(false);
-        Debug.Log("Khé");
-    }*/
-
     
     public IEnumerator FadeOutAnim()
     {
@@ -374,7 +357,6 @@ public class MenuGameManager : MonoBehaviour
         
     }
 
-
     void Update()
     {
         if (Input.GetButtonDown("Press Me")) //Mediante ratón o Joystick button 0
@@ -385,7 +367,7 @@ public class MenuGameManager : MonoBehaviour
         //Trampita: Saltarse el diálogo inicial Mediante X en teclado y Joystick button 3 en mando (Triángulo)
         if(Input.GetButtonDown("Tramposo"))
         {
-            Debug.Log("De oca a oca y tiro porque me toca");
+            //Debug.Log("De oca a oca y tiro porque me toca");
             StartButton();
         }
 

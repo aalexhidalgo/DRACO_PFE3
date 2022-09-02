@@ -57,6 +57,9 @@ public class PlayerController : MonoBehaviour
     public int KilledEnemies;
     public int HasKilledSlums;
     public int FireBallCounter;
+    public int ItemCounter;
+    public int BulletCounter;
+    public int MediumCounter;
 
     #region Audio
 
@@ -81,14 +84,19 @@ public class PlayerController : MonoBehaviour
         KilledEnemies = DataPersistance.KilledEnemies;
         HasKilledSlums = DataPersistance.HasKilledSlums;
         FireBallCounter = DataPersistance.Fireballs;
+        ItemCounter = DataPersistance.ItemsCollected;
+        BulletCounter = DataPersistance.Bullets;
+        MediumCounter = DataPersistance.MediumAttack;
 
         ThisLevelCoins = 0;
         Debug.Log($"Has conseguido {DataPersistance.CoinsColected} monedas, enhorabuena");
         Debug.Log($"Has matado a {DataPersistance.KilledEnemies} enemigos, ole tu");
         Debug.Log($"Has matado al menos a un Slum: {DataPersistance.HasKilledSlums == 1}");
         Debug.Log($"Has disparado {DataPersistance.Fireballs} bolas de fuego, estás que ardes men");
+        Debug.Log($"Has recogido {DataPersistance.ItemsCollected} item de mejora, aprovéchalo sabiamente");
+        Debug.Log($"Auch! {DataPersistance.MediumAttack} golpes del ogro se sienten como el infierno");
 
-        if(DataPersistance.CurrentLevel == 1)
+        if (DataPersistance.CurrentLevel == 1)
         {
             DracoCanMov = false;
         }
@@ -327,6 +335,8 @@ public class PlayerController : MonoBehaviour
         {
             GameManagerAudioSource.PlayOneShot(RecogerItem);
             CurrentLive++;
+            Destroy(otherTrigger.gameObject);
+            ItemCounter += 1;
 
             if (CurrentLive >= 3)
             {
@@ -374,6 +384,8 @@ public class PlayerController : MonoBehaviour
         if (otherTrigger.gameObject.CompareTag("Bullet") && Shield == 1)
         {
             MaxShieldValue -= 1;
+            BulletCounter += 1;
+
             if (MaxShieldValue <= 0)
             {
                 Shield = 0;
@@ -390,6 +402,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(otherTrigger.gameObject);
             CurrentLive -= 0.5f;
+            BulletCounter += 1;
 
             if (CurrentLive <= 0)
             {
@@ -408,11 +421,12 @@ public class PlayerController : MonoBehaviour
         #region PowerUps
         //Si recogemos una nube, permite volar al jugador
         if (otherTrigger.gameObject.CompareTag("Cloud"))
-        {
+        {            
             GameManagerAudioSource.PlayOneShot(RecogerItem);
             GameManagerScript.Flybar.fillAmount = 1;
             GameManagerScript.FlybarCounter = 1;
             Destroy(otherTrigger.gameObject);
+            ItemCounter += 1;
         }
 
         if(otherTrigger.gameObject.CompareTag("Shield"))
@@ -421,6 +435,7 @@ public class PlayerController : MonoBehaviour
             Shield = 1;
             UpdateShield();
             Destroy(otherTrigger.gameObject);
+            ItemCounter += 1;
         }
         #endregion
 

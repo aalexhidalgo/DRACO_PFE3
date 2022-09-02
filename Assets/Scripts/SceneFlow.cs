@@ -5,12 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneFlow : MonoBehaviour
 {
-    private MenuGameManager MenuGameManagerScript;
-    //private GameManager GameManagerScript;
     private void Start()
     {
-        //MenuGameManagerScript = GameObject.Find("MenuGameManager").GetComponent<MenuGameManager>();
-        //GameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         LoadUserOptions();
     }
 
@@ -26,6 +22,9 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.KilledEnemies = otherCollider.gameObject.GetComponent<PlayerController>().KilledEnemies;
             DataPersistance.HasKilledSlums = otherCollider.gameObject.GetComponent<PlayerController>().HasKilledSlums;
             DataPersistance.Fireballs = otherCollider.gameObject.GetComponent<PlayerController>().FireBallCounter;
+            DataPersistance.ItemsCollected = otherCollider.gameObject.GetComponent<PlayerController>().ItemCounter;
+            DataPersistance.Bullets = otherCollider.gameObject.GetComponent<PlayerController>().BulletCounter;
+            DataPersistance.MediumAttack = otherCollider.gameObject.GetComponent<PlayerController>().MediumCounter;
 
             DataPersistance.SaveForFutureGames();
             
@@ -57,6 +56,12 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.KilledEnemies= PlayerPrefs.GetInt("Killed_Enemies");
             DataPersistance.HasKilledSlums = PlayerPrefs.GetInt("Has_Killed_Slums");
             DataPersistance.Fireballs = PlayerPrefs.GetInt("FireBalls");
+            DataPersistance.ItemsCollected = PlayerPrefs.GetInt("Items_Collected");
+            DataPersistance.TotalAttack = PlayerPrefs.GetInt("Total_Attack");
+            DataPersistance.TotalDefense = PlayerPrefs.GetInt("Total_Defense");
+            DataPersistance.TotalBoost = PlayerPrefs.GetInt("Total_Boost");
+            DataPersistance.Bullets = PlayerPrefs.GetInt("Bullets_Count");
+            DataPersistance.MediumAttack = PlayerPrefs.GetInt("Medium_Attack");
         }
     }
 
