@@ -40,6 +40,8 @@ public class DetectBoss : MonoBehaviour
 
         GameManagerScript = GameObject.Find("GameManager").GetComponent<GameManager>();
         GameManagerScript.FlybarCounter = 0;
+
+        Debug.Log($"Has muerto luchando contra King: {DataPersistance.DeadInBattle == 1}");
     }
 
     public IEnumerator WaitingTime()

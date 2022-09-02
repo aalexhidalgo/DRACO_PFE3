@@ -133,6 +133,12 @@ public class BetweenLevelsManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log($"Tienes la defensa al máximo: {DataPersistance.TotalDefense == 1}");
+        Debug.Log($"Tienes el ataque al máximo: {DataPersistance.TotalAttack == 1}");
+        Debug.Log($"Tienes el boost por las nubes jeje: {DataPersistance.TotalBoost == 1}");
+
+        Debug.Log($"Has conocido a Robert: {DataPersistance.RobertHasTalk == 1}");
+
         closeDialogue = false;
         isShopping = false;
 
@@ -252,6 +258,8 @@ public class BetweenLevelsManager : MonoBehaviour
             PreDialogueImage.SetActive(false);
             ShowDialogue();
         }
+
+        DataPersistance.Time += Time.deltaTime;
     }
 
     #region Escalado productos
@@ -318,6 +326,11 @@ public class BetweenLevelsManager : MonoBehaviour
 
         if (CanClick)
         {
+            if(DataPersistance.RobertIsFriedly == 0)
+            {
+                DataPersistance.RobertHasTalk = 1;
+                DataPersistance.RobertIsFriedly = 1;
+            }
             PreDialogueImage.SetActive(false);
             isTalking = true;
             AudioManagerAudioSource.Play();
@@ -325,7 +338,6 @@ public class BetweenLevelsManager : MonoBehaviour
             StartCoroutine(Letters(Next));
             
             VendedorAnim.SetBool("Talk", true);
-
         }
     } 
     public void NextButton()
@@ -540,7 +552,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 if (DataPersistance.Fly == 0)
                 {
                     DataPersistance.TotalBoost = 1;
-                    Debug.Log("Has mejorado en sus totalidad el ataque total");
+                    Debug.Log("Has mejorado en sus totalidad el Boost total");
                     StartCoroutine(YesButtonCoroutine(Pos3, Fly_Prefab, FueradeStock_Fly, Boost_Image));
                 }
             }
@@ -611,6 +623,7 @@ public class BetweenLevelsManager : MonoBehaviour
             Next.SetActive(false);
             Yes_2.SetActive(false);
             Yes_3.SetActive(false);
+            No.SetActive(false);
             //Yes_1.SetActive(true);
             //No.SetActive(true);
         }
@@ -629,6 +642,7 @@ public class BetweenLevelsManager : MonoBehaviour
             Next.SetActive(false);
             Yes_1.SetActive(false);
             Yes_3.SetActive(false);
+            No.SetActive(false);
             //Yes_2.SetActive(true);
             //No.SetActive(true);
         }
@@ -646,6 +660,7 @@ public class BetweenLevelsManager : MonoBehaviour
             Next.SetActive(false);
             Yes_1.SetActive(false);
             Yes_2.SetActive(false);
+            No.SetActive(false);
             //Yes_3.SetActive(true);
             //No.SetActive(true);  
         }

@@ -85,6 +85,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
         Time.timeScale = 1;       
     }
+
+    public void KilledByBoss()
+    {
+        DataPersistance.DeadInBattle = 1;
+    }
     
     //Descansito
     public void ResumeButton()

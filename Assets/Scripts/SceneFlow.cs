@@ -10,6 +10,19 @@ public class SceneFlow : MonoBehaviour
         LoadUserOptions();
     }
 
+    private void Update()
+    {
+        if(SceneManager.GetActiveScene().name != "MainMenu")
+        {
+            DataPersistance.Time += Time.deltaTime;
+        }
+
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            Debug.Log($"Llevas jugando {UnityEngine.Mathf.Round(DataPersistance.Time)} segundos, viciado");
+        }
+    }
+
     public void OnCollisionEnter(Collision otherCollider)
     {
         if (otherCollider.gameObject.CompareTag("Player"))
@@ -52,16 +65,28 @@ public class SceneFlow : MonoBehaviour
 
             //Logros zone
             DataPersistance.CoinsColected = PlayerPrefs.GetInt("Coins_Colected");
+
             DataPersistance.PacificRoute = PlayerPrefs.GetInt("Pacific_Route");
             DataPersistance.KilledEnemies= PlayerPrefs.GetInt("Killed_Enemies");
             DataPersistance.HasKilledSlums = PlayerPrefs.GetInt("Has_Killed_Slums");
+
             DataPersistance.Fireballs = PlayerPrefs.GetInt("FireBalls");
+
             DataPersistance.ItemsCollected = PlayerPrefs.GetInt("Items_Collected");
+
             DataPersistance.TotalAttack = PlayerPrefs.GetInt("Total_Attack");
             DataPersistance.TotalDefense = PlayerPrefs.GetInt("Total_Defense");
             DataPersistance.TotalBoost = PlayerPrefs.GetInt("Total_Boost");
+
             DataPersistance.Bullets = PlayerPrefs.GetInt("Bullets_Count");
             DataPersistance.MediumAttack = PlayerPrefs.GetInt("Medium_Attack");
+
+            DataPersistance.DeadInBattle = PlayerPrefs.GetInt("Dead_In_Battle");
+
+            DataPersistance.RobertHasTalk = PlayerPrefs.GetInt("Robert_Has_Talk");
+            DataPersistance.RobertHasTalk = PlayerPrefs.GetInt("Robert_Is_Friendly");
+
+            DataPersistance.Time = PlayerPrefs.GetFloat("Time");
         }
     }
 

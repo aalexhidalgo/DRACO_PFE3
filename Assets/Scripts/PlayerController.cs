@@ -53,11 +53,15 @@ public class PlayerController : MonoBehaviour
 
     //Logros
     public int ThisLevelCoins;
+
     public int PacificRoute;
     public int KilledEnemies;
     public int HasKilledSlums;
+
     public int FireBallCounter;
+
     public int ItemCounter;
+
     public int BulletCounter;
     public int MediumCounter;
 
@@ -94,6 +98,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Has matado al menos a un Slum: {DataPersistance.HasKilledSlums == 1}");
         Debug.Log($"Has disparado {DataPersistance.Fireballs} bolas de fuego, estás que ardes men");
         Debug.Log($"Has recogido {DataPersistance.ItemsCollected} item de mejora, aprovéchalo sabiamente");
+        Debug.Log($"Jaja, has recibido {DataPersistance.Bullets} pedradas en la cabeza");
         Debug.Log($"Auch! {DataPersistance.MediumAttack} golpes del ogro se sienten como el infierno");
 
         if (DataPersistance.CurrentLevel == 1)
@@ -262,12 +267,12 @@ public class PlayerController : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Enemy") && Shield == 0)
         {
             CurrentLive -= 0.5f;
-            Debug.Log("Cuidao que te pinsho dragón de mierda");
+            //Debug.Log("Cuidao que te pinsho dragón de mierda");
             //AddForce rebote, hay que calcular a lo 100tifiko otro día
             if (CurrentLive <= 0)
             {
                 CurrentLive = 0;
-                Debug.Log("Sa matao Paco");
+                //Debug.Log("Sa matao Paco");
                 GameManagerScript.GameOver = true;
             }
 
@@ -390,7 +395,7 @@ public class PlayerController : MonoBehaviour
             {
                 Shield = 0;
                 UpdateShield();
-                Debug.Log("Te quedas sin escudo crack");
+                //Debug.Log("Te quedas sin escudo crack");
             }
             else
             {
@@ -407,7 +412,7 @@ public class PlayerController : MonoBehaviour
             if (CurrentLive <= 0)
             {
                 CurrentLive = 0;
-                Debug.Log("Quack, quack, quack...");
+                //Debug.Log("Quack, quack, quack...");
                 GameManagerScript.GameOver = true;
                 
                 UpdateLife();

@@ -45,6 +45,12 @@ public class DataPersistance
     public static int Bullets = 0;
     public static int MediumAttack = 0;
 
+    public static int DeadInBattle = 0;
+
+    public static int RobertHasTalk = 0;
+    public static int RobertIsFriedly = 0;
+    public static float Time = 0;
+
 
     public static void SaveForFutureGames()
     {
@@ -83,7 +89,6 @@ public class DataPersistance
 
         PlayerPrefs.SetInt("Pacific_Route", PacificRoute);
         PlayerPrefs.SetInt("Killed_Enemies", KilledEnemies);
-
         PlayerPrefs.SetInt("Has_Killed_Slums", HasKilledSlums);
 
         PlayerPrefs.SetInt("FireBalls", Fireballs);
@@ -96,6 +101,14 @@ public class DataPersistance
 
         PlayerPrefs.SetInt("Bullets_Count", Bullets);
         PlayerPrefs.SetInt("Medium_Attack", MediumAttack);
+
+        PlayerPrefs.SetInt("Dead_In_Battle", DeadInBattle);
+
+        PlayerPrefs.SetInt("Robert_Has_Talk", RobertHasTalk);
+        PlayerPrefs.SetInt("Robert_Is_Friendly", RobertIsFriedly);
+
+        PlayerPrefs.SetFloat("Time", Time);
+
     }
 
     public static void SaveCoins(int CurrentCoins, int CollectedMoney)
