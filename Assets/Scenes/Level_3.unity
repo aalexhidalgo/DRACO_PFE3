@@ -12279,7 +12279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 2
-  DeadSound: {fileID: 8300000, guid: c38f58bcb80a5904dac01ab765aa0efe, type: 3}
+  DeadSound: {fileID: 8300000, guid: 9253055d25aa49b44b2db6e02d7a73f9, type: 3}
   IsSlums: 0
 --- !u!212 &1788267129056260355
 SpriteRenderer:
