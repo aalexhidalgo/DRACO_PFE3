@@ -35,6 +35,7 @@ public class BossLogic : MonoBehaviour
 
     public AudioSource AudioManagerAudioSource;
     public AudioClip Boss_Death_Clip;
+    public AudioClip Boss_Fire_Sound;
 
     #region Particulas variables
     public ParticleSystem Fireworks_1;
@@ -117,8 +118,9 @@ public class BossLogic : MonoBehaviour
         yield return new WaitForSeconds(Timer);
 
         for (int i = 0; i <= SpawnRate; i++)
-        {
+        {            
             Instantiate(Fireball, transform.GetChild(0).transform.position, transform.GetChild(0).transform.rotation);
+            AudioManagerAudioSource.PlayOneShot(Boss_Fire_Sound);
             yield return new WaitForSeconds(Timer);
         }
         canMove = true;

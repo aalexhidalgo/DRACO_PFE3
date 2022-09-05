@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -642,7 +642,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8076471519326206221, guid: c8fadd64705bd3d4cbb8b639866dc87e, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 11a03e32840dbf942b87cdd2b0d45a05, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dbf2c0fb0998d0146bf534d7748f10b5, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -7114,6 +7114,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -12275,7 +12279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 2
-  DeadSound: {fileID: 8300000, guid: 6ba1f0c93697fbd4e9a7033da37ee952, type: 3}
+  DeadSound: {fileID: 8300000, guid: c38f58bcb80a5904dac01ab765aa0efe, type: 3}
   IsSlums: 0
 --- !u!212 &1788267129056260355
 SpriteRenderer:
@@ -12691,6 +12695,10 @@ PrefabInstance:
       propertyPath: IsSlums
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
@@ -24367,6 +24375,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -30140,6 +30152,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -30217,6 +30233,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -30293,6 +30313,10 @@ PrefabInstance:
       propertyPath: IsSlums
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
@@ -30375,6 +30399,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 
       objectReference: {fileID: 536335687104539239, guid: 463dc4da38c60eb409c79950d372bf4e, type: 3}
@@ -30455,6 +30483,10 @@ PrefabInstance:
       propertyPath: IsSlums
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
     - target: {fileID: 8057123041233988147, guid: 59520b43d2bef744f9d617d4d7303397, type: 3}
       propertyPath: SmokeParticleSystem
       value: 

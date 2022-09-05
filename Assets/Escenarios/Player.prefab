@@ -126,13 +126,22 @@ MonoBehaviour:
   IsOnTheGround: 0
   CanFly: 0
   ShootFire: 0
+  DracoCanMov: 0
+  ThisLevelCoins: 0
+  PacificRoute: 0
+  KilledEnemies: 0
+  HasKilledSlums: 0
+  FireBallCounter: 0
+  ItemCounter: 0
+  BulletCounter: 0
+  MediumCounter: 0
   GameManagerAudioSource: {fileID: 0}
-  Jumping: {fileID: 8300000, guid: b0e5668918a3d504596bce201ef595d1, type: 3}
-  GameOverSound: {fileID: 8300000, guid: 768eb5f150cf17742a408b747cb1dad4, type: 3}
-  FireSound: {fileID: 8300000, guid: af48ebcecaeb4c242aec925feeffbf48, type: 3}
-  CoinSound: {fileID: 8300000, guid: 6d7d900663b5d094d8679739c3aef372, type: 3}
-  RockExplotion: {fileID: 8300000, guid: f334128dce3411447914bd07e7e1fd57, type: 3}
-  RecogerItem: {fileID: 8300000, guid: 57f8644f3cd033642ab7dfa3ba21145b, type: 3}
+  Jumping: {fileID: 8300000, guid: 78944c2f93cc37947b14b5b64f0cc6a1, type: 3}
+  GameOverSound: {fileID: 8300000, guid: 84cb632567cd9d846a26b241b28a554f, type: 3}
+  FireSound: {fileID: 8300000, guid: d1c1e207fb30f934e8b95b0680386960, type: 3}
+  CoinSound: {fileID: 8300000, guid: 799d8ae128310c74d9d61120aad7f60b, type: 3}
+  RockExplotion: {fileID: 8300000, guid: 77bbd116ed3ea5344a2711936e78e350, type: 3}
+  RecogerItem: {fileID: 8300000, guid: 2758aba968d25544a9eccf2424d0556d, type: 3}
 --- !u!54 &1845354730217931407
 Rigidbody:
   m_ObjectHideFlags: 0

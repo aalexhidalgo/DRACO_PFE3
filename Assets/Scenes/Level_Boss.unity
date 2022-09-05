@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -33668,17 +33668,41 @@ PrefabInstance:
       value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: Jumping
+      value: 
+      objectReference: {fileID: 8300000, guid: 78944c2f93cc37947b14b5b64f0cc6a1, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: UpSpeed
       value: 35
       objectReference: {fileID: 0}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: CoinSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 799d8ae128310c74d9d61120aad7f60b, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: FireSound
+      value: 
+      objectReference: {fileID: 8300000, guid: d1c1e207fb30f934e8b95b0680386960, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: RecogerItem
+      value: 
+      objectReference: {fileID: 8300000, guid: 2758aba968d25544a9eccf2424d0556d, type: 3}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: GameOverPanel
       value: 
       objectReference: {fileID: 1580090824}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: GameOverSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 84cb632567cd9d846a26b241b28a554f, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: IsOnTheGround
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: RockExplotion
+      value: 
+      objectReference: {fileID: 8300000, guid: 77bbd116ed3ea5344a2711936e78e350, type: 3}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: GameManagerAudioSource
       value: 
@@ -37243,6 +37267,7 @@ MonoBehaviour:
   ShieldValueBoss: 0
   AudioManagerAudioSource: {fileID: 8065309896121825612}
   Boss_Death_Clip: {fileID: 8300000, guid: 1d22527f196e7174bbdb309a8fbdb57e, type: 3}
+  Boss_Fire_Sound: {fileID: 8300000, guid: 06921bc31a1fdbd408871772aa2b8a03, type: 3}
   Fireworks_1: {fileID: 9186209145458287797}
   Fireworks_2: {fileID: 7882131304947478877}
   Fireworks_3: {fileID: 2164899640296830381}

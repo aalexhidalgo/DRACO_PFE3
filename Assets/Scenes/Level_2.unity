@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -491,7 +491,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -8076471519326206221, guid: c8fadd64705bd3d4cbb8b639866dc87e, type: 2}
-  m_audioClip: {fileID: 8300000, guid: eafb386f3d92ba14aae86c8e9bf65aa3, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 586c58aea12d5a34b955e3cefb347af0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2522,7 +2522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 1
-  DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  DeadSound: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
   IsSlums: 1
 --- !u!212 &4360445648692553418
 SpriteRenderer:
@@ -6033,7 +6033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 1
-  DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  DeadSound: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
   IsSlums: 1
 --- !u!54 &4360445649004334679
 Rigidbody:
@@ -10599,7 +10599,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 1
-  DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  DeadSound: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
   IsSlums: 1
 --- !u!54 &4360445649454219187
 Rigidbody:
@@ -14836,6 +14836,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4360445650107945148}
     m_Modifications:
+    - target: {fileID: 1651674565411103328, guid: c9d158782b3f3a3429e742677da5024f, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c38f58bcb80a5904dac01ab765aa0efe, type: 3}
     - target: {fileID: 2413480167950247145, guid: c9d158782b3f3a3429e742677da5024f, type: 3}
       propertyPath: m_Name
       value: Medium_Enemy_Empty (2)
@@ -15969,7 +15973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 1
-  DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  DeadSound: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
   IsSlums: 1
 --- !u!54 &4360445649991889285
 Rigidbody:
@@ -16433,6 +16437,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4360445650107945148}
     m_Modifications:
+    - target: {fileID: 1651674565411103328, guid: c9d158782b3f3a3429e742677da5024f, type: 3}
+      propertyPath: DeadSound
+      value: 
+      objectReference: {fileID: 8300000, guid: c38f58bcb80a5904dac01ab765aa0efe, type: 3}
     - target: {fileID: 2413480167950247145, guid: c9d158782b3f3a3429e742677da5024f, type: 3}
       propertyPath: m_Name
       value: Medium_Enemy_Empty (1)
@@ -21250,7 +21258,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyLife: 1
-  DeadSound: {fileID: 8300000, guid: fda3fcd1daf70dd4eb34e586fedb77de, type: 3}
+  DeadSound: {fileID: 8300000, guid: 9fa3c63e9ddfb624b8c7622ee9eab1e4, type: 3}
   IsSlums: 1
 --- !u!1 &4360445650439889878
 GameObject:
