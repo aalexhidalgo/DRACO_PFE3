@@ -28,11 +28,11 @@ public class EnemyLogic : MonoBehaviour
 
     private void OnDestroy()
     {
-        PlayerControllerScript.PacificRoute = 0;
-        PlayerControllerScript.KilledEnemies += 1;
+        DataPersistance.PacificRoute = 0;
+        DataPersistance.KilledEnemies += 1;
         if(IsSlums == true)
         {
-            PlayerControllerScript.HasKilledSlums = 1;
+            DataPersistance.HasKilledSlums = 1;
         }
         Debug.Log("Has matado, ya no eres puro de corazón como Goku jeje");
     }

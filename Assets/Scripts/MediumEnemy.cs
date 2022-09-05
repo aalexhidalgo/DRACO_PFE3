@@ -36,7 +36,7 @@ public class MediumEnemy : MonoBehaviour
     {
         if (otherCollider.gameObject.CompareTag("Player")) //&& Shield == 0)??
         {
-            PlayerControllerScript.MediumCounter += 1;
+            DataPersistance.MediumAttack += 1;
         }
     }
 }

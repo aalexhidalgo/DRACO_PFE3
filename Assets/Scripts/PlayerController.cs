@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         BulletCounter = DataPersistance.Bullets;
         MediumCounter = DataPersistance.MediumAttack;
 
-        ThisLevelCoins = 0;
+        //ThisLevelCoins = 0;
         Debug.Log($"Has conseguido {DataPersistance.CoinsColected} monedas, enhorabuena");
         Debug.Log($"Has matado a {DataPersistance.KilledEnemies} enemigos, ole tu");
         Debug.Log($"Has matado al menos a un Slum: {DataPersistance.HasKilledSlums == 1}");
@@ -329,7 +329,7 @@ public class PlayerController : MonoBehaviour
             GameManagerAudioSource.PlayOneShot(CoinSound);  
             Destroy(otherTrigger.gameObject);
             MoneyCounter += 5;
-            ThisLevelCoins += 5;
+            DataPersistance.CoinsColected += 5;
             //Debug.Log($"Tienes {MoneyCounter} monedas, crack");
             UpdateMoney();
         }
@@ -341,13 +341,14 @@ public class PlayerController : MonoBehaviour
             GameManagerAudioSource.PlayOneShot(RecogerItem);
             CurrentLive++;
             Destroy(otherTrigger.gameObject);
-            ItemCounter += 1;
+            DataPersistance.ItemsCollected += 1;
 
             if (CurrentLive >= 3)
             {
                 CurrentLive = 3f;
                 MoneyCounter += 10;
-                ThisLevelCoins += 10;
+                //ThisLevelCoins += 10;
+                //DataPersistance.CoinsColected += 10;
                 UpdateMoney();
                 Destroy(otherTrigger.gameObject);
             }
@@ -389,7 +390,7 @@ public class PlayerController : MonoBehaviour
         if (otherTrigger.gameObject.CompareTag("Bullet") && Shield == 1)
         {
             MaxShieldValue -= 1;
-            BulletCounter += 1;
+            DataPersistance.Bullets += 1;
 
             if (MaxShieldValue <= 0)
             {
@@ -407,7 +408,7 @@ public class PlayerController : MonoBehaviour
         {
             Destroy(otherTrigger.gameObject);
             CurrentLive -= 0.5f;
-            BulletCounter += 1;
+            DataPersistance.Bullets += 1;
 
             if (CurrentLive <= 0)
             {
@@ -431,7 +432,7 @@ public class PlayerController : MonoBehaviour
             GameManagerScript.Flybar.fillAmount = 1;
             GameManagerScript.FlybarCounter = 1;
             Destroy(otherTrigger.gameObject);
-            ItemCounter += 1;
+            DataPersistance.ItemsCollected += 1;
         }
 
         if(otherTrigger.gameObject.CompareTag("Shield"))
@@ -440,7 +441,7 @@ public class PlayerController : MonoBehaviour
             Shield = 1;
             UpdateShield();
             Destroy(otherTrigger.gameObject);
-            ItemCounter += 1;
+            DataPersistance.ItemsCollected += 1;
         }
         #endregion
 

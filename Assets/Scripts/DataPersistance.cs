@@ -46,6 +46,7 @@ public class DataPersistance
     public static int MediumAttack = 0;
 
     public static int DeadInBattle = 0;
+    public static int BossIsDead = 0;
 
     public static int RobertHasTalk = 0;
     public static int RobertIsFriedly = 0;
@@ -103,6 +104,7 @@ public class DataPersistance
         PlayerPrefs.SetInt("Medium_Attack", MediumAttack);
 
         PlayerPrefs.SetInt("Dead_In_Battle", DeadInBattle);
+        PlayerPrefs.SetInt("Boss_Is_Dead", BossIsDead);
 
         PlayerPrefs.SetInt("Robert_Has_Talk", RobertHasTalk);
         PlayerPrefs.SetInt("Robert_Is_Friendly", RobertIsFriedly);

@@ -82,6 +82,7 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.MediumAttack = PlayerPrefs.GetInt("Medium_Attack");
 
             DataPersistance.DeadInBattle = PlayerPrefs.GetInt("Dead_In_Battle");
+            DataPersistance.DeadInBattle = PlayerPrefs.GetInt("Boss_Is_Dead");
 
             DataPersistance.RobertHasTalk = PlayerPrefs.GetInt("Robert_Has_Talk");
             DataPersistance.RobertHasTalk = PlayerPrefs.GetInt("Robert_Is_Friendly");

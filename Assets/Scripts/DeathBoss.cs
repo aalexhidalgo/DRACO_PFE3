@@ -64,6 +64,8 @@ public class DeathBoss : MonoBehaviour
             DeathText.text += d;
             yield return new WaitForSeconds(0.1f);
         }
+        DataPersistance.BossIsDead = 1;
+        DataPersistance.SaveForFutureGames();
 
         yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("Credits");

@@ -88,6 +88,6 @@ public class FireLogic : MonoBehaviour
 
     private void OnDestroy()
     {
-        PlayerControllerScript.FireBallCounter += 1;
+        DataPersistance.Fireballs += 1;
     }
 }
