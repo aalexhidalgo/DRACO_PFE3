@@ -497,6 +497,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 No.SetActive(false);
                 Next.SetActive(true);
                 closeDialogue = true;
+                EventSystem.current.SetSelectedGameObject(Next.gameObject);
                 DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }
@@ -532,6 +533,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 No.SetActive(false);
                 Next.SetActive(true);
                 closeDialogue = true;
+                EventSystem.current.SetSelectedGameObject(Next.gameObject);
                 DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }
@@ -564,6 +566,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 No.SetActive(false);
                 Next.SetActive(true);
                 closeDialogue = true;
+                EventSystem.current.SetSelectedGameObject(Next.gameObject);
                 DialogueText.text = ProductsDialogue[4].GetLocalizedString(LocalizedStringsProductsDialogue[4]);
             }
         }
@@ -705,6 +708,10 @@ public class BetweenLevelsManager : MonoBehaviour
             else if (isShopping == true && Yes_3.activeInHierarchy)
             {
                 EventSystem.current.SetSelectedGameObject(Yes_3.gameObject);
+            }
+            else if (isShopping == true && Next.activeInHierarchy)
+            {
+                EventSystem.current.SetSelectedGameObject(Next.gameObject);
             }
         }
         else
