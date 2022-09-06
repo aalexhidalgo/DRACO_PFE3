@@ -157,9 +157,11 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.Bullets = 0;
         DataPersistance.MediumAttack = 0;
         DataPersistance.DeadInBattle = 0;
+        DataPersistance.BossIsDead = 0;
         DataPersistance.RobertHasTalk = 0;
         DataPersistance.RobertIsFriedly = 0;
         DataPersistance.Time = 0;
+
         DataPersistance.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
     }
