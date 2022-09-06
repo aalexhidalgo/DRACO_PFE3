@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 540460325747511162}
   - component: {fileID: 540460325747511163}
-  - component: {fileID: 540460325747511140}
-  - component: {fileID: 540460325747511141}
-  - component: {fileID: 5036727555357407698}
-  - component: {fileID: 8442994566741915109}
+  - component: {fileID: 882866105602347772}
+  - component: {fileID: 6986270105863700740}
+  - component: {fileID: 139881485154446174}
   m_Layer: 0
   m_Name: Fuego_sprite_2D
   m_TagString: Untagged
@@ -74,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 683e9eabe33e6804fa6b2c1cd75a7dfb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,26 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &540460325747511140
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 540460325747511143}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0216f5e5bc6f18f4083752bd886a6b5a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &540460325747511141
+--- !u!65 &882866105602347772
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -116,23 +96,9 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.5692108, y: 1.6324835, z: 0.5}
-  m_Center: {x: 0.015311003, y: -0.15824994, z: -4.4621166e-18}
---- !u!114 &5036727555357407698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 540460325747511143}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6578975af2a0034dba545c2d7e600a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Speed: 10
-  DamageParticleSystem: {fileID: 4834642325656029573, guid: 47eb92b846e449f4e8d917ff150cdc6d, type: 3}
---- !u!54 &8442994566741915109
+  m_Size: {x: 2.5075824, y: 1.612617, z: 1.1313443}
+  m_Center: {x: -2.7257044e-17, y: -0.15409207, z: -0.013706952}
+--- !u!54 &6986270105863700740
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,8 +112,22 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
+--- !u!114 &139881485154446174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540460325747511143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6578975af2a0034dba545c2d7e600a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 10
+  DamageParticleSystem: {fileID: 4834642325656029573, guid: 47eb92b846e449f4e8d917ff150cdc6d, type: 3}
 --- !u!1 &5886955339636028956
 GameObject:
   m_ObjectHideFlags: 0

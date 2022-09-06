@@ -63,27 +63,27 @@ public class FireLogic_Boss : MonoBehaviour
                 }
                 
                 PlayerControllerScript.UpdateLife();
-                Destroy(gameObject);
+                Destroy(transform.parent.gameObject);
             }
         }
 
         if(otherTrigger.gameObject.CompareTag("Fire"))
         {
             Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
             Destroy(otherTrigger.gameObject);
         }
 
         if(otherTrigger.gameObject.CompareTag("Ground"))
         {
             Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
 
         if (otherTrigger.gameObject.CompareTag("Wall"))
         {
             Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
-            Destroy(gameObject);
+            Destroy(transform.parent.gameObject);
         }
 
     }
