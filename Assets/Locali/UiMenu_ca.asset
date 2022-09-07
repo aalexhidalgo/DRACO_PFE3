@@ -116,5 +116,9 @@ MonoBehaviour:
     m_Localized: No tens dades guardades...
     m_Metadata:
       m_Items: []
+  - m_Id: 4490075140452352
+    m_Localized: IDIOMES
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

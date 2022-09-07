@@ -99,6 +99,10 @@ public class GameManager : MonoBehaviour
         pause = false;
         PauseButton.sprite = UnPause;
         DataPersistance.SaveForFutureGames();
+        if (FindObjectOfType<PlayerController>() != null)
+        {
+            GameObject.Find("Player").GetComponent<PlayerController>().enabled = true;
+        }
         Time.timeScale = 1;
     }
 
@@ -134,6 +138,11 @@ public class GameManager : MonoBehaviour
             pause = true;
             PauseButton.sprite = Pause;
             Time.timeScale = 0;
+
+            if(FindObjectOfType<PlayerController>() != null)
+            {
+                GameObject.Find("Player").GetComponent<PlayerController>().enabled = false;
+            }
         }
         else
         {

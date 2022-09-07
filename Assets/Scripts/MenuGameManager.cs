@@ -462,6 +462,26 @@ public class MenuGameManager : MonoBehaviour
             }
         }
     }
+
+    public void LanguageButton(int locale)
+    {
+        if(locale == 0)
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan);
+            Flag.sprite = LanguageFlags[0];
+        }
+        else if(locale == 1)
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English);
+            Flag.sprite = LanguageFlags[1];
+        }
+        else
+        {
+            LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Spanish);
+            Flag.sprite = LanguageFlags[2];
+        }
+
+    }
     public void LoadLenguageSelection()
     {
         if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
