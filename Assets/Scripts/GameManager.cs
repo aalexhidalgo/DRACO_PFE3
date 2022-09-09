@@ -186,8 +186,8 @@ public class GameManager : MonoBehaviour
         {
             PostProcesadoMuerte.SetActive(true);
             GameOverPanel.SetActive(true);
-            Time.timeScale = 0;
 
+            Time.timeScale = 0;
         }
 
         //Pausa: Mediante Ratón o Joystick button 9 (Options)
