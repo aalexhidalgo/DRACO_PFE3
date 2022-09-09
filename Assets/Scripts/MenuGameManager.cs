@@ -83,6 +83,7 @@ public class MenuGameManager : MonoBehaviour
     public TMP_Dropdown LanguageDropdown;
     public Image Flag;
     public Sprite[] LanguageFlags;
+    //public LocalizedGameObject Flags;
 
     void Start()
     {
@@ -203,7 +204,7 @@ public class MenuGameManager : MonoBehaviour
     {
         Debug.Log("Exit");
         Application.Quit();
-        EditorApplication.isPlaying = false;
+        //EditorApplication.isPlaying = false;
     }
 
     public void ReturnButton()
