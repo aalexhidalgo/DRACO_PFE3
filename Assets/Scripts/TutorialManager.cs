@@ -136,6 +136,7 @@ public class TutorialManager : MonoBehaviour
             if(GameManagerScript.FlybarCounter>0)
             {
                 StartCoroutine(ShowNext());
+                DataPersistance.TutorialDone = 1;
             }
         }
     }

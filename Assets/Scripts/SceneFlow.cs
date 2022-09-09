@@ -27,18 +27,41 @@ public class SceneFlow : MonoBehaviour
     {
         if (otherCollider.gameObject.CompareTag("Player"))
         {
-            DataPersistance.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter, otherCollider.gameObject.GetComponent<PlayerController>().ThisLevelCoins); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
-            DataPersistance.CurrentLevel++;
+            DataPersistance.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
+           
+
+            if(DataPersistance.CurrentLevel == 1)
+            {
+                DataPersistance.Level1Done = 1;
+            }
+
+            else if(DataPersistance.CurrentLevel == 2)
+            {
+                DataPersistance.Level2Done = 1;
+            }
+
+            else if (DataPersistance.CurrentLevel == 3)
+            {
+                DataPersistance.Level3Done = 1;
+            }
+
+            else if (DataPersistance.CurrentLevel == 4)
+            {
+                DataPersistance.Level4Done = 1;
+            }
 
             //Logros Update zone
-            DataPersistance.PacificRoute = otherCollider.gameObject.GetComponent<PlayerController>().PacificRoute;
+            /*DataPersistance.PacificRoute = otherCollider.gameObject.GetComponent<PlayerController>().PacificRoute;
             DataPersistance.KilledEnemies = otherCollider.gameObject.GetComponent<PlayerController>().KilledEnemies;
             DataPersistance.HasKilledSlums = otherCollider.gameObject.GetComponent<PlayerController>().HasKilledSlums;
             DataPersistance.Fireballs = otherCollider.gameObject.GetComponent<PlayerController>().FireBallCounter;
             DataPersistance.ItemsCollected = otherCollider.gameObject.GetComponent<PlayerController>().ItemCounter;
             DataPersistance.Bullets = otherCollider.gameObject.GetComponent<PlayerController>().BulletCounter;
             DataPersistance.MediumAttack = otherCollider.gameObject.GetComponent<PlayerController>().MediumCounter;
+            */
 
+
+            DataPersistance.CurrentLevel++;
             DataPersistance.SaveForFutureGames();
             
             SceneManager.LoadScene("Store");
@@ -88,6 +111,13 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.RobertHasTalk = PlayerPrefs.GetInt("Robert_Is_Friendly");
 
             DataPersistance.Time = PlayerPrefs.GetFloat("Time");
+
+            DataPersistance.TutorialDone = PlayerPrefs.GetInt("Tutorial_Done");
+            DataPersistance.Level1Done = PlayerPrefs.GetInt("Level1_Done");
+            DataPersistance.Level2Done = PlayerPrefs.GetInt("Level2_Done");
+            DataPersistance.Level3Done = PlayerPrefs.GetInt("Level3_Done");
+            DataPersistance.Level4Done = PlayerPrefs.GetInt("Level4_Done");
+
         }
     }
 

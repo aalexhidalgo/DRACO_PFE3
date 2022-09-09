@@ -52,6 +52,13 @@ public class DataPersistance
     public static int RobertIsFriedly = 0;
     public static float Time = 0;
 
+    public static int TutorialDone = 0;
+
+    public static int Level1Done = 0;
+    public static int Level2Done = 0;
+    public static int Level3Done = 0;
+    public static int Level4Done = 0;
+
 
     public static void SaveForFutureGames()
     {
@@ -111,12 +118,19 @@ public class DataPersistance
 
         PlayerPrefs.SetFloat("Time", Time);
 
+        PlayerPrefs.SetInt("Tutorial_Done", TutorialDone);
+        PlayerPrefs.SetInt("Level1_Done", Level1Done);
+        PlayerPrefs.SetInt("Level2_Done", Level2Done);
+        PlayerPrefs.SetInt("Level3_Done", Level3Done);
+        PlayerPrefs.SetInt("Level4_Done", Level4Done);
+
+
     }
 
-    public static void SaveCoins(int CurrentCoins, int CollectedMoney)
+    public static void SaveCoins(int CurrentCoins)
     {
         //Contador de monedas
         MoneyCounter = CurrentCoins;
-        CoinsColected += CollectedMoney;
+        //CoinsColected += CollectedMoney;
     }
 }

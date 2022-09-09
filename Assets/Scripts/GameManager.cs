@@ -172,9 +172,10 @@ public class GameManager : MonoBehaviour
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         //MainCameraAudioSource.volume = DataPersistance.MusicVolume;
         GameManagerAudioSource = GetComponent<AudioSource>();
-        GameManagerAudioSource.volume = DataPersistance.SoundVolume;
+        //GameManagerAudioSource.volume = DataPersistance.SoundVolume;
 
         //UpdateMusicSound_Value();
+        
         UpdateMusicSound_Active();
         restartButton.Select();
         #endregion
@@ -225,7 +226,7 @@ public class GameManager : MonoBehaviour
     */
     public void UpdateMusicSound_Active()
     {
-        if(DataPersistance.MusicToggle == 0)
+        if(PlayerPrefs.GetInt("Music_Toggle") == 0)
         {
             MusicToggle.isOn = false;
         }
@@ -234,14 +235,18 @@ public class GameManager : MonoBehaviour
             MusicToggle.isOn = true;
         }
 
-        if (DataPersistance.SoundToggle == 0)
+        
+        if (PlayerPrefs.GetInt("Sound_Toggle") == 0)
         {
+            Debug.Log($"Tengo el valor correcto");
             SoundToggle.isOn = false;
         }
         else
         {
+            Debug.Log($"El toggle de Sonido vale: {DataPersistance.SoundToggle == 1} In function");
             SoundToggle.isOn = true;
         }
+  
     }
 
     //Guardamos en Data Persistance a tiempo real el valor de los sliders

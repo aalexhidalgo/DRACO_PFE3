@@ -163,6 +163,12 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.RobertIsFriedly = 0;
         DataPersistance.Time = 0;
 
+        DataPersistance.Level1Done = 0;
+        DataPersistance.Level2Done = 0;
+        DataPersistance.Level3Done = 0;
+        DataPersistance.Level4Done = 0;
+        DataPersistance.TutorialDone = 0;
+
         DataPersistance.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
     }
@@ -270,9 +276,14 @@ public class MenuGameManager : MonoBehaviour
     }
     //TOGGLE MÚSICA
     public void UpdateIntMusic_Sound()
-    {        
+    {   
+        /*
         intToggleMusic = BoolToInt(MusicToggle.GetComponent<Toggle>().isOn);
         intToggleSound = BoolToInt(SoundToggle.GetComponent<Toggle>().isOn);
+        */
+        intToggleMusic = BoolIntPrueba(MusicToggle.GetComponent<Toggle>().isOn);
+        intToggleSound = BoolIntPrueba(SoundToggle.GetComponent<Toggle>().isOn);
+        
     }
 
 
@@ -286,6 +297,18 @@ public class MenuGameManager : MonoBehaviour
     public int BoolToInt(bool b)
     {
         return b ? 1 : 0;
+    }
+
+    public int BoolIntPrueba(bool b)
+    {
+        if(b == false)
+        {
+            return 0;
+        }
+        else
+        {
+            return 1;
+        }
     }
 
    public bool IntToBool(int i)

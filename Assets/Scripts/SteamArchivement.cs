@@ -10,21 +10,57 @@ public class SteamArchivement : MonoBehaviour
     {
         if (!SteamManager.Initialized) { return; }
 
+        if(DataPersistance.TutorialDone == 1) //Completa el tutorial
+        {
+            SteamUserStats.SetAchievement("FIRSTS_STEPS");
+            SteamUserStats.StoreStats();
+        }
+
         if (DataPersistance.RobertHasTalk == 1) //Habla con Robert
         {
             SteamUserStats.SetAchievement("TALK_TO_ROBERT");
             SteamUserStats.StoreStats();
         }
 
-        if (DataPersistance.HasKilledSlums == 0 && SceneManager.GetActiveScene().name == "Credits") //No mates a los Slums
+        if (DataPersistance.Level1Done == 1) //completa el nivel 1
         {
-            SteamUserStats.SetAchievement("DONT_KILL_SLUMS");
+            SteamUserStats.SetAchievement("COMPLETE_LEVEL1");
             SteamUserStats.StoreStats();
         }
 
-        if(DataPersistance.DeadInBattle == 0 && DataPersistance.BossIsDead == 1) //Mata al Boss en el primer intento
+        if (DataPersistance.Level2Done == 1) //completa el nivel 2
+        {
+            SteamUserStats.SetAchievement("COMPLETE_LEVEL2");
+            SteamUserStats.StoreStats();
+        }
+
+        if (DataPersistance.Level3Done == 1) //completa el nivel 3
+        {
+            SteamUserStats.SetAchievement("COMPLETE_LEVEL3");
+            SteamUserStats.StoreStats();
+        }
+
+        if (DataPersistance.Level4Done == 1) //completa el nivel 4
+        {
+            SteamUserStats.SetAchievement("COMPLETE_LEVEL4");
+            SteamUserStats.StoreStats();
+        }
+
+        if(DataPersistance.BossIsDead == 1) //Derrota al Boss
+        {
+            SteamUserStats.SetAchievement("DEFEAT_KING");
+            SteamUserStats.StoreStats();
+        }
+
+        if (DataPersistance.DeadInBattle == 0 && DataPersistance.BossIsDead == 1) //Mata al Boss en el primer intento
         {
             SteamUserStats.SetAchievement("BOSS_IN_FIRST_TRY");
+            SteamUserStats.StoreStats();
+        }
+
+        if (DataPersistance.HasKilledSlums == 0 && SceneManager.GetActiveScene().name == "Credits") //No mates a los Slums
+        {
+            SteamUserStats.SetAchievement("DONT_KILL_SLUMS");
             SteamUserStats.StoreStats();
         }
 

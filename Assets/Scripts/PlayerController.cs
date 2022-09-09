@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
     private GameManager GameManagerScript;
 
     //Logros
+    /*
     public int ThisLevelCoins;
 
     public int PacificRoute;
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     public int BulletCounter;
     public int MediumCounter;
-
+    */
     #region Audio
 
     //AudioSources para acceder a sonidos
@@ -84,14 +85,14 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        PacificRoute = DataPersistance.PacificRoute;
+        /*PacificRoute = DataPersistance.PacificRoute;
         KilledEnemies = DataPersistance.KilledEnemies;
         HasKilledSlums = DataPersistance.HasKilledSlums;
         FireBallCounter = DataPersistance.Fireballs;
         ItemCounter = DataPersistance.ItemsCollected;
         BulletCounter = DataPersistance.Bullets;
         MediumCounter = DataPersistance.MediumAttack;
-
+        
         //ThisLevelCoins = 0;
         Debug.Log($"Has conseguido {DataPersistance.CoinsColected} monedas, enhorabuena");
         Debug.Log($"Has matado a {DataPersistance.KilledEnemies} enemigos, ole tu");
@@ -100,6 +101,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Has recogido {DataPersistance.ItemsCollected} item de mejora, aprovéchalo sabiamente");
         Debug.Log($"Jaja, has recibido {DataPersistance.Bullets} pedradas en la cabeza");
         Debug.Log($"Auch! {DataPersistance.MediumAttack} golpes del ogro se sienten como el infierno");
+        */
 
         if (DataPersistance.CurrentLevel == 1)
         {
