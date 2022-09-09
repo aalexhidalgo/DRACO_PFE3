@@ -505,6 +505,8 @@ public class MenuGameManager : MonoBehaviour
             Flag.sprite = LanguageFlags[2];
         }
 
+        DataPersistance.LanguageIntValue = locale;
+
     }
     public void LoadLenguageSelection()
     {
