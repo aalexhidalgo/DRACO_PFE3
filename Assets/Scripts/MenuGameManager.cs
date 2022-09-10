@@ -223,11 +223,8 @@ public class MenuGameManager : MonoBehaviour
         OptionsPanel.SetActive(false);
         HowToPlayPanel.SetActive(false);
         MainMenuPanel.SetActive(true);
-        DataPersistance.MusicToggle = intToggleMusic;
-        DataPersistance.SoundToggle = intToggleSound;
         Flag.sprite = LanguageFlags[LanguageDropdown.value];
         DataPersistance.SaveForFutureGames();
-
 
     }
 
@@ -283,7 +280,10 @@ public class MenuGameManager : MonoBehaviour
         */
         intToggleMusic = BoolIntPrueba(MusicToggle.GetComponent<Toggle>().isOn);
         intToggleSound = BoolIntPrueba(SoundToggle.GetComponent<Toggle>().isOn);
-        
+
+        DataPersistance.MusicToggle = intToggleMusic;
+        DataPersistance.SoundToggle = intToggleSound;
+
     }
 
 

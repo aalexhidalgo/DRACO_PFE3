@@ -27,7 +27,14 @@ public class BulletLogic : MonoBehaviour
             AudioManagerAudiosource.PlayOneShot(RockCrash);
             Destroy(gameObject);
         }
-        
+
+        if (otherTrigger.gameObject.CompareTag("Water"))
+        {
+            //Instantiate(RockParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
+            //AudioManagerAudiosource.PlayOneShot(RockCrash);
+            Destroy(gameObject,0.2f);
+        }
+
     }
 
 }

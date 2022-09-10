@@ -158,7 +158,8 @@ public class GameManager : MonoBehaviour
 
         LifeImage = LifeImage.GetComponent<Image>();
 
-        FlybarCounter = Flybar.fillAmount;
+        //FlybarCounter = Flybar.fillAmount;
+        FlybarCounter = 0;
 
         ShieldState = ShieldState.GetComponent<Image>();
 

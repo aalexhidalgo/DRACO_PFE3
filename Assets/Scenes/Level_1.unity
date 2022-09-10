@@ -2393,7 +2393,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670437988}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10.000004, y: 4.360941, z: 1.3376567}
+  m_LocalPosition: {x: 10.000003, y: 4.360941, z: 2.82775}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4334,7 +4334,7 @@ MonoBehaviour:
   m_ZDamping: 0
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.824
+  m_ScreenY: 0.72
   m_CameraDistance: 10
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
@@ -4690,7 +4690,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465669377}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10.000002, y: 4.064, z: -3.5199997}
+  m_LocalPosition: {x: 10.000002, y: 2.5040004, z: -3.5199997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1270603948}
@@ -6388,6 +6388,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8736681915240272040}
     m_Modifications:
+    - target: {fileID: 5212268565643196545, guid: de2e36df940e0564daaf5164c8b14133, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5212268565866255519, guid: de2e36df940e0564daaf5164c8b14133, type: 3}
       propertyPath: BulletPoint
       value: 
@@ -15953,8 +15957,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.0000007, y: 2.4, z: 6.5611653}
-  m_Center: {x: -3.5607e-16, y: 0, z: 0.17511237}
+  m_Size: {x: 1.5091429, y: 2.4, z: 6.5611725}
+  m_Center: {x: -0.04240501, y: 0, z: 0.17511247}
 --- !u!114 &2778992386068247240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19529,6 +19533,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8736681915240272040}
     m_Modifications:
+    - target: {fileID: 5212268565643196545, guid: de2e36df940e0564daaf5164c8b14133, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5212268565866255519, guid: de2e36df940e0564daaf5164c8b14133, type: 3}
       propertyPath: BulletPoint
       value: 
@@ -19610,6 +19618,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8736681915240272040}
     m_Modifications:
+    - target: {fileID: 5212268565643196545, guid: de2e36df940e0564daaf5164c8b14133, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5212268565866255519, guid: de2e36df940e0564daaf5164c8b14133, type: 3}
       propertyPath: BulletPoint
       value: 
@@ -19679,7 +19691,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!212 &6844040773555483170
 SpriteRenderer:
   m_ObjectHideFlags: 0
