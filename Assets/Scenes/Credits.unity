@@ -1320,13 +1320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'ALEXANDER HIDALGO CALAFAT
-
-    &
-
-    JAVIER BELTRAN PRATS
-
-'
+  m_text: "ALEXANDER HIDALGO CALAFAT\n&\nJAVIER BELTR\xC1N PRATS\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9059b4b1cf2fbc940b55c6155b39bc9d, type: 2}
   m_sharedMaterial: {fileID: 608564539469345013, guid: 9059b4b1cf2fbc940b55c6155b39bc9d, type: 2}
