@@ -262,19 +262,23 @@ public class GameManager : MonoBehaviour
         if (MusicToggle.isOn == false)
         {
             DataPersistance.MusicToggle = 0;
+            //PlayerPrefs.SetInt("Music_Toggle",0);
         }
         else
         {
             DataPersistance.MusicToggle = 1;
+            //PlayerPrefs.SetInt("Music_Toggle", 1);
         }
 
         if (SoundToggle.isOn == false)
         {
             DataPersistance.SoundToggle = 0;
+            //PlayerPrefs.SetInt("Sound_Toggle", 0);
         }
         else
         {
             DataPersistance.SoundToggle = 1;
+            //PlayerPrefs.SetInt("Sound_Toggle", );
         }
     }
     #endregion
