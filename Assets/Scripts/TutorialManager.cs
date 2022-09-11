@@ -193,7 +193,7 @@ public class TutorialManager : MonoBehaviour
 
 
             Alphavalue += 0.075f;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.075f);
         }
 
         boxColor.a = Alphavalue;
@@ -256,7 +256,7 @@ public class TutorialManager : MonoBehaviour
             }
 
             Alphavalue -= 0.075f;
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.075f);
         }
     }
 }
