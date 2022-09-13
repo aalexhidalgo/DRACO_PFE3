@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "ALEXANDER HIDALGO CALAFAT\n&\nJAVIER BELTR\xC1N PRATS\n"
+  m_text: "ALEXANDER HIDALGO CALAFAT\nJAVIER BELTR\xC1N PRATS\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 9059b4b1cf2fbc940b55c6155b39bc9d, type: 2}
   m_sharedMaterial: {fileID: 608564539469345013, guid: 9059b4b1cf2fbc940b55c6155b39bc9d, type: 2}
