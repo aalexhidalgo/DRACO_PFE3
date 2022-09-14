@@ -4,9 +4,9 @@ using UnityEngine;
 using Steamworks;
 using UnityEngine.SceneManagement;
 
-public class SteamArchivement : MonoBehaviour
+public class SteamArchivement
 {
-    void Update()
+   static void Update()
     {
         if (!SteamManager.Initialized) { return; }
 
