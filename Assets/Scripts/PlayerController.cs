@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     //Comunicación con scripts
     private GameManager GameManagerScript;
-
+    private GamePadController gamePadControllerScript;
     //Logros
     /*
     public int ThisLevelCoins;
@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"Jaja, has recibido {DataPersistance.Bullets} pedradas en la cabeza");
         Debug.Log($"Auch! {DataPersistance.MediumAttack} golpes del ogro se sienten como el infierno");
         */
+        gamePadControllerScript = FindObjectOfType<GamePadController>();
 
         if (DataPersistance.CurrentLevel == 1)
         {
@@ -180,7 +181,7 @@ public class PlayerController : MonoBehaviour
             //TECLADO: Spacebar.
             //GAMEPAD: Joystick button 1 (X).
 
-            if (Input.GetButtonDown("UpMove") && IsOnTheGround && UpSpeed > 0) //X, Axis
+            if (Input.GetButtonDown("UpMove") && IsOnTheGround && UpSpeed > 0 && gamePadControllerScript.Xbox_One_Controller == 0) //X, Axis
             {
                 //DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
@@ -189,6 +190,7 @@ public class PlayerController : MonoBehaviour
                 
                 IsOnTheGround = false;
             }
+
             #endregion
 
             #region Vuelo Draco

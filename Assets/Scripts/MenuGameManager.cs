@@ -45,6 +45,7 @@ public class MenuGameManager : MonoBehaviour
     public GameObject HowToPlayPanel;
     public GameObject KeyboardPanel;
     public GameObject GamepadPanel;
+    public GameObject XboxPanel;
 
     //Panel principal
 
@@ -189,16 +190,27 @@ public class MenuGameManager : MonoBehaviour
         MainMenuPanel.SetActive(false);
         HowToPlayPanel.SetActive(true);
 
-        if(DataPersistance.SwitchControls == 0)
+        if(DataPersistance.SwitchControls == 0) //Teclado
         {
             GamepadPanel.SetActive(false);
             KeyboardPanel.SetActive(true);
+            XboxPanel.SetActive(false);
         }
-        else
+        else if(DataPersistance.SwitchControls == 1) //Mando de PlayStation
         {
             KeyboardPanel.SetActive(false);
             GamepadPanel.SetActive(true);
+            XboxPanel.SetActive(false);
         }
+            
+        else //Mando de XBOX
+        {
+            KeyboardPanel.SetActive(false);
+            GamepadPanel.SetActive(false);
+            XboxPanel.SetActive(true);
+        }
+
+        
     }
     public void OptionsButton()
     {
@@ -238,8 +250,21 @@ public class MenuGameManager : MonoBehaviour
     public void GamePadControls()
     {
         KeyboardPanel.SetActive(false);
-        GamepadPanel.SetActive(true);
-        DataPersistance.SwitchControls = 1;
+
+        if (GamePadControllerScript.PS4_Controller == 1)
+        {
+            XboxPanel.SetActive(false);
+            GamepadPanel.SetActive(true);
+            DataPersistance.SwitchControls = 1;
+        }
+
+        if (GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            GamepadPanel.SetActive(false);
+            XboxPanel.SetActive(true);
+            DataPersistance.SwitchControls = 2;
+        }
+
     }
 
     public void LoadGameControls()
