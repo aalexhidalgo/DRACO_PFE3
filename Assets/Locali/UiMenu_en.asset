@@ -120,5 +120,17 @@ MonoBehaviour:
     m_Localized: "\rLANGUAGES"
     m_Metadata:
       m_Items: []
+  - m_Id: 7897592540766208
+    m_Localized: "Horizontal Move\nVertical/Horizontal \nNav."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7898829881417728
+    m_Localized: "Horizontal \nMove\nVertical/Horizontal \nNav."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7899260149899264
+    m_Localized: RT Fly
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

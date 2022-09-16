@@ -117,6 +117,18 @@ MonoBehaviour:
     m_Key: Idiomas_Text
     m_Metadata:
       m_Items: []
+  - m_Id: 7897592540766208
+    m_Key: Xbox_Ajustment
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7898829881417728
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7899260149899264
+    m_Key: RT_text
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

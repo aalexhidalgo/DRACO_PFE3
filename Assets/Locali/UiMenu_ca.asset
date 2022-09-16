@@ -120,5 +120,21 @@ MonoBehaviour:
     m_Localized: IDIOMES
     m_Metadata:
       m_Items: []
+  - m_Id: 7897592540766208
+    m_Localized: 'Mov. Horitzontal
+
+      Nav.Vertical/
+
+      Horitzontal '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7898829881417728
+    m_Localized: "Mov.\nHoritzontal \nNav.\nVertical/Horitzontal"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7899260149899264
+    m_Localized: RT Volar
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

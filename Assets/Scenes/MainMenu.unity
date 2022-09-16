@@ -5683,7 +5683,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 808, y: 449}
+  m_AnchoredPosition: {x: 835, y: 449}
   m_SizeDelta: {x: 130.7232, y: 25.665}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &731529271
@@ -12247,7 +12247,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:86284b3c759d58d4dbf0b0e03ae0b24d
     m_TableEntryReference:
-      m_KeyId: 351986541326336
+      m_KeyId: 7897592540766208
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -13217,7 +13217,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:86284b3c759d58d4dbf0b0e03ae0b24d
     m_TableEntryReference:
-      m_KeyId: 351263548174336
+      m_KeyId: 7899260149899264
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -13260,7 +13260,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: R2 Fly
+  m_text: 'RT Fly
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ab8ef065d35236946b588370d717bb2f, type: 2}
   m_sharedMaterial: {fileID: 4518289797320196703, guid: ab8ef065d35236946b588370d717bb2f, type: 2}
@@ -16102,7 +16104,7 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:86284b3c759d58d4dbf0b0e03ae0b24d
     m_TableEntryReference:
-      m_KeyId: 351986541326336
+      m_KeyId: 7898829881417728
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
