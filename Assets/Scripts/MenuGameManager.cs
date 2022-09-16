@@ -65,7 +65,9 @@ public class MenuGameManager : MonoBehaviour
 
     //UI GAMEPAD
     public GameObject SquareButton;
+    public GameObject XButton;
     public Toggle Controller;
+    public Toggle XboxController;
     public GameObject MenuPanel;
     public GameObject OptionPanel;
     public GameObject ControlPanel;
@@ -94,6 +96,7 @@ public class MenuGameManager : MonoBehaviour
 
 
         DialogueText.text = DialogueLocalize[0].ToString();
+
         //Audiosource
         MenuGameManagerAudioSource = GetComponent<AudioSource>();
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
@@ -186,7 +189,16 @@ public class MenuGameManager : MonoBehaviour
     }
     public void HowToPlayButton()
     {
-        switchControlButton[DataPersistance.SwitchControls].Select();
+        if(DataPersistance.SwitchControls == 0) //Seleccionar keyboardButton
+        {
+            switchControlButton[0].Select();
+        }
+
+        else //Seleccionar GamepadButton
+        {
+            switchControlButton[1].Select();
+        }
+        
         MainMenuPanel.SetActive(false);
         HowToPlayPanel.SetActive(true);
 
@@ -227,8 +239,7 @@ public class MenuGameManager : MonoBehaviour
 
     public void ReturnButton()
     {
-
-        if(GamePadControllerScript.PS4_Controller == 1)
+        if(GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
         {            
             startButton.Select();
         }
@@ -369,11 +380,6 @@ public class MenuGameManager : MonoBehaviour
                 StartCoroutine(Letters());
             }
         }
-        else
-        {
-           
-        }
-
     }
 
     private IEnumerator Letters()
@@ -414,27 +420,44 @@ public class MenuGameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetButtonDown("Press Me")) //Mediante ratón o Joystick button 0
+        if (Input.GetButtonDown("Press Me") && GamePadControllerScript.PS4_Controller == 1) //Mediante ratón o Joystick button 0 Usando mando de Play
+        {
+            MenuGameManagerAudioSource.Play();
+        }
+
+        if (Input.GetButtonDown("Press Me_Xbox") && GamePadControllerScript.Xbox_One_Controller == 1) //Mediante ratón o Joystick button 2 Usando mando de Xbox
         {
             MenuGameManagerAudioSource.Play();
         }
 
         //Trampita: Saltarse el diálogo inicial Mediante X en teclado y Joystick button 3 en mando (Triángulo)
-        if(Input.GetButtonDown("Tramposo"))
+        if (Input.GetButtonDown("Tramposo"))
         {
-            //Debug.Log("De oca a oca y tiro porque me toca");
             StartButton();
         }
 
         if(GamePadControllerScript.PS4_Controller == 1)
         {
             SquareButton.SetActive(true);
+            XButton.SetActive(false);
             Controller.isOn = true;
+            XboxController.isOn = false;
         }
+
+        else if(GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            XButton.SetActive(true);
+            SquareButton.SetActive(false);
+            Controller.isOn = false;
+            XboxController.isOn = true;
+        }
+
         else
         {
             SquareButton.SetActive(false);
+            XButton.SetActive(false);
             Controller.isOn = false;
+            XboxController.isOn = false;
         }
 
         if(DataPersistance.CurrentLevel == 0)
@@ -446,7 +469,7 @@ public class MenuGameManager : MonoBehaviour
     //Mando: Toggle
     public void AutoSelectButton()
     {
-        if (Controller.isOn == true)
+        if (Controller.isOn == true || XboxController.isOn == true)
         {
             if (MenuPanel.activeInHierarchy)
             {

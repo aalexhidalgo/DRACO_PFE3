@@ -41,6 +41,7 @@ public class BetweenLevelsManager : MonoBehaviour
     public bool isShopping = false;
     private bool closeDialogue;
     public GameObject[] SquareButtons;
+    public GameObject[] XButtons;
     public GameObject[] Mouses;
     #endregion
 
@@ -115,7 +116,7 @@ public class BetweenLevelsManager : MonoBehaviour
 
     //UI GAMEPAD
     public Toggle Controller;
-
+    public Toggle Xbox_Controller;
 
 
     private void Awake()
@@ -193,7 +194,7 @@ public class BetweenLevelsManager : MonoBehaviour
     void Update()
     {
         #region DetectController
-        if (GamePadControllerScript.PS4_Controller == 1)
+        if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
         {
             PreDialogueText.text = PreDialogue[1].GetLocalizedString(LocalizedStringsPreDialogue[1]);
 
@@ -204,22 +205,59 @@ public class BetweenLevelsManager : MonoBehaviour
 
             if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
             {
-                SquareButtons[0].SetActive(true);
+                if(GamePadControllerScript.PS4_Controller == 1)
+                {
+                    SquareButtons[0].SetActive(true);
+                    XButtons[0].SetActive(false);
+                }
+                else
+                {
+                    SquareButtons[0].SetActive(false);
+                    XButtons[0].SetActive(true);
+                }
                 Mouses[0].SetActive(false);
             }
 
             else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English))
             {
-                SquareButtons[1].SetActive(true);
+                if (GamePadControllerScript.PS4_Controller == 1)
+                {
+                    SquareButtons[1].SetActive(true);
+                    XButtons[1].SetActive(false);
+                }
+                else
+                {
+                    SquareButtons[1].SetActive(false);
+                    XButtons[1].SetActive(true);
+                }
                 Mouses[1].SetActive(false);
             }
 
             else
             {
-                SquareButtons[2].SetActive(true);
+                if (GamePadControllerScript.PS4_Controller == 1)
+                {
+                    SquareButtons[2].SetActive(true);
+                    XButtons[2].SetActive(false);
+                }
+                else
+                {
+                    SquareButtons[2].SetActive(false);
+                    XButtons[2].SetActive(true);
+                }
                 Mouses[2].SetActive(false);
             }
-            Controller.isOn = true;
+
+            if(GamePadControllerScript.PS4_Controller == 1)
+            {
+                Controller.isOn = true;
+                Xbox_Controller.isOn = false;
+            }
+            else
+            {
+                Controller.isOn = false;
+                Xbox_Controller.isOn = true;
+            }
         }
         else
         {
@@ -687,7 +725,7 @@ public class BetweenLevelsManager : MonoBehaviour
     //Mando: Toggle
     public void AutoSelectButton()
     {
-        if (Controller.isOn == true)
+        if (Controller.isOn == true || Xbox_Controller.isOn == true)
         {
             if (Next.activeInHierarchy)
             {

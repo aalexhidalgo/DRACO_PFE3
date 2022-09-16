@@ -32,6 +32,8 @@ public class DataPersistance
     //Languages
     public static int LanguageIntValue;
 
+
+    #region Logros Zone
     //Logros
     public static int CoinsColected;
     public static int PacificRoute = 1; //1 es true, recuerda
@@ -58,7 +60,7 @@ public class DataPersistance
     public static int Level2Done = 0;
     public static int Level3Done = 0;
     public static int Level4Done = 0;
-
+    #endregion
 
     public static void SaveForFutureGames()
     {
@@ -90,6 +92,8 @@ public class DataPersistance
         PlayerPrefs.SetInt("Language_Int", LanguageIntValue);
 
 
+
+        #region Logros
         //Logros zone
 
         //Monedas recolectadas durante la partida, sin restarle las compras
@@ -123,7 +127,7 @@ public class DataPersistance
         PlayerPrefs.SetInt("Level2_Done", Level2Done);
         PlayerPrefs.SetInt("Level3_Done", Level3Done);
         PlayerPrefs.SetInt("Level4_Done", Level4Done);
-
+        #endregion
 
     }
 

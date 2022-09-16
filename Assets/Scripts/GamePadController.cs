@@ -21,8 +21,18 @@ public class GamePadController : MonoBehaviour
 
             if (names[x].Length == 19)
             {
-                Debug.Log("PS4 CONTROLLER IS CONNECTED");
+                Debug.Log("PS4 CONTROLLER IS CONNECTED IN AWAKE");
                 PS4_Controller = 1;
+                Xbox_One_Controller = 0;
+                Keyboard_Controller = 0;
+            }
+
+            if (names[x].Length == 33)
+            {
+                Debug.Log("XBOX CONTROLLER IS CONNECTED");
+                //set a controller bool to true
+                PS4_Controller = 0;
+                Xbox_One_Controller = 1;
                 Keyboard_Controller = 0;
             }
 
@@ -31,6 +41,7 @@ public class GamePadController : MonoBehaviour
                 Debug.Log("ANY CONTROLLER IS CONNECTED");
                 //set a controller bool to true
                 PS4_Controller = 0;
+                Xbox_One_Controller = 0;
                 Keyboard_Controller = 1;
             }
 
@@ -46,7 +57,7 @@ public class GamePadController : MonoBehaviour
 
             if (names[x].Length == 19)
             {
-                Debug.Log("PS4 CONTROLLER IS CONNECTED");
+                Debug.Log("IN UPDATE PS4 CONTROLLER IS CONNECTED");
                 PS4_Controller = 1;
                 Xbox_One_Controller = 0;
                 Keyboard_Controller = 0;
@@ -71,7 +82,7 @@ public class GamePadController : MonoBehaviour
             }
         }
 
-        if(PS4_Controller == 0 || Xbox_One_Controller == 0)
+        if(PS4_Controller == 0 && Xbox_One_Controller == 0)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

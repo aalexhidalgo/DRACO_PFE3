@@ -85,23 +85,6 @@ public class PlayerController : MonoBehaviour
     }
     void Start()
     {
-        /*PacificRoute = DataPersistance.PacificRoute;
-        KilledEnemies = DataPersistance.KilledEnemies;
-        HasKilledSlums = DataPersistance.HasKilledSlums;
-        FireBallCounter = DataPersistance.Fireballs;
-        ItemCounter = DataPersistance.ItemsCollected;
-        BulletCounter = DataPersistance.Bullets;
-        MediumCounter = DataPersistance.MediumAttack;
-        
-        //ThisLevelCoins = 0;
-        Debug.Log($"Has conseguido {DataPersistance.CoinsColected} monedas, enhorabuena");
-        Debug.Log($"Has matado a {DataPersistance.KilledEnemies} enemigos, ole tu");
-        Debug.Log($"Has matado al menos a un Slum: {DataPersistance.HasKilledSlums == 1}");
-        Debug.Log($"Has disparado {DataPersistance.Fireballs} bolas de fuego, estás que ardes men");
-        Debug.Log($"Has recogido {DataPersistance.ItemsCollected} item de mejora, aprovéchalo sabiamente");
-        Debug.Log($"Jaja, has recibido {DataPersistance.Bullets} pedradas en la cabeza");
-        Debug.Log($"Auch! {DataPersistance.MediumAttack} golpes del ogro se sienten como el infierno");
-        */
         gamePadControllerScript = FindObjectOfType<GamePadController>();
 
         if (DataPersistance.CurrentLevel == 1)
@@ -148,7 +131,14 @@ public class PlayerController : MonoBehaviour
             //GAMEPAD: Joystick Axis X (izquierdo), 3rd Axis Joystick (derecho)
             if(CanWalk && DracoCanMov)
             {
-                HorizontalInput = Input.GetAxisRaw("Horizontal");
+                if(gamePadControllerScript.Xbox_One_Controller == 0) //Si no usas mando de Xbox detecta si usas flechas, joysticks y cruceta de Play
+                {
+                    HorizontalInput = Input.GetAxisRaw("Horizontal");
+                }
+                else //Si usas Xbox solo se moverá con los Joysticks y cruceta del mando de Xbox
+                {
+                    HorizontalInput = Input.GetAxisRaw("Horizontal_Xbox");
+                }
             }
 
             else if(!DracoCanMov)
@@ -181,7 +171,7 @@ public class PlayerController : MonoBehaviour
             //TECLADO: Spacebar.
             //GAMEPAD: Joystick button 1 (X).
 
-            if (Input.GetButtonDown("UpMove") && IsOnTheGround && UpSpeed > 0 && gamePadControllerScript.Xbox_One_Controller == 0) //X, Axis
+            if ((Input.GetButtonDown("UpMove") && IsOnTheGround && UpSpeed > 0) && gamePadControllerScript.Xbox_One_Controller == 0) //X, Axis
             {
                 //DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
@@ -191,13 +181,37 @@ public class PlayerController : MonoBehaviour
                 IsOnTheGround = false;
             }
 
+            if (Input.GetButtonDown("UpMove_Xbox") && IsOnTheGround && UpSpeed > 0 && gamePadControllerScript.Xbox_One_Controller == 1) //X, Axis
+            {
+                //DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
+                //Evitamos doble salto
+                jump = true;
+                GameManagerAudioSource.PlayOneShot(Jumping);
+
+                IsOnTheGround = false;
+            }
+
             #endregion
 
             #region Vuelo Draco
             //Vuelo
             //TECLADO: Q.
             //GAMEPAD: Joystick button 7.
-            if (Input.GetButton("FlyMove") && GameManagerScript.FlybarCounter > 0)
+            if ((Input.GetButton("FlyMove") && GameManagerScript.FlybarCounter > 0) && gamePadControllerScript.Xbox_One_Controller == 0)
+            {
+                DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
+                IsOnTheGround = false;
+                IsFlying = true;
+                PlayerAnimator.SetBool("IsFlying", IsFlying);
+
+                //Tiempo de vuelo
+                CurrentTime += Time.deltaTime;
+                AntiTime = MaxFlyTime - CurrentTime;
+                GameManagerScript.FlybarCounter = AntiTime / MaxFlyTime;
+                GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
+            }
+
+            if ((Input.GetButton("FlyMove_Xbox") && GameManagerScript.FlybarCounter > 0) && gamePadControllerScript.Xbox_One_Controller == 1)
             {
                 DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
                 IsOnTheGround = false;
@@ -216,7 +230,12 @@ public class PlayerController : MonoBehaviour
             //Fuego
             //TECLADO: E.
             //GAMEPAD: Joystick button 2.
-            if (Input.GetButtonDown("Fire") && canShoot)
+            if ((Input.GetButtonDown("Fire") && canShoot) && gamePadControllerScript.Xbox_One_Controller == 0)
+            {
+                StartCoroutine(FireCooldown());
+            }
+
+            if ((Input.GetButtonDown("Fire_Xbox") && canShoot) && gamePadControllerScript.Xbox_One_Controller == 1)
             {
                 StartCoroutine(FireCooldown());
             }

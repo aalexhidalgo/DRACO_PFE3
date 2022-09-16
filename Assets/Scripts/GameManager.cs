@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class GameManager : MonoBehaviour
 {
-    //La navegación entre botones con mando:
+    //La navegación entre botones con mando de PS4:
     //Cruzeta: 7th Axis y 8th Axis
     //Joystick izquierdo: X Axis y Y axis
     //Joystick derecho: 3rd Axis y 6th Axis
@@ -74,6 +74,7 @@ public class GameManager : MonoBehaviour
 
     //UI GAMEPAD
     public Toggle Controller;
+    public Toggle XboxController;
 
 
     #region Pause Panel
@@ -129,12 +130,12 @@ public class GameManager : MonoBehaviour
     {
         if(pause == false)
         {
-            if (GamePadControllerScript.PS4_Controller == 1)
+            if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
             {
                 resumeButton.Select();
             }
             PauseMenuPanel.SetActive(true);
-            Debug.Log("Me pauso");
+            //Debug.Log("Me pauso");
             pause = true;
             PauseButton.sprite = Pause;
             Time.timeScale = 0;
@@ -146,7 +147,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Me despauso");
+            //Debug.Log("Me despauso");
             ResumeButton();
         }
     }
@@ -168,6 +169,7 @@ public class GameManager : MonoBehaviour
 
         PostProcesadoMuerte = GameObject.Find("PostProcesado");
         PostProcesadoMuerte.SetActive(false);
+        restartButton.Select();
 
         #region AudioSources
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
@@ -192,8 +194,8 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        //Pausa: Mediante Ratón o Joystick button 9 (Options)
-        if (Input.GetButtonDown("Pausa"))
+        //Pausa: Mediante Ratón o Joystick button 9 de Play(Options)
+        if (Input.GetButtonDown("Pausa") && GamePadControllerScript.Xbox_One_Controller == 0)
         {
 
             if (pause == true)
@@ -206,19 +208,46 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        //Pausa: Mediante el Joysticj Button 7 de Xbox (Options)
+        if (Input.GetButtonDown("Pausa_Xbox") && GamePadControllerScript.Xbox_One_Controller == 1)
+        {
 
+            if (pause == true)
+            {
+                ResumeButton();
+            }
+            else
+            {
+                PauseMenuButton();
+            }
+        }
+
+        //Si estás con PlayStation actualizamos el toggle a que usas el controlador de Play
         if (GamePadControllerScript.PS4_Controller == 1)
         {
             Controller.isOn = true;
+            XboxController.isOn = false;
+            
         }
+
+        //Si estás con Xbox actualizamos el toggle a que usas el Controlador de Xbox
+        else if (GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            Controller.isOn = false;
+            XboxController.isOn = true;
+        }
+
+        //Si no usas mando actualizamos los toggle a que no estás con mando
         else
         {
             Controller.isOn = false;
+            XboxController.isOn = false;
         }
     }
 
     //Conectamos los valores de los sliders al volumen de los AudioSource
     #region Musica y Sonido
+
     /*public void UpdateMusicSound_Value()
     {
         MusicSlider.value = MainCameraAudioSource.volume;
@@ -287,7 +316,8 @@ public class GameManager : MonoBehaviour
     //Mando: Toggle
     public void AutoSelectButton()
     {
-        if (Controller.isOn == true)
+        //Si estás usando algun Mando autoselecciona en el Pausa el botón de resume
+        if (Controller.isOn == true || XboxController == true)
         {
             if (PauseMenuPanel.activeInHierarchy)
             {
@@ -301,6 +331,8 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+        //Si no estás usando ningún mando deselecciona los botones
         else
         {
             EventSystem.current.SetSelectedGameObject(null);

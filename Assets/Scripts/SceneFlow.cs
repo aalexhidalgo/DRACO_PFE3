@@ -50,17 +50,6 @@ public class SceneFlow : MonoBehaviour
                 DataPersistance.Level4Done = 1;
             }
 
-            //Logros Update zone
-            /*DataPersistance.PacificRoute = otherCollider.gameObject.GetComponent<PlayerController>().PacificRoute;
-            DataPersistance.KilledEnemies = otherCollider.gameObject.GetComponent<PlayerController>().KilledEnemies;
-            DataPersistance.HasKilledSlums = otherCollider.gameObject.GetComponent<PlayerController>().HasKilledSlums;
-            DataPersistance.Fireballs = otherCollider.gameObject.GetComponent<PlayerController>().FireBallCounter;
-            DataPersistance.ItemsCollected = otherCollider.gameObject.GetComponent<PlayerController>().ItemCounter;
-            DataPersistance.Bullets = otherCollider.gameObject.GetComponent<PlayerController>().BulletCounter;
-            DataPersistance.MediumAttack = otherCollider.gameObject.GetComponent<PlayerController>().MediumCounter;
-            */
-
-
             DataPersistance.CurrentLevel++;
             DataPersistance.SaveForFutureGames();
             
@@ -73,14 +62,18 @@ public class SceneFlow : MonoBehaviour
         if (PlayerPrefs.HasKey("Fireball_Stock"))
         {
             DataPersistance.MoneyCounter = PlayerPrefs.GetInt("Money_Counter");
+
             DataPersistance.CurrentLevel = PlayerPrefs.GetInt("Current_Level");
+
             DataPersistance.Storedone = PlayerPrefs.GetInt("Store_Done");
             DataPersistance.Fireball = PlayerPrefs.GetInt("Fireball_Stock");
             DataPersistance.Shield = PlayerPrefs.GetInt("Shield_Stock");
             DataPersistance.Fly = PlayerPrefs.GetInt("Fly_Stock");
+
             DataPersistance.FireballValue = PlayerPrefs.GetFloat("Fireball_Value");
             DataPersistance.ShieldValue = PlayerPrefs.GetInt("Shield_Value");
             DataPersistance.FlyValue = PlayerPrefs.GetFloat("Fly_Value");
+
             DataPersistance.MusicVolume = PlayerPrefs.GetFloat("Music_Volume");
             DataPersistance.SoundVolume = PlayerPrefs.GetFloat("Sound_Volume");
             DataPersistance.MusicToggle = PlayerPrefs.GetInt("Music_Toggle");
