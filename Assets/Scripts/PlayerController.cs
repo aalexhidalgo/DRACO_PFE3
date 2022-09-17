@@ -182,7 +182,7 @@ public class PlayerController : MonoBehaviour
                 IsOnTheGround = false;
             }
 
-            if (Input.GetButtonDown("UpMove_Xbox") && IsOnTheGround && UpSpeed > 0 && gamePadControllerScript.Xbox_One_Controller == 1) //X, Axis
+            if (Input.GetButtonDown("UpMove_Xbox") && IsOnTheGround && UpSpeed > 0 && gamePadControllerScript.Xbox_One_Controller == 1 && gamePadControllerScript.PS4_Controller == 0) //X, Axis
             {
                 //DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
@@ -243,7 +243,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(FireCooldown());
             }
 
-            if ((Input.GetButtonDown("Fire_Xbox") && canShoot) && gamePadControllerScript.Xbox_One_Controller == 1)
+            if ((Input.GetButtonDown("Fire_Xbox") && canShoot) && gamePadControllerScript.Xbox_One_Controller == 1 && gamePadControllerScript.PS4_Controller == 0)
             {
                 StartCoroutine(FireCooldown());
             }
