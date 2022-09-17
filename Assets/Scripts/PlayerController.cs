@@ -173,6 +173,7 @@ public class PlayerController : MonoBehaviour
 
             if ((Input.GetButtonDown("UpMove") && IsOnTheGround && UpSpeed > 0) && gamePadControllerScript.Xbox_One_Controller == 0) //X, Axis
             {
+                Debug.Log("Saltas y disparas");
                 //DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
                 jump = true;
@@ -192,6 +193,11 @@ public class PlayerController : MonoBehaviour
             }
 
             #endregion
+
+            if(Input.GetButtonDown("UpMove"))
+            {
+                Debug.Log("Estás pulsando el botón de disparar?");
+            }
 
             #region Vuelo Draco
             //Vuelo
