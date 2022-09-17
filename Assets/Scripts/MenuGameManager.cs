@@ -102,7 +102,7 @@ public class MenuGameManager : MonoBehaviour
         MainCameraAudioSource = GameObject.Find("Main Camera").GetComponent<AudioSource>();
         MenuGameManagerAudioSource.Stop();
         LoadMusicSoundValue();
-        LoadGameControls();
+        //LoadGameControls();
 
         LoadInitialLanguage();
         LoadLenguageSelection();
@@ -110,21 +110,19 @@ public class MenuGameManager : MonoBehaviour
         GamePadControllerScript = FindObjectOfType<GamePadController>();
         DataPersistance.CurrentLevel = 0;
 
-        if(DataPersistance.SwitchControls == 1)
+        
+        if (GamePadControllerScript.PS4_Controller == 1)
         {
-            if (GamePadControllerScript.PS4_Controller == 1)
-            {
-                KeyboardPanel.SetActive(false);
-                GamepadPanel.SetActive(true);
-                XboxPanel.SetActive(false);
-            }
+            KeyboardPanel.SetActive(false);
+            GamepadPanel.SetActive(true);
+            XboxPanel.SetActive(false);
+        }
 
-            else
-            {
-                KeyboardPanel.SetActive(false);
-                GamepadPanel.SetActive(false);
-                XboxPanel.SetActive(true);
-            }
+        else
+        {
+            KeyboardPanel.SetActive(false);
+            GamepadPanel.SetActive(false);
+            XboxPanel.SetActive(true);
         }
         //Dialogo[0] = DialogueLocalize.
     }
@@ -204,9 +202,12 @@ public class MenuGameManager : MonoBehaviour
     }
     public void HowToPlayButton()
     {
-        if(DataPersistance.SwitchControls == 0) //Seleccionar keyboardButton
+        if(GamePadControllerScript.PS4_Controller == 0 && GamePadControllerScript.Xbox_One_Controller == 0) //Seleccionar keyboardButton
         {
             switchControlButton[0].Select();
+            KeyboardPanel.SetActive(true);
+            GamepadPanel.SetActive(false);
+            XboxPanel.SetActive(false);
         }
 
         else //Seleccionar GamepadButton
@@ -232,7 +233,7 @@ public class MenuGameManager : MonoBehaviour
         MainMenuPanel.SetActive(false);
         HowToPlayPanel.SetActive(true);
 
-        if(DataPersistance.SwitchControls == 0) //Teclado
+        /*if(DataPersistance.SwitchControls == 0) //Teclado
         {
             GamepadPanel.SetActive(false);
             KeyboardPanel.SetActive(true);
@@ -247,13 +248,21 @@ public class MenuGameManager : MonoBehaviour
                 XboxPanel.SetActive(false);
             }
 
-            else
+            else if (GamePadControllerScript.Xbox_One_Controller == 1)
             {
                 KeyboardPanel.SetActive(false);
                 GamepadPanel.SetActive(false);
                 XboxPanel.SetActive(true);
             }
+
+            else
+            {
+                KeyboardPanel.SetActive(false);
+                GamepadPanel.SetActive(true);
+                XboxPanel.SetActive(false);
+            }
         }
+        */
     }
     public void OptionsButton()
     {
@@ -288,7 +297,7 @@ public class MenuGameManager : MonoBehaviour
         GamepadPanel.SetActive(false);
         XboxPanel.SetActive(false);
         KeyboardPanel.SetActive(true);
-        DataPersistance.SwitchControls = 0;
+        //DataPersistance.SwitchControls = 0;
     }
     public void GamePadControls()
     {
@@ -298,25 +307,32 @@ public class MenuGameManager : MonoBehaviour
         {
             XboxPanel.SetActive(false);
             GamepadPanel.SetActive(true);
-            DataPersistance.SwitchControls = 1;
+            //DataPersistance.SwitchControls = 1;
         }
 
         if (GamePadControllerScript.Xbox_One_Controller == 1)
         {
             GamepadPanel.SetActive(false);
             XboxPanel.SetActive(true);
-            DataPersistance.SwitchControls = 1;
+            //DataPersistance.SwitchControls = 1;
+        }
+
+        //Si estás con teclado y quieres ver controles de mando, el mando por defecto es el de PlayStation4
+        if(GamePadControllerScript.PS4_Controller == 0 && GamePadControllerScript.Xbox_One_Controller == 0)
+        {
+            GamepadPanel.SetActive(true);
+            XboxPanel.SetActive(false);
         }
 
     }
 
-    public void LoadGameControls()
+    /*public void LoadGameControls()
     {
         if (PlayerPrefs.HasKey("Switch_Controls"))
         {
             DataPersistance.SwitchControls = PlayerPrefs.GetInt("Switch_Controls");
         }
-    }
+    }*/
     #endregion
     //OptionsPanel
 

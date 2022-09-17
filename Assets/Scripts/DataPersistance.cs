@@ -27,7 +27,7 @@ public class DataPersistance
     public static int MusicToggle;
 
     //Controls
-    public static int SwitchControls;
+    //public static int SwitchControls;
 
     //Languages
     public static int LanguageIntValue;
@@ -86,7 +86,7 @@ public class DataPersistance
         PlayerPrefs.SetInt("Music_Toggle", MusicToggle);
 
         //Controles con los que jugamos
-        PlayerPrefs.SetInt("Switch_Controls", SwitchControls);
+        //PlayerPrefs.SetInt("Switch_Controls", SwitchControls);
 
         //En que idioma hemos configurado el juego
         PlayerPrefs.SetInt("Language_Int", LanguageIntValue);

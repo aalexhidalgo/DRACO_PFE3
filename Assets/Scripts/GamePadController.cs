@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Internal;
 
 public class GamePadController : MonoBehaviour
 {
@@ -10,10 +11,10 @@ public class GamePadController : MonoBehaviour
     public int PS4_Controller = 0;
     public int Xbox_One_Controller = 0;
     public string[] names;
+    
 
     private void Awake()
     {
-
         names = Input.GetJoystickNames();
 
         #region ControllerFor
@@ -66,7 +67,7 @@ public class GamePadController : MonoBehaviour
         foreach (string name in names)
         {
             //Si has enchufado un mando de Play
-            if ((name.Length == 19))
+            if ((name == "Wireless Controller")) //name.Lenght == 19;
             {
                 Debug.Log("IN UPDATE PS4 CONTROLLER IS CONNECTED IN AWAKE");
                 PS4_Controller = 1;
@@ -74,7 +75,7 @@ public class GamePadController : MonoBehaviour
                 Keyboard_Controller = 0;
             }
             //Si has enchufado un mando de Xbox
-            else if (name.Length == 33)
+            else if (name == "Controller (Xbox One For Windows)") //name.Lenght == 33;
             {
                 Debug.Log("XBOX CONTROLLER IS CONNECTED IN AWAKE");
 
@@ -105,7 +106,7 @@ public class GamePadController : MonoBehaviour
         foreach (string name in names)
         {
             //Si tienes un mando enchufado de Play
-            if ((name.Length == 19))
+            if (name == "Wireless Controller")
             {
                 //Debug.Log("IN UPDATE PS4 CONTROLLER IS CONNECTED IN UPDATE");
                 PS4_Controller = 1;
@@ -113,9 +114,9 @@ public class GamePadController : MonoBehaviour
                 Keyboard_Controller = 0;
             }
             //Si tienes un mando enchufado de Xbox
-            else if (name.Length == 33)
+            else if (name == "Controller (Xbox One For Windows)")
             {
-                Debug.Log("XBOX CONTROLLER IS CONNECTED IN UPDATE");
+                //Debug.Log("XBOX CONTROLLER IS CONNECTED IN UPDATE");
                 
                 PS4_Controller = 0;
                 Xbox_One_Controller = 1;
@@ -137,4 +138,5 @@ public class GamePadController : MonoBehaviour
             Cursor.visible = false;
         }
     }
+
 }
