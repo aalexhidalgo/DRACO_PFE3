@@ -97,10 +97,10 @@ public class DataPersistance
         //Logros zone
 
         //Monedas recolectadas durante la partida, sin restarle las compras
-        PlayerPrefs.SetInt("Coins_Colected", CoinsColected);
+        PlayerPrefs.SetInt("Coins_Colected", CoinsColected); //POSIBLE
 
-        PlayerPrefs.SetInt("Pacific_Route", PacificRoute);
-        PlayerPrefs.SetInt("Killed_Enemies", KilledEnemies);
+        PlayerPrefs.SetInt("Pacific_Route", PacificRoute); //POSIBLE
+        PlayerPrefs.SetInt("Killed_Enemies", KilledEnemies); //Easy posible
         PlayerPrefs.SetInt("Has_Killed_Slums", HasKilledSlums);
 
         PlayerPrefs.SetInt("FireBalls", Fireballs);

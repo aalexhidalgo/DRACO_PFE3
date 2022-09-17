@@ -110,7 +110,22 @@ public class MenuGameManager : MonoBehaviour
         GamePadControllerScript = FindObjectOfType<GamePadController>();
         DataPersistance.CurrentLevel = 0;
 
+        if(DataPersistance.SwitchControls == 1)
+        {
+            if (GamePadControllerScript.PS4_Controller == 1)
+            {
+                KeyboardPanel.SetActive(false);
+                GamepadPanel.SetActive(true);
+                XboxPanel.SetActive(false);
+            }
 
+            else
+            {
+                KeyboardPanel.SetActive(false);
+                GamepadPanel.SetActive(false);
+                XboxPanel.SetActive(true);
+            }
+        }
         //Dialogo[0] = DialogueLocalize.
     }
 
@@ -196,6 +211,21 @@ public class MenuGameManager : MonoBehaviour
 
         else //Seleccionar GamepadButton
         {
+            KeyboardPanel.SetActive(false);
+
+            //Si juegas con ps4 enseñas el panel de ps4
+            if (GamePadControllerScript.PS4_Controller == 1)
+            {
+                GamepadPanel.SetActive(true);
+                XboxPanel.SetActive(false);
+            }
+
+            //Si juegas con Xbox enseñas el panel de Xbox
+            else
+            {
+                GamepadPanel.SetActive(false);
+                XboxPanel.SetActive(true);
+            }
             switchControlButton[1].Select();
         }
         
@@ -208,21 +238,22 @@ public class MenuGameManager : MonoBehaviour
             KeyboardPanel.SetActive(true);
             XboxPanel.SetActive(false);
         }
-        else if(DataPersistance.SwitchControls == 1) //Mando de PlayStation
+        else
         {
-            KeyboardPanel.SetActive(false);
-            GamepadPanel.SetActive(true);
-            XboxPanel.SetActive(false);
-        }
-            
-        else //Mando de XBOX
-        {
-            KeyboardPanel.SetActive(false);
-            GamepadPanel.SetActive(false);
-            XboxPanel.SetActive(true);
-        }
+            if (GamePadControllerScript.PS4_Controller == 1)
+            {
+                KeyboardPanel.SetActive(false);
+                GamepadPanel.SetActive(true);
+                XboxPanel.SetActive(false);
+            }
 
-        
+            else
+            {
+                KeyboardPanel.SetActive(false);
+                GamepadPanel.SetActive(false);
+                XboxPanel.SetActive(true);
+            }
+        }
     }
     public void OptionsButton()
     {
@@ -255,6 +286,7 @@ public class MenuGameManager : MonoBehaviour
     public void KeyboardControls()
     {
         GamepadPanel.SetActive(false);
+        XboxPanel.SetActive(false);
         KeyboardPanel.SetActive(true);
         DataPersistance.SwitchControls = 0;
     }
@@ -273,7 +305,7 @@ public class MenuGameManager : MonoBehaviour
         {
             GamepadPanel.SetActive(false);
             XboxPanel.SetActive(true);
-            DataPersistance.SwitchControls = 2;
+            DataPersistance.SwitchControls = 1;
         }
 
     }
@@ -482,6 +514,22 @@ public class MenuGameManager : MonoBehaviour
             }
             else if (ControlPanel.activeInHierarchy)
             {
+                if((GamepadPanel.activeInHierarchy || XboxPanel.activeInHierarchy) || !KeyboardPanel.activeInHierarchy)
+                {
+                    if (GamePadControllerScript.PS4_Controller == 1)
+                    {
+                        KeyboardPanel.SetActive(false);
+                        GamepadPanel.SetActive(true);
+                        XboxPanel.SetActive(false);
+                    }
+
+                    else
+                    {
+                        KeyboardPanel.SetActive(false);
+                        GamepadPanel.SetActive(false);
+                        XboxPanel.SetActive(true);
+                    }
+                }
                 EventSystem.current.SetSelectedGameObject(controlReturnButton.gameObject);
             }            
             else if (DialoguePanel.activeInHierarchy && Next.activeInHierarchy && DialogueAnimDone == true)

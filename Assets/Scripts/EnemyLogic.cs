@@ -21,19 +21,19 @@ public class EnemyLogic : MonoBehaviour
         if (EnemyLife <= 0)
         {
             AudioManagerAudiosource.PlayOneShot(DeadSound);
-
+            DataPersistance.PacificRoute = 0;
+            DataPersistance.KilledEnemies += 1;
+            if (IsSlums == true)
+            {
+                DataPersistance.HasKilledSlums = 1;
+            }
+            Debug.Log("Has matado, ya no eres puro de corazón como Goku jeje");
             Destroy(gameObject);
         }
     }
 
     private void OnDestroy()
     {
-        DataPersistance.PacificRoute = 0;
-        DataPersistance.KilledEnemies += 1;
-        if(IsSlums == true)
-        {
-            DataPersistance.HasKilledSlums = 1;
-        }
-        Debug.Log("Has matado, ya no eres puro de corazón como Goku jeje");
+        
     }
 }

@@ -71,7 +71,7 @@ public class TutorialManager : MonoBehaviour
     void Update()
     {
         //Con el mando de playStation apagado apagamos todos los botones de play del tutorial
-        if (GamePadControllerScript.PS4_Controller == 0) 
+        /*if (GamePadControllerScript.PS4_Controller == 0) 
         {
             Tutorialtext1.text = DialogueLocalizeKeyboard[0].GetLocalizedString(LocalizeStringsKeyboard[0]);
             Tutorialtext2.text = DialogueLocalizeKeyboard[1].GetLocalizedString(LocalizeStringsKeyboard[1]);
@@ -83,10 +83,10 @@ public class TutorialManager : MonoBehaviour
                 i.SetActive(false);
             }
 
-        }
+        }*/
 
         //Con el mando de Xbox apagado apagamos todos los botones de xBox del tutorial
-        if (GamePadControllerScript.Xbox_One_Controller == 0) 
+        if (GamePadControllerScript.Xbox_One_Controller == 0 && GamePadControllerScript.PS4_Controller == 0) 
         {
             Tutorialtext1.text = DialogueLocalizeKeyboard[0].GetLocalizedString(LocalizeStringsKeyboard[0]);
             Tutorialtext2.text = DialogueLocalizeKeyboard[1].GetLocalizedString(LocalizeStringsKeyboard[1]);
@@ -97,15 +97,24 @@ public class TutorialManager : MonoBehaviour
             {
                 i.SetActive(false);
             }
+            foreach (GameObject i in TutorialButtonImages)
+            {
+                i.SetActive(false);
+            }
         }
 
         //Con el mando de Xbox encendido apagamos todos los botones de xbox y luego encendemos solo los del idioma correspondiente
-        if (GamePadControllerScript.Xbox_One_Controller == 1 && GamePadControllerScript.PS4_Controller == 0) 
+        else if (GamePadControllerScript.Xbox_One_Controller == 1 && GamePadControllerScript.PS4_Controller == 0) 
         {
             Tutorialtext1.text = DialogueLocalizeGamePad[0].GetLocalizedString(LocalizeStringsGamePad[0]);
             Tutorialtext2.text = DialogueLocalizeGamePad[1].GetLocalizedString(LocalizeStringsGamePad[1]);
             Tutorialtext3.text = DialogueLocalizeGamePad[2].GetLocalizedString(LocalizeStringsGamePad[2]);
             Tutorialtext4.text = DialogueLocalizeGamePad[3].GetLocalizedString(LocalizeStringsGamePad[3]);
+
+            foreach (GameObject i in TutorialButtonImages)
+            {
+                i.SetActive(false);
+            }
 
             foreach (GameObject i in TutorialButtonImagesXbox)
             {
@@ -150,7 +159,12 @@ public class TutorialManager : MonoBehaviour
                 i.SetActive(false);
             }
 
-            if(LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
+            foreach (GameObject i in TutorialButtonImagesXbox)
+            {
+                i.SetActive(false);
+            }
+
+            if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
             {
                 foreach (GameObject i in TutorialButtons[0])
                 {

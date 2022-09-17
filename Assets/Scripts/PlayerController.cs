@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     //private float SkyLimit = 16.5f;
     private Rigidbody DracoRigidbody;
     private Vector3 NewGravity = new Vector3 (0f, -29.4f, 0f);
-
+    public float FlyInput;
     public bool canShoot = true;
     #endregion
 
@@ -211,7 +211,8 @@ public class PlayerController : MonoBehaviour
                 GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
             }
 
-            if ((Input.GetButton("FlyMove_Xbox") && GameManagerScript.FlybarCounter > 0) && gamePadControllerScript.Xbox_One_Controller == 1)
+            FlyInput = Input.GetAxisRaw("FlyMove_Xbox");
+            if ((FlyInput > 0 && GameManagerScript.FlybarCounter > 0) && gamePadControllerScript.Xbox_One_Controller == 1)
             {
                 DracoRigidbody.velocity = Vector3.up * FlySpeed + DracoRigidbody.velocity.x * Vector3.right;
                 IsOnTheGround = false;
@@ -224,6 +225,7 @@ public class PlayerController : MonoBehaviour
                 GameManagerScript.FlybarCounter = AntiTime / MaxFlyTime;
                 GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
             }
+
             #endregion
 
             #region Fuego
@@ -282,6 +284,7 @@ public class PlayerController : MonoBehaviour
         {
             CurrentLive = 0;
             UpdateLife();
+            GameManagerScript.restartButton.Select();
             GameManagerScript.GameOver = true;
         }
 
@@ -295,8 +298,9 @@ public class PlayerController : MonoBehaviour
             if (CurrentLive <= 0)
             {
                 CurrentLive = 0;
-                //Debug.Log("Sa matao Paco");
+                GameManagerScript.restartButton.Select();
                 GameManagerScript.GameOver = true;
+
             }
 
             UpdateLife();
@@ -322,6 +326,7 @@ public class PlayerController : MonoBehaviour
         if (GameManagerScript.GameOver == true) //si muero, paro la música y pongo el sonido de muerte
         {
             GameObject.Find("Main Camera").GetComponent<AudioSource>().Pause();
+            GameManagerScript.restartButton.Select();
             GameManagerAudioSource.PlayOneShot(GameOverSound);
         }    
     }
@@ -391,7 +396,7 @@ public class PlayerController : MonoBehaviour
         {
             CurrentLive = 0;
 
-            Debug.Log("Chanelazo");
+            GameManagerScript.restartButton.Select();
             GameManagerScript.GameOver = true;
             GameObject.Find("Main Camera").GetComponent<AudioSource>().Pause();
             GameManagerAudioSource.PlayOneShot(GameOverSound);
@@ -436,7 +441,9 @@ public class PlayerController : MonoBehaviour
             if (CurrentLive <= 0)
             {
                 CurrentLive = 0;
-                //Debug.Log("Quack, quack, quack...");
+
+                GameManagerScript.restartButton.Select();
+
                 GameManagerScript.GameOver = true;
                 
                 UpdateLife();

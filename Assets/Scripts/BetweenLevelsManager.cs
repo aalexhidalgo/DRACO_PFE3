@@ -267,18 +267,21 @@ public class BetweenLevelsManager : MonoBehaviour
             if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.Catalan))
             {
                 SquareButtons[0].SetActive(false);
+                XButtons[0].SetActive(false);
                 Mouses[0].SetActive(true);
             }
 
             else if (LocalizationSettings.SelectedLocale == LocalizationSettings.AvailableLocales.GetLocale(SystemLanguage.English))
             {
                 SquareButtons[1].SetActive(false);
+                XButtons[1].SetActive(false);
                 Mouses[1].SetActive(true);
             }
 
             else
             {
                 SquareButtons[2].SetActive(false);
+                XButtons[2].SetActive(false);
                 Mouses[2].SetActive(true);
             }
             
@@ -291,11 +294,18 @@ public class BetweenLevelsManager : MonoBehaviour
             VendedorImage.sprite = VendedorDespierto; //NO FUNCIONA
         }
 
-        if(Input.GetButtonDown("Awake")) //Vendedor: Mediante ratón o Joystick button 0 (Cuadrado)
+        if(Input.GetButtonDown("Awake") && GamePadControllerScript.PS4_Controller == 1) //Vendedor: Mediante ratón o Joystick button 0 (Cuadrado)
         {
             PreDialogueImage.SetActive(false);
             ShowDialogue();
         }
+        if (Input.GetButtonDown("Awake_Xbox") && GamePadControllerScript.Xbox_One_Controller == 1) //Vendedor: Mediante Xbox: Joystick button 2 (XMEN Lobezno inmortal)
+        {
+            PreDialogueImage.SetActive(false);
+            ShowDialogue();
+        }
+
+
 
         DataPersistance.Time += Time.deltaTime;
     }
@@ -466,15 +476,16 @@ public class BetweenLevelsManager : MonoBehaviour
         if (isShopping == false)
         {
             Button.SetActive(true);
-            if (GamePadControllerScript.PS4_Controller == 1)
+            if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
             {
                 Button.GetComponent<Button>().Select();
             }
+            
         }
         else
         {
             Button.SetActive(true);
-            if (GamePadControllerScript.PS4_Controller == 1)
+            if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
             {
                 Button.GetComponent<Button>().Select();
             }

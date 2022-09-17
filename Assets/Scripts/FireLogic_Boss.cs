@@ -57,6 +57,8 @@ public class FireLogic_Boss : MonoBehaviour
                 if (PlayerControllerScript.CurrentLive <= 0)
                 {
                     PlayerControllerScript.CurrentLive = 0;
+
+                    GameManagerScript.restartButton.Select();
                     GameManagerScript.GameOver = true;
                     GameManagerScript.GameOverPanel.SetActive(true);
                     PlayerControllerScript.UpdateLife();
