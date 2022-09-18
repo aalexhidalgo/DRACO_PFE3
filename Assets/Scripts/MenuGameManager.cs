@@ -478,11 +478,11 @@ public class MenuGameManager : MonoBehaviour
             MenuGameManagerAudioSource.Play();
         }
 
-        //Trampita: Saltarse el diálogo inicial Mediante X en teclado y Joystick button 3 en mando (Triángulo)
+        /*Trampita: Saltarse el diálogo inicial Mediante X en teclado y Joystick button 3 en mando (Triángulo). CHAPADO
         if (Input.GetButtonDown("Tramposo"))
         {
             StartButton();
-        }
+        }*/
 
         if(GamePadControllerScript.PS4_Controller == 1)
         {
