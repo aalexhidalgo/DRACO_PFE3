@@ -112,7 +112,7 @@ public class SteamArchivement
             SteamUserStats.StoreStats();
         }
 
-        if(DataPersistance.Time <= 390 && SceneManager.GetActiveScene().name == "Credits") //Completa el juego en 6 minutos
+        if(DataPersistance.Time <= 420 && SceneManager.GetActiveScene().name == "Credits") //Completa el juego en 6 minutos
         {
             SteamUserStats.SetAchievement("WIN_IN_TIME");
             SteamUserStats.StoreStats();
@@ -153,11 +153,6 @@ public class SteamArchivement
             SteamUserStats.SetAchievement("ALL_ITEMS_COLLECTED");
             SteamUserStats.StoreStats();
         }
-
-        if (!Input.GetKeyDown(KeyCode.Space)) { return; }
-
-        SteamUserStats.SetAchievement("ACH_WIN_ONE_GAME");
-        SteamUserStats.StoreStats();
 
     }
 }
