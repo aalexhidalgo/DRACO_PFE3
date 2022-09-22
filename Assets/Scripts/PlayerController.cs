@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,9 +23,10 @@ public class PlayerController : MonoBehaviour
     public float FlyInput;
     public bool canShoot = true;
     #endregion
+    private Vignette vg;
 
     public GameObject FuegoPrefab;
-    
+
     private Animator PlayerAnimator;
 
     //Contadores Props
@@ -51,21 +54,9 @@ public class PlayerController : MonoBehaviour
     //Comunicación con scripts
     private GameManager GameManagerScript;
     private GamePadController gamePadControllerScript;
-    //Logros
-    /*
-    public int ThisLevelCoins;
 
-    public int PacificRoute;
-    public int KilledEnemies;
-    public int HasKilledSlums;
+    public Volume PostProcesadoDaño;
 
-    public int FireBallCounter;
-
-    public int ItemCounter;
-
-    public int BulletCounter;
-    public int MediumCounter;
-    */
     #region Audio
 
     //AudioSources para acceder a sonidos
@@ -77,6 +68,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip CoinSound; //funciona
     public AudioClip RockExplotion; //funciona
     public AudioClip RecogerItem; //funciona
+
+    public AudioClip RecibeDaño;
     #endregion
 
     private void Awake()
@@ -173,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
             if ((Input.GetButtonDown("UpMove") && IsOnTheGround && UpSpeed > 0) && gamePadControllerScript.Xbox_One_Controller == 0) //X, Axis
             {
-                Debug.Log("Saltas y disparas");
+                //Debug.Log("Saltas y disparas");
                 //DracoRigidbody.AddForce(Vector3.up * UpSpeed, ForceMode.Impulse);
                 //Evitamos doble salto
                 jump = true;
@@ -294,6 +287,7 @@ public class PlayerController : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Enemy") && Shield == 0)
         {
             CurrentLive -= 0.5f;
+            
             //Debug.Log("Cuidao que te pinsho dragón de mierda");
             //AddForce rebote, hay que calcular a lo 100tifiko otro día
             if (CurrentLive <= 0)
@@ -301,7 +295,15 @@ public class PlayerController : MonoBehaviour
                 CurrentLive = 0;
                 GameManagerScript.restartButton.Select();
                 GameManagerScript.GameOver = true;
+                GameManagerAudioSource.PlayOneShot(GameOverSound);
 
+            }
+            else
+            {
+                StopCoroutine("DracoDamaged");
+                vg.intensity.value = 0f;
+                StartCoroutine("DracoDamaged");
+                GameManagerAudioSource.PlayOneShot(RecibeDaño);
             }
 
             UpdateLife();
@@ -310,7 +312,9 @@ public class PlayerController : MonoBehaviour
         else if (otherCollider.gameObject.CompareTag("Enemy") && Shield == 1)
         {
             MaxShieldValue -= 1;
-            if(MaxShieldValue <= 0)
+            StartCoroutine("DracoDamaged");
+            GameManagerAudioSource.PlayOneShot(RecibeDaño);
+            if (MaxShieldValue <= 0)
             {
                 Shield = 0;
                 UpdateShield();
@@ -326,6 +330,7 @@ public class PlayerController : MonoBehaviour
 
         if (GameManagerScript.GameOver == true) //si muero, paro la música y pongo el sonido de muerte
         {
+            Debug.Log("Moriste");
             GameObject.Find("Main Camera").GetComponent<AudioSource>().Pause();
             GameManagerScript.restartButton.Select();
             GameManagerAudioSource.PlayOneShot(GameOverSound);
@@ -418,9 +423,10 @@ public class PlayerController : MonoBehaviour
         //Daño de los enemigos al jugador (proyectil)
         if (otherTrigger.gameObject.CompareTag("Bullet") && Shield == 1)
         {
+            StartCoroutine("DracoDamaged");
             MaxShieldValue -= 1;
             DataPersistance.Bullets += 1;
-
+            GameManagerAudioSource.PlayOneShot(RecibeDaño);
             if (MaxShieldValue <= 0)
             {
                 Shield = 0;
@@ -441,13 +447,22 @@ public class PlayerController : MonoBehaviour
 
             if (CurrentLive <= 0)
             {
+                Debug.Log("Tienes 0 de vida");
                 CurrentLive = 0;
 
                 GameManagerScript.restartButton.Select();
 
                 GameManagerScript.GameOver = true;
-                
+                GameManagerAudioSource.PlayOneShot(GameOverSound);
+
                 UpdateLife();
+            }
+
+            if (CurrentLive > 0)
+            {
+                Debug.Log("Tienes algo de vida");
+                StartCoroutine("DracoDamaged");
+                GameManagerAudioSource.PlayOneShot(RecibeDaño);
             }
 
             UpdateLife();
@@ -455,6 +470,12 @@ public class PlayerController : MonoBehaviour
         }
         #endregion
 
+        if(otherTrigger.gameObject.CompareTag("FireBoss"))
+        {
+            StartCoroutine("DracoDamaged");
+            vg.intensity.value = 0;
+        }
+        
         #region PowerUps
         //Si recogemos una nube, permite volar al jugador
         if (otherTrigger.gameObject.CompareTag("Cloud"))
@@ -530,5 +551,21 @@ public class PlayerController : MonoBehaviour
         ShootFire = true;
     }
 
-
+    
+    public IEnumerator DracoDamaged()
+    {
+        PostProcesadoDaño.profile.TryGet(out vg);
+        vg.intensity.value = 0f;
+        while (vg.intensity.value < 0.8f)
+        {
+            vg.intensity.value += 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        while(vg.intensity.value > 0)
+        {
+            vg.intensity.value -= 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+    
 }

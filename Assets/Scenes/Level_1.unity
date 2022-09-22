@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8809,6 +8809,74 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 467c0acd77dd9104691deb0851f2426d, type: 3}
+--- !u!1001 &495395839705192001
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8444402
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26.865139
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 54.114838
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219678606332422380, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_Name
+      value: "PostProcesadoDa\xF1o"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+--- !u!114 &495395839705192002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4526083044998221489, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+  m_PrefabInstance: {fileID: 495395839705192001}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1000717061220203942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9216,9 +9284,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1845354730217931406, guid: fba03fe609dc47b48b0bf6b7d252bc27, type: 3}
+      propertyPath: "RecibeDa\xF1o"
+      value: 
+      objectReference: {fileID: 8300000, guid: 72739334a813c834fa05e8b9001d9782, type: 3}
+    - target: {fileID: 1845354730217931406, guid: fba03fe609dc47b48b0bf6b7d252bc27, type: 3}
       propertyPath: IsOnTheGround
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1845354730217931406, guid: fba03fe609dc47b48b0bf6b7d252bc27, type: 3}
+      propertyPath: "PostProcesadoDa\xF1o"
+      value: 
+      objectReference: {fileID: 495395839705192002}
     - target: {fileID: 1845354730217931406, guid: fba03fe609dc47b48b0bf6b7d252bc27, type: 3}
       propertyPath: GameManagerAudioSource
       value: 
@@ -19052,8 +19128,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.000001, y: 3.8523483, z: 3.2691245}
-  m_Center: {x: -0.0000000059978196, y: 0.073825836, z: 0.025156682}
+  m_Size: {x: 4.000001, y: 2.9688091, z: 3.2691245}
+  m_Center: {x: 0.000000005997833, y: -0.36794376, z: 0.025156736}
 --- !u!1001 &3314350176981760692
 PrefabInstance:
   m_ObjectHideFlags: 0

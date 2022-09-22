@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 139881485154446174}
   m_Layer: 0
   m_Name: Fuego_sprite_2D
-  m_TagString: Untagged
+  m_TagString: FireBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

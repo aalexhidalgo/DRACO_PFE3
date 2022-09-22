@@ -6,8 +6,10 @@ public class BulletLogic : MonoBehaviour
 {
     private AudioSource AudioManagerAudiosource;
     public AudioClip RockCrash;
+    public AudioClip HitDraco;
 
     public ParticleSystem RockParticleSystem;
+    public ParticleSystem SmallerRockParticleSystem;
     void Start()
     {
         AudioManagerAudiosource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
@@ -25,6 +27,12 @@ public class BulletLogic : MonoBehaviour
         {
             Instantiate(RockParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
             AudioManagerAudiosource.PlayOneShot(RockCrash);
+            Destroy(gameObject);
+        }
+
+        if (otherTrigger.gameObject.CompareTag("Player"))
+        {
+            Instantiate(SmallerRockParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
             Destroy(gameObject);
         }
 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8281596136019186106}
   - component: {fileID: 2900803202377160736}
   - component: {fileID: 6256050251440903180}
+  - component: {fileID: 3531230609973385576}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Bullet
@@ -127,4 +128,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RockCrash: {fileID: 8300000, guid: 77bbd116ed3ea5344a2711936e78e350, type: 3}
+  HitDraco: {fileID: 8300000, guid: 72739334a813c834fa05e8b9001d9782, type: 3}
   RockParticleSystem: {fileID: 1832354522556379478, guid: 6e949a3b9a990de4783c68fa9b89db99, type: 3}
+  SmallerRockParticleSystem: {fileID: 1832354522556379478, guid: 60c495a9428c91946812d3961ec3674b, type: 3}
+--- !u!95 &3531230609973385576
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2198651551857849564}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6be16fb17ea26a145ae2c1d994d64b1a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

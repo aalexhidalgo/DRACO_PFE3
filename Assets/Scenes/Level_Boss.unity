@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17503,6 +17503,17 @@ Transform:
   m_Father: {fileID: 2000921597}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &810619301 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4526083044998221489, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+  m_PrefabInstance: {fileID: 1545273892}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &814278506
 GameObject:
   m_ObjectHideFlags: 0
@@ -32535,6 +32546,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &1545273892
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_RootOrder
+      value: 27
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.8444402
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 26.865139
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 54.114838
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 148582905244278803, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5219678606332422380, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
+      propertyPath: m_Name
+      value: "PostProcesadoDa\xF1o"
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 137aedd2f4988fe4c95bf77a43cae5f0, type: 3}
 --- !u!1 &1545947859
 GameObject:
   m_ObjectHideFlags: 0
@@ -34287,6 +34355,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: d1c1e207fb30f934e8b95b0680386960, type: 3}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: "RecibeDa\xF1o"
+      value: 
+      objectReference: {fileID: 8300000, guid: 72739334a813c834fa05e8b9001d9782, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: RecogerItem
       value: 
       objectReference: {fileID: 8300000, guid: 2758aba968d25544a9eccf2424d0556d, type: 3}
@@ -34306,6 +34378,10 @@ PrefabInstance:
       propertyPath: RockExplotion
       value: 
       objectReference: {fileID: 8300000, guid: 77bbd116ed3ea5344a2711936e78e350, type: 3}
+    - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
+      propertyPath: "PostProcesadoDa\xF1o"
+      value: 
+      objectReference: {fileID: 810619301}
     - target: {fileID: 8991849128666538486, guid: ea8fef8e34fa2744fa620a7c036c376d, type: 3}
       propertyPath: GameManagerAudioSource
       value: 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class FireLogic_Boss : MonoBehaviour
 {
@@ -13,6 +15,14 @@ public class FireLogic_Boss : MonoBehaviour
     private BossLogic BossLogicScript;
     private PlayerController PlayerControllerScript;
     private GameManager GameManagerScript;
+
+
+    public Volume PostProcesadoDaño;
+    private Vignette vg;
+    /*
+    public AudioClip HitDraco;
+    public AudioSource AudioManagerAudioSource;
+    */
 
     void Start()
     {
@@ -37,6 +47,7 @@ public class FireLogic_Boss : MonoBehaviour
         {
             if (PlayerControllerScript.Shield == 1)
             {
+                StartCoroutine(PlayerControllerScript.DracoDamaged());
                 PlayerControllerScript.MaxShieldValue -= 1;
                 if (PlayerControllerScript.MaxShieldValue <= 0)
                 {
@@ -52,8 +63,8 @@ public class FireLogic_Boss : MonoBehaviour
 
             else
             {
-                PlayerControllerScript.CurrentLive -= 0.5f;               
-               
+                PlayerControllerScript.CurrentLive -= 0.5f;
+                StartCoroutine(PlayerControllerScript.DracoDamaged());
                 if (PlayerControllerScript.CurrentLive <= 0)
                 {
                     PlayerControllerScript.CurrentLive = 0;
@@ -90,6 +101,23 @@ public class FireLogic_Boss : MonoBehaviour
 
     }
 
+
+    /*public IEnumerator DracoDamaged()
+    {
+        PostProcesadoDaño.profile.TryGet(out vg);
+        vg.intensity.value = 0f;
+        while (vg.intensity.value < 0.8f)
+        {
+            vg.intensity.value += 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+        while (vg.intensity.value > 0)
+        {
+            vg.intensity.value -= 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+    */
     /*private void OnDestroy()
     {
         Instantiate(DamageParticleSystem, gameObject.transform.position, gameObject.transform.rotation);

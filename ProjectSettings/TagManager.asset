@@ -26,6 +26,7 @@ TagManager:
   - AutoWalk
   - Star
   - StarLimits
+  - FireBoss
   layers:
   - Default
   - TransparentFX
