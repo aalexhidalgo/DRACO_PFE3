@@ -194,11 +194,6 @@ public class PlayerController : MonoBehaviour
 
             #endregion
 
-            if(Input.GetButtonDown("UpMove"))
-            {
-                Debug.Log("Estás pulsando el botón de disparar?");
-            }
-
             #region Vuelo Draco
             //Vuelo
             //TECLADO: Q.
