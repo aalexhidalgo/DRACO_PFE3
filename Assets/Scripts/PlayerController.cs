@@ -241,6 +241,7 @@ public class PlayerController : MonoBehaviour
             {
                 IsFlying = false;
             }
+
         }                  
     }
 
