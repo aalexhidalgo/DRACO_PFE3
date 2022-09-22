@@ -500,6 +500,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
+
     //Actualizamos la imagen según la vida del jugador
     public void UpdateLife()
     {
