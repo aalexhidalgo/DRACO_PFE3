@@ -50,6 +50,7 @@ public class PlayerController : MonoBehaviour
     private bool CanWalk = true;
     private bool jump = false;
     public bool DracoCanMov;
+    public bool IsFalling = false;
 
     //Comunicación con scripts
     private GameManager GameManagerScript;
@@ -173,6 +174,7 @@ public class PlayerController : MonoBehaviour
                 GameManagerAudioSource.PlayOneShot(Jumping);
                 
                 IsOnTheGround = false;
+                IsFalling = false;
             }
 
             if (Input.GetButtonDown("UpMove_Xbox") && IsOnTheGround && UpSpeed > 0 && gamePadControllerScript.Xbox_One_Controller == 1 && gamePadControllerScript.PS4_Controller == 0) //X, Axis
@@ -183,6 +185,7 @@ public class PlayerController : MonoBehaviour
                 GameManagerAudioSource.PlayOneShot(Jumping);
 
                 IsOnTheGround = false;
+                IsFalling = false;
             }
 
             #endregion
@@ -220,6 +223,11 @@ public class PlayerController : MonoBehaviour
                 GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
             }
 
+
+            /*if((!Input.GetButton("FlyMove")))
+            {
+                IsFlying = false;
+            }*/
             #endregion
 
             #region Fuego
@@ -240,6 +248,7 @@ public class PlayerController : MonoBehaviour
             if (IsOnTheGround == true)
             {
                 IsFlying = false;
+                IsFalling = false;
             }
 
         }                  
@@ -270,8 +279,17 @@ public class PlayerController : MonoBehaviour
     public void OnCollisionEnter(Collision otherCollider)
     {
         //Si colisiona contra el suelo el jugador puede volver a saltar
-        if (otherCollider.gameObject.CompareTag("Ground"))
+        if (otherCollider.gameObject.CompareTag("Ground")) //Si chocas con una plataforma o el suelo estás tocando el suelo pero si chocaste con la plataforma volando además estás en caida
         {
+            /*if(IsFlying == true)
+            {
+                IsFalling = true;
+                IsOnTheGround = true;
+            }
+            else
+            {
+                IsOnTheGround = true;
+            }*/
             IsOnTheGround = true;
         }
 
@@ -338,7 +356,7 @@ public class PlayerController : MonoBehaviour
         }    
     }
 
-
+    
     public void OnTriggerStay(Collider otherCollider)
     {
         if (otherCollider.gameObject.CompareTag("AutoWalk"))
@@ -502,9 +520,9 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionExit(Collision OtherCollider)
     {
-        if(OtherCollider.gameObject.CompareTag("Ground") && IsFlying == false)
+        if (OtherCollider.gameObject.CompareTag("Ground") && IsFalling == true)
         {
-            
+            IsFlying = false;
         }
     }
 
