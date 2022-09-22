@@ -37,6 +37,8 @@ public class BossLogic : MonoBehaviour
     public AudioClip Boss_Death_Clip;
     public AudioClip Boss_Fire_Sound;
 
+    private Animator BossAnimator;
+
     #region Particulas variables
     public ParticleSystem Fireworks_1;
     public ParticleSystem Fireworks_2;
@@ -48,7 +50,7 @@ public class BossLogic : MonoBehaviour
     private DeathBoss DeathBossScript;
 
     void Start()
-    {
+    {       
         BossStage = 0;
         transform.position = points[0].position;
         totalPoints = points.Length;
@@ -61,6 +63,9 @@ public class BossLogic : MonoBehaviour
 
         GameManagerScript = FindObjectOfType<GameManager>();
         AudioManagerAudioSource = GameObject.Find("AudioManager").GetComponent<AudioSource>();
+        BossAnimator = GameObject.Find("Boss").GetComponent<Animator>();
+
+        BossAnimator.SetBool("Active", true);
 
         DeathBossScript = FindObjectOfType<DeathBoss>();
 
@@ -190,6 +195,7 @@ public class BossLogic : MonoBehaviour
 
                     if(Win == false)
                     {
+                        BossAnimator.SetBool("Active", false);
                         StartCoroutine(Boss_Death());
                     }
 

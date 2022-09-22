@@ -37889,6 +37889,7 @@ GameObject:
   - component: {fileID: 1768106647}
   - component: {fileID: 1768106650}
   - component: {fileID: 1768106651}
+  - component: {fileID: 1768106652}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Boss
@@ -37991,7 +37992,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2f13e58c57805b54c82859ac977a2471, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5225c5ab84e24164baf20956fcbe6cc3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -38050,6 +38051,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 114
   m_CollisionDetection: 0
+--- !u!95 &1768106652
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768106646}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c88fa193fe732048acdb2e87696f9c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1774096737
 GameObject:
   m_ObjectHideFlags: 0
