@@ -500,6 +500,13 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void OnCollisionExit(Collision OtherCollider)
+    {
+        if(OtherCollider.gameObject.CompareTag("Ground") && IsFlying == false)
+        {
+            
+        }
+    }
 
     //Actualizamos la imagen según la vida del jugador
     public void UpdateLife()
