@@ -6549,11 +6549,6 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
---- !u!82 &1476662617 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7170273642118319724, guid: 6969fd390d7dba84da252be38632f87f, type: 3}
-  m_PrefabInstance: {fileID: 7170273641446972213}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1523388378
 GameObject:
   m_ObjectHideFlags: 0
@@ -8996,7 +8991,7 @@ PrefabInstance:
     - target: {fileID: 9200769968574152150, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1476662617}
+      objectReference: {fileID: 8532418332111287992}
     - target: {fileID: 9200769968574152150, guid: 1b640f7881e79fd4f8ba2cca79a65440, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
