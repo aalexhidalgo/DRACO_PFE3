@@ -68,7 +68,7 @@ public class FireLogic : MonoBehaviour
         }
 
 
-        if (otherTrigger.gameObject.CompareTag("Ground"))
+        if (otherTrigger.gameObject.CompareTag("Ground") || otherTrigger.gameObject.CompareTag("Plataformas"))
         {
             Instantiate(DamageParticleSystem, transform.position, gameObject.transform.rotation);
             Destroy(gameObject);

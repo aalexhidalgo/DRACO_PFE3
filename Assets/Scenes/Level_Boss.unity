@@ -704,7 +704,7 @@ GameObject:
   - component: {fileID: 23116919}
   m_Layer: 0
   m_Name: plataforma1 (23)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4825,7 +4825,7 @@ GameObject:
   - component: {fileID: 213718666}
   m_Layer: 0
   m_Name: plataforma1 (2)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7107,7 +7107,7 @@ GameObject:
   - component: {fileID: 338004338}
   m_Layer: 0
   m_Name: plataforma1 (19)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8441,7 +8441,7 @@ GameObject:
   - component: {fileID: 387184229}
   m_Layer: 0
   m_Name: plataforma1 (9)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8911,7 +8911,7 @@ GameObject:
   - component: {fileID: 404033831}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9196,7 +9196,7 @@ GameObject:
   - component: {fileID: 426208724}
   m_Layer: 0
   m_Name: plataforma1 (11)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9975,7 +9975,7 @@ GameObject:
   - component: {fileID: 462904221}
   m_Layer: 0
   m_Name: plataforma1 (1)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10982,7 +10982,7 @@ GameObject:
   - component: {fileID: 513649245}
   m_Layer: 0
   m_Name: plataforma1 (5)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14110,7 +14110,7 @@ GameObject:
   - component: {fileID: 657944455}
   m_Layer: 0
   m_Name: plataforma1 (15)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15516,7 +15516,7 @@ GameObject:
   - component: {fileID: 744374323}
   m_Layer: 0
   m_Name: plataforma1 (14)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15612,7 +15612,7 @@ GameObject:
   - component: {fileID: 746629833}
   m_Layer: 0
   m_Name: plataforma1 (20)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15984,7 +15984,7 @@ GameObject:
   - component: {fileID: 751888801}
   m_Layer: 0
   m_Name: plataforma1 (17)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17420,7 +17420,7 @@ GameObject:
   - component: {fileID: 809422688}
   m_Layer: 0
   m_Name: plataforma1 (8)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18191,7 +18191,7 @@ GameObject:
   - component: {fileID: 854836642}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18632,7 +18632,7 @@ GameObject:
   - component: {fileID: 878601549}
   m_Layer: 0
   m_Name: plataforma1 (13)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20986,7 +20986,7 @@ GameObject:
   - component: {fileID: 1033562420}
   m_Layer: 0
   m_Name: plataforma1 (12)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23076,7 +23076,7 @@ GameObject:
   - component: {fileID: 1110832025}
   m_Layer: 0
   m_Name: plataforma1 (24)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24665,7 +24665,7 @@ GameObject:
   - component: {fileID: 1159458484}
   m_Layer: 0
   m_Name: plataforma1 (18)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26444,7 +26444,7 @@ GameObject:
   - component: {fileID: 1240550426}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26955,7 +26955,7 @@ GameObject:
   - component: {fileID: 1262622563}
   m_Layer: 0
   m_Name: plataforma1 (4)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27051,7 +27051,7 @@ GameObject:
   - component: {fileID: 1269361880}
   m_Layer: 0
   m_Name: plataforma1 (10)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27147,7 +27147,7 @@ GameObject:
   - component: {fileID: 1273833367}
   m_Layer: 0
   m_Name: plataforma1 (22)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27628,7 +27628,7 @@ GameObject:
   - component: {fileID: 1295801482}
   m_Layer: 0
   m_Name: plataforma1 (7)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28532,7 +28532,7 @@ GameObject:
   - component: {fileID: 1335282032}
   m_Layer: 0
   m_Name: Platform
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30322,7 +30322,7 @@ GameObject:
   - component: {fileID: 1426985151}
   m_Layer: 0
   m_Name: plataforma1 (6)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31739,7 +31739,7 @@ GameObject:
   - component: {fileID: 1517417434}
   m_Layer: 0
   m_Name: plataforma1 (3)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36681,7 +36681,7 @@ GameObject:
   - component: {fileID: 1702821546}
   m_Layer: 0
   m_Name: plataforma1 (21)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42669,7 +42669,7 @@ GameObject:
   - component: {fileID: 2004680683}
   m_Layer: 0
   m_Name: plataforma1 (16)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

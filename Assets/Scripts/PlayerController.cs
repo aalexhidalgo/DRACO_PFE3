@@ -116,6 +116,7 @@ public class PlayerController : MonoBehaviour
             IsWalking();
             PlayerAnimator.SetBool("IsJumping", !IsOnTheGround);
             PlayerAnimator.SetBool("IsFlying", IsFlying);
+            PlayerAnimator.SetBool("IsFalling", IsFalling);
 
             //Controladores principales de DRACO
 
@@ -223,11 +224,6 @@ public class PlayerController : MonoBehaviour
                 GameManagerScript.Flybar.fillAmount = GameManagerScript.FlybarCounter;
             }
 
-
-            /*if((!Input.GetButton("FlyMove")))
-            {
-                IsFlying = false;
-            }*/
             #endregion
 
             #region Fuego
@@ -248,7 +244,7 @@ public class PlayerController : MonoBehaviour
             if (IsOnTheGround == true)
             {
                 IsFlying = false;
-                IsFalling = false;
+                //IsFalling = false;
             }
 
         }                  
@@ -279,18 +275,10 @@ public class PlayerController : MonoBehaviour
     public void OnCollisionEnter(Collision otherCollider)
     {
         //Si colisiona contra el suelo el jugador puede volver a saltar
-        if (otherCollider.gameObject.CompareTag("Ground")) //Si chocas con una plataforma o el suelo estás tocando el suelo pero si chocaste con la plataforma volando además estás en caida
+        if (otherCollider.gameObject.CompareTag("Ground") || otherCollider.gameObject.CompareTag("Plataformas"))
         {
-            /*if(IsFlying == true)
-            {
-                IsFalling = true;
-                IsOnTheGround = true;
-            }
-            else
-            {
-                IsOnTheGround = true;
-            }*/
             IsOnTheGround = true;
+            IsFalling = false;
         }
 
         if(otherCollider.gameObject.CompareTag("Lava") || otherCollider.gameObject.CompareTag("Water"))
@@ -520,9 +508,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnCollisionExit(Collision OtherCollider)
     {
-        if (OtherCollider.gameObject.CompareTag("Ground") && IsFalling == true)
+        if (OtherCollider.gameObject.CompareTag("Plataformas") && IsOnTheGround == true)
         {
             IsFlying = false;
+            IsFalling = true;
+
+            //Debug.Log("Todo puzzle tiene una solución");
         }
     }
 

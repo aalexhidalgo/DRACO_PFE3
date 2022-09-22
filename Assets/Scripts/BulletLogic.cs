@@ -23,7 +23,7 @@ public class BulletLogic : MonoBehaviour
 
     public void OnTriggerEnter(Collider otherTrigger)
     {
-        if (otherTrigger.gameObject.CompareTag("Ground"))
+        if (otherTrigger.gameObject.CompareTag("Ground") || otherTrigger.gameObject.CompareTag("Plataformas"))
         {
             Instantiate(RockParticleSystem, gameObject.transform.position, gameObject.transform.rotation);
             AudioManagerAudiosource.PlayOneShot(RockCrash);

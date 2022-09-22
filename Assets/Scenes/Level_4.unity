@@ -32097,7 +32097,7 @@ GameObject:
   - component: {fileID: 9139466026281944943}
   m_Layer: 0
   m_Name: Suelo_Hielo (63)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35103,7 +35103,7 @@ GameObject:
   - component: {fileID: 9139466026505008352}
   m_Layer: 0
   m_Name: Suelo_Hielo (62)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35375,7 +35375,7 @@ GameObject:
   - component: {fileID: 9139466026518973530}
   m_Layer: 0
   m_Name: Suelo_Hielo (13)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36305,7 +36305,7 @@ GameObject:
   - component: {fileID: 9139466026591679423}
   m_Layer: 0
   m_Name: Suelo_Hielo (11)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36528,7 +36528,7 @@ GameObject:
   - component: {fileID: 9139466026592216083}
   m_Layer: 0
   m_Name: Suelo_Hielo (72)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37211,7 +37211,7 @@ GameObject:
   - component: {fileID: 9139466026630607773}
   m_Layer: 0
   m_Name: Suelo_Hielo (40)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38064,7 +38064,7 @@ GameObject:
   - component: {fileID: 9139466026674644059}
   m_Layer: 0
   m_Name: Suelo_Hielo (48)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39932,7 +39932,7 @@ GameObject:
   - component: {fileID: 9139466026810527821}
   m_Layer: 0
   m_Name: Suelo_Hielo (73)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42986,7 +42986,7 @@ GameObject:
   - component: {fileID: 9139466027047480448}
   m_Layer: 0
   m_Name: Suelo_Hielo (74)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43125,7 +43125,7 @@ GameObject:
   - component: {fileID: 9139466027048677966}
   m_Layer: 0
   m_Name: Suelo_Hielo (11)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44175,7 +44175,7 @@ GameObject:
   - component: {fileID: 9139466027128986069}
   m_Layer: 0
   m_Name: Suelo_Hielo (11)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46453,7 +46453,7 @@ GameObject:
   - component: {fileID: 9139466027338519166}
   m_Layer: 0
   m_Name: Suelo_Hielo (71)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -46693,7 +46693,7 @@ GameObject:
   - component: {fileID: 9139466027367364427}
   m_Layer: 0
   m_Name: Suelo_Hielo (46)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48889,7 +48889,7 @@ GameObject:
   - component: {fileID: 9139466027578434892}
   m_Layer: 0
   m_Name: Suelo_Hielo (47)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52064,7 +52064,7 @@ GameObject:
   - component: {fileID: 9139466027862566753}
   m_Layer: 0
   m_Name: Suelo_Hielo (61)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -52209,7 +52209,7 @@ GameObject:
   - component: {fileID: 9139466027865183510}
   m_Layer: 0
   m_Name: Suelo_Hielo (65)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53963,7 +53963,7 @@ GameObject:
   - component: {fileID: 9139466027960708221}
   m_Layer: 0
   m_Name: Suelo_Hielo (64)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55170,7 +55170,7 @@ GameObject:
   - component: {fileID: 9139466028038606352}
   m_Layer: 0
   m_Name: Suelo_Hielo (69)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -55230,7 +55230,7 @@ GameObject:
   - component: {fileID: 9139466028052974245}
   m_Layer: 0
   m_Name: Suelo_Hielo (39)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56435,7 +56435,7 @@ GameObject:
   - component: {fileID: 9139466028193761031}
   m_Layer: 0
   m_Name: Suelo_Hielo (70)
-  m_TagString: Ground
+  m_TagString: Plataformas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
