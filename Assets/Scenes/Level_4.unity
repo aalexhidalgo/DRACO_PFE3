@@ -46061,7 +46061,6 @@ GameObject:
   m_Component:
   - component: {fileID: 9139466027328524473}
   - component: {fileID: 9139466027328524475}
-  - component: {fileID: 9139466027328524472}
   m_Layer: 0
   m_Name: Suelo_Hielo (79)
   m_TagString: Ground
@@ -46069,19 +46068,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &9139466027328524472
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9139466027328524454}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10.200001, y: 10.2, z: 0.20000003}
-  m_Center: {x: 0, y: 0.000008106232, z: -5.820766e-11}
 --- !u!4 &9139466027328524473
 Transform:
   m_ObjectHideFlags: 0
@@ -49508,8 +49494,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 179.20004, y: 10.2, z: 0.20000005}
-  m_Center: {x: 0, y: 0.0000019073486, z: 0}
+  m_Size: {x: 192.56737, y: 10.200001, z: 0.19999973}
+  m_Center: {x: -6.6836576, y: 0.0000017926416, z: -1.5101154e-14}
 --- !u!212 &9139466027629574560
 SpriteRenderer:
   m_ObjectHideFlags: 0

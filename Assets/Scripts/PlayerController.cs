@@ -307,9 +307,10 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                StopCoroutine("DracoDamaged");
-                vg.intensity.value = 0f;
+                //StopCoroutine("DracoDamaged");
+                
                 StartCoroutine("DracoDamaged");
+                vg.intensity.value = 0f;
                 GameManagerAudioSource.PlayOneShot(RecibeDaño);
             }
 
@@ -481,6 +482,11 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine("DracoDamaged");
             vg.intensity.value = 0;
+
+            if(CurrentLive<= 0)
+            {
+                GameManagerAudioSource.PlayOneShot(GameOverSound);
+            }
         }
         
         #region PowerUps
@@ -584,6 +590,7 @@ public class PlayerController : MonoBehaviour
             vg.intensity.value -= 0.1f;
             yield return new WaitForSeconds(0.05f);
         }
+        vg.intensity.value = 0f;
     }
     
 }
