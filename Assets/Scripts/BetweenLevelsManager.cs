@@ -310,6 +310,52 @@ public class BetweenLevelsManager : MonoBehaviour
         DataPersistance.Time += Time.deltaTime;
     }
 
+    public void SelectObject_Fire()
+    {
+        if(GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            //acceder a la imagen y alpha = 1;
+        }
+    }
+
+    public void SelectObject_Shield()
+    {
+        if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            //acceder a la imagen y alpha = 1;
+        }
+    }
+    public void SelectObject_Cloud()
+    {
+        if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            //acceder a la imagen y alpha = 1;
+        }
+    }
+
+    public void SelectObject_Fire_Normal()
+    {
+        if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            //acceder a la imagen y alpha = 0;
+        }
+    }
+
+    public void SelectObject_Shield_Normal()
+    {
+        if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            //acceder a la imagen y alpha = 0;
+        }
+    }
+    public void SelectObject_Cloud_Normal()
+    {
+        if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
+        {
+            //acceder a la imagen y alpha = 0;
+        }
+    }
+
     #region Escalado productos
     public void Fireball_Scale()
     {
