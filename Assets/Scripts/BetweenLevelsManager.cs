@@ -69,6 +69,11 @@ public class BetweenLevelsManager : MonoBehaviour
     public GameObject FueradeStock_Fireball;
     public GameObject FueradeStock_Shield;
     public GameObject FueradeStock_Fly;
+
+    //Imagenes Select
+    public GameObject SelectFire;
+    public GameObject SelectShield;
+    public GameObject SelectCloud;
     #endregion
 
     #region Particulas variables
@@ -314,7 +319,20 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         if(GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
         {
-            //acceder a la imagen y alpha = 1;
+            Image SelectFireImage = SelectFire.GetComponent<Image>();
+            Color ColorSelected = SelectFireImage.color;
+            ColorSelected.a = 1;
+            SelectFireImage.color = ColorSelected;
+
+            Image CloudSelection = SelectCloud.GetComponent<Image>();
+            Color CloudSelectionColor = CloudSelection.color;
+            CloudSelectionColor.a = 0;
+            CloudSelection.color = CloudSelectionColor;
+
+            Image ShieldSelection = SelectShield.GetComponent<Image>();
+            Color ShieldSelectionColor = ShieldSelection.color;
+            ShieldSelectionColor.a = 0;
+            ShieldSelection.color = ShieldSelectionColor;
         }
     }
 
@@ -322,15 +340,62 @@ public class BetweenLevelsManager : MonoBehaviour
     {
         if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
         {
-            //acceder a la imagen y alpha = 1;
+            Image SelectShieldImage = SelectShield.GetComponent<Image>();
+            Color ColorSelected = SelectShieldImage.color;
+            ColorSelected.a = 1;
+            SelectShieldImage.color = ColorSelected;
+
+            Image FireSelection = SelectFire.GetComponent<Image>();
+            Color FireSelectionColor = FireSelection.color;
+            FireSelectionColor.a = 0;
+            FireSelection.color = FireSelectionColor;
+
+            Image CloudSelection = SelectCloud.GetComponent<Image>();
+            Color CloudSelectionColor = CloudSelection.color;
+            CloudSelectionColor.a = 0;
+            CloudSelection.color = CloudSelectionColor;
         }
     }
     public void SelectObject_Cloud()
     {
         if (GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1)
         {
-            //acceder a la imagen y alpha = 1;
+            Image SelectCloudImage = SelectCloud.GetComponent<Image>();
+            Color ColorSelected = SelectCloudImage.color;
+            ColorSelected.a = 1;
+            SelectCloudImage.color = ColorSelected;
+
+            Image FireSelection = SelectFire.GetComponent<Image>();
+            Color FireSelectionColor = FireSelection.color;
+            FireSelectionColor.a = 0;
+            FireSelection.color = FireSelectionColor;
+
+            Image ShieldSelection = SelectShield.GetComponent<Image>();
+            Color ShieldSelectionColor = ShieldSelection.color;
+            ShieldSelectionColor.a = 0;
+            ShieldSelection.color = ShieldSelectionColor;
         }
+    }
+
+    public void ContinueSelection()
+    {
+        if((GamePadControllerScript.PS4_Controller == 1 || GamePadControllerScript.Xbox_One_Controller == 1))
+        {
+            Image FireSelection = SelectFire.GetComponent<Image>();
+            Color FireSelectionColor = FireSelection.color;
+            FireSelectionColor.a = 0;
+            FireSelection.color = FireSelectionColor;
+
+            Image ShieldSelection = SelectShield.GetComponent<Image>();
+            Color ShieldSelectionColor = ShieldSelection.color;
+            ShieldSelectionColor.a = 0;
+            ShieldSelection.color = ShieldSelectionColor;
+
+            Image CloudSelection = SelectCloud.GetComponent<Image>();
+            Color CloudSelectionColor = CloudSelection.color;
+            CloudSelectionColor.a = 0;
+            CloudSelection.color = CloudSelectionColor;
+        }   
     }
 
     public void SelectObject_Fire_Normal()

@@ -4,9 +4,26 @@ using UnityEngine;
 using Steamworks;
 using UnityEngine.SceneManagement;
 
-public class SteamArchivement
+public class SteamArchivement : MonoBehaviour
 {
-   static void Update()
+    public static SteamArchivement DracoAchivements;
+    private void Awake()
+    {
+        if (DracoAchivements == null)
+        {
+            // Configuramos la instancia
+            DracoAchivements = this;
+            // Nos aseguramos de que no sea destruida con el cambio de escena
+            DontDestroyOnLoad(DracoAchivements);
+        }
+        else
+        {
+            // Como ya existe una instancia, destruimos la copia
+            Destroy(this);
+        }
+    }
+
+    static void Update()
     {
         if (!SteamManager.Initialized) { return; }
 

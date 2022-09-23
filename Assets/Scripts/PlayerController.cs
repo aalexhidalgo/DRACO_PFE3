@@ -580,6 +580,7 @@ public class PlayerController : MonoBehaviour
     {
         PostProcesadoDaño.profile.TryGet(out vg);
         vg.intensity.value = 0f;
+        /*
         while (vg.intensity.value < 0.8f)
         {
             vg.intensity.value += 0.1f;
@@ -590,6 +591,19 @@ public class PlayerController : MonoBehaviour
             vg.intensity.value -= 0.1f;
             yield return new WaitForSeconds(0.05f);
         }
+        */
+        for(int i = 0; i<7; i++)
+        {
+            vg.intensity.value += 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+
+        for(int i = 7; i>0; i--)
+        {
+            vg.intensity.value -= 0.1f;
+            yield return new WaitForSeconds(0.05f);
+        }
+
         vg.intensity.value = 0f;
     }
     
