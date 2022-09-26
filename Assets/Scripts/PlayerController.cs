@@ -56,7 +56,7 @@ public class PlayerController : MonoBehaviour
     private GameManager GameManagerScript;
     private GamePadController gamePadControllerScript;
 
-    public Volume PostProcesadoDaño;
+    public Volume PostProcesadoDanio;
 
     #region Audio
 
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
     public AudioClip RockExplotion; //funciona
     public AudioClip RecogerItem; //funciona
 
-    public AudioClip RecibeDaño;
+    public AudioClip RecibeDanio;
     #endregion
 
     private void Awake()
@@ -311,7 +311,7 @@ public class PlayerController : MonoBehaviour
                 
                 StartCoroutine("DracoDamaged");
                 vg.intensity.value = 0f;
-                GameManagerAudioSource.PlayOneShot(RecibeDaño);
+                GameManagerAudioSource.PlayOneShot(RecibeDanio);
             }
 
             UpdateLife();
@@ -321,7 +321,7 @@ public class PlayerController : MonoBehaviour
         {
             MaxShieldValue -= 1;
             StartCoroutine("DracoDamaged");
-            GameManagerAudioSource.PlayOneShot(RecibeDaño);
+            GameManagerAudioSource.PlayOneShot(RecibeDanio);
             if (MaxShieldValue <= 0)
             {
                 Shield = 0;
@@ -434,7 +434,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine("DracoDamaged");
             MaxShieldValue -= 1;
             DataPersistance.Bullets += 1;
-            GameManagerAudioSource.PlayOneShot(RecibeDaño);
+            GameManagerAudioSource.PlayOneShot(RecibeDanio);
             if (MaxShieldValue <= 0)
             {
                 Shield = 0;
@@ -470,7 +470,7 @@ public class PlayerController : MonoBehaviour
             {
                 Debug.Log("Tienes algo de vida");
                 StartCoroutine("DracoDamaged");
-                GameManagerAudioSource.PlayOneShot(RecibeDaño);
+                GameManagerAudioSource.PlayOneShot(RecibeDanio);
             }
 
             UpdateLife();
@@ -578,7 +578,7 @@ public class PlayerController : MonoBehaviour
     
     public IEnumerator DracoDamaged()
     {
-        PostProcesadoDaño.profile.TryGet(out vg);
+        PostProcesadoDanio.profile.TryGet(out vg);
         vg.intensity.value = 0f;
         /*
         while (vg.intensity.value < 0.8f)

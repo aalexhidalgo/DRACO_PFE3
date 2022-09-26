@@ -17,7 +17,7 @@ public class FireLogic_Boss : MonoBehaviour
     private GameManager GameManagerScript;
 
 
-    public Volume PostProcesadoDaño;
+    //public Volume PostProcesadoDaño;
     private Vignette vg;
     /*
     public AudioClip HitDraco;
