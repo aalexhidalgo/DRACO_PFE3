@@ -2901,7 +2901,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670437988}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 10.000003, y: 4.360941, z: 2.82775}
+  m_LocalPosition: {x: 10.000004, y: 4.360941, z: -0.505584}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -9288,6 +9288,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1845354730217931406, guid: fba03fe609dc47b48b0bf6b7d252bc27, type: 3}
+      propertyPath: RecibeDanio
+      value: 
+      objectReference: {fileID: 8300000, guid: 72739334a813c834fa05e8b9001d9782, type: 3}
+    - target: {fileID: 1845354730217931406, guid: fba03fe609dc47b48b0bf6b7d252bc27, type: 3}
       propertyPath: "RecibeDa\xF1o"
       value: 
       objectReference: {fileID: 8300000, guid: 72739334a813c834fa05e8b9001d9782, type: 3}
@@ -9295,6 +9299,10 @@ PrefabInstance:
       propertyPath: IsOnTheGround
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1845354730217931406, guid: fba03fe609dc47b48b0bf6b7d252bc27, type: 3}
+      propertyPath: PostProcesadoDanio
+      value: 
+      objectReference: {fileID: 495395839705192002}
     - target: {fileID: 1845354730217931406, guid: fba03fe609dc47b48b0bf6b7d252bc27, type: 3}
       propertyPath: "PostProcesadoDa\xF1o"
       value: 
