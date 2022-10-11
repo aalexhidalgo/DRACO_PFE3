@@ -5,9 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneFlow : MonoBehaviour
 {
+    private PlayerController playerControllerScript;
     private void Start()
     {
         LoadUserOptions();
+
+        playerControllerScript = FindObjectOfType<PlayerController>();
     }
 
     private void Update()
@@ -28,7 +31,15 @@ public class SceneFlow : MonoBehaviour
         if (otherCollider.gameObject.CompareTag("Player"))
         {
             DataPersistance.SaveCoins(otherCollider.gameObject.GetComponent<PlayerController>().MoneyCounter); //save user options, al pasarse un nivel se guarda el numero de monedas recolectadas
-           
+
+            DataPersistance.CoinsColected += playerControllerScript.levelCoinCounter;
+            DataPersistance.ItemsCollected += playerControllerScript.itemsCounter;
+            DataPersistance.KilledEnemies += playerControllerScript.enemyCounter;
+
+            if(playerControllerScript.pacificRoute == 0)
+            {
+                DataPersistance.PacificRoute = 0;
+            }
 
             if(DataPersistance.CurrentLevel == 1)
             {

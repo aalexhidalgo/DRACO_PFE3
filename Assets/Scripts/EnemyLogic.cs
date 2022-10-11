@@ -21,8 +21,11 @@ public class EnemyLogic : MonoBehaviour
         if (EnemyLife <= 0)
         {
             AudioManagerAudiosource.PlayOneShot(DeadSound);
-            DataPersistance.PacificRoute = 0;
-            DataPersistance.KilledEnemies += 1;
+            //DataPersistance.PacificRoute = 0;
+            PlayerControllerScript.pacificRoute = 0;
+            //DataPersistance.KilledEnemies += 1;
+            PlayerControllerScript.enemyCounter += 1;
+
             if (IsSlums == true)
             {
                 DataPersistance.HasKilledSlums = 1;

@@ -73,9 +73,18 @@ public class PlayerController : MonoBehaviour
     public AudioClip RecibeDanio;
     #endregion
 
+    #region Achivements
+    public int levelCoinCounter;
+    public int enemyCounter;
+    public int itemsCounter;
+    public int pacificRoute = 1;
+    #endregion
     private void Awake()
     {
         canShoot = true;
+        levelCoinCounter = 0;
+        itemsCounter = 0;
+        enemyCounter = 0;
     }
     void Start()
     {
@@ -371,7 +380,8 @@ public class PlayerController : MonoBehaviour
             GameManagerAudioSource.PlayOneShot(CoinSound);  
             Destroy(otherTrigger.gameObject);
             MoneyCounter += 5;
-            DataPersistance.CoinsColected += 5;
+            //DataPersistance.CoinsColected += 5;
+            levelCoinCounter += 5;
             //Debug.Log($"Tienes {MoneyCounter} monedas, crack");
             UpdateMoney();
         }
@@ -383,7 +393,8 @@ public class PlayerController : MonoBehaviour
             GameManagerAudioSource.PlayOneShot(RecogerItem);
             CurrentLive++;
             Destroy(otherTrigger.gameObject);
-            DataPersistance.ItemsCollected += 1;
+            //DataPersistance.ItemsCollected += 1;
+            itemsCounter += 1;
 
             if (CurrentLive >= 3)
             {
@@ -497,7 +508,8 @@ public class PlayerController : MonoBehaviour
             GameManagerScript.Flybar.fillAmount = 1;
             GameManagerScript.FlybarCounter = 1;
             Destroy(otherTrigger.gameObject);
-            DataPersistance.ItemsCollected += 1;
+            //DataPersistance.ItemsCollected += 1;
+            itemsCounter += 1;
         }
 
         if(otherTrigger.gameObject.CompareTag("Shield"))
@@ -506,7 +518,8 @@ public class PlayerController : MonoBehaviour
             Shield = 1;
             UpdateShield();
             Destroy(otherTrigger.gameObject);
-            DataPersistance.ItemsCollected += 1;
+            //DataPersistance.ItemsCollected += 1;
+            itemsCounter += 1;
         }
         #endregion
 
