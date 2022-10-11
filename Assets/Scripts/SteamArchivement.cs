@@ -23,7 +23,7 @@ public class SteamArchivement : MonoBehaviour
         }
     }
 
-    static void Update()
+    void Update()
     {
         if (!SteamManager.Initialized) { return; }
 
