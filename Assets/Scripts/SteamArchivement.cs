@@ -159,7 +159,7 @@ public class SteamArchivement : MonoBehaviour
             SteamUserStats.StoreStats();
         }
 
-        if(DataPersistance.TotalAttack == 0 && DataPersistance.TotalDefense == 0 && DataPersistance.TotalBoost == 0 && SceneManager.GetActiveScene().name == "Level_Boss") //No compres nada en la tienda
+        if(DataPersistance.hasShoped == 0 && SceneManager.GetActiveScene().name == "Level_Boss") //No compres nada en la tienda
         {
             SteamUserStats.SetAchievement("DONT_BUY_ROUTE");
             SteamUserStats.StoreStats();

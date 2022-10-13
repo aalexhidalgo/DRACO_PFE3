@@ -104,6 +104,7 @@ public class SceneFlow : MonoBehaviour
             DataPersistance.TotalAttack = PlayerPrefs.GetInt("Total_Attack");
             DataPersistance.TotalDefense = PlayerPrefs.GetInt("Total_Defense");
             DataPersistance.TotalBoost = PlayerPrefs.GetInt("Total_Boost");
+            DataPersistance.hasShoped = PlayerPrefs.GetInt("Has_Shoped");
 
             DataPersistance.Bullets = PlayerPrefs.GetInt("Bullets_Count");
             DataPersistance.MediumAttack = PlayerPrefs.GetInt("Medium_Attack");

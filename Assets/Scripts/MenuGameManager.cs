@@ -186,6 +186,8 @@ public class MenuGameManager : MonoBehaviour
         DataPersistance.Level4Done = 0;
         DataPersistance.TutorialDone = 0;
 
+        DataPersistance.hasShoped = 0;
+
         DataPersistance.SaveForFutureGames();
         SceneManager.LoadScene(DataPersistance.CurrentLevel);
     }

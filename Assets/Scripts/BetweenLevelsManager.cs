@@ -641,6 +641,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 DataPersistance.FireballValue+= Increment;
                 
                 DialogueText.text = ProductsDialogue[3].GetLocalizedString(LocalizedStringsProductsDialogue[3]);
+                DataPersistance.hasShoped = 1;
 
                 if (DataPersistance.Fireball == 0)
                 {
@@ -676,6 +677,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 DataPersistance.ShieldValue ++;
 
                 DialogueText.text = ProductsDialogue[3].GetLocalizedString(LocalizedStringsProductsDialogue[3]);
+                DataPersistance.hasShoped = 1;
 
                 if (DataPersistance.Shield == 0)
                 {
@@ -710,6 +712,7 @@ public class BetweenLevelsManager : MonoBehaviour
                 DataPersistance.Fly--;
                 DataPersistance.FlyValue += Increment;
                 DialogueText.text = ProductsDialogue[3].GetLocalizedString(LocalizedStringsProductsDialogue[3]);
+                DataPersistance.hasShoped = 1;
 
                 if (DataPersistance.Fly == 0)
                 {

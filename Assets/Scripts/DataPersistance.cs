@@ -47,6 +47,8 @@ public class DataPersistance
     public static int Bullets = 0;
     public static int MediumAttack = 0;
 
+    public static int hasShoped;
+
     public static int DeadInBattle = 0;
     public static int BossIsDead = 0;
 
@@ -110,6 +112,8 @@ public class DataPersistance
         PlayerPrefs.SetInt("Total_Attack", TotalAttack);
         PlayerPrefs.SetInt("Total_Defense", TotalDefense);
         PlayerPrefs.SetInt("Total_Boost", TotalBoost);
+
+        PlayerPrefs.SetInt("Has_Shoped", hasShoped);
 
         PlayerPrefs.SetInt("Bullets_Count", Bullets);
         PlayerPrefs.SetInt("Medium_Attack", MediumAttack);
