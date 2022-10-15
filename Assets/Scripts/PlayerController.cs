@@ -85,11 +85,12 @@ public class PlayerController : MonoBehaviour
         levelCoinCounter = 0;
         itemsCounter = 0;
         enemyCounter = 0;
+        pacificRoute = 1;
     }
     void Start()
     {
         gamePadControllerScript = FindObjectOfType<GamePadController>();
-
+        
         if (DataPersistance.CurrentLevel == 1)
         {
             DracoCanMov = false;

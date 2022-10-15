@@ -165,7 +165,7 @@ public class SteamArchivement : MonoBehaviour
             SteamUserStats.StoreStats();
         }
 
-        if(DataPersistance.ItemsCollected == 20)
+        if(DataPersistance.ItemsCollected >= 22)
         {
             SteamUserStats.SetAchievement("ALL_ITEMS_COLLECTED");
             SteamUserStats.StoreStats();
